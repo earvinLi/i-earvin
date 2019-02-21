@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
 import { withStyles } from '@material-ui/core/styles';
 
-// Local Variable
+// Local Variables
 const styles = {
   grow: {
     flexGrow: 1,
