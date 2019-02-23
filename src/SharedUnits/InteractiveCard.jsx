@@ -32,7 +32,7 @@ function InteractiveCard(props) {
   const {
     cardDescription,
     cardImage,
-    cardSubHeader,
+    cardSubheader,
     cardTitle,
     classes,
     imageTitle,
@@ -42,7 +42,7 @@ function InteractiveCard(props) {
   return (
     <Card className={classes.card}>
       <CardHeader
-        subHeader={cardSubHeader}
+        subheader={cardSubheader}
         title={cardTitle}
       />
       <CardMedia
@@ -59,6 +59,7 @@ function InteractiveCard(props) {
         <IconButton
           aria-label="Link"
           href={linkAddress}
+          target="_blank"
         >
           <LinkIcon />
         </IconButton>
@@ -71,14 +72,15 @@ function InteractiveCard(props) {
 InteractiveCard.propTypes = {
   cardDescription: PropTypes.string.isRequired,
   cardImage: PropTypes.string.isRequired,
-  cardSubHeader: PropTypes.string,
+  cardSubheader: PropTypes.string,
   cardTitle: PropTypes.string.isRequired,
+  classes: PropTypes.shape({}).isRequired,
   imageTitle: PropTypes.string,
   linkAddress: PropTypes.string.isRequired,
 };
 
 InteractiveCard.defaultProps = {
-  cardSubHeader: '',
+  cardSubheader: '',
   imageTitle: '',
 };
 
