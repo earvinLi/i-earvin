@@ -1,21 +1,26 @@
 // External Dependencies
+import PropTypes from 'prop-types';
 import React from 'react';
 
+// Material-UI Dependencies
+import { withStyles } from '@material-ui/core/styles';
+
 // Internal Dependencies
+import featuredWorkData from '../Utils/FeaturedWorkData';
 import InteractiveCard from '../SharedUnits/InteractiveCard';
 
+// Local Variables
+const styles = {
+  container: {
+    display: 'flex',
+  },
+};
+
 // Component Definition
-function Coding() {
-  const featuredWorkSection = [
-    {
-      description: 'Use KnockOut to make the most of Google Map API and MediaWiki API.',
-      image: 'https://s3.amazonaws.com/i-earvin/img/neighborhood-map.jpeg',
-      subheader: 'November 27, 2017',
-      title: 'Neighborhood Map',
-      imageTitle: 'Photo by rawpixel on Unsplash',
-      link: 'http://tianyangl.com/projects/fn/neighborhood-map/index.html',
-    },
-  ].map(work => (
+function Coding(props) {
+  const { classes } = props;
+
+  const featuredWorkSection = featuredWorkData.map(work => (
     <InteractiveCard
       cardDescription={work.description}
       cardImage={work.image}
@@ -27,10 +32,19 @@ function Coding() {
   ));
 
   return (
-    <div>
+    <div className={classes.container}>
       {featuredWorkSection}
     </div>
   );
 }
 
-export default Coding;
+// Prop Validations
+Coding.propTypes = {
+  classes: PropTypes.shape({}),
+};
+
+Coding.defaultProps = {
+  classes: {},
+};
+
+export default withStyles(styles)(Coding);
