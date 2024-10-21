@@ -1,30 +1,7 @@
-import ProjectCard from './_component/ProjectCard';
+import ProjectCard from '@/components/ProjectCard';
+import { projects } from '@/constants/projectData';
 
 import pageStyles from './page.module.css';
-
-const projects = [
-  {
-    title: 'Where Have You Been',
-    description: 'A SPA where you can collect and sell your memories (in parts) built with a number of open-source projects including:',
-    techList: [
-      {
-        techName: 'NextJS',
-        techDescription: 'The React framework!',
-        techLink: 'https://nextjs.org/',
-      },
-      {
-        techName: 'Material UI',
-        techDescription: 'Material Design UI components',
-        techLink: 'https://mui.com/material-ui/',
-      },
-      {
-        techName: 'Express',
-        techDescription: 'The NodeJS framework!',
-        techLink: 'https://expressjs.com/',
-      },
-    ],
-  },
-];
 
 const {
   Page_pageStyle,
@@ -53,6 +30,7 @@ function Home() {
               title,
               description,
               techList,
+              image,
             } = project;
 
             return (
@@ -61,6 +39,7 @@ function Home() {
                 title={title}
                 description={description}
                 techList={techList}
+                image={image}
               />
             );
           })}

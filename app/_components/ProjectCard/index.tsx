@@ -22,6 +22,7 @@ type ProjectCardProps = {
   title: string;
   description: string;
   techList: Tech[];
+  image: string;
 }
 
 function ProjectCard(props: ProjectCardProps) {
@@ -29,11 +30,17 @@ function ProjectCard(props: ProjectCardProps) {
     title,
     description,
     techList,
+    image,
   } = props;
 
   return (
     <div className={Page_projectCardContainerStyle}>
-      <Image src='/project_cover_whyb.jpg' width={320} height={240}/>
+      <Image
+        src={image}
+        width={320}
+        height={240}
+        alt={title}
+      />
       <div className={Page_projectCardTextSectionStyle}>
         <div className={Page_projectCardTitleStyle}>{title}</div>
         <div className={Page_projectCardDescriptionStyle}>{description}</div>
