@@ -12,16 +12,16 @@ const {
   Page_projectCardTechLinkStyle,
 } = projectCardStyles;
 
-type Tech = {
+export type TTech = {
   techName: string;
   techDescription: string;
   techLink: string;
 };
 
-type ProjectCardProps = {
+export type ProjectCardProps = {
   title: string;
   description: string;
-  techList: Tech[];
+  techList: TTech[];
   image: string;
 }
 
@@ -45,7 +45,7 @@ function ProjectCard(props: ProjectCardProps) {
         <div className={Page_projectCardTitleStyle}>{title}</div>
         <div className={Page_projectCardDescriptionStyle}>{description}</div>
         <div className={Page_projectCardTechListStyle}>
-          {techList.map((tech: Tech) => {
+          {techList.map((tech: TTech) => {
             const {
               techName,
               techDescription,

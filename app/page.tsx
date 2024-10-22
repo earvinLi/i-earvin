@@ -1,4 +1,4 @@
-import ProjectCard from '@/components/ProjectCard';
+import ProjectCard, { ProjectCardProps } from '@/components/ProjectCard';
 import { projects } from '@/constants/projectData';
 
 import pageStyles from './page.module.css';
@@ -25,7 +25,7 @@ function Home() {
         </div>
         <div className={Page_projectTitleStyle}>Projects</div>
         <div className={Page_projectSectionStyle}>
-          {projects.map((project) => {
+          {projects.map((project: ProjectCardProps) => {
             const {
               title,
               description,
