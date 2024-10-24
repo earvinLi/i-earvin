@@ -1,5 +1,6 @@
 .Page_projectCardContainerStyle {
   display: flex;
+  margin-bottom: 32px;
 }
 
 .Page_projectCardTextSectionStyle {
