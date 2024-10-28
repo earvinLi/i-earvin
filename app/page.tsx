@@ -1,3 +1,4 @@
+import AppNavigation from '@/modules/AppNavigation';
 import ProjectCard, { ProjectCardProps } from '@/components/ProjectCard';
 import { projects } from '@/constants/projectData';
 
@@ -18,6 +19,7 @@ const {
 function Home() {
   return (
     <div className={Page_pageStyle}>
+      <AppNavigation />
       <div className={Page_bodySectionStyle}>
         <div className={Page_titleContainerStyle}>
           <div className={Page_titleStyle}>Earvin Li</div>

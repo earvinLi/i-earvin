@@ -19,6 +19,7 @@
     ],
     "baseUrl": "app/",
     "paths": {
+      "@/modules/*": ["_modules/*"],
       "@/components/*": ["_components/*"],
       "@/constants/*": ["_constants/*"]
     }
