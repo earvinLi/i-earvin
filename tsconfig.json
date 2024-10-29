@@ -21,7 +21,8 @@
     "paths": {
       "@/modules/*": ["_modules/*"],
       "@/components/*": ["_components/*"],
-      "@/constants/*": ["_constants/*"]
+      "@/constants/*": ["_constants/*"],
+      "@/utilities/*": ["_utilities/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
