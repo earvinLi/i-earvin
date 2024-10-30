@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { draftMode } from "next/headers";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { BLOCKS } from "@contentful/rich-text-types";
 
 // import MoreStories from "../../more-stories";
 // import Avatar from "../../avatar";
@@ -9,6 +10,22 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 // import { Markdown } from "@/lib/markdown";
 import { getAllPosts, getPostAndMorePosts } from "@/utilities/apiUtilities";
+
+function RichTextAsset({
+  id,
+  assets,
+}: {
+  id: string;
+  assets: Asset[] | undefined;
+}) {
+  const asset = assets?.find((asset) => asset.sys.id === id);
+
+  if (asset?.url) {
+    return <Image src={asset.url} layout="fill" alt={asset.description} />;
+  }
+
+  return null;
+}
 
 export async function generateStaticParams() {
   const allPosts = await getAllPosts(false);
@@ -25,7 +42,6 @@ export default async function PostPage({
 }) {
   const { isEnabled } = draftMode();
   const { post, morePosts } = await getPostAndMorePosts(params.slug, isEnabled);
-  console.log(post.content);
 
   return (
     <div className="container mx-auto px-5">
@@ -62,7 +78,16 @@ export default async function PostPage({
         <div className="mx-auto max-w-2xl">
           <div className="prose">
             {/* <Markdown content={post.content} /> */}
-            {documentToReactComponents(post.content.json)}
+            {documentToReactComponents(post.content.json, {
+              renderNode: {
+                [BLOCKS.EMBEDDED_ASSET]: (node: any) => (
+                  <RichTextAsset
+                    id={node.data.target.sys.id}
+                    assets={post.content.links.assets.block}
+                  />
+                ),
+              },
+            })}
           </div>
         </div>
       </article>
