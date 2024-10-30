@@ -30,13 +30,16 @@ async function Posts() {
           <div className={Page_titleStyle}>Earvin Li</div>
           <div className={Page_subtitleStyle}>Full Stack Engineer</div>
         </div>
-        <div className={Page_projectTitleStyle}>Projects</div>
+        <div className={Page_projectTitleStyle}>Posts</div>
         <div className={Page_projectSectionStyle}>
           {allPosts.map((post: PostCardProps) => {
             const {
               slug,
               title,
+              coverImage,
+              date,
               author,
+              excerpt,
             } = post;
 
             return (
@@ -44,7 +47,10 @@ async function Posts() {
                 key={slug}
                 slug={slug}
                 title={title}
+                coverImage={coverImage}
+                date={date}
                 author={author}
+                excerpt={excerpt}
               />
             );
           })}
