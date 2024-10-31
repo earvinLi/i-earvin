@@ -1,29 +1,32 @@
+import Image from "next/image";
 import Link from "next/link";
 import { draftMode } from "next/headers";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
 
-// import MoreStories from "../../more-stories";
-// import Avatar from "../../avatar";
-// import Date from "../../date";
-// import CoverImage from "../../cover-image";
-
-// import { Markdown } from "@/lib/markdown";
 import { getAllPosts, getPostAndMorePosts } from "@/utilities/apiUtilities";
 
-function RichTextAsset({
-  id,
-  assets,
-}: {
+type Asset = {
+  sys: { id: string };
+  url: string;
+  description: string;
+}
+
+type RichTextAssetProps = {
   id: string;
   assets: Asset[] | undefined;
-}) {
+}
+
+type PostPageProps = {
+  params: { slug: string };
+}
+
+function RichTextAsset(props: RichTextAssetProps) {
+  const { id, assets } = props;
+
   const asset = assets?.find((asset) => asset.sys.id === id);
 
-  if (asset?.url) {
-    return <Image src={asset.url} layout="fill" alt={asset.description} />;
-  }
-
+  if (asset?.url) return <Image src={asset.url} layout="fill" alt={asset.description} />;
   return null;
 }
 
@@ -35,13 +38,15 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function PostPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+async function PostPage(props: PostPageProps) {
+  const { params } = props;
+
   const { isEnabled } = draftMode();
   const { post, morePosts } = await getPostAndMorePosts(params.slug, isEnabled);
+  const {
+    title,
+    coverImage,
+  } = post;
 
   return (
     <div className="container mx-auto px-5">
@@ -51,48 +56,44 @@ export default async function PostPage({
         </Link>
         .
       </h2>
-      <article>
-        <h1 className="mb-12 text-center text-6xl font-bold leading-tight tracking-tighter md:text-left md:text-7xl md:leading-none lg:text-8xl">
-          {post.title}
+      <article className="w-3/4 mx-auto flex flex-col items-center">
+        <h1 className="text-3xl font-bold mb-4">
+          {title}
         </h1>
-        <div className="hidden md:mb-12 md:block">
+        <div className="w-80 h-60 relative mb-4">
+          <Image
+            alt={`Cover image for ${title}`}
+            src={coverImage.url}
+            fill
+            style={{ objectFit: "contain" }}
+            // loader={contentfulImageLoader}
+            // {...props}
+          />
+        </div>
+        <div className="mb-4">
           {post.author && (
             // <Avatar name={post.author.name} picture={post.author.picture} />
             post.author.name
           )}
         </div>
-        {/* <div className="mb-8 sm:mx-0 md:mb-16">
-          <CoverImage title={post.title} url={post.coverImage.url} />
-        </div>
-        <div className="mx-auto max-w-2xl">
-          <div className="mb-6 block md:hidden">
-            {post.author && (
-              <Avatar name={post.author.name} picture={post.author.picture} />
-            )}
-          </div>
-          <div className="mb-6 text-lg">
+        {/* <div className="mb-6 text-lg">
             <Date dateString={post.date} />
-          </div>
         </div> */}
-
-        <div className="mx-auto max-w-2xl">
-          <div className="prose">
-            {/* <Markdown content={post.content} /> */}
-            {documentToReactComponents(post.content.json, {
-              renderNode: {
-                [BLOCKS.EMBEDDED_ASSET]: (node: any) => (
-                  <RichTextAsset
-                    id={node.data.target.sys.id}
-                    assets={post.content.links.assets.block}
-                  />
-                ),
-              },
-            })}
-          </div>
+        <div className="">
+          {documentToReactComponents(post.content.json, {
+                renderNode: {
+                  [BLOCKS.EMBEDDED_ASSET]: (node: any) => (
+                    <RichTextAsset
+                      id={node.data.target.sys.id}
+                      assets={post.content.links.assets.block}
+                    />
+                  ),
+                },
+          })}
         </div>
       </article>
-      {/* <hr className="border-accent-2 mt-28 mb-24" />
-      <MoreStories morePosts={morePosts} /> */}
     </div>
   );
 }
+
+export default PostPage;
