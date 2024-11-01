@@ -4,6 +4,7 @@ import { draftMode } from "next/headers";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
 
+import Avatar from "@/components/Avatar";
 import { getAllPosts, getPostAndMorePosts } from "@/utilities/apiUtilities";
 
 type Asset = {
@@ -49,18 +50,18 @@ async function PostPage(props: PostPageProps) {
   } = post;
 
   return (
-    <div className="container mx-auto px-5">
-      <h2 className="mb-20 mt-8 text-2xl font-bold leading-tight tracking-tight md:text-4xl md:tracking-tighter">
-        <Link href="/" className="hover:underline">
-          Blog
+    <div className="container mx-auto p-6">
+      <h2 className="mb-6 text-2xl font-bold leading-tight tracking-tight">
+        <Link href="/posts" className="hover:underline">
+          Back
         </Link>
         .
       </h2>
       <article className="w-3/4 mx-auto flex flex-col items-center">
-        <h1 className="text-3xl font-bold mb-4">
+        <h1 className="text-3xl font-bold mb-6">
           {title}
         </h1>
-        <div className="w-80 h-60 relative mb-4">
+        <div className="w-[768px] h-[368px] relative mb-6">
           <Image
             alt={`Cover image for ${title}`}
             src={coverImage.url}
@@ -70,25 +71,29 @@ async function PostPage(props: PostPageProps) {
             // {...props}
           />
         </div>
-        <div className="mb-4">
+        <div className="mb-6">
           {post.author && (
-            // <Avatar name={post.author.name} picture={post.author.picture} />
-            post.author.name
+            <Avatar
+              name={post.author.name}
+              image={post.author.picture.url}
+              direction="vertical"
+              size="large"
+            />
           )}
         </div>
         {/* <div className="mb-6 text-lg">
             <Date dateString={post.date} />
         </div> */}
-        <div className="">
+        <div className="[&_p]:mt-4">
           {documentToReactComponents(post.content.json, {
-                renderNode: {
-                  [BLOCKS.EMBEDDED_ASSET]: (node: any) => (
-                    <RichTextAsset
-                      id={node.data.target.sys.id}
-                      assets={post.content.links.assets.block}
-                    />
-                  ),
-                },
+            renderNode: {
+              [BLOCKS.EMBEDDED_ASSET]: (node: any) => (
+                <RichTextAsset
+                  id={node.data.target.sys.id}
+                  assets={post.content.links.assets.block}
+                />
+              ),
+            },
           })}
         </div>
       </article>
