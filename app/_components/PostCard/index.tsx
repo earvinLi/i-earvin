@@ -31,30 +31,32 @@ function PostCard(props: PostCardProps) {
           src={coverImage.url}
           width={320}
           height={240}
-          className="object-cover w-full"
+          className="object-cover w-full h-full"
         />
       </div>
       <div className="flex flex-col grow ml-16">
-        <div className="mb-6">
-          {author && (
-            <Avatar
-              name={author.name}
-              image={author.picture.url}
-              direction='horizontal'
-              size="large"
-            />
-          )}
-        </div>
         <Link
           href={`/posts/${slug}`}
-          className="hover:underline text-3xl leading-snug mb-3"
+          className="hover:underline text-3xl leading-snug mb-6"
         >
           {title}
         </Link>
-        <div className="text-lg leading-relaxed mb-4">{excerpt}</div>
-        <time dateTime={date} className="text-lg mb-4">
-          {format(new Date(date), "LLLL	d, yyyy")}
-        </time>
+        <div className="text-lg leading-relaxed mb-6">{excerpt}</div>
+        <div className="flex">
+          <div className="mr-8">
+            {author && (
+              <Avatar
+                name={author.name}
+                image={author.picture.url}
+                direction='horizontal'
+                size="small"
+              />
+            )}
+          </div>
+          <time dateTime={date} className="text-sm">
+            {format(new Date(date), "LLLL	d, yyyy")}
+          </time>
+        </div>
       </div>
     </div>
   );

@@ -2,6 +2,20 @@ import classNames from 'classnames';
 
 import OptimizedImage from '@/components/OptimizedImage';
 
+// Todo: find even better solution to deal with dynamic class names (library or so)
+const avatarStyles = {
+  size: {
+    small: 'w-[24px] h-[24px]',
+    medium: 'w-[36px] h-[36px]',
+    large: 'w-[48px] h-[48px]',
+  },
+  font: {
+    small: 'text-sm',
+    medium: 'text-lg',
+    large: 'text-xl font-bold',
+  },
+};
+
 type AvatarProps = {
   name: string;
   image: string;
@@ -17,15 +31,17 @@ function Avatar(props: AvatarProps) {
   let imageWidth;
   let imageHeight;
   switch (size) {
-    case 'small': imageWidth = 12; imageHeight = 12; break;
-    case 'medium': imageWidth = 24; imageHeight = 24; break;
+    case 'small': imageWidth = 24; imageHeight = 24; break;
+    case 'medium': imageWidth = 36; imageHeight = 36; break;
     case 'large': imageWidth = 48; imageHeight = 48; break;
-    default: imageWidth = 36; imageHeight = 36; break;
+    default: imageWidth = 48; imageHeight = 48; break;
   }
 
   return (
     <div className={classNames('flex', { ['flex-col']: isVertial }, 'items-center')}>
-      <div className={classNames({ ['mr-4']: !isVertial, ['mb-4']: isVertial }, `w-${imageWidth / 4} h-${imageHeight / 4}`)}>
+      <div
+        className={classNames({ ['mr-4']: !isVertial, ['mb-4']: isVertial }, avatarStyles.size[size])}
+      >
         <OptimizedImage
           alt={`Avatar of ${name}`}
           src={image}
@@ -34,7 +50,7 @@ function Avatar(props: AvatarProps) {
           className="object-cover h-full rounded-full"
         />
       </div>
-      <div className="text-xl font-bold">{name}</div>
+      <div className={avatarStyles.font[size]}>{name}</div>
     </div>
   );
 }
