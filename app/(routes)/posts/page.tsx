@@ -18,7 +18,9 @@ const {
   Page_copyrightTextStyle,
 } = pageStyles;
 
-async function Posts() {
+export const revalidate = 1;
+
+export default async function Posts() {
   const { isEnabled } = draftMode();
   const allPosts = await getAllPosts(isEnabled);
 
@@ -62,5 +64,3 @@ async function Posts() {
     </div>
   );
 }
-
-export default Posts;

@@ -26,14 +26,16 @@ function PostCard(props: PostCardProps) {
   return (
     <div className="mb-6">
       <div className="flex items-center">
-        <div className="w-60 h-40">
-          <OptimizedImage
-            alt={`Cover image for ${title}`}
-            src={coverImage.url}
-            width={240}
-            height={160}
-            className="object-cover w-full h-full"
-          />
+        <div>
+          <div className="w-60 h-40">
+            <OptimizedImage
+              alt={`Cover image for ${title}`}
+              src={coverImage.url}
+              width={240}
+              height={160}
+              className="object-cover w-full h-full"
+            />
+          </div>
         </div>
         <div className="flex flex-col grow ml-12">
           <Link

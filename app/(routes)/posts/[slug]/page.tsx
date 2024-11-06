@@ -5,6 +5,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { BLOCKS } from "@contentful/rich-text-types";
 
 import Avatar from "@/components/Avatar";
+import OptimizedImage from '@/components/OptimizedImage';
 import { getAllPosts, getPostAndMorePosts } from "@/utilities/apiUtilities";
 
 type Asset = {
@@ -31,15 +32,14 @@ function RichTextAsset(props: RichTextAssetProps) {
   return null;
 }
 
+export const revalidate = 1;
+
 export async function generateStaticParams() {
   const allPosts = await getAllPosts(false);
-
-  return allPosts.map((post) => ({
-    slug: post.slug,
-  }));
+  return allPosts.map((post) => ({ slug: post.slug }));
 }
 
-async function PostPage(props: PostPageProps) {
+export default async function PostPage(props: PostPageProps) {
   const { params } = props;
 
   const { isEnabled } = draftMode();
@@ -61,14 +61,13 @@ async function PostPage(props: PostPageProps) {
         <h1 className="text-3xl font-bold mb-6">
           {title}
         </h1>
-        <div className="w-[768px] h-[368px] relative mb-6">
-          <Image
+        <div className="w-[768px] h-[368px] mb-6">
+          <OptimizedImage
             alt={`Cover image for ${title}`}
             src={coverImage.url}
-            fill
-            style={{ objectFit: "contain" }}
-            // loader={contentfulImageLoader}
-            // {...props}
+            width={768}
+            height={368}
+            className="object-cover w-full h-full"
           />
         </div>
         <div className="mb-6">
@@ -100,5 +99,3 @@ async function PostPage(props: PostPageProps) {
     </div>
   );
 }
-
-export default PostPage;
