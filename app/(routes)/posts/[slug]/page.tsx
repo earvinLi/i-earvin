@@ -1,12 +1,13 @@
-import Image from "next/image";
-import Link from "next/link";
-import { draftMode } from "next/headers";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { BLOCKS } from "@contentful/rich-text-types";
+import Image from 'next/image';
+import Link from 'next/link';
+import { draftMode } from 'next/headers';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { BLOCKS } from '@contentful/rich-text-types';
 
-import Avatar from "@/components/Avatar";
+import Avatar from '@/components/Avatar';
 import OptimizedImage from '@/components/OptimizedImage';
-import { getAllPosts, getPostAndMorePosts } from "@/utilities/apiUtilities";
+import { getContentfulEntries, getContentfulEntry } from '@/utilities/contentfulUtilities/contentfulClient';
+import { massagePostEntryData } from '@/utilities/contentfulUtilities/contentfulDataHelpers';
 
 type Asset = {
   sys: { id: string };
@@ -35,19 +36,24 @@ function RichTextAsset(props: RichTextAssetProps) {
 export const revalidate = 1;
 
 export async function generateStaticParams() {
-  const allPosts = await getAllPosts(false);
-  return allPosts.map((post) => ({ slug: post.slug }));
+  const allPosts = await getContentfulEntries('post');
+  return allPosts.map((post) => ({ slug: massagePostEntryData(post).slug }));
 }
 
 export default async function PostPage(props: PostPageProps) {
   const { params } = props;
 
-  const { isEnabled } = draftMode();
-  const { post, morePosts } = await getPostAndMorePosts(params.slug, isEnabled);
+  const post = await getContentfulEntry({
+    content_type: 'post',
+    'fields.slug': params.slug,
+  });
+
   const {
     title,
     coverImage,
-  } = post;
+    author,
+    content,
+  } = massagePostEntryData(post);
 
   return (
     <div className="container mx-auto p-6">
@@ -71,10 +77,10 @@ export default async function PostPage(props: PostPageProps) {
           />
         </div>
         <div className="mb-6">
-          {post.author && (
+          {author && (
             <Avatar
-              name={post.author.name}
-              image={post.author.picture.url}
+              name={author.name}
+              image={author.picture.url}
               direction="vertical"
               size="large"
             />
@@ -84,12 +90,12 @@ export default async function PostPage(props: PostPageProps) {
             <Date dateString={post.date} />
         </div> */}
         <div className="[&_p]:mt-4">
-          {documentToReactComponents(post.content.json, {
+          {documentToReactComponents(content, {
             renderNode: {
               [BLOCKS.EMBEDDED_ASSET]: (node: any) => (
                 <RichTextAsset
                   id={node.data.target.sys.id}
-                  assets={post.content.links.assets.block}
+                  assets={content.links.assets.block}
                 />
               ),
             },

@@ -1,8 +1,7 @@
-import { draftMode } from "next/headers";
-
 import AppNavigation from '@/modules/AppNavigation';
 import PostCard, { PostCardProps } from '@/components/PostCard';
-import { getAllPosts } from "@/utilities/apiUtilities";
+import { getContentfulEntries } from '@/utilities/contentfulUtilities/contentfulClient';
+import { massagePostEntryData } from '@/utilities/contentfulUtilities/contentfulDataHelpers';
 
 import pageStyles from './Posts.module.css';
 
@@ -21,8 +20,7 @@ const {
 export const revalidate = 1;
 
 export default async function Posts() {
-  const { isEnabled } = draftMode();
-  const allPosts = await getAllPosts(isEnabled);
+  const allPosts = await getContentfulEntries('post');
 
   return (
     <div className={Page_pageStyle}>
@@ -42,7 +40,7 @@ export default async function Posts() {
               date,
               author,
               excerpt,
-            } = post;
+            } = massagePostEntryData(post);
 
             return (
               <PostCard
