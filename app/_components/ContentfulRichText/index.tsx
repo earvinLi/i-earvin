@@ -28,10 +28,10 @@ const options = {
         );
       }
 
-      return <p className="mt-4">{children}</p>;
+      return <p className="mb-4">{children}</p>;
     },
     [BLOCKS.HR]: (node) => (
-      <hr className="mt-4"/>
+      <hr className="mb-4"/>
     ),
     [INLINES.ENTRY_HYPERLINK]: (node) => {
       if (node.data.target.sys.contentType.sys.id === 'post') {
@@ -85,5 +85,5 @@ const options = {
 export default function ContentfulRichText(props: ContentfulRichTextProps) {
   const { content } = props;
 
-  return <div>{documentToReactComponents(content, options)}</div>;
-};
+  return documentToReactComponents(content, options);
+}

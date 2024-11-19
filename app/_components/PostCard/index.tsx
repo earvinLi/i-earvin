@@ -1,7 +1,7 @@
-import Link from "next/link";
-import { format } from "date-fns";
+import Link from 'next/link';
+import { format } from 'date-fns';
 
-import Avatar from "@/components/Avatar";
+import Avatar from '@/components/Avatar';
 import OptimizedImage from '@/components/OptimizedImage';
 
 export type PostCardProps = {

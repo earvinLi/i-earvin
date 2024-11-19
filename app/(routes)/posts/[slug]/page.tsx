@@ -1,39 +1,15 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { BLOCKS } from '@contentful/rich-text-types';
 
 import Avatar from '@/components/Avatar';
 import ContentfulRichText from '@/components/ContentfulRichText';
+import FormattedDate from '@/components/FormattedDate';
 import OptimizedImage from '@/components/OptimizedImage';
 import { getContentfulEntries, getContentfulEntry } from '@/utilities/contentfulUtilities/contentfulClient';
 import { massagePostEntryData } from '@/utilities/contentfulUtilities/contentfulDataHelpers';
 
-type Asset = {
-  sys: { id: string };
-  url: string;
-  description: string;
-}
-
-type RichTextAssetProps = {
-  id: string;
-  assets: Asset[] | undefined;
-}
-
 type PostPageProps = {
   params: { slug: string };
 }
-
-function RichTextAsset(props: RichTextAssetProps) {
-  const { id, assets } = props;
-
-  const asset = assets?.find((asset) => asset.sys.id === id);
-
-  if (asset?.url) return <Image src={asset.url} layout="fill" alt={asset.description} />;
-  return null;
-}
-
-export const revalidate = 1;
 
 export async function generateStaticParams() {
   const allPosts = await getContentfulEntries('post');
@@ -53,6 +29,7 @@ export default async function PostPage(props: PostPageProps) {
     coverImage,
     author,
     content,
+    date,
   } = massagePostEntryData(post);
 
   return (
@@ -86,10 +63,14 @@ export default async function PostPage(props: PostPageProps) {
             />
           )}
         </div>
-        {/* <div className="mb-6 text-lg">
-            <Date dateString={post.date} />
-        </div> */}
-        <ContentfulRichText content={content}/>
+        <div className="flex">
+          <div className="min-w-[64px] mr-8">
+            <FormattedDate dateString={date} formatter="postPage"/>
+          </div>
+          <div className="max-w-[768px]">
+            <ContentfulRichText content={content}/>
+          </div>
+        </div>
       </article>
     </div>
   );
