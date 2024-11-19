@@ -1,16 +1,4 @@
-import Image from 'next/image';
-
-import projectCardStyles from './ProjectCard.module.css';
-
-const {
-  Page_projectCardContainerStyle,
-  Page_projectCardTextSectionStyle,
-  Page_projectCardTitleStyle,
-  Page_projectCardDescriptionStyle,
-  Page_projectCardTechListStyle,
-  Page_projectCardTechListItemStyle,
-  Page_projectCardTechLinkStyle,
-} = projectCardStyles;
+import OptimizedImage from '@/components/OptimizedImage';
 
 export type TTech = {
   techName: string;
@@ -34,30 +22,38 @@ function ProjectCard(props: ProjectCardProps) {
   } = props;
 
   return (
-    <div className={Page_projectCardContainerStyle}>
-      <Image
-        src={image}
-        width={320}
-        height={240}
-        alt={title}
-      />
-      <div className={Page_projectCardTextSectionStyle}>
-        <div className={Page_projectCardTitleStyle}>{title}</div>
-        <div className={Page_projectCardDescriptionStyle}>{description}</div>
-        <div className={Page_projectCardTechListStyle}>
-          {techList.map((tech: TTech) => {
-            const {
-              techName,
-              techDescription,
-              techLink,
-            } = tech;
+    <div className="mb-6">
+      <div className="flex items-center">
+        {/* Todo: get rid of the extra 'div' */}
+        <div>
+          <div className="w-60 h-40">
+            <OptimizedImage
+              alt={`Cover image for ${title}`}
+              src={image}
+              width={240}
+              height={160}
+              className="object-cover w-full h-full"
+            />
+          </div>
+        </div>
+        <div className="flex flex-col grow ml-12">
+          <div className="text-3xl leading-snug mb-2">{title}</div>
+          <div className="text-base text-gray-500 leading-relaxed mb-2">{description}</div>
+          <div>
+            {techList.map((tech: TTech) => {
+              const {
+                techName,
+                techDescription,
+                techLink,
+              } = tech;
 
-            return (
-              <li key={techName} className={Page_projectCardTechListItemStyle}>
-                <a href={techLink} target='_blank' className={Page_projectCardTechLinkStyle}>{techName}</a> - {techDescription}
-              </li>
-            );
-          })}
+              return (
+                <li key={techName} className="mb-1 text-lg">
+                  <a href={techLink} target='_blank' className="text-blue-500 hover:underline">{techName}</a> - {techDescription}
+                </li>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>

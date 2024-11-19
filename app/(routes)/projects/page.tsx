@@ -2,7 +2,7 @@ import AppNavigation from '@/modules/AppNavigation';
 import ProjectCard, { ProjectCardProps } from '@/components/ProjectCard';
 import { projects } from '@/constants/projectData';
 
-import pageStyles from './page.module.css';
+import pageStyles from './Projects.module.css';
 
 const {
   Page_pageStyle,
