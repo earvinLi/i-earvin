@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { draftMode } from 'next/headers';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS } from '@contentful/rich-text-types';
 
 import Avatar from '@/components/Avatar';
+import ContentfulRichText from '@/components/ContentfulRichText';
 import OptimizedImage from '@/components/OptimizedImage';
 import { getContentfulEntries, getContentfulEntry } from '@/utilities/contentfulUtilities/contentfulClient';
 import { massagePostEntryData } from '@/utilities/contentfulUtilities/contentfulDataHelpers';
@@ -89,19 +89,8 @@ export default async function PostPage(props: PostPageProps) {
         {/* <div className="mb-6 text-lg">
             <Date dateString={post.date} />
         </div> */}
-        <div className="[&_p]:mt-4">
-          {documentToReactComponents(content, {
-            renderNode: {
-              [BLOCKS.EMBEDDED_ASSET]: (node: any) => (
-                <RichTextAsset
-                  id={node.data.target.sys.id}
-                  assets={content.links.assets.block}
-                />
-              ),
-            },
-          })}
-        </div>
+        <ContentfulRichText content={content}/>
       </article>
     </div>
   );
-}
+};
