@@ -1,3 +1,28 @@
+// Todo: check eslint best practices and make related improvements 
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript",
+    "airbnb",
+    "airbnb-typescript"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "react/react-in-jsx-scope": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["@/modules/*", "./app/_modules"],
+          ["@/components", "./app/_components"],
+          ["@/utilities/*", "./app/_utilities"],
+          ["@/constants/*", "./app/_constants"]
+        ],
+        "extensions": [".ts", ".tsx"]
+      }
+    }
+  }
 }
