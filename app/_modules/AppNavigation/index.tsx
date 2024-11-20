@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const pageData = [
-  { name: 'Projects', path: '/' },
+  { name: 'Projects', path: '/projects' },
   { name: 'Posts', path: '/posts' },
 ];
 
