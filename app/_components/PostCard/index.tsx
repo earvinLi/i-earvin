@@ -1,18 +1,21 @@
+// External Dependencies
 import Link from 'next/link';
 import { format } from 'date-fns';
 
+// Internal Dependencies
 import Avatar from '@/components/Avatar';
 import OptimizedImage from '@/components/OptimizedImage';
 
 export type PostCardProps = {
   slug: string;
   title: string;
-  coverImage: any;
+  coverImage: { url: string };
   date: string;
   author: { name: string, picture: { url: string } };
   excerpt: string;
 }
 
+// Component Definition
 function PostCard(props: PostCardProps) {
   const {
     slug,
@@ -51,21 +54,20 @@ function PostCard(props: PostCardProps) {
                 <Avatar
                   name={author.name}
                   image={author.picture.url}
-                  direction='horizontal'
+                  direction="horizontal"
                   size="small"
                 />
               )}
             </div>
             <time dateTime={date} className="text-sm">
-              {format(new Date(date), "LLLL	d, yyyy")}
+              {format(new Date(date), "LLLL d, yyyy")}
             </time>
           </div>
         </div>
       </div>
-      <hr className="border-accent-2 mt-6"/>
+      <hr className="border-accent-2 mt-6" />
     </div>
   );
 }
 
 export default PostCard;
-

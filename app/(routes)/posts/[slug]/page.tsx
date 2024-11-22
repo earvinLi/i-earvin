@@ -1,5 +1,7 @@
+// External Dependencies
 import Link from 'next/link';
 
+// Internal Dependencies
 import Avatar from '@/components/Avatar';
 import ContentfulRichText from '@/components/ContentfulRichText';
 import FormattedDate from '@/components/FormattedDate';
@@ -13,9 +15,11 @@ type PostPageProps = {
 
 export async function generateStaticParams() {
   const allPosts = await getContentfulEntries('post');
-  return allPosts.map((post) => ({ slug: massagePostEntryData(post).slug }));
+  const massagedAllPosts = allPosts.map((post) => massagePostEntryData(post));
+  return massagedAllPosts.map((massagedPost) => ({ slug: massagedPost.slug }));
 }
 
+// Component Definition
 export default async function PostPage(props: PostPageProps) {
   const { params } = props;
 
@@ -41,10 +45,10 @@ export default async function PostPage(props: PostPageProps) {
         .
       </h2>
       <article className="w-3/4 mx-auto flex flex-col items-center">
-        <h1 className="text-3xl font-bold mb-6">
+        <h1 className="text-3xl font-bold mb-8">
           {title}
         </h1>
-        <div className="w-[768px] h-[368px] mb-6">
+        <div className="w-[768px] h-[368px] mb-8">
           <OptimizedImage
             alt={`Cover image for ${title}`}
             src={coverImage.url}
@@ -53,7 +57,7 @@ export default async function PostPage(props: PostPageProps) {
             className="object-cover w-full h-full"
           />
         </div>
-        <div className="mb-6">
+        <div className="mb-8">
           {author && (
             <Avatar
               name={author.name}
@@ -65,13 +69,13 @@ export default async function PostPage(props: PostPageProps) {
         </div>
         <div className="flex">
           <div className="min-w-[64px] mr-8">
-            <FormattedDate dateString={date} formatter="postPage"/>
+            <FormattedDate dateString={date} formatter="postPage" />
           </div>
           <div className="max-w-[768px]">
-            <ContentfulRichText content={content}/>
+            <ContentfulRichText content={content} />
           </div>
         </div>
       </article>
     </div>
   );
-};
+}

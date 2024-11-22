@@ -1,6 +1,10 @@
 'use client';
 
+// External Dependencies
 import Image from "next/image";
+
+// Local Variables
+const imageLoader = ({ src, width, quality }: OptimizedImageProps) => `${src}?w=${width}&q=${quality || 75}`;
 
 type OptimizedImageProps = {
   src: string;
@@ -9,11 +13,8 @@ type OptimizedImageProps = {
   [key: string]: any; // For other props that might be passed
 }
 
-const imageLoader = ({ src, width, quality }: OptimizedImageProps) => {
-  return `${src}?w=${width}&q=${quality || 75}`;
-};
-
-function OptimizedImage(props: OptimizedImageProps) {
+// Component Definition
+export default function OptimizedImage(props: OptimizedImageProps) {
   const { alt } = props;
 
   return (
@@ -24,5 +25,3 @@ function OptimizedImage(props: OptimizedImageProps) {
     />
   );
 }
-
-export default OptimizedImage;

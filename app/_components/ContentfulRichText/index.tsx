@@ -1,13 +1,12 @@
+// External Dependencies
 import Link from 'next/link';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types';
 
+// Internal Dependencies
 import OptimizedImage from '@/components/OptimizedImage';
 
-type ContentfulRichTextProps = {
-  content: any;
-}
-
+// Local Variables
 const options = {
   renderMark: {
     [MARKS.CODE]: (text: string) => (
@@ -30,8 +29,8 @@ const options = {
 
       return <p className="mb-4">{children}</p>;
     },
-    [BLOCKS.HR]: (node) => (
-      <hr className="mb-4"/>
+    [BLOCKS.HR]: () => (
+      <hr className="mb-4" />
     ),
     [INLINES.ENTRY_HYPERLINK]: (node) => {
       if (node.data.target.sys.contentType.sys.id === 'post') {
@@ -41,11 +40,12 @@ const options = {
           </Link>
         );
       }
+      return;
     },
     [INLINES.HYPERLINK]: (node) => {
       const text = node.content.find((item) => item.nodeType === 'text')?.value;
       return (
-        <a href={node.data.uri} target='_blank' rel='noopener noreferrer'>
+        <a href={node.data.uri} target="_blank" rel="noopener noreferrer">
           {text}
         </a>
       );
@@ -54,14 +54,15 @@ const options = {
       if (node.data.target.sys.contentType.sys.id === 'videoEmbed') {
         return (
           <iframe
-            height='400'
-            width='100%'
+            height="400"
+            width="100%"
             src={node.data.target.fields.embedUrl}
             title={node.data.target.fields.title}
-            allowFullScreen={true}
+            allowFullScreen
           />
         );
       }
+      return;
     },
     [BLOCKS.EMBEDDED_ASSET]: (node) => {
       const assetWidth = node.data.target.fields.file.details.image.width;
@@ -82,6 +83,11 @@ const options = {
   },
 };
 
+type ContentfulRichTextProps = {
+  content: any;
+}
+
+// Component Definition
 export default function ContentfulRichText(props: ContentfulRichTextProps) {
   const { content } = props;
 

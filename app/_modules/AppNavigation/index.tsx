@@ -1,10 +1,11 @@
 'use client';
 
-import classNames from 'classnames';
-
+// External Dependencies
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import classNames from 'classnames';
 
+// Local Variables
 const pageData = [
   { name: 'Projects', path: '/projects' },
   { name: 'Posts', path: '/posts' },
@@ -17,9 +18,10 @@ const appNavigationStyles = {
   },
 };
 
-const checkIsCurrentPath = (currentPath, route) => currentPath === route;
+const checkIsCurrentPath = (currentPath: string, route: string): boolean => currentPath === route;
 
-function AppNavigation() {
+// Component Definition
+export default function AppNavigation() {
   const pathname = usePathname();
 
   return (
@@ -27,7 +29,7 @@ function AppNavigation() {
       {pageData.map((page) => {
         const { name, path } = page;
         const isCurrentPage = checkIsCurrentPath(pathname, path);
-        const fontStyle = isCurrentPage ? appNavigationStyles.font.current : appNavigationStyles.font.other;
+        const fontStyle = isCurrentPage ? appNavigationStyles.font.current : appNavigationStyles.font.other; // eslint-disable-line max-len
 
         return (
           <Link
@@ -42,5 +44,3 @@ function AppNavigation() {
     </div>
   );
 }
-
-export default AppNavigation;

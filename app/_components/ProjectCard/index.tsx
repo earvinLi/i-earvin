@@ -1,6 +1,7 @@
+// Internal Dependencies
 import OptimizedImage from '@/components/OptimizedImage';
 
-export type TTech = {
+export type TechProps = {
   techName: string;
   techDescription: string;
   techLink: string;
@@ -9,11 +10,12 @@ export type TTech = {
 export type ProjectCardProps = {
   title: string;
   description: string;
-  techList: TTech[];
+  techList: TechProps[];
   image: string;
 }
 
-function ProjectCard(props: ProjectCardProps) {
+// Component Definition
+export default function ProjectCard(props: ProjectCardProps) {
   const {
     title,
     description,
@@ -40,7 +42,7 @@ function ProjectCard(props: ProjectCardProps) {
           <div className="text-3xl leading-snug mb-2">{title}</div>
           <div className="text-base text-gray-500 leading-relaxed mb-2">{description}</div>
           <div>
-            {techList.map((tech: TTech) => {
+            {techList.map((tech: TechProps) => {
               const {
                 techName,
                 techDescription,
@@ -49,7 +51,16 @@ function ProjectCard(props: ProjectCardProps) {
 
               return (
                 <li key={techName} className="mb-1 text-lg">
-                  <a href={techLink} target='_blank' className="text-blue-500 hover:underline">{techName}</a> - {techDescription}
+                  <a
+                    href={techLink}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-blue-500 hover:underline"
+                  >
+                    {techName}
+                  </a>
+                  &nbsp;-&nbsp;
+                  {techDescription}
                 </li>
               );
             })}
@@ -59,5 +70,3 @@ function ProjectCard(props: ProjectCardProps) {
     </div>
   );
 }
-
-export default ProjectCard;

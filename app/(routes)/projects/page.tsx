@@ -1,7 +1,9 @@
+// Internal Dependencies
 import AppNavigation from '@/modules/AppNavigation';
 import ProjectCard, { ProjectCardProps } from '@/components/ProjectCard';
 import { projects } from '@/constants/projectData';
 
+// Component Definition
 export default function Projects() {
   return (
     <div className="min-w-[100vh] flex flex-col">

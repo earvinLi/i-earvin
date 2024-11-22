@@ -1,3 +1,4 @@
+// External Dependencies
 import { format } from 'date-fns';
 
 type FormattedDateProps = {
@@ -5,6 +6,7 @@ type FormattedDateProps = {
   formatter: 'postPage' | '';
 };
 
+// Component Definition
 export default function FormattedDate(props: FormattedDateProps) {
   const { dateString, formatter } = props;
 
@@ -16,11 +18,11 @@ export default function FormattedDate(props: FormattedDateProps) {
   if (formatter === 'postPage') {
     return (
       <time dateTime={date} className="flex flex-col items-center border-t-2 border-blue-500 pt-2">
-        <div className="text-2xl text-bold">{date}</div>
+        <div className="text-2xl font-bold mb-1">{date}</div>
         <div className="text-sm text-gray-500">{`${month}, ${year}`}</div>
       </time>
     );
   }
 
-  return <time dateTime={date}>{format(new Date(dateObject), "LLLL	d, yyyy")}</time>;
+  return <time dateTime={date}>{format(new Date(dateObject), "LLLL d, yyyy")}</time>;
 }

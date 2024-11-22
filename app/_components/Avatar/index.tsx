@@ -1,7 +1,10 @@
+// External Dependencies
 import classNames from 'classnames';
 
+// Internal Dependencies
 import OptimizedImage from '@/components/OptimizedImage';
 
+// Local Variables
 // Todo: find even better solution to deal with dynamic class names (library or so)
 const avatarStyles = {
   size: {
@@ -23,8 +26,14 @@ type AvatarProps = {
   size: 'small' | 'medium' | 'large';
 }
 
-function Avatar(props: AvatarProps) {
-  const { name, image, direction, size } = props;
+// Component Definition
+export default function Avatar(props: AvatarProps) {
+  const {
+    name,
+    image,
+    direction,
+    size,
+  } = props;
 
   const isVertial = direction === 'vertical';
 
@@ -38,10 +47,8 @@ function Avatar(props: AvatarProps) {
   }
 
   return (
-    <div className={classNames('flex', { ['flex-col']: isVertial }, 'items-center')}>
-      <div
-        className={classNames({ ['mr-4']: !isVertial, ['mb-4']: isVertial }, avatarStyles.size[size])}
-      >
+    <div className={classNames('flex', { 'flex-col': isVertial }, 'items-center')}>
+      <div className={classNames({ 'mr-4': !isVertial, 'mb-4': isVertial }, avatarStyles.size[size])}>
         <OptimizedImage
           alt={`Avatar of ${name}`}
           src={image}
@@ -54,5 +61,3 @@ function Avatar(props: AvatarProps) {
     </div>
   );
 }
-
-export default Avatar;
