@@ -1,4 +1,10 @@
-export const massagePostEntryData = (postEntryData) => {
+// External Dependencies
+import type { ChainModifiers, LocaleCode } from 'contentful';
+
+// Local Dependencies
+import { TypePost } from './contentfulDataTypes';
+
+export const massagePostEntryData = (postEntryData: TypePost<ChainModifiers, LocaleCode>) => {
   const {
     slug,
     title,
@@ -12,11 +18,11 @@ export const massagePostEntryData = (postEntryData) => {
   const massagedPostEntryData = {
     slug,
     title,
-    coverImage: { url: coverImage.fields.file.url },
+    coverImage: { url: coverImage?.fields.file.url },
     date,
     author: {
-      name: author.fields.name,
-      picture: { url: author.fields.picture.fields.file.url },
+      name: author?.fields.name,
+      picture: { url: author?.fields.picture.fields.file.url },
     },
     excerpt,
     content,

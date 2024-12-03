@@ -1,16 +1,16 @@
-export type TMark = {
+export type TypeMark = {
   type: string;
 };
 
-export type TParagraphItem = {
-  marks: TMark[];
+export type TypeParagraphItem = {
+  marks: TypeMark[];
 };
 
 export type TParagraph = {
-  content: TParagraphItem[];
+  content: TypeParagraphItem[];
 };
 
-export type TEntryHyperlink = {
+export type TypeEntryHyperlink = {
   data: {
     target: {
       sys: {
@@ -28,19 +28,19 @@ export type TEntryHyperlink = {
   };
 };
 
-export type THyperlinkItem = {
+export type TypeHyperlinkItem = {
   nodeType: string;
   value: string;
 };
 
-export type THyperlink = {
-  content: THyperlinkItem[];
+export type TypeHyperlink = {
+  content: TypeHyperlinkItem[];
   data: {
     uri: string;
   };
 };
 
-export type TEmbeddedEntry = {
+export type TypeEmbeddedEntry = {
   data: {
     target: {
       sys: {
@@ -58,7 +58,7 @@ export type TEmbeddedEntry = {
   };
 };
 
-export type TEmbeddedAsset = {
+export type TypeEmbeddedAsset = {
   data: {
     target: {
       fields: {

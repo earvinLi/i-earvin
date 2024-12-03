@@ -15,11 +15,11 @@ import OptimizedImage from '@/components/OptimizedImage';
 // Local Dependencies
 import {
   TParagraph,
-  TMark,
-  TEntryHyperlink,
-  THyperlink,
-  TEmbeddedEntry,
-  TEmbeddedAsset,
+  TypeMark,
+  TypeEntryHyperlink,
+  TypeHyperlink,
+  TypeEmbeddedEntry,
+  TypeEmbeddedAsset,
 } from './contentfulRichTextTypes';
 
 // Type Definitions
@@ -40,7 +40,7 @@ const options = {
     [BLOCKS.PARAGRAPH]: (node: TParagraph, children: TReactNode) => {
       const { content } = node;
 
-      if (content.find((item) => item.marks?.find((mark: TMark) => mark.type === 'code'))) {
+      if (content.find((item) => item.marks?.find((mark: TypeMark) => mark.type === 'code'))) {
         return (
           <div>
             <pre>
@@ -53,7 +53,7 @@ const options = {
       return <p className="mb-4">{children}</p>;
     },
     [BLOCKS.HR]: () => <hr className="mb-4" />,
-    [INLINES.ENTRY_HYPERLINK]: (node: TEntryHyperlink) => {
+    [INLINES.ENTRY_HYPERLINK]: (node: TypeEntryHyperlink) => {
       const { data } = node;
 
       if (data.target.sys.contentType.sys.id === 'post') {
@@ -65,7 +65,7 @@ const options = {
       }
       return null;
     },
-    [INLINES.HYPERLINK]: (node: THyperlink) => {
+    [INLINES.HYPERLINK]: (node: TypeHyperlink) => {
       const { content, data } = node;
       const text = content.find((item) => item.nodeType === 'text')?.value;
       return (
@@ -74,7 +74,7 @@ const options = {
         </a>
       );
     },
-    [BLOCKS.EMBEDDED_ENTRY]: (node: TEmbeddedEntry) => {
+    [BLOCKS.EMBEDDED_ENTRY]: (node: TypeEmbeddedEntry) => {
       const { data } = node;
 
       if (data.target.sys.contentType.sys.id === 'videoEmbed') {
@@ -91,7 +91,7 @@ const options = {
 
       return null;
     },
-    [BLOCKS.EMBEDDED_ASSET]: (node: TEmbeddedAsset) => {
+    [BLOCKS.EMBEDDED_ASSET]: (node: TypeEmbeddedAsset) => {
       const { data } = node;
       const assetWidth = data.target.fields.file.details.image.width;
       const assetHeight = data.target.fields.file.details.image.height;
