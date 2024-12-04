@@ -1,10 +1,10 @@
 // External Dependencies
-import type { ChainModifiers, LocaleCode } from 'contentful';
+// import type { ChainModifiers, LocaleCode } from 'contentful';
 
 // Local Dependencies
-import { TypePost } from './contentfulDataTypes';
+// import { TypePost } from './contentfulDataTypes';
 
-export const massagePostEntryData = (postEntryData: TypePost<ChainModifiers, LocaleCode>) => {
+export const massagePostEntryData = (postEntryData) => {
   const {
     slug,
     title,

@@ -1,5 +1,5 @@
 // External Dependencies
-import { ReactNode as TypeReactNode } from 'react';
+// import { ReactNode as TypeReactNode } from 'react';
 import Link from 'next/link';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import {
@@ -13,14 +13,14 @@ import {
 import OptimizedImage from '@/components/OptimizedImage';
 
 // Local Dependencies
-import {
-  TypeParagraph,
-  TypeMark,
-  TypeEntryHyperlink,
-  TypeHyperlink,
-  TypeEmbeddedEntry,
-  TypeEmbeddedAsset,
-} from './contentfulRichTextTypes';
+// import {
+//   TypeParagraph,
+//   TypeMark,
+//   TypeEntryHyperlink,
+//   TypeHyperlink,
+//   TypeEmbeddedEntry,
+//   TypeEmbeddedAsset,
+// } from './contentfulRichTextTypes';
 
 // Type Definitions
 type ContentfulRichTextProps = {
@@ -30,17 +30,17 @@ type ContentfulRichTextProps = {
 // Local Variables
 const options = {
   renderMark: {
-    [MARKS.CODE]: (code: string) => (
+    [MARKS.CODE]: (code) => (
       <pre>
         <code>{code}</code>
       </pre>
     ),
   },
   renderNode: {
-    [BLOCKS.PARAGRAPH]: (node: TypeParagraph, children: TypeReactNode) => {
+    [BLOCKS.PARAGRAPH]: (node, children) => {
       const { content } = node;
 
-      if (content.find((item) => item.marks?.find((mark: TypeMark) => mark.type === 'code'))) {
+      if (content.find((item) => item.marks?.find((mark) => mark.type === 'code'))) {
         return (
           <div>
             <pre>
@@ -53,7 +53,7 @@ const options = {
       return <p className="mb-4">{children}</p>;
     },
     [BLOCKS.HR]: () => <hr className="mb-4" />,
-    [INLINES.ENTRY_HYPERLINK]: (node: TypeEntryHyperlink) => {
+    [INLINES.ENTRY_HYPERLINK]: (node) => {
       const { data } = node;
 
       if (data.target.sys.contentType.sys.id === 'post') {
@@ -65,7 +65,7 @@ const options = {
       }
       return null;
     },
-    [INLINES.HYPERLINK]: (node: TypeHyperlink) => {
+    [INLINES.HYPERLINK]: (node) => {
       const { content, data } = node;
       const text = content.find((item) => item.nodeType === 'text')?.value;
       return (
@@ -74,7 +74,7 @@ const options = {
         </a>
       );
     },
-    [BLOCKS.EMBEDDED_ENTRY]: (node: TypeEmbeddedEntry) => {
+    [BLOCKS.EMBEDDED_ENTRY]: (node) => {
       const { data } = node;
 
       if (data.target.sys.contentType.sys.id === 'videoEmbed') {
@@ -91,7 +91,7 @@ const options = {
 
       return null;
     },
-    [BLOCKS.EMBEDDED_ASSET]: (node: TypeEmbeddedAsset) => {
+    [BLOCKS.EMBEDDED_ASSET]: (node) => {
       const { data } = node;
       const assetWidth = data.target.fields.file.details.image.width;
       const assetHeight = data.target.fields.file.details.image.height;
