@@ -1,12 +1,12 @@
 // External Dependencies
-import { ReactNode as TReactNode } from 'react';
+import { ReactNode as TypeReactNode } from 'react';
 import Link from 'next/link';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import {
   BLOCKS,
   INLINES,
   MARKS,
-  Document as TDocument,
+  Document as TypeDocument,
 } from '@contentful/rich-text-types';
 
 // Internal Dependencies
@@ -14,7 +14,7 @@ import OptimizedImage from '@/components/OptimizedImage';
 
 // Local Dependencies
 import {
-  TParagraph,
+  TypeParagraph,
   TypeMark,
   TypeEntryHyperlink,
   TypeHyperlink,
@@ -24,7 +24,7 @@ import {
 
 // Type Definitions
 type ContentfulRichTextProps = {
-  content: TDocument;
+  content: TypeDocument;
 }
 
 // Local Variables
@@ -37,7 +37,7 @@ const options = {
     ),
   },
   renderNode: {
-    [BLOCKS.PARAGRAPH]: (node: TParagraph, children: TReactNode) => {
+    [BLOCKS.PARAGRAPH]: (node: TypeParagraph, children: TypeReactNode) => {
       const { content } = node;
 
       if (content.find((item) => item.marks?.find((mark: TypeMark) => mark.type === 'code'))) {

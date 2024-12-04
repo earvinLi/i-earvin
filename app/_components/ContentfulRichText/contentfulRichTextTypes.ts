@@ -6,7 +6,7 @@ export type TypeParagraphItem = {
   marks: TypeMark[];
 };
 
-export type TParagraph = {
+export type TypeParagraph = {
   content: TypeParagraphItem[];
 };
 

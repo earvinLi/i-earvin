@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/dot-notation */
+
 const techs = {
   nextJS: {
     techName: 'NextJS',
