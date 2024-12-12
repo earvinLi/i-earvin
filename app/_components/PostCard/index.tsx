@@ -6,7 +6,7 @@ import { format } from 'date-fns';
 import Avatar from '@/components/Avatar';
 import OptimizedImage from '@/components/OptimizedImage';
 
-export type PostCardProps = {
+type PostCardProps = {
   slug: string;
   title: string;
   coverImage: { url: string };
@@ -16,7 +16,7 @@ export type PostCardProps = {
 }
 
 // Component Definition
-function PostCard(props: PostCardProps) {
+export default function PostCard(props: PostCardProps) {
   const {
     slug,
     title,
@@ -69,5 +69,3 @@ function PostCard(props: PostCardProps) {
     </div>
   );
 }
-
-export default PostCard;

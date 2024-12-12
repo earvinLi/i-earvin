@@ -1,5 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 // External Dependencies
 import Link from 'next/link';
+import { Document as TypeDocument } from '@contentful/rich-text-types';
 
 // Internal Dependencies
 import Avatar from '@/components/Avatar';
@@ -15,7 +18,7 @@ type PostPageProps = {
 
 export async function generateStaticParams() {
   const allPosts = await getContentfulEntries('post');
-  const massagedAllPosts = allPosts.map((post) => massagePostEntryData(post));
+  const massagedAllPosts = allPosts.map((post: any) => massagePostEntryData(post));
   return massagedAllPosts.map((massagedPost) => ({ slug: massagedPost.slug }));
 }
 
@@ -34,7 +37,7 @@ export default async function PostPage(props: PostPageProps) {
     author,
     content,
     date,
-  } = massagePostEntryData(post);
+  } = massagePostEntryData(post as any);
 
   return (
     <div className="container mx-auto p-6">
@@ -46,7 +49,7 @@ export default async function PostPage(props: PostPageProps) {
       </h2>
       <article className="w-3/4 mx-auto flex flex-col items-center">
         <h1 className="text-3xl font-bold mb-8">
-          {title}
+          {typeof title === 'string' ? title : ''}
         </h1>
         <div className="w-[768px] h-[368px] mb-8">
           <OptimizedImage
@@ -69,10 +72,13 @@ export default async function PostPage(props: PostPageProps) {
         </div>
         <div className="flex">
           <div className="min-w-[64px] mr-8">
-            <FormattedDate dateString={date} formatter="postPage" />
+            <FormattedDate
+              dateString={typeof date === 'string' ? date : ''}
+              formatter="postPage"
+            />
           </div>
           <div className="max-w-[768px]">
-            <ContentfulRichText content={content} />
+            <ContentfulRichText content={content as TypeDocument} />
           </div>
         </div>
       </article>

@@ -1,10 +1,6 @@
-// External Dependencies
-// import type { ChainModifiers, LocaleCode } from 'contentful';
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
-// Local Dependencies
-// import { TypePost } from './contentfulDataTypes';
-
-export const massagePostEntryData = (postEntryData) => {
+export const massagePostEntryData = (postEntryData: any) => {
   const {
     slug,
     title,

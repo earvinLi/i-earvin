@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 // External Dependencies
-// import { ReactNode as TypeReactNode } from 'react';
 import Link from 'next/link';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import {
@@ -12,16 +13,6 @@ import {
 // Internal Dependencies
 import OptimizedImage from '@/components/OptimizedImage';
 
-// Local Dependencies
-// import {
-//   TypeParagraph,
-//   TypeMark,
-//   TypeEntryHyperlink,
-//   TypeHyperlink,
-//   TypeEmbeddedEntry,
-//   TypeEmbeddedAsset,
-// } from './contentfulRichTextTypes';
-
 // Type Definitions
 type ContentfulRichTextProps = {
   content: TypeDocument;
@@ -30,17 +21,17 @@ type ContentfulRichTextProps = {
 // Local Variables
 const options = {
   renderMark: {
-    [MARKS.CODE]: (code) => (
+    [MARKS.CODE]: (code: any) => (
       <pre>
         <code>{code}</code>
       </pre>
     ),
   },
   renderNode: {
-    [BLOCKS.PARAGRAPH]: (node, children) => {
+    [BLOCKS.PARAGRAPH]: (node: any, children: React.ReactNode) => {
       const { content } = node;
 
-      if (content.find((item) => item.marks?.find((mark) => mark.type === 'code'))) {
+      if (content.find((item: any) => item.marks?.find((mark: any) => mark.type === 'code'))) {
         return (
           <div>
             <pre>
@@ -53,7 +44,7 @@ const options = {
       return <p className="mb-4">{children}</p>;
     },
     [BLOCKS.HR]: () => <hr className="mb-4" />,
-    [INLINES.ENTRY_HYPERLINK]: (node) => {
+    [INLINES.ENTRY_HYPERLINK]: (node: any) => {
       const { data } = node;
 
       if (data.target.sys.contentType.sys.id === 'post') {
@@ -65,16 +56,17 @@ const options = {
       }
       return null;
     },
-    [INLINES.HYPERLINK]: (node) => {
+    [INLINES.HYPERLINK]: (node: any) => {
       const { content, data } = node;
-      const text = content.find((item) => item.nodeType === 'text')?.value;
+      const text = content.find((item: any) => item.nodeType === 'text')?.value;
+
       return (
         <a href={data.uri} target="_blank" rel="noopener noreferrer">
           {text}
         </a>
       );
     },
-    [BLOCKS.EMBEDDED_ENTRY]: (node) => {
+    [BLOCKS.EMBEDDED_ENTRY]: (node: any) => {
       const { data } = node;
 
       if (data.target.sys.contentType.sys.id === 'videoEmbed') {
@@ -91,7 +83,7 @@ const options = {
 
       return null;
     },
-    [BLOCKS.EMBEDDED_ASSET]: (node) => {
+    [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
       const { data } = node;
       const assetWidth = data.target.fields.file.details.image.width;
       const assetHeight = data.target.fields.file.details.image.height;
