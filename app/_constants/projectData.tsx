@@ -83,7 +83,7 @@ const techs = {
   },
   angular: {
     techName: 'Angular',
-    techDescription: 'Web framework that empowers developers to build fast, reliable applicationsa web framework that empowers developers to build fast, reliable applications',
+    techDescription: 'Web framework that empowers developers to build fast, reliable applications',
     techLink: 'https://angular.dev/',
   },
 };

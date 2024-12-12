@@ -67,6 +67,7 @@ export default function ProjectCard(props: ProjectCardProps) {
           </div>
         </div>
       </div>
+      <hr className="border-accent-2 mt-6" />
     </div>
   );
 }

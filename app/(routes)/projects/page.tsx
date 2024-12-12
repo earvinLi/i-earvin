@@ -9,7 +9,7 @@ export default function Projects() {
     <div className="min-w-[100vh] flex flex-col">
       <AppNavigation />
       <div className="w-[70%] my-0 mx-auto">
-        <div className="flex flex-col items-end border-b-4 border-[#7d97ad] pb-4">
+        <div className="flex flex-col items-end border-b-4 border-[#00A3DA] pb-4">
           <div className="text-6xl text-bold uppercase">Earvin Li</div>
           <div className="text-2xl my-2 mx-0">Full Stack Engineer</div>
         </div>

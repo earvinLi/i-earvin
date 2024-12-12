@@ -13,8 +13,8 @@ const pageData = [
 
 const appNavigationStyles = {
   font: {
-    current: 'text-lg text-[#7d97ad]',
-    other: 'text-lg',
+    current: 'underline',
+    other: 'hover:underline',
   },
 };
 
@@ -35,7 +35,7 @@ export default function AppNavigation() {
           <Link
             key={`${path}-${name}`}
             href={path}
-            className={classNames('mr-6 hover:underline', fontStyle)}
+            className={classNames('mr-6 text-lg decoration-[#00A3DA] decoration-2 underline-offset-8', fontStyle)}
           >
             {name}
           </Link>
