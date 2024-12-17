@@ -1,6 +1,6 @@
 // Internal Dependencies
 import AppNavigation from '@/modules/AppNavigation';
-import ProjectCard, { ProjectCardProps } from '@/components/ProjectCard';
+import ProjectCard from '@/components/ProjectCard';
 import { projects } from '@/constants/projectData';
 
 // Component Definition
@@ -15,7 +15,7 @@ export default function Projects() {
         </div>
         <div className="text-4xl text-[#868e96] my-4 mx-0">Projects</div>
         <div className="mb-6">
-          {projects.map((project: ProjectCardProps) => {
+          {projects.map((project) => {
             const {
               title,
               description,

@@ -1,5 +1,18 @@
 /* eslint-disable @typescript-eslint/dot-notation, quote-props */
 
+export type TypeTech = {
+  techName: string;
+  techDescription: string;
+  techLink: string;
+};
+
+export type TypeProject = {
+  title: string;
+  description: string;
+  techList: TypeTech[];
+  image: string;
+};
+
 const techs = {
   'NextJS': {
     techName: 'NextJS',

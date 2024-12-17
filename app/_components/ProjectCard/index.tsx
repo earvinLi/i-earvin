@@ -1,16 +1,13 @@
 // Internal Dependencies
 import OptimizedImage from '@/components/OptimizedImage';
 
-export type TechProps = {
-  techName: string;
-  techDescription: string;
-  techLink: string;
-};
+// Internal Dependencies
+import { TypeTech } from '@/constants/projectData';
 
 export type ProjectCardProps = {
   title: string;
   description: string;
-  techList: TechProps[];
+  techList: readonly TypeTech[];
   image: string;
 }
 
@@ -42,7 +39,7 @@ export default function ProjectCard(props: ProjectCardProps) {
           <div className="text-3xl leading-snug mb-2">{title}</div>
           <div className="text-base text-gray-500 leading-relaxed mb-2">{description}</div>
           <div>
-            {techList.map((tech: TechProps) => {
+            {techList.map((tech) => {
               const {
                 techName,
                 techDescription,
