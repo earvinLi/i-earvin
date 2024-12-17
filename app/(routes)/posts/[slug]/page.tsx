@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 // External Dependencies
 import Link from 'next/link';
 import { Document as TypeDocument } from '@contentful/rich-text-types';
@@ -9,27 +7,20 @@ import Avatar from '@/components/Avatar';
 import ContentfulRichText from '@/components/ContentfulRichText';
 import FormattedDate from '@/components/FormattedDate';
 import OptimizedImage from '@/components/OptimizedImage';
-import { getContentfulEntries, getContentfulEntry } from '@/utilities/contentfulUtilities/contentfulClient';
-import { massagePostEntryData } from '@/utilities/contentfulUtilities/contentfulDataHelpers';
+import { getPosts, getPost } from '@/utilities/contentfulUtilities/contentfulDataHelpers';
 
 type PostPageProps = {
   params: { slug: string };
 }
 
 export async function generateStaticParams() {
-  const allPosts = await getContentfulEntries('post');
-  const massagedAllPosts = allPosts.map((post: any) => massagePostEntryData(post));
-  return massagedAllPosts.map((massagedPost) => ({ slug: massagedPost.slug }));
+  const allPosts = await getPosts();
+  return allPosts.map((post) => ({ slug: post.slug }));
 }
 
 // Component Definition
 export default async function PostPage(props: PostPageProps) {
   const { params } = props;
-
-  const post = await getContentfulEntry({
-    content_type: 'post',
-    'fields.slug': params.slug,
-  });
 
   const {
     title,
@@ -37,7 +28,7 @@ export default async function PostPage(props: PostPageProps) {
     author,
     content,
     date,
-  } = massagePostEntryData(post as any);
+  } = await getPost(params.slug);
 
   return (
     <div className="container mx-auto p-6">

@@ -1,19 +1,14 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 // Internal Dependencies
 import AppNavigation from '@/modules/AppNavigation';
 import PostCard from '@/components/PostCard';
-import { getContentfulEntries } from '@/utilities/contentfulUtilities/contentfulClient';
-import { massagePostEntryData } from '@/utilities/contentfulUtilities/contentfulDataHelpers';
+import { getPosts } from '@/utilities/contentfulUtilities/contentfulDataHelpers';
 import { TypeMassagedPost } from '@/utilities/contentfulUtilities/contentfulDataTypes';
 
 export const revalidate = 1;
 
 // Component Definition
 export default async function Posts() {
-  const allPosts = await getContentfulEntries('post');
-  // Todo: whether 'post' here should have a type
-  const massagedAllPosts = allPosts.map((post) => massagePostEntryData(post as any));
+  const allPosts = await getPosts();
 
   return (
     <div className="min-w-[100vh] flex flex-col">
@@ -25,7 +20,7 @@ export default async function Posts() {
         </div>
         <div className="text-4xl text-[#868e96] my-4 mx-0">Posts</div>
         <div className="mb-6">
-          {massagedAllPosts.map((massagedPost: TypeMassagedPost) => {
+          {allPosts.map((post: TypeMassagedPost) => {
             const {
               slug,
               title,
@@ -33,7 +28,7 @@ export default async function Posts() {
               date,
               author,
               excerpt,
-            } = massagedPost;
+            } = post;
 
             return (
               <PostCard

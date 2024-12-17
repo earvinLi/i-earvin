@@ -96,7 +96,7 @@ const techs = {
     techDescription: 'Utility-first CSS framework for rapidly building custom designs',
     techLink: 'https://tailwindcss.com/',
   },
-};
+} as const;
 
 export const projects = [
   {
@@ -171,4 +171,4 @@ export const projects = [
     techList: [techs['Jasmine']],
     image: '/project_cover_feed_reader.jpg',
   },
-];
+] as const;
