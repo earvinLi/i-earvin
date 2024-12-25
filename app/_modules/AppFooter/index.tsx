@@ -16,11 +16,11 @@ export default function AppFooter() {
       </div>
       <div className="flex flex-row">
         <IconButton
-          icon={<GithubIcon color='gray' size={22}/>}
+          icon={<GithubIcon color="gray" size={22} />}
           onClick={() => window.open('https://github.com/earvinLi/i-earvin', '_blank', 'noopener, noreferrer')}
         />
         <IconButton
-          icon={<LinkedinIcon color='gray' size={22}/>}
+          icon={<LinkedinIcon color="gray" size={22} />}
           onClick={() => window.open('https://github.com/earvinLi/i-earvin', '_blank', 'noopener, noreferrer')}
         />
       </div>
