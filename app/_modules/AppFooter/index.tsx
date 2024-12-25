@@ -9,10 +9,10 @@ import IconButton from '@/components/IconButton';
 // Component Definition
 export default function AppFooter() {
   return (
-    <footer className="w-[70%] my-0 mx-auto border-t border-gray-500 py-4 flex flex-row justify-between items-center">
+    <footer className="w-[70%] my-0 mx-auto border-t-2 border-[#00A3DA] py-4 flex flex-row justify-between items-center">
       <div>
-        <span className="text-xl font-bold text-gray-500 mr-4">I Earvin</span>
-        <span className="text-sm text-gray-500">&copy; 2024 All rights reserved</span>
+        <span className="text-xl font-bold mr-4">I Earvin</span>
+        <span className="text-sm text-gray-500">&copy; 2024 Tianyang Li. All rights reserved.</span>
       </div>
       <div className="flex flex-row">
         <IconButton

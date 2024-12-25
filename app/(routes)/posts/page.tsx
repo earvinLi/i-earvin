@@ -1,5 +1,6 @@
 // Internal Dependencies
 import AppNavigation from '@/modules/AppNavigation';
+import AppFooter from '@/modules/AppFooter';
 import PostCard from '@/components/PostCard';
 import { getPosts } from '@/utilities/contentfulUtilities/contentfulDataHelpers';
 import { TypeMassagedPost } from '@/utilities/contentfulUtilities/contentfulDataTypes';
@@ -44,9 +45,7 @@ export default async function Posts() {
           })}
         </div>
       </div>
-      <footer className="w-[70%] my-0 mx-auto border-t border-gray-500 pt-3">
-        <div className="text-lg">&copy; Earvin Li</div>
-      </footer>
+      <AppFooter />
     </div>
   );
 }

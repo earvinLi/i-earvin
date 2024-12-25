@@ -1,3 +1,6 @@
+// Todo: find better way to deal with the eslint rule
+/* eslint-disable react/require-default-props */
+
 'use client';
 
 // External Dependencies
@@ -15,9 +18,8 @@ type OptimizedImageProps = {
   src: string;
   width: number;
   height: number;
-  // Todo: find better way to deal with the eslint rule
-  quality?: number; // eslint-disable-line react/require-default-props
-  className: string;
+  quality?: number;
+  className?: string;
 }
 
 // Local Variables
