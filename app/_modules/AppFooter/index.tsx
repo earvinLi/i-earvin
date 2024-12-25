@@ -17,11 +17,11 @@ export default function AppFooter() {
       <div className="flex flex-row">
         <IconButton
           icon={<GithubIcon color="gray" size={22} />}
-          onClick={() => window.open('https://github.com/earvinLi/i-earvin', '_blank', 'noopener, noreferrer')}
+          onClick={() => window.open('https://github.com/earvinLi', '_blank', 'noopener, noreferrer')}
         />
         <IconButton
           icon={<LinkedinIcon color="gray" size={22} />}
-          onClick={() => window.open('https://github.com/earvinLi/i-earvin', '_blank', 'noopener, noreferrer')}
+          onClick={() => window.open('https://linkedin.com/in/earvinli', '_blank', 'noopener, noreferrer')}
         />
       </div>
     </footer>
