@@ -25,7 +25,7 @@ export default function AppNavigation() {
   const pathname = usePathname();
 
   return (
-    <div className="w-[70%] mx-auto my-4">
+    <div className="w-[70%] mx-auto my-4 flex flex-row gap-6">
       {pageData.map((page) => {
         const { name, path } = page;
         const isCurrentPage = checkIsCurrentPath(pathname, path);
@@ -35,7 +35,7 @@ export default function AppNavigation() {
           <Link
             key={`${path}-${name}`}
             href={path}
-            className={classNames('mr-6 text-lg decoration-[#00A3DA] decoration-2 underline-offset-8', fontStyle)}
+            className={classNames('text-lg decoration-[#00A3DA] decoration-2 underline-offset-8', fontStyle)}
           >
             {name}
           </Link>

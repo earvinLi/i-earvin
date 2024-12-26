@@ -14,7 +14,7 @@ export default function AppFooter() {
         <span className="text-xl font-bold mr-4">I Earvin</span>
         <span className="text-sm text-gray-500">&copy; 2024 Tianyang Li. All rights reserved.</span>
       </div>
-      <div className="flex flex-row">
+      <div className="flex flex-row gap-0.5">
         <IconButton
           icon={<GithubIcon color="gray" size={22} />}
           onClick={() => window.open('https://github.com/earvinLi', '_blank', 'noopener, noreferrer')}

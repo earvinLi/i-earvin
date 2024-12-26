@@ -27,7 +27,7 @@ export default function PostCard(props: PostCardProps) {
   } = props;
 
   return (
-    <div className="mb-6 pb-6 border-b-2 border-accent last:border-b-0 last:pb-0">
+    <div className="pb-6 border-b-2 border-accent last:border-b-0 last:pb-0">
       <div className="flex items-center">
         <div>
           <div className="w-60 h-40">

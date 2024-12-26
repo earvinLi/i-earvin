@@ -15,7 +15,7 @@ export default function Projects() {
           <div className="text-2xl my-2 mx-0">Full Stack Engineer</div>
         </div>
         <div className="text-4xl text-[#868e96] my-4 mx-0">Projects</div>
-        <div className="mb-6">
+        <div className="mb-6 flex flex-col gap-6">
           {projects.map((project) => {
             const {
               title,
