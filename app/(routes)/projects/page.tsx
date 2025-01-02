@@ -53,6 +53,13 @@ export default function Projects() {
         isOpen={isContactMeModalOpen}
         onClose={() => setIsContactMeModalOpen(false)}
         title="Contact Me"
+        description="Feel free to reach out to me for any inquiries or share ideas and discuss about my projects and posts or just to say hi!"
+        action={(
+          <>
+            <Button onClick={() => setIsContactMeModalOpen(false)}>Close</Button>
+            <Button onClick={() => {}}>Submit</Button>
+          </>
+        )}
       >
         <div>Contact</div>
       </Modal>

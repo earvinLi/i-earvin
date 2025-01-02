@@ -4,7 +4,9 @@ type ModalProps = {
   isOpen: boolean;
   onClose: () => void;
   title: string;
+  description: string;
   children: React.ReactNode;
+  action: React.ReactNode;
 };
 
 // Component Definition
@@ -13,7 +15,9 @@ export default function Modal(props: ModalProps) {
     isOpen,
     onClose,
     title,
+    description,
     children,
+    action,
   } = props;
 
   const handleModalClose = (event: any) => {
@@ -43,12 +47,24 @@ export default function Modal(props: ModalProps) {
       tabIndex={0}
     >
       <div
-        className="relative m-4 p-4 w-2/5 min-w-[40%] max-w-[40%] rounded-lg bg-white shadow-sm"
+        className="
+          relative
+          p-6
+          w-1/2
+          min-w-[50%]
+          max-w-[50%]
+          rounded-md
+          bg-white
+          shadow-sm
+          flex
+          flex-col
+          gap-5
+        "
       >
-        <div className="px-4 py-2 border-b">
-          <h2 className="text-xl font-semibold">{title}</h2>
-        </div>
-        <div className="p-4">{children}</div>
+        <h2 className="text-xl font-medium">{title}</h2>
+        <h4 className="text-base text-gray-500">{description}</h4>
+        <div>{children}</div>
+        <div className="flex flex-row gap-4 justify-end">{action}</div>
       </div>
     </div>
   );
