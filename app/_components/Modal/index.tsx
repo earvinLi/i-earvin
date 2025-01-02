@@ -43,7 +43,7 @@ export default function Modal(props: ModalProps) {
       onClick={handleModalClose}
       // Todo: find better solution for accessibility here
       onKeyDown={handleModalClose}
-      role="button"
+      role="dialog"
       tabIndex={0}
     >
       <div

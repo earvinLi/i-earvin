@@ -6,8 +6,8 @@ import { useState } from 'react';
 // Internal Dependencies
 import AppNavigation from '@/modules/AppNavigation';
 import AppFooter from '@/modules/AppFooter';
+import ContactMeModal from '@/modules/project/ContactMeModal';
 import Button from '@/components/Button';
-import Modal from '@/components/Modal';
 import ProjectCard from '@/components/ProjectCard';
 import { projects } from '@/constants/projectData';
 
@@ -49,20 +49,10 @@ export default function Projects() {
         </div>
         <AppFooter />
       </div>
-      <Modal
-        isOpen={isContactMeModalOpen}
-        onClose={() => setIsContactMeModalOpen(false)}
-        title="Contact Me"
-        description="Feel free to reach out to me for any inquiries or share ideas and discuss about my projects and posts or just to say hi!"
-        action={(
-          <>
-            <Button onClick={() => setIsContactMeModalOpen(false)}>Close</Button>
-            <Button onClick={() => {}}>Submit</Button>
-          </>
-        )}
-      >
-        <div>Contact</div>
-      </Modal>
+      <ContactMeModal
+        isContactMeModalOpen={isContactMeModalOpen}
+        setIsContactMeModalOpen={setIsContactMeModalOpen}
+      />
     </>
   );
 }
