@@ -1,3 +1,5 @@
+/* eslint-disable react/require-default-props */
+
 'use client';
 
 // External Dependencies
@@ -6,14 +8,16 @@ import { ReactNode as TypeReactNode } from 'react';
 type IconButtonProps = {
   icon: TypeReactNode;
   onClick: () => void;
+  disabled?: boolean;
 };
 
 // Component Definition
 export default function IconButton(props: IconButtonProps) {
-  const { icon, onClick } = props;
+  const { icon, onClick, disabled } = props;
 
   return (
     <button
+      disabled={disabled}
       type="button"
       onClick={onClick}
       // Todo: find better ways to deal with long classnames

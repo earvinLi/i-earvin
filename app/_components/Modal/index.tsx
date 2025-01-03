@@ -1,4 +1,8 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+/*
+  eslint-disable
+  @typescript-eslint/no-explicit-any,
+  jsx-a11y/no-noninteractive-element-interactions
+*/
 
 type ModalProps = {
   isOpen: boolean;
@@ -21,13 +25,22 @@ export default function Modal(props: ModalProps) {
   } = props;
 
   const handleModalClose = (event: any) => {
-    if (event.target === event.currentTarget) onClose();
+    if (event.target === event.currentTarget || event.key === 'Escape') {
+      onClose();
+    }
   }
 
   if (!isOpen) return null;
 
   return (
     <div
+      onClick={handleModalClose}
+      onKeyDown={handleModalClose}
+      // Todo: find better solution for accessibility here
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      tabIndex={-1}
       className="
         fixed
         inset-0
@@ -40,11 +53,6 @@ export default function Modal(props: ModalProps) {
         bg-black
         bg-opacity-60
       "
-      onClick={handleModalClose}
-      // Todo: find better solution for accessibility here
-      onKeyDown={handleModalClose}
-      role="dialog"
-      tabIndex={0}
     >
       <div
         className="
@@ -61,7 +69,7 @@ export default function Modal(props: ModalProps) {
           gap-5
         "
       >
-        <h2 className="text-xl font-medium">{title}</h2>
+        <h2 id="modal-title" className="text-xl font-medium">{title}</h2>
         <h4 className="text-base text-gray-500">{description}</h4>
         <div>{children}</div>
         <div className="flex flex-row gap-4 justify-end">{action}</div>
