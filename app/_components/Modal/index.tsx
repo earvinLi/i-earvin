@@ -4,6 +4,9 @@
   jsx-a11y/no-noninteractive-element-interactions
 */
 
+// External Dependencies
+import classNames from 'classnames';
+
 type ModalProps = {
   isOpen: boolean;
   onClose: () => void;
@@ -11,6 +14,16 @@ type ModalProps = {
   description: string;
   children: React.ReactNode;
   action: React.ReactNode;
+  size: 'small' | 'medium' | 'large';
+};
+
+// Local Variables
+const modalStyles = {
+  size: {
+    small: 'w-[320px]',
+    medium: 'w-[640px]',
+    large: 'w-[960px]',
+  },
 };
 
 // Component Definition
@@ -22,6 +35,7 @@ export default function Modal(props: ModalProps) {
     description,
     children,
     action,
+    size,
   } = props;
 
   const handleModalClose = (event: any) => {
@@ -55,23 +69,22 @@ export default function Modal(props: ModalProps) {
       "
     >
       <div
-        className="
-          relative
+        className={classNames(
+          `relative
           p-6
           w-1/2
-          min-w-[50%]
-          max-w-[50%]
           rounded-md
           bg-white
           shadow-sm
           flex
           flex-col
-          gap-5
-        "
+          gap-5`,
+          modalStyles.size[size],
+        )}
       >
         <h2 id="modal-title" className="text-xl font-medium">{title}</h2>
         <h4 className="text-base text-gray-500">{description}</h4>
-        <div>{children}</div>
+        <div className="flex flex-col w-full">{children}</div>
         <div className="flex flex-row gap-4 justify-end">{action}</div>
       </div>
     </div>

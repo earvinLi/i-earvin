@@ -29,6 +29,7 @@ export default function ContactMeModal(props: ContactMeModalProps) {
           <Button onClick={() => console.log(contactMessage)}>Submit</Button>
         </>
       )}
+      size="medium"
     >
       <TiptapEditor
         value={contactMessage}
