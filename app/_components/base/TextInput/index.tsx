@@ -16,8 +16,8 @@ export default function TextInput(props: TextInputProps) {
     <div className="w-full">
       <div className="relative">
         <input
-          // value={value}
-          // onChange={onChange}
+          value={value}
+          onChange={onChange}
           // This is to fulfill proper label and border styles when input is not empty
           placeholder=" "
           className="
@@ -55,7 +55,7 @@ export default function TextInput(props: TextInputProps) {
             peer-focus:scale-90
             peer-[:not(:placeholder-shown)]:-top-2
             peer-[:not(:placeholder-shown)]:text-xs
-            peer-[:not(:placeholder-shown)]:text-[#00A3DA]
+            peer-[:not(:placeholder-shown)]:text-gray-400
             peer-[:not(:placeholder-shown)]:scale-90
           "
         >

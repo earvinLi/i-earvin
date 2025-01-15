@@ -1,11 +1,13 @@
 // External Dependencies
 import { useState } from 'react';
+import { Controller } from 'react-hook-form';
 
 // Internal Dependencies
 import Button from '@/components/Button';
 import Modal from '@/components/Modal';
 import TextInput from '@/components/base/TextInput';
 import TiptapEditor from '@/components/TiptapEditor';
+import useContactMeForm from '@/hooks/project/useContactMeForm';
 
 type ContactMeModalProps = {
   isContactMeModalOpen: boolean;
@@ -16,7 +18,16 @@ type ContactMeModalProps = {
 export default function ContactMeModal(props: ContactMeModalProps) {
   const { isContactMeModalOpen, setIsContactMeModalOpen } = props;
 
-  const [contactMessage, setContactMessage] = useState('<p>Start typing here...</p>');
+  const {
+    contactMeFormHandleSubmit,
+    contactMeFormControl,
+    contactMeFormReset,
+  } = useContactMeForm();
+
+  const handleCreateContactMeMessage = (dataToCreateContactMeMessage) => {
+    console.log(dataToCreateContactMeMessage);
+    contactMeFormReset();
+  };
 
   return (
     <Modal
@@ -27,21 +38,34 @@ export default function ContactMeModal(props: ContactMeModalProps) {
       action={(
         <>
           <Button onClick={() => setIsContactMeModalOpen(false)}>Close</Button>
-          <Button onClick={() => console.log(contactMessage)}>Submit</Button>
+          <Button onClick={contactMeFormHandleSubmit(handleCreateContactMeMessage)}>Submit</Button>
         </>
       )}
       size="medium"
     >
       <div className='w-full flex flex-col gap-6'>
-        <TextInput
-          label="Contact info"
-          value=""
-          onChange={(e) => console.log(e.target.value)}
+        <Controller
+          name="contactInfo"
+          control={contactMeFormControl}
+          rules={{ required: true }}
+          render={({ field }) => (
+            <TextInput
+              label="Contact info"
+              {...field}
+            />
+          )}
         />
-        <TiptapEditor
-          label="Contact message"
-          value={contactMessage}
-          onChange={(value: string) => setContactMessage(value)}
+        <Controller
+          name="contactMessage"
+          control={contactMeFormControl}
+          rules={{ required: true }}
+          render={({ field }) => (
+            <TiptapEditor
+              label="Contact message"
+              value={field.value}
+              onChange={field.onChange}
+            />
+          )}
         />
       </div>
     </Modal>
