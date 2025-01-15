@@ -4,6 +4,7 @@ import { useState } from 'react';
 // Internal Dependencies
 import Button from '@/components/Button';
 import Modal from '@/components/Modal';
+import TextInput from '@/components/base/TextInput';
 import TiptapEditor from '@/components/TiptapEditor';
 
 type ContactMeModalProps = {
@@ -31,10 +32,18 @@ export default function ContactMeModal(props: ContactMeModalProps) {
       )}
       size="medium"
     >
-      <TiptapEditor
-        value={contactMessage}
-        onChange={(value: string) => setContactMessage(value)}
-      />
+      <div className='w-full flex flex-col gap-6'>
+        <TextInput
+          label="Contact info"
+          value=""
+          onChange={(e) => console.log(e.target.value)}
+        />
+        <TiptapEditor
+          label="Contact message"
+          value={contactMessage}
+          onChange={(value: string) => setContactMessage(value)}
+        />
+      </div>
     </Modal>
   );
 }

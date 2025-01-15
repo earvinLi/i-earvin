@@ -84,7 +84,7 @@ export default function Modal(props: ModalProps) {
       >
         <h2 id="modal-title" className="text-xl font-medium">{title}</h2>
         <h4 className="text-base text-gray-500">{description}</h4>
-        <div className="flex flex-col w-full">{children}</div>
+        {children}
         <div className="flex flex-row gap-4 justify-end">{action}</div>
       </div>
     </div>
