@@ -13,10 +13,10 @@ datasource db {
 }
 
 model ContactMeMessage {
-  id          String   @id @default(cuid())
-  contactInfo String?  @default("Not provided")
-  message     String
-  createdAt   DateTime @default(now())
+  id             String   @id @default(cuid())
+  contactInfo    String?  @default("Not provided")
+  contactMessage String
+  createdAt      DateTime @default(now())
   // author      User     @relation(fields: [authorId], references: [id])
   // authorId    String   @unique
   // author      User[]

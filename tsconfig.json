@@ -23,6 +23,7 @@
       "@/modules/*": ["_modules/*"],
       "@/components/*": ["_components/*"],
       "@/hooks/*": ["_hooks/*"],
+      "@/actions/*": ["_actions/*"],
       "@/utilities/*": ["_utilities/*"],
       "@/constants/*": ["_constants/*"]
     }

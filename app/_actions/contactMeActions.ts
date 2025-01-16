@@ -7,12 +7,14 @@ import { Prisma } from '@prisma/client';
 // Internal Dependencies
 import { prisma } from '@/utilities/prismaUtils/prismaClient';
 
-export const createContactMeMessage = async (contactInfo: string, message: string) => {
+export const createContactMeMessage = async (dataToCreateContactMeMessage) => {
+  const { contactInfo, contactMessage } = dataToCreateContactMeMessage;
+
   try {
     await prisma.contactMeMessage.create({
       data: {
         contactInfo,
-        message,
+        contactMessage,
         // author: {
         //   connect: {
         //     email: '',
