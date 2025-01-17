@@ -1,4 +1,5 @@
 // External Dependencies
+import { useEffect } from 'react';
 import { EditorContent, useEditor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 
@@ -24,6 +25,13 @@ export default function TiptapEditor(props: TiptapEditorProps) {
       onChange(currentEditor.getHTML());
     },
   });
+
+  // Sync value with editor for form reset case
+  useEffect(() => {
+    if (editor && value !== editor.getHTML()) {
+      editor.commands.setContent(value);
+    }
+  }, [editor, value]);
 
   return (
     <div className="flex flex-col gap-2">
