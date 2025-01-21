@@ -16,6 +16,7 @@ export default function TextInput(props: TextInputProps) {
     <div className="w-full">
       <div className="relative">
         <input
+          id="text-input-input"
           value={value}
           onChange={onChange}
           // This is to fulfill proper label and border styles when input is not empty
@@ -38,6 +39,7 @@ export default function TextInput(props: TextInputProps) {
           "
         />
         <label
+          htmlFor="text-input-input"
           className="
             absolute
             cursor-text

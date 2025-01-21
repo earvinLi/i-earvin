@@ -24,6 +24,7 @@ export default function TiptapEditor(props: TiptapEditorProps) {
     onUpdate({ editor: currentEditor }) {
       onChange(currentEditor.getHTML());
     },
+    immediatelyRender: false,
   });
 
   // Sync value with editor for form reset case

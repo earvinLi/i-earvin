@@ -9,7 +9,9 @@ import { prisma } from '@/utilities/prismaUtils/prismaClient';
 
 export type DataToCreateContactMeMessageTypes = Omit<ContactMeMessageTypes, 'id' | 'createdAt'>;
 
-export const createContactMeMessage = async (dataToCreateContactMeMessage: DataToCreateContactMeMessageTypes) => {
+export const createContactMeMessage = async (
+  dataToCreateContactMeMessage: DataToCreateContactMeMessageTypes,
+) => {
   const { contactInfo, contactMessage } = dataToCreateContactMeMessage;
 
   try {

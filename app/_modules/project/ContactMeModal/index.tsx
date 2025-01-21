@@ -24,10 +24,12 @@ export default function ContactMeModal(props: ContactMeModalProps) {
     contactMeFormReset,
   } = useContactMeForm();
 
-  const handleCreateContactMeMessage = async (dataToCreateContactMeMessage: DataToCreateContactMeMessageTypes) => {
-    console.log(dataToCreateContactMeMessage);
+  const handleCreateContactMeMessage = async (
+    dataToCreateContactMeMessage: DataToCreateContactMeMessageTypes,
+  ) => {
     await createContactMeMessage(dataToCreateContactMeMessage);
     contactMeFormReset();
+    setIsContactMeModalOpen(false);
   };
 
   return (
@@ -44,7 +46,7 @@ export default function ContactMeModal(props: ContactMeModalProps) {
       )}
       size="medium"
     >
-      <div className='w-full flex flex-col gap-6'>
+      <div className="w-full flex flex-col gap-6">
         <Controller
           name="contactInfo"
           control={contactMeFormControl}
