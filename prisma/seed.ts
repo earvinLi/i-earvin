@@ -8,7 +8,7 @@ const prisma = new PrismaClient()
 const initialContactMeMessages: Prisma.ContactMeMessageCreateInput[] = [
   {
     contactInfo: 'Not provided',
-    message: '<p>Hi, I would like to know more about your services.</p>',
+    contactMessage: '<p>Hi, I would like to know more about your services.</p>',
     // author: {
     //   connectOrCreate: {
     //     where: {

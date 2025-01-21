@@ -1,5 +1,4 @@
 // External Dependencies
-import { useState } from 'react';
 import { Controller } from 'react-hook-form';
 
 // Internal Dependencies
@@ -8,7 +7,7 @@ import Modal from '@/components/Modal';
 import TextInput from '@/components/base/TextInput';
 import TiptapEditor from '@/components/TiptapEditor';
 import useContactMeForm from '@/hooks/project/useContactMeForm';
-import { createContactMeMessage } from '@/actions/contactMeActions';
+import { createContactMeMessage, DataToCreateContactMeMessageTypes } from '@/actions/contactMeActions';
 
 type ContactMeModalProps = {
   isContactMeModalOpen: boolean;
@@ -25,7 +24,7 @@ export default function ContactMeModal(props: ContactMeModalProps) {
     contactMeFormReset,
   } = useContactMeForm();
 
-  const handleCreateContactMeMessage = async (dataToCreateContactMeMessage) => {
+  const handleCreateContactMeMessage = async (dataToCreateContactMeMessage: DataToCreateContactMeMessageTypes) => {
     console.log(dataToCreateContactMeMessage);
     await createContactMeMessage(dataToCreateContactMeMessage);
     contactMeFormReset();
@@ -53,7 +52,8 @@ export default function ContactMeModal(props: ContactMeModalProps) {
           render={({ field }) => (
             <TextInput
               label="Contact info"
-              {...field}
+              value={field.value as string}
+              onChange={field.onChange}
             />
           )}
         />

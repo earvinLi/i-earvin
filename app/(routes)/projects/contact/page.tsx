@@ -18,7 +18,7 @@ export default async function Contact() {
 
   return (
     <ul>
-      {contactMeMessages.map((contactMeMessage) => <li>{contactMeMessage.message}</li>)}
+      {contactMeMessages.map((contactMeMessage) => <li>{contactMeMessage.contactMessage}</li>)}
     </ul>
   );
 }

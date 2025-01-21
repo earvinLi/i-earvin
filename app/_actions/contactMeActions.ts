@@ -2,12 +2,14 @@
 
 // External Dependencies
 import { revalidatePath } from 'next/cache';
-import { Prisma } from '@prisma/client';
+import { Prisma, ContactMeMessage as ContactMeMessageTypes } from '@prisma/client';
 
 // Internal Dependencies
 import { prisma } from '@/utilities/prismaUtils/prismaClient';
 
-export const createContactMeMessage = async (dataToCreateContactMeMessage) => {
+export type DataToCreateContactMeMessageTypes = Omit<ContactMeMessageTypes, 'id' | 'createdAt'>;
+
+export const createContactMeMessage = async (dataToCreateContactMeMessage: DataToCreateContactMeMessageTypes) => {
   const { contactInfo, contactMessage } = dataToCreateContactMeMessage;
 
   try {
