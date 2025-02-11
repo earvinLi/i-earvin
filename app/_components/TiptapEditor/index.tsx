@@ -5,6 +5,7 @@ import StarterKit from '@tiptap/starter-kit';
 
 // Local Dependencies
 import TiptapEditorToolbar from './TiptapEditorToolbar';
+import './tiptapEditorStyles.scss';
 
 type TiptapEditorProps = {
   label: string;
