@@ -25,7 +25,7 @@ export default function Projects() {
             <div className="text-2xl my-2 mx-0">Full Stack Engineer</div>
             <Button
               onClick={() => setIsContactMeModalOpen(true)}
-              variant='outlined'
+              variant="outlined"
             >
               Contact me
             </Button>

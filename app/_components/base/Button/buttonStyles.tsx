@@ -1,5 +1,5 @@
 const buttonStyles = {
-  Button_baseStyle: `
+  ButtonBaseStyle: `
     rounded-md
     py-2
     px-4
@@ -17,19 +17,19 @@ const buttonStyles = {
     disabled:opacity-50
     disabled:shadow-none
   `,
-  Button_variantTextStyle: `
+  ButtonVariantTextStyle: `
     border
     border-transparent
     hover:border-transparent
     focus:border-transparent
     active:border-transparent
   `,
-  Button_variantOutlinedStyle: `
+  ButtonVariantOutlinedStyle: `
     border
     border-slate-300
     shadow-sm
   `,
-  Button_variantContainedtyle: `
+  ButtonVariantContainedtyle: `
     bg-[#00A3DA]
     text-white
     shadow-sm
