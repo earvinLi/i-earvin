@@ -7,7 +7,7 @@ import { useState } from 'react';
 import AppNavigation from '@/modules/AppNavigation';
 import AppFooter from '@/modules/AppFooter';
 import ContactMeModal from '@/modules/project/ContactMeModal';
-import Button from '@/components/Button';
+import Button from '@/components/base/Button';
 import ProjectCard from '@/components/ProjectCard';
 import { projects } from '@/constants/projectData';
 
@@ -23,7 +23,12 @@ export default function Projects() {
           <div className="flex flex-col items-end border-b-4 border-[#00A3DA] pb-4">
             <div className="text-6xl text-bold uppercase">Earvin Li</div>
             <div className="text-2xl my-2 mx-0">Full Stack Engineer</div>
-            <Button onClick={() => setIsContactMeModalOpen(true)}>Contact me</Button>
+            <Button
+              onClick={() => setIsContactMeModalOpen(true)}
+              variant='outlined'
+            >
+              Contact me
+            </Button>
           </div>
           <div className="text-4xl text-[#868e96] my-4 mx-0">Projects</div>
           <div className="mb-6 flex flex-col gap-6">

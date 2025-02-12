@@ -71,7 +71,9 @@ export default function Modal(props: ModalProps) {
       <div
         className={classNames(
           `relative
-          p-6
+          pt-6
+          px-6
+          pb-4
           w-1/2
           rounded-md
           bg-white

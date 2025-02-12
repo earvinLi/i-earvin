@@ -2,7 +2,7 @@
 import { Controller } from 'react-hook-form';
 
 // Internal Dependencies
-import Button from '@/components/Button';
+import Button from '@/components/base/Button';
 import Modal from '@/components/Modal';
 import TextInput from '@/components/base/TextInput';
 import TiptapEditor from '@/components/TiptapEditor';
