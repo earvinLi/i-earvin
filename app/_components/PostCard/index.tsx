@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { format } from 'date-fns';
 
 // Internal Dependencies
-import Avatar from '@/components/Avatar';
+import Avatar from '@/components/base/Avatar';
 import OptimizedImage from '@/components/OptimizedImage';
 
 type PostCardProps = {

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Document as TypeDocument } from '@contentful/rich-text-types';
 
 // Internal Dependencies
-import Avatar from '@/components/Avatar';
+import Avatar from '@/components/base/Avatar';
 import ContentfulRichText from '@/components/ContentfulRichText';
 import FormattedDate from '@/components/FormattedDate';
 import OptimizedImage from '@/components/OptimizedImage';

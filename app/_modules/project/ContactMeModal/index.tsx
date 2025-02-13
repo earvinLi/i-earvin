@@ -3,7 +3,7 @@ import { Controller } from 'react-hook-form';
 
 // Internal Dependencies
 import Button from '@/components/base/Button';
-import Modal from '@/components/Modal';
+import Modal from '@/components/base/Modal';
 import TextInput from '@/components/base/TextInput';
 import TiptapEditor from '@/components/TiptapEditor';
 import useContactMeForm from '@/hooks/project/useContactMeForm';

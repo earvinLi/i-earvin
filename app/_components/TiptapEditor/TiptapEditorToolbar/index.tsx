@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 
 // Internal Dependencies
-import IconButton from "@/components/IconButton";
+import IconButton from "@/components/base/IconButton";
 
 type TiptapEditorToolbarProps = {
   editor: TiptapEditorTypoe | null;
