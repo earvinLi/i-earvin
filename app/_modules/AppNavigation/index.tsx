@@ -7,6 +7,7 @@ import classNames from 'classnames';
 
 // Local Variables
 const pageData = [
+  { name: 'Home', path: '/' },
   { name: 'Projects', path: '/projects' },
   { name: 'Posts', path: '/posts' },
 ];

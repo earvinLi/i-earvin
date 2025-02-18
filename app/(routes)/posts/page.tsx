@@ -12,7 +12,7 @@ export default async function Posts() {
   const allPosts = await getPosts();
 
   return (
-    <div className="min-w-[100vh] flex flex-col">
+    <div className="min-w-[100vw] flex flex-col">
       <AppNavigation />
       <div className="w-[70%] my-0 mx-auto">
         <div className="flex flex-col items-end border-b-4 border-[#00A3DA] pb-4">
