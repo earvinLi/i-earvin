@@ -1,9 +1,14 @@
 'use client';
 
 // External Dependencies
+import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import classNames from 'classnames';
+
+// Internal Dependencies
+import Button from '@/components/base/Button';
+import ContactMeModal from '@/modules/project/ContactMeModal';
 
 // Local Variables
 const pageData = [
@@ -25,23 +30,40 @@ const checkIsCurrentPath = (currentPath: string, route: string): boolean => curr
 export default function AppNavigation() {
   const pathname = usePathname();
 
-  return (
-    <div className="w-[70%] mx-auto my-4 flex flex-row gap-6">
-      {pageData.map((page) => {
-        const { name, path } = page;
-        const isCurrentPage = checkIsCurrentPath(pathname, path);
-        const fontStyle = isCurrentPage ? appNavigationStyles.font.current : appNavigationStyles.font.other; // eslint-disable-line max-len
+  const [isContactMeModalOpen, setIsContactMeModalOpen] = useState(false);
 
-        return (
-          <Link
-            key={`${path}-${name}`}
-            href={path}
-            className={classNames('text-lg decoration-[#00A3DA] decoration-2 underline-offset-8', fontStyle)}
-          >
-            {name}
-          </Link>
-        );
-      })}
-    </div>
+  return (
+    <>
+      <div className="w-[70%] mx-auto mt-4 mb-8 flex flex-row">
+        <div className="flex flex-row gap-6">
+          {pageData.map((page) => {
+            const { name, path } = page;
+            const isCurrentPage = checkIsCurrentPath(pathname, path);
+            const fontStyle = isCurrentPage ? appNavigationStyles.font.current : appNavigationStyles.font.other; // eslint-disable-line max-len
+
+            return (
+              <Link
+                key={`${path}-${name}`}
+                href={path}
+                className={classNames('text-lg decoration-[#00A3DA] decoration-2 underline-offset-8', fontStyle)}
+              >
+                {name}
+              </Link>
+            );
+          })}
+        </div>
+        <div className="flex-grow" />
+        <Button
+          onClick={() => setIsContactMeModalOpen(true)}
+          variant="outlined"
+        >
+          Contact me
+        </Button>
+      </div>
+      <ContactMeModal
+        isContactMeModalOpen={isContactMeModalOpen}
+        setIsContactMeModalOpen={setIsContactMeModalOpen}
+      />
+    </>
   );
 }
