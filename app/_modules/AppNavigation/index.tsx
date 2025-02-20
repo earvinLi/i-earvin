@@ -26,6 +26,10 @@ const appNavigationStyles = {
 
 const checkIsCurrentPath = (currentPath: string, route: string): boolean => currentPath === route;
 
+// Todo: move these logics to 'FormattedDate'
+const options = { timeZone: 'Asia/Shanghai', hour: 'numeric' as const, minute: 'numeric' as const };
+const beijingTime = new Date().toLocaleString('en-US', options);
+
 // Component Definition
 export default function AppNavigation() {
   const pathname = usePathname();
@@ -53,12 +57,15 @@ export default function AppNavigation() {
           })}
         </div>
         <div className="flex-grow" />
-        <Button
-          onClick={() => setIsContactMeModalOpen(true)}
-          variant="outlined"
-        >
-          Contact me
-        </Button>
+        <div className="flex flex-row gap-4 items-center">
+          <Button
+            onClick={() => setIsContactMeModalOpen(true)}
+            variant="outlined"
+          >
+            Contact me
+          </Button>
+          <div>{`Beijing.${beijingTime}`}</div>
+        </div>
       </div>
       <ContactMeModal
         isContactMeModalOpen={isContactMeModalOpen}
