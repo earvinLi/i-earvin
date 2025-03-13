@@ -12,7 +12,7 @@ import ContactMeModal from '@/modules/project/ContactMeModal';
 
 // Local Variables
 const pageData = [
-  { name: 'Home', path: '/' },
+  // { name: 'Home', path: '/' },
   { name: 'Projects', path: '/projects' },
   { name: 'Posts', path: '/posts' },
 ];
@@ -27,8 +27,9 @@ const appNavigationStyles = {
 const checkIsCurrentPath = (currentPath: string, route: string): boolean => currentPath === route;
 
 // Todo: move these logics to 'FormattedDate'
-const options = { timeZone: 'Asia/Shanghai', hour: 'numeric' as const, minute: 'numeric' as const };
-const beijingTime = new Date().toLocaleString('en-US', options);
+// eslint-disable-next-line max-len
+// const options = { timeZone: 'Asia/Shanghai', hour: 'numeric' as const, minute: 'numeric' as const };
+// const beijingTime = new Date().toLocaleString('en-US', options);
 
 // Component Definition
 export default function AppNavigation() {
@@ -64,7 +65,7 @@ export default function AppNavigation() {
           >
             Contact me
           </Button>
-          <div>{`Beijing.${beijingTime}`}</div>
+          {/* <div>{`Beijing.${beijingTime}`}</div> */}
         </div>
       </div>
       <ContactMeModal
