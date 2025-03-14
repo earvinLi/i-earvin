@@ -1,5 +1,7 @@
 const buttonStyles = {
   ButtonBaseStyle: `
+    w-fit
+    h-[40px]
     rounded-md
     py-2
     px-4

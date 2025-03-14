@@ -1,6 +1,3 @@
-// External Dependencies
-import classNames from 'classnames';
-
 // Internal Dependencies
 import OptimizedImage from '@/components/OptimizedImage';
 
@@ -12,17 +9,11 @@ const avatarStyles = {
     medium: 'w-[36px] h-[36px]',
     large: 'w-[48px] h-[48px]',
   },
-  font: {
-    small: 'text-sm',
-    medium: 'text-lg',
-    large: 'text-xl font-bold',
-  },
 };
 
 type AvatarProps = {
   name: string;
   image: string;
-  direction: 'horizontal' | 'vertical';
   size: 'small' | 'medium' | 'large';
 }
 
@@ -31,11 +22,8 @@ export default function Avatar(props: AvatarProps) {
   const {
     name,
     image,
-    direction,
     size,
   } = props;
-
-  const isVertial = direction === 'vertical';
 
   let imageWidth;
   let imageHeight;
@@ -47,17 +35,14 @@ export default function Avatar(props: AvatarProps) {
   }
 
   return (
-    <div className={classNames('flex', { 'flex-col': isVertial }, 'items-center')}>
-      <div className={classNames({ 'mr-4': !isVertial, 'mb-4': isVertial }, avatarStyles.size[size])}>
-        <OptimizedImage
-          alt={`Avatar of ${name}`}
-          src={image}
-          width={imageWidth}
-          height={imageHeight}
-          className="object-cover h-full rounded-full"
-        />
-      </div>
-      <div className={avatarStyles.font[size]}>{name}</div>
+    <div className={avatarStyles.size[size]}>
+      <OptimizedImage
+        alt={`Avatar of ${name}`}
+        src={image}
+        width={imageWidth}
+        height={imageHeight}
+        className="object-cover h-full rounded-full"
+      />
     </div>
   );
 }

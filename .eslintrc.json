@@ -16,6 +16,8 @@
   "rules": {
     "react/react-in-jsx-scope": "off",
     "import/prefer-default-export": "off",
+    // Todo: check more about whether to use this rule or not
+    "react/require-default-props": "off",
     // Todo: find better solution for '@typescript-eslint' plugin
     "@typescript-eslint/brace-style": "off",
     "@typescript-eslint/comma-dangle": "off",

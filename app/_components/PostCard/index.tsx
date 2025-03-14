@@ -48,17 +48,17 @@ export default function PostCard(props: PostCardProps) {
             {title}
           </Link>
           <div className="text-lg leading-relaxed mb-4">{excerpt}</div>
-          <div className="flex">
-            <div className="mr-6">
-              {author && (
+          <div className="flex items-center">
+            {author && (
+              <div className="flex gap-2 items-center mr-6">
                 <Avatar
                   name={author.name}
                   image={author.picture.url}
-                  direction="horizontal"
                   size="small"
                 />
-              )}
-            </div>
+                <div className="text-sm">{author.name}</div>
+              </div>
+            )}
             <time dateTime={date} className="text-sm">
               {format(new Date(date), "LLLL d, yyyy")}
             </time>

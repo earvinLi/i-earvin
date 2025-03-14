@@ -8,14 +8,14 @@ import TiptapEditorToolbar from './TiptapEditorToolbar';
 import './tiptapEditorStyles.scss';
 
 type TiptapEditorProps = {
-  label: string;
+  label?: string;
   value: string;
   onChange: (value: string) => void;
 }
 
 // Component Definition
 export default function TiptapEditor(props: TiptapEditorProps) {
-  const { label, value, onChange } = props;
+  const { label = '', value, onChange } = props;
 
   const editor = useEditor({
     extensions: [StarterKit],
@@ -37,7 +37,7 @@ export default function TiptapEditor(props: TiptapEditorProps) {
 
   return (
     <div className="flex flex-col gap-2">
-      <div className="text-gray-400 text-base">{label}</div>
+      {label && <div className="text-gray-400 text-base">{label}</div>}
       <div className="w-full border-2 border-gray-300 rounded p-3 flex flex-col gap-2">
         <TiptapEditorToolbar editor={editor} />
         <EditorContent editor={editor} />

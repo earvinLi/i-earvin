@@ -3,11 +3,13 @@ import Link from 'next/link';
 import { Document as TypeDocument } from '@contentful/rich-text-types';
 
 // Internal Dependencies
+import CommentSection from '@/modules/post/CommentSection';
 import Avatar from '@/components/base/Avatar';
 import ContentfulRichText from '@/components/ContentfulRichText';
 import FormattedDate from '@/components/FormattedDate';
 import OptimizedImage from '@/components/OptimizedImage';
 import { getPosts, getPost } from '@/utilities/contentfulUtilities/contentfulDataHelpers';
+import { prisma } from '@/utilities/prismaUtils/prismaClient';
 
 type PostPageProps = {
   params: { slug: string };
@@ -30,6 +32,8 @@ export default async function PostPage(props: PostPageProps) {
     date,
   } = await getPost(params.slug);
 
+  const postComments = await prisma.postComment.findMany();
+
   return (
     <div className="container mx-auto p-6">
       <h2 className="mb-6 text-2xl font-bold leading-tight tracking-tight">
@@ -51,16 +55,16 @@ export default async function PostPage(props: PostPageProps) {
             className="object-cover w-full h-full"
           />
         </div>
-        <div className="mb-8">
-          {author && (
+        {author && (
+          <div className="flex flex-col items-center gap-2 mb-8">
             <Avatar
               name={author.name}
               image={author.picture.url}
-              direction="vertical"
               size="large"
             />
-          )}
-        </div>
+            <div className="text-xl font-bold">{author.name}</div>
+          </div>
+        )}
         <div className="flex">
           <div className="min-w-[64px] mr-8">
             <FormattedDate
@@ -73,6 +77,9 @@ export default async function PostPage(props: PostPageProps) {
           </div>
         </div>
       </article>
+      <section className="w-3/4 mx-auto mt-6 flex flex-col border-t border-gray-300 pt-6">
+        <CommentSection postId={params.slug} postComments={postComments} />
+      </section>
     </div>
   );
 }
