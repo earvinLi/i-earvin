@@ -8,6 +8,7 @@ import { PostComment as PostCommentTypes } from '@prisma/client';
 import Avatar from '@/components/base/Avatar';
 import Button from '@/components/base/Button';
 import CommentItem from '@/components/comment/CommentItem';
+import TextInput from '@/components/base/TextInput';
 import TiptapEditor from '@/components/TiptapEditor';
 import useCommentPostForm from '@/hooks/post/useCommentPostForm';
 import { createPostComment, DataToCreatePostCommentTypes } from '@/actions/comentPostActions';
@@ -39,13 +40,26 @@ export default function CommentSection(props: CommentSectionProps) {
       <h2 className="text-xl font-bold">
         {`Comment${postComments.length > 1 ? 's' : ''} ${postComments.length > 0 ? `(${postComments.length})` : ''}`}
       </h2>
-      <div className="flex gap-3 items-center mr-6">
+      <div className="flex gap-5 items-center">
         <Avatar
           name="John Doe"
-          image="/profile_earvin.jpg"
+          image="/avatar_default.jpg"
           size="medium"
         />
-        <div className="text-lg">John Doe</div>
+        <div className="w-[196px]">
+          <Controller
+            name="commenter"
+            control={commentPostFormControl}
+            rules={{ maxLength: 20 }}
+            render={({ field }) => (
+              <TextInput
+                label="Commenter"
+                value={field.value as string}
+                onChange={field.onChange}
+              />
+            )}
+          />
+        </div>
       </div>
       <Controller
         name="commentContent"

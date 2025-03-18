@@ -18,7 +18,7 @@ export default function CommentItem(props: CommentItemProps) {
       <div className="flex flex-row items-center gap-5">
         <Avatar
           name={comment.commenter as string}
-          image="/profile_earvin.jpg"
+          image="/avatar_default.jpg"
           size="medium"
         />
         <div className="flex flex-col gap-1">
@@ -28,7 +28,9 @@ export default function CommentItem(props: CommentItemProps) {
           </time>
         </div>
       </div>
-      <p>{comment.commentContent}</p>
+      {/* Todo: find better solution(s) to deal with HTML content */}
+      {/* eslint-disable-next-line react/no-danger */}
+      <div dangerouslySetInnerHTML={{ __html: comment.commentContent }} />
     </div>
   );
 }
