@@ -35,10 +35,10 @@ export default function ProjectCard(props: ProjectCardProps) {
             />
           </div>
         </div>
-        <div className="flex flex-col grow ml-12">
-          <div className="text-3xl leading-snug mb-2">{title}</div>
-          <div className="text-base text-gray-500 leading-relaxed mb-2">{description}</div>
-          <div>
+        <div className="flex flex-col grow gap-2 ml-12">
+          <div className="text-3xl leading-snug">{title}</div>
+          <div className="text-base text-gray-500 leading-relaxed">{description}</div>
+          <ul className="list-disc pl-5">
             {techList.map((tech) => {
               const {
                 techName,
@@ -61,7 +61,7 @@ export default function ProjectCard(props: ProjectCardProps) {
                 </li>
               );
             })}
-          </div>
+          </ul>
         </div>
       </div>
     </div>
