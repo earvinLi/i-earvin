@@ -69,6 +69,7 @@ export default function CommentSection(props: CommentSectionProps) {
           <TiptapEditor
             value={field.value}
             onChange={field.onChange}
+            toolbarActions={['bold', 'italic', 'bulletList', 'orderedList', 'undo', 'redo']}
           />
         )}
       />
