@@ -11,7 +11,7 @@ const {
   ButtonBaseStyle,
   ButtonVariantTextStyle,
   ButtonVariantOutlinedStyle,
-  ButtonVariantContainedtyle,
+  ButtonVariantContainedStyle,
 } = buttonStyles;
 
 type ButtonProps = {
@@ -29,7 +29,7 @@ export default function Button(props: ButtonProps) {
   switch (variant) {
     case 'text': buttonVariantStyle = ButtonVariantTextStyle; break;
     case 'outlined': buttonVariantStyle = ButtonVariantOutlinedStyle; break;
-    case 'contained': buttonVariantStyle = ButtonVariantContainedtyle; break;
+    case 'contained': buttonVariantStyle = ButtonVariantContainedStyle; break;
     default: buttonVariantStyle = ButtonVariantTextStyle;
   }
 

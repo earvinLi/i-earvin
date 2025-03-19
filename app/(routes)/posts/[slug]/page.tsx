@@ -1,6 +1,7 @@
 // External Dependencies
 import Link from 'next/link';
 import { Document as TypeDocument } from '@contentful/rich-text-types';
+import { ArrowBigLeft as ArrowBigLeftIcon } from 'lucide-react';
 
 // Internal Dependencies
 import CommentSection from '@/modules/post/CommentSection';
@@ -10,6 +11,7 @@ import FormattedDate from '@/components/FormattedDate';
 import OptimizedImage from '@/components/OptimizedImage';
 import { getPosts, getPost } from '@/utilities/contentfulUtilities/contentfulDataHelpers';
 import { prisma } from '@/utilities/prismaUtils/prismaClient';
+import IconButton from "@/components/base/IconButton";
 
 type PostPageProps = {
   params: { slug: string };
@@ -35,18 +37,12 @@ export default async function PostPage(props: PostPageProps) {
   const postComments = await prisma.postComment.findMany();
 
   return (
-    <div className="container mx-auto p-6">
-      <h2 className="mb-6 text-2xl font-bold leading-tight tracking-tight">
-        <Link href="/posts" className="hover:underline">
-          Back
-        </Link>
-        .
-      </h2>
-      <article className="w-3/4 mx-auto flex flex-col items-center">
-        <h1 className="text-3xl font-bold mb-8">
+    <div className="w-3/4 mx-auto pt-12 flex flex-col">
+      <article className="flex flex-col items-center gap-10">
+        <h1 className="text-3xl font-bold">
           {typeof title === 'string' ? title : ''}
         </h1>
-        <div className="w-[768px] h-[368px] mb-8">
+        <div className="w-[768px] h-[368px]">
           <OptimizedImage
             alt={`Cover image for ${title}`}
             src={coverImage.url}
@@ -56,7 +52,7 @@ export default async function PostPage(props: PostPageProps) {
           />
         </div>
         {author && (
-          <div className="flex flex-col items-center gap-2 mb-8">
+          <div className="flex flex-col items-center gap-2">
             <Avatar
               name={author.name}
               image={author.picture.url}
@@ -65,21 +61,28 @@ export default async function PostPage(props: PostPageProps) {
             <div className="text-xl font-bold">{author.name}</div>
           </div>
         )}
-        <div className="flex">
-          <div className="min-w-[64px] mr-8">
+        <div className="flex flex-row gap-8">
+          <div className="flex flex-col items-center gap-4 min-w-[64px]">
             <FormattedDate
               dateString={typeof date === 'string' ? date : ''}
               formatter="postPage"
             />
+            <Link href="/posts">
+              <IconButton
+                icon={<ArrowBigLeftIcon color="black" size={24} />}
+              />
+            </Link>
           </div>
-          <div className="max-w-[768px]">
-            <ContentfulRichText content={content as TypeDocument} />
+          <div className="flex flex-col gap-6 max-w-[768px]">
+            <div>
+              <ContentfulRichText content={content as TypeDocument} />
+            </div>
+            <section className="flex flex-col border-t border-gray-300 pt-6">
+              <CommentSection postId={params.slug} postComments={postComments} />
+            </section>
           </div>
         </div>
       </article>
-      <section className="w-3/4 mx-auto mt-6 flex flex-col border-t border-gray-300 pt-6">
-        <CommentSection postId={params.slug} postComments={postComments} />
-      </section>
     </div>
   );
 }

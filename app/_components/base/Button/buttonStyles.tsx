@@ -31,7 +31,7 @@ const buttonStyles = {
     border-slate-300
     shadow-sm
   `,
-  ButtonVariantContainedtyle: `
+  ButtonVariantContainedStyle: `
     bg-[#00A3DA]
     text-white
     shadow-sm
