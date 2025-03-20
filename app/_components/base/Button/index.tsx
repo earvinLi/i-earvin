@@ -18,11 +18,17 @@ type ButtonProps = {
   children: React.ReactNode;
   onClick?: () => void;
   variant?: 'text' | 'contained' | 'outlined';
+  disabled?: boolean;
 }
 
 // Component Definition
 export default function Button(props: ButtonProps) {
-  const { children, onClick = undefined, variant = 'text' } = props;
+  const {
+    children,
+    onClick = undefined,
+    variant = 'text',
+    disabled = false,
+  } = props;
 
   // Todo: find better solutions for dynamic styles here considering variants like color, size, etc.
   let buttonVariantStyle;
@@ -35,6 +41,7 @@ export default function Button(props: ButtonProps) {
 
   return (
     <button
+      disabled={disabled}
       type="button"
       onClick={onClick}
       className={classNames(ButtonBaseStyle, buttonVariantStyle)}
