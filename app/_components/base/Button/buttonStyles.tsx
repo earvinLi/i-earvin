@@ -7,7 +7,6 @@ const buttonStyles = {
     px-4
     text-center
     text-base
-    text-slate-600
     transition-all
   `,
   ButtonVariantTextStyle: `
@@ -37,7 +36,7 @@ const buttonStyles = {
     disabled:pointer-events-none
     disabled:text-[#616161]
     disabled:bg-transparent
-    disabled:border-[#e0e0e0]
+    disabled:border-[#E0E0E0]
     disabled:opacity-50
     disabled:shadow-none
   `,
@@ -53,7 +52,7 @@ const buttonStyles = {
     active:border-transparent
     disabled:pointer-events-none
     disabled:text-[#616161]
-    disabled:bg-[#e0e0e0]
+    disabled:bg-[#E0E0E0]
     disabled:opacity-50
     disabled:shadow-none
   `,
