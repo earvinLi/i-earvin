@@ -4,7 +4,12 @@
 import { useForm } from 'react-hook-form';
 
 const useCommentPostForm = (postId: string) => {
-  const { handleSubmit, control, reset } = useForm({
+  const {
+    handleSubmit,
+    control,
+    reset,
+    getValues,
+  } = useForm({
     defaultValues: {
       postId,
       commenter: 'John Doe',
@@ -16,6 +21,7 @@ const useCommentPostForm = (postId: string) => {
     commentPostFormHandleSubmit: handleSubmit,
     commentPostFormControl: control,
     commentPostFormReset: reset,
+    commentPostFormGetValues: getValues,
   };
 };
 
