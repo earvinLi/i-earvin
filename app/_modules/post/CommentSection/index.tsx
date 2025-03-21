@@ -12,6 +12,7 @@ import Button from '@/components/base/Button';
 import CommentItem from '@/components/comment/CommentItem';
 import TextInput from '@/components/base/TextInput';
 import TiptapEditor from '@/components/TiptapEditor';
+import Tooltip from '@/components/base/Tooltip';
 import useCommentPostForm from '@/hooks/post/useCommentPostForm';
 import { createPostComment, DataToCreatePostCommentTypes } from '@/actions/comentPostActions';
 import IconButton from "@/components/base/IconButton";
@@ -70,6 +71,7 @@ export default function CommentSection(props: CommentSectionProps) {
               <IconButton
                 icon={<SaveIcon color="gray" size={18} />}
                 onClick={() => setIsEditingCommerter(false)}
+                tooltip="Save"
               />
             </div>
           ) : (
@@ -80,6 +82,7 @@ export default function CommentSection(props: CommentSectionProps) {
               <IconButton
                 icon={<PencilIcon color="gray" size={18} />}
                 onClick={() => setIsEditingCommerter(true)}
+                tooltip="Edit"
               />
             </div>
           )

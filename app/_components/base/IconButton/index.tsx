@@ -5,6 +5,9 @@
 // External Dependencies
 import { ReactNode as TypeReactNode } from 'react';
 
+// Internal Dependencies
+import Tooltip from '@/components/base/Tooltip';
+
 // Local Dependencies
 import iconButtonStyles from './iconButtonStyles';
 
@@ -17,14 +20,20 @@ type IconButtonProps = {
   icon: TypeReactNode;
   onClick?: () => void;
   disabled?: boolean;
+  tooltip?: string;
 };
 
 // Todo: design different sizes for the icon button
 // Component Definition
 export default function IconButton(props: IconButtonProps) {
-  const { icon, onClick = undefined, disabled = false } = props;
+  const {
+    icon,
+    onClick = undefined,
+    disabled = false,
+    tooltip = '',
+  } = props;
 
-  return (
+  const renderIconButton = () => (
     <button
       disabled={disabled}
       type="button"
@@ -35,4 +44,10 @@ export default function IconButton(props: IconButtonProps) {
       {icon}
     </button>
   );
+
+  return (tooltip && !disabled) ? (
+    <Tooltip content={tooltip}>
+      {renderIconButton()}
+    </Tooltip>
+  ) : renderIconButton();
 }
