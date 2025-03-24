@@ -58,18 +58,26 @@ export default function CommentSection(props: CommentSectionProps) {
               <Controller
                 name="commenter"
                 control={commentPostFormControl}
-                rules={{ maxLength: 20 }}
-                render={({ field }) => (
+                rules={{
+                  required: { value: true, message: 'Commenter is required'},
+                  maxLength: { value: 20, message: 'Commenter may not be longer than 20 characters' },
+                }}
+                render={({ field,fieldState }) => (
                   <TextInput
                     label="Commenter"
                     value={field.value as string}
                     onChange={field.onChange}
+                    inputState={fieldState.error ? 'error' : 'default'}
+                    helperText={fieldState.error ? fieldState.error.message : ''}
                   />
                 )}
               />
               <IconButton
                 icon={<SaveIcon color="gray" size={18} />}
-                onClick={() => setIsEditingCommerter(false)}
+                onClick={() => {
+                  if (!commentPostFormGetValues('commenter')) return;
+                  setIsEditingCommerter(false);
+                }}
                 tooltip="Save"
               />
             </div>

@@ -17,7 +17,7 @@ export default function Tooltip(props: TooltipPropTypes) {
   const { children, content } = props;
 
   return (
-    <div className="relative group">
+    <div role="tooltip" className="relative group">
       {children}
       <div className={TooltipBaseStyle}>
         {content}
