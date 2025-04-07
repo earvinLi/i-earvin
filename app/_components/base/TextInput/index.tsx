@@ -11,7 +11,7 @@ type TextInputProps = {
   label: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  inputState: 'default' | 'error';
+  inputState?: 'default' | 'error';
   helperText?: string;
 };
 
