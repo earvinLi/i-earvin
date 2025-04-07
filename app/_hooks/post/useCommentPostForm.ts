@@ -9,6 +9,7 @@ const useCommentPostForm = (postId: string) => {
     control,
     reset,
     getValues,
+    getFieldState,
   } = useForm({
     defaultValues: {
       postId,
@@ -22,6 +23,7 @@ const useCommentPostForm = (postId: string) => {
     commentPostFormControl: control,
     commentPostFormReset: reset,
     commentPostFormGetValues: getValues,
+    commentPostFormGetFieldState: getFieldState,
   };
 };
 

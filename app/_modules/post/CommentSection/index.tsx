@@ -30,9 +30,19 @@ export default function CommentSection(props: CommentSectionProps) {
     commentPostFormControl,
     commentPostFormReset,
     commentPostFormGetValues,
+    commentPostFormGetFieldState,
   } = useCommentPostForm(postId);
 
-  const [isEditingCommerter, setIsEditingCommerter] = useState(false);
+  const [isEditingCommenter, setIsEditingCommenter] = useState(false);
+
+  const handleSaveCommenter = () => {
+    const commenter = commentPostFormGetValues('commenter');
+    const commenterFieldError = commentPostFormGetFieldState('commenter')?.error;
+
+    if (commenter !== '' && commenterFieldError === undefined) {
+      setIsEditingCommenter(false);
+    }
+  };
 
   const handleCreatePostComment = async (
     dataToCreatePostComment: DataToCreatePostCommentTypes,
@@ -53,7 +63,7 @@ export default function CommentSection(props: CommentSectionProps) {
           size="medium"
         />
         {
-          isEditingCommerter ? (
+          isEditingCommenter ? (
             <div className="flex flex-row gap-4 items-center w-[256px]">
               <Controller
                 name="commenter"
@@ -73,11 +83,9 @@ export default function CommentSection(props: CommentSectionProps) {
                 )}
               />
               <IconButton
+                disabled={commentPostFormGetFieldState('commenter')?.error !== undefined}
                 icon={<SaveIcon color="gray" size={18} />}
-                onClick={() => {
-                  if (!commentPostFormGetValues('commenter')) return;
-                  setIsEditingCommerter(false);
-                }}
+                onClick={handleSaveCommenter}
                 tooltip="Save"
               />
             </div>
@@ -88,7 +96,7 @@ export default function CommentSection(props: CommentSectionProps) {
               </div>
               <IconButton
                 icon={<PencilIcon color="gray" size={18} />}
-                onClick={() => setIsEditingCommerter(true)}
+                onClick={() => setIsEditingCommenter(true)}
                 tooltip="Edit"
               />
             </div>
