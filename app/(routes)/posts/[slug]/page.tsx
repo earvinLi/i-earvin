@@ -34,7 +34,9 @@ export default async function PostPage(props: PostPageProps) {
     date,
   } = await getPost(params.slug);
 
-  const postComments = await prisma.postComment.findMany();
+  const postComments = await prisma.postComment.findMany({
+    where: { postId: params.slug },
+  });
 
   return (
     <div className="w-3/4 mx-auto pt-12 flex flex-col">
