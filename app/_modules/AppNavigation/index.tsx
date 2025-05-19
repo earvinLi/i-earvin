@@ -12,7 +12,7 @@ import ContactMeModal from '@/modules/project/ContactMeModal';
 
 // Local Variables
 const pageData = [
-  // { name: 'Home', path: '/' },
+  { name: 'Home', path: '/' },
   { name: 'Projects', path: '/projects' },
   { name: 'Posts', path: '/posts' },
 ];

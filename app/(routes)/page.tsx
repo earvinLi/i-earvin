@@ -15,9 +15,9 @@ export default function Home() {
           <div className="text-5xl mb-6">Howdy my hommie,</div>
           <div className="text-9xl font-bold mb-8">I&apos;m Earvin</div>
           <div className="w-[512px] text-lg">
-            Hi! I&apos;m a Full Stack and Localization engineer based in Beijing.
-            I try to spend as much spare time as possible learning new techs, exploring new things and building cool stuff.
-            Always a persuader for a better work-life balance and thinker of a meaningful retired life about 30 years in advance :)
+            Hi! I&apos;m a Full Stack and Localization Engineer.
+            I strive to spend my spare time learning new technologies, exploring innovative ideas, and building cool stuffs.
+            I prioritize a healthy work-life balance and often contemplate a meaningful retired life a couple of decades down the line :)
           </div>
         </div>
         <div className="flex flex-col items-center justify-center">
@@ -26,7 +26,7 @@ export default function Home() {
             src="/profile_earvin.jpg"
             width={240}
             height={160}
-            // className="object-cover w-full h-full"
+            className="rounded-2xl"
           />
         </div>
       </div>
