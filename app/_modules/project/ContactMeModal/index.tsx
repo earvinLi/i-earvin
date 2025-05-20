@@ -36,8 +36,8 @@ export default function ContactMeModal(props: ContactMeModalProps) {
     <Modal
       isOpen={isContactMeModalOpen}
       onClose={() => setIsContactMeModalOpen(false)}
-      title="Contact Me"
-      description="Feel free to reach out to me for any inquiries or share ideas and discuss about my projects and posts or just to say hi!"
+      title="Contact me"
+      description="Feel free to reach out to me for any inquiries related to system development or localization. I welcome discussions about my projects and posts, ideas, or just a friendly hello!"
       action={(
         <>
           <Button onClick={() => setIsContactMeModalOpen(false)}>Close</Button>
