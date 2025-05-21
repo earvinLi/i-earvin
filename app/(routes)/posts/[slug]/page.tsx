@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+
 // External Dependencies
 import Link from 'next/link';
 import { Document as TypeDocument } from '@contentful/rich-text-types';

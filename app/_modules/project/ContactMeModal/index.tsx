@@ -41,7 +41,9 @@ export default function ContactMeModal(props: ContactMeModalProps) {
       action={(
         <>
           <Button onClick={() => setIsContactMeModalOpen(false)}>Close</Button>
-          <Button onClick={contactMeFormHandleSubmit(handleCreateContactMeMessage)}>Submit</Button>
+          <Button onClick={contactMeFormHandleSubmit(handleCreateContactMeMessage)}>
+            Submit
+          </Button>
         </>
       )}
       size="medium"
@@ -54,7 +56,7 @@ export default function ContactMeModal(props: ContactMeModalProps) {
           render={({ field }) => (
             <TextInput
               label="Contact info"
-              value={field.value as string}
+              value={field.value}
               onChange={field.onChange}
             />
           )}

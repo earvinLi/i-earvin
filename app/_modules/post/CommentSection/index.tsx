@@ -75,7 +75,7 @@ export default function CommentSection(props: CommentSectionProps) {
                 render={({ field,fieldState }) => (
                   <TextInput
                     label="Commenter"
-                    value={field.value as string}
+                    value={field.value}
                     onChange={field.onChange}
                     inputState={fieldState.error ? 'error' : 'default'}
                     helperText={fieldState.error ? fieldState.error.message : ''}
