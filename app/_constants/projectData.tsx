@@ -14,7 +14,7 @@ export type TypeProject = {
 };
 
 const techs = {
-  'NextJS': {
+  NextJS: {
     techName: 'NextJS',
     techDescription: 'The React framework!',
     techLink: 'https://nextjs.org/',
@@ -24,29 +24,30 @@ const techs = {
     techDescription: 'Material Design UI components',
     techLink: 'https://mui.com/material-ui/',
   },
-  'ExpressJS': {
+  ExpressJS: {
     techName: 'ExpressJS',
     techDescription: 'The NodeJS framework!',
     techLink: 'https://expressjs.com/',
   },
-  'React': {
+  React: {
     techName: 'React',
     techDescription: 'The library for modern web apps!',
     techLink: 'https://react.dev/',
   },
-  'Redux': {
+  Redux: {
     techName: 'Redux',
     techDescription: 'Frontend state management solution!',
     techLink: 'https://redux.js.org/',
   },
-  'MobX': {
+  MobX: {
     techName: 'MobX',
     techDescription: 'An unopinionated frontend state management solution',
     techLink: 'https://mobx.js.org/',
   },
-  'JavaScript': {
+  JavaScript: {
     techName: 'JavaScript',
-    techDescription: 'Based on which we find the miracles of frontend and more for more then 25 years!',
+    techDescription:
+      'Based on which we find the miracles of frontend and more for more then 25 years!',
     techLink: 'https://www.ecma-international.org/ecma-262/',
   },
   'React Native': {
@@ -54,17 +55,17 @@ const techs = {
     techDescription: 'React for mobile apps!',
     techLink: 'https://reactnative.dev/',
   },
-  'Firebase': {
+  Firebase: {
     techName: 'Firebase',
-    techDescription: 'Google\'s NoSQL database!',
+    techDescription: "Google's NoSQL database!",
     techLink: 'https://firebase.google.com/',
   },
-  'Jasmine': {
+  Jasmine: {
     techName: 'Jasmine',
     techDescription: 'JavaScript testing!',
     techLink: 'https://jasmine.github.io/',
   },
-  'KnockoutJS': {
+  KnockoutJS: {
     techName: 'KnockoutJS',
     techDescription: 'Dynamic JavaScript UIs with the MVVM pattern!',
     techLink: 'https://knockoutjs.com/',
@@ -74,59 +75,79 @@ const techs = {
     techDescription: 'Google Map APIs for geographic requirements!',
     techLink: 'https://developers.google.com/maps/',
   },
-  'Wikipedia': {
+  Wikipedia: {
     techName: 'Wikipedia',
     techDescription: 'Wikipedia APIs for wiki requirements!',
-    techLink: 'https://www.mediawiki.org/wiki/API:Main_page#Getting_started_with_MediaWiki_Action_API/',
+    techLink:
+      'https://www.mediawiki.org/wiki/API:Main_page#Getting_started_with_MediaWiki_Action_API/',
   },
-  'Flutter': {
+  Flutter: {
     techName: 'Flutter',
-    techDescription: 'Build, test, and deploy beautiful mobile, web, desktop, and embedded apps with one library.',
+    techDescription:
+      'Build, test, and deploy beautiful mobile, web, desktop, and embedded apps with one library.',
     techLink: 'https://flutter.dev/',
   },
-  'Dart': {
+  Dart: {
     techName: 'Dart',
-    techDescription: 'Object-oriented, class-based, garbage-collected language with C-style syntax used to develop web and mobile apps as well as server and desktop applications',
+    techDescription:
+      'Object-oriented, class-based, garbage-collected language with C-style syntax used to develop web and mobile apps as well as server and desktop applications',
     techLink: 'https://dart.dev/',
   },
-  'Java': {
+  Java: {
     techName: 'Java',
-    techDescription: 'The Java! And designed to have as few implementation dependencies as possible',
+    techDescription:
+      'The Java! And designed to have as few implementation dependencies as possible',
     techLink: 'https://www.java.com/',
   },
-  'Angular': {
+  Angular: {
     techName: 'Angular',
-    techDescription: 'Web framework that empowers developers to build fast, reliable applications',
+    techDescription:
+      'Web framework that empowers developers to build fast, reliable applications',
     techLink: 'https://angular.dev/',
   },
-  'TypeScript': {
+  TypeScript: {
     techName: 'TypeScript',
-    techDescription: 'A typed superset of JavaScript that compiles to plain JavaScript',
+    techDescription:
+      'A typed superset of JavaScript that compiles to plain JavaScript',
     techLink: 'https://www.typescriptlang.org/',
   },
   'Tailwind CSS': {
     techName: 'Tailwind CSS',
-    techDescription: 'Utility-first CSS framework for rapidly building custom designs',
+    techDescription:
+      'Utility-first CSS framework for rapidly building custom designs',
     techLink: 'https://tailwindcss.com/',
+  },
+  Prisma: {
+    techName: 'Prisma',
+    techDescription: 'An ORM that makes it much easier to work with databases',
+    techLink: 'https://www.prisma.io/',
   },
 } as const;
 
 export const projects = [
   {
     title: 'I Earvin',
-    description: 'My personal page where I started to collect my projects, write posts and experience new techs.',
-    techList: [techs['TypeScript'], techs['NextJS'], techs['Tailwind CSS']],
+    description:
+      'My personal page where I started to collect my projects, write posts and experience new techs.',
+    techList: [
+      techs['TypeScript'],
+      techs['NextJS'],
+      techs['Tailwind CSS'],
+      techs['Prisma'],
+    ],
     image: '/project_cover_i_earvin.jpg',
   },
   {
     title: 'Where Have You Been',
-    description: 'A SPA where you can collect and sell your memories (in parts) built with a number of open-source projects including:',
+    description:
+      'A SPA where you can collect and sell your memories (in parts) built with a number of open-source projects including:',
     techList: [techs['NextJS'], techs['Material UI'], techs['ExpressJS']],
     image: '/project_cover_whyb.jpg',
   },
   {
     title: 'Coder Evolution',
-    description: 'Coder Evolution helps you record all your learning progress and knowledge with both Markdown and Code.',
+    description:
+      'Coder Evolution helps you record all your learning progress and knowledge with both Markdown and Code.',
     techList: [techs['React'], techs['Material UI'], techs['Redux']],
     image: '/project_cover_coder.jpg',
   },
@@ -138,25 +159,29 @@ export const projects = [
   },
   {
     title: 'Beer Sharer',
-    description: 'UReact Native and Redux help share your favorite beers with friends. Cheers!!!',
+    description:
+      'UReact Native and Redux help share your favorite beers with friends. Cheers!!!',
     techList: [techs['React Native'], techs['Redux'], techs['Firebase']],
     image: '/project_cover_beer.jpg',
   },
   {
     title: 'Neighborhood Map',
-    description: 'Use KnockOut to make the most of Google Map API and MediaWiki API.',
+    description:
+      'Use KnockOut to make the most of Google Map API and MediaWiki API.',
     techList: [techs['KnockoutJS'], techs['Google Map'], techs['Wikipedia']],
     image: '/project_cover_neighborhood.jpg',
   },
   {
     title: 'Reddit Mockup',
-    description: 'This is a very experimental project (of EPAM training period) to mimic Reddit with a new UI built with React, Redux and Material-UI which has a mobile version as well with React Native.',
+    description:
+      'This is a very experimental project (of EPAM training period) to mimic Reddit with a new UI built with React, Redux and Material-UI which has a mobile version as well with React Native.',
     techList: [techs['React'], techs['Redux'], techs['Material UI']],
     image: '/project_cover_reddit.jpg',
   },
   {
     title: 'Todo',
-    description: 'A typical Todo app whose state managements can be switched between Redux and MobX',
+    description:
+      'A typical Todo app whose state managements can be switched between Redux and MobX',
     techList: [techs['React'], techs['Redux'], techs['MobX']],
     image: '/project_cover_todo.jpg',
   },

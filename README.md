@@ -1,36 +1,26 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# I Earvin
 
-## Getting Started
+I Earvin is my personal portfolio site and a web app.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- My project experiences are collected, organized and displayed.
+- I write articles about various tech topics and related ideas.
+- Your feedback and comments on my projects and posts can be collected.
+- By developing this site, I apply newly acquired knowledge from my daily work, utilize long-standing skills, and explore cutting-edge technologies.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+> Life isn't about finding yourself. Life is about creating yourself.\
+> George Bernard Shaw
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## Tech
 
-To learn more about Next.js, take a look at the following resources:
+I Earvin is built with a number of open-source projects:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [TypeScript](https://www.typescriptlang.org/) - A typed superset of JavaScript that compiles to plain JavaScript
+- [NextJS](https://nextjs.org/) - The React framework!
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework for rapidly building custom designs
+- [Prisma](https://www.prisma.io/) - An ORM that makes it much easier to work with databases
+- [React Hook Form](https://react-hook-form.com/) - Great form helper
+- [Tiptap](https://tiptap.dev/) - The chosen editor library with real-time synchronization and AI
