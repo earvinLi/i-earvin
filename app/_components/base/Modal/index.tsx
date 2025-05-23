@@ -1,19 +1,16 @@
-/*
-  eslint-disable
-  @typescript-eslint/no-explicit-any,
-  jsx-a11y/no-noninteractive-element-interactions
-*/
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 
 // External Dependencies
 import classNames from 'classnames';
+import type { ReactNode, MouseEvent, KeyboardEvent } from 'react';
 
 type ModalProps = {
   isOpen: boolean;
   onClose: () => void;
   title: string;
   description: string;
-  children: React.ReactNode;
-  action: React.ReactNode;
+  children: ReactNode;
+  action: ReactNode;
   size: 'small' | 'medium' | 'large';
 };
 
@@ -29,20 +26,19 @@ const modalStyles = {
 // Component Definition
 export default function Modal(props: ModalProps) {
   const {
-    isOpen,
-    onClose,
-    title,
-    description,
-    children,
-    action,
-    size,
-  } = props;
+ isOpen, onClose, title, description, children, action, size
+} = props;
 
-  const handleModalClose = (event: any) => {
-    if (event.target === event.currentTarget || event.key === 'Escape') {
+  const handleModalClose = (
+    event: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>,
+  ) => {
+    if (
+      event.target === event.currentTarget
+      || (event as KeyboardEvent<HTMLDivElement>).key === 'Escape'
+    ) {
       onClose();
     }
-  }
+  };
 
   if (!isOpen) return null;
 
@@ -84,7 +80,9 @@ export default function Modal(props: ModalProps) {
           modalStyles.size[size],
         )}
       >
-        <h2 id="modal-title" className="text-xl font-medium">{title}</h2>
+        <h2 id="modal-title" className="text-xl font-medium">
+          {title}
+        </h2>
         <h4 className="text-base text-gray-500">{description}</h4>
         {children}
         <div className="flex flex-row gap-4 justify-end">{action}</div>
