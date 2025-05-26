@@ -10,11 +10,14 @@ import { Pencil as PencilIcon, Save as SaveIcon } from 'lucide-react';
 import Avatar from '@/components/base/Avatar';
 import Button from '@/components/base/Button';
 import CommentItem from '@/components/comment/CommentItem';
+import IconButton from '@/components/base/IconButton';
 import TextInput from '@/components/base/TextInput';
 import TiptapEditor from '@/components/TiptapEditor';
 import useCommentPostForm from '@/hooks/post/useCommentPostForm';
-import { createPostComment, DataToCreatePostCommentTypes } from '@/actions/comentPostActions';
-import IconButton from "@/components/base/IconButton";
+import {
+  createPostComment,
+  DataToCreatePostCommentTypes,
+} from '@/actions/comentPostActions';
 
 type CommentSectionProps = {
   postId: string;
@@ -57,51 +60,50 @@ export default function CommentSection(props: CommentSectionProps) {
         {`Comment${postComments.length > 1 ? 's' : ''} ${postComments.length > 0 ? `(${postComments.length})` : ''}`}
       </h2>
       <div className="flex flex-row gap-6 items-center">
-        <Avatar
-          name="John Doe"
-          image="/avatar_default.jpg"
-          size="medium"
-        />
-        {
-          isEditingCommenter ? (
-            <div className="flex flex-row gap-4 items-center w-[256px]">
-              <Controller
-                name="commenter"
-                control={commentPostFormControl}
-                rules={{
-                  required: { value: true, message: 'Commenter is required'},
-                  maxLength: { value: 20, message: 'Commenter may not be longer than 20 characters' },
-                }}
-                render={({ field,fieldState }) => (
-                  <TextInput
-                    label="Commenter"
-                    value={field.value}
-                    onChange={field.onChange}
-                    inputState={fieldState.error ? 'error' : 'default'}
-                    helperText={fieldState.error ? fieldState.error.message : ''}
-                  />
-                )}
-              />
-              <IconButton
-                disabled={commentPostFormGetFieldState('commenter')?.error !== undefined}
-                icon={<SaveIcon color="gray" size={18} />}
-                onClick={handleSaveCommenter}
-                tooltip="Save"
-              />
+        <Avatar name="John Doe" image="/avatar_default.jpg" size="medium" />
+        {isEditingCommenter ? (
+          <div className="flex flex-row gap-4 items-center w-[256px]">
+            <Controller
+              name="commenter"
+              control={commentPostFormControl}
+              rules={{
+                required: { value: true, message: 'Commenter is required' },
+                maxLength: {
+                  value: 20,
+                  message: 'Commenter may not be longer than 20 characters',
+                },
+              }}
+              render={({ field, fieldState }) => (
+                <TextInput
+                  label="Commenter"
+                  value={field.value}
+                  onChange={field.onChange}
+                  inputState={fieldState.error ? 'error' : 'default'}
+                  helperText={fieldState.error ? fieldState.error.message : ''}
+                />
+              )}
+            />
+            <IconButton
+              disabled={
+                commentPostFormGetFieldState('commenter')?.error !== undefined
+              }
+              icon={<SaveIcon color="gray" size={18} />}
+              onClick={handleSaveCommenter}
+              tooltip="Save"
+            />
+          </div>
+        ) : (
+          <div className="flex flex-row gap-3 items-center w-[196px]">
+            <div className="text-slate-700 text-lg">
+              {commentPostFormGetValues('commenter')}
             </div>
-          ) : (
-            <div className="flex flex-row gap-3 items-center w-[196px]">
-              <div className="text-slate-700 text-lg">
-                {commentPostFormGetValues('commenter')}
-              </div>
-              <IconButton
-                icon={<PencilIcon color="gray" size={18} />}
-                onClick={() => setIsEditingCommenter(true)}
-                tooltip="Edit"
-              />
-            </div>
-          )
-        }
+            <IconButton
+              icon={<PencilIcon color="gray" size={18} />}
+              onClick={() => setIsEditingCommenter(true)}
+              tooltip="Edit"
+            />
+          </div>
+        )}
       </div>
       <Controller
         name="commentContent"
@@ -111,7 +113,14 @@ export default function CommentSection(props: CommentSectionProps) {
           <TiptapEditor
             value={field.value}
             onChange={field.onChange}
-            toolbarActions={['bold', 'italic', 'bulletList', 'orderedList', 'undo', 'redo']}
+            toolbarActions={[
+              'bold',
+              'italic',
+              'bulletList',
+              'orderedList',
+              'undo',
+              'redo',
+            ]}
           />
         )}
       />
@@ -125,7 +134,9 @@ export default function CommentSection(props: CommentSectionProps) {
       </div>
       {postComments && (
         <div className="flex flex-col gap-4">
-          {postComments.map((comment) => <CommentItem key={comment.id} comment={comment} />)}
+          {postComments.map((comment) => (
+            <CommentItem key={comment.id} comment={comment} />
+          ))}
         </div>
       )}
     </div>

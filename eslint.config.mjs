@@ -50,7 +50,14 @@ export default [...compat.extends(
         "@typescript-eslint/semi": "off",
         "@typescript-eslint/space-before-function-paren": "off",
         "@typescript-eslint/space-infix-ops": "off",
-        "@typescript-eslint/object-curly-spacing": "off"
+        "@typescript-eslint/object-curly-spacing": "off",
+        // for specific cases like 'React Hook Form' handle submit
+        // check: https://github.com/orgs/react-hook-form/discussions/8622
+        "@typescript-eslint/no-misused-promises": [2, {
+            "checksVoidReturn": {
+                "attributes": false
+            },
+        }],
     },
   settings: {
     "import/resolver": {
