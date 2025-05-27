@@ -4,10 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "prettier --check ./app && next build",
+    "build:local": "prettier --write . && next build",
     "start": "next start",
+    "format": "prettier --write ./app",
     "prisma:push": "dotenv -e .env.local -- npx prisma db push",
-    "prisma:studio": "dotenv -e .env.local -- npx prisma studio"
+    "prisma:studio": "dotenv -e .env.local -- npx prisma studio",
+    "prepare": "husky"
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
@@ -32,8 +35,18 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@typescript-eslint/eslint-plugin": "^8.32.1",
+    "@typescript-eslint/parser": "^8.32.1",
     "dotenv-cli": "^8.0.0",
+    "eslint": "^9.27.0",
+    "eslint-config-next": "^15.4.0-canary.51",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-tailwindcss": "^3.18.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.0.0",
     "postcss": "^8",
+    "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.11",
     "sass": "^1.84.0",
     "tailwindcss": "^3.4.1",
     "ts-node": "^10.9.2",
