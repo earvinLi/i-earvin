@@ -25,16 +25,14 @@ const modalStyles = {
 
 // Component Definition
 export default function Modal(props: ModalProps) {
-  const {
- isOpen, onClose, title, description, children, action, size
-} = props;
+  const { isOpen, onClose, title, description, children, action, size } = props;
 
   const handleModalClose = (
     event: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>,
   ) => {
     if (
-      event.target === event.currentTarget
-      || (event as KeyboardEvent<HTMLDivElement>).key === 'Escape'
+      event.target === event.currentTarget ||
+      (event as KeyboardEvent<HTMLDivElement>).key === 'Escape'
     ) {
       onClose();
     }
@@ -47,45 +45,24 @@ export default function Modal(props: ModalProps) {
       onClick={handleModalClose}
       onKeyDown={handleModalClose}
       // Todo: find better solution for accessibility here
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="modal-title"
+      role='dialog'
+      aria-modal='true'
+      aria-labelledby='modal-title'
       tabIndex={-1}
-      className="
-        fixed
-        inset-0
-        z-[999]
-        h-screen
-        w-screen
-        flex
-        items-center
-        justify-center
-        bg-black
-        bg-opacity-60
-      "
+      className='fixed inset-0 z-[999] flex h-screen w-screen items-center justify-center bg-black bg-opacity-60'
     >
       <div
         className={classNames(
-          `relative
-          pt-6
-          px-6
-          pb-4
-          w-1/2
-          rounded-md
-          bg-white
-          shadow-sm
-          flex
-          flex-col
-          gap-5`,
+          `relative flex w-1/2 flex-col gap-5 rounded-md bg-white px-6 pb-4 pt-6 shadow-sm`,
           modalStyles.size[size],
         )}
       >
-        <h2 id="modal-title" className="text-xl font-medium">
+        <h2 id='modal-title' className='text-xl font-medium'>
           {title}
         </h2>
-        <h4 className="text-base text-gray-500">{description}</h4>
+        <h4 className='text-base text-gray-500'>{description}</h4>
         {children}
-        <div className="flex flex-row gap-4 justify-end">{action}</div>
+        <div className='flex flex-row justify-end gap-4'>{action}</div>
       </div>
     </div>
   );

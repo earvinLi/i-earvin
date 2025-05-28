@@ -12,9 +12,7 @@ import Tooltip from '@/components/base/Tooltip';
 import iconButtonStyles from './iconButtonStyles';
 
 // Local Variables
-const {
-  IconButtonBaseStyle,
-} = iconButtonStyles;
+const { IconButtonBaseStyle } = iconButtonStyles;
 
 type IconButtonProps = {
   icon: TypeReactNode;
@@ -26,17 +24,12 @@ type IconButtonProps = {
 // Todo: design different sizes for the icon button
 // Component Definition
 export default function IconButton(props: IconButtonProps) {
-  const {
-    icon,
-    onClick = undefined,
-    disabled = false,
-    tooltip = '',
-  } = props;
+  const { icon, onClick = undefined, disabled = false, tooltip = '' } = props;
 
   const renderIconButton = () => (
     <button
       disabled={disabled}
-      type="button"
+      type='button'
       onClick={onClick}
       // Todo: find better ways to deal with long classnames
       className={IconButtonBaseStyle}
@@ -45,9 +38,9 @@ export default function IconButton(props: IconButtonProps) {
     </button>
   );
 
-  return (tooltip && !disabled) ? (
-    <Tooltip content={tooltip}>
-      {renderIconButton()}
-    </Tooltip>
-  ) : renderIconButton();
+  return tooltip && !disabled ? (
+    <Tooltip content={tooltip}>{renderIconButton()}</Tooltip>
+  ) : (
+    renderIconButton()
+  );
 }

@@ -4,17 +4,12 @@
 import { useForm } from 'react-hook-form';
 
 const useCommentPostForm = (postId: string) => {
-  const {
-    handleSubmit,
-    control,
-    reset,
-    getValues,
-    getFieldState,
-  } = useForm({
+  const { handleSubmit, control, reset, getValues, getFieldState } = useForm({
     defaultValues: {
       postId,
       commenter: 'John Doe',
-      commentContent: '<p>This is a <em>great</em> <strong>comment</strong>!</p>',
+      commentContent:
+        '<p>This is a <em>great</em> <strong>comment</strong>!</p>',
     },
   });
 

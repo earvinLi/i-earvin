@@ -7,12 +7,15 @@ import Modal from '@/components/base/Modal';
 import TextInput from '@/components/base/TextInput';
 import TiptapEditor from '@/components/TiptapEditor';
 import useContactMeForm from '@/hooks/project/useContactMeForm';
-import { createContactMeMessage, DataToCreateContactMeMessageTypes } from '@/actions/contactMeActions';
+import {
+  createContactMeMessage,
+  DataToCreateContactMeMessageTypes,
+} from '@/actions/contactMeActions';
 
 type ContactMeModalProps = {
   isContactMeModalOpen: boolean;
   setIsContactMeModalOpen: (value: boolean) => void;
-}
+};
 
 // Component Definition
 export default function ContactMeModal(props: ContactMeModalProps) {
@@ -36,38 +39,40 @@ export default function ContactMeModal(props: ContactMeModalProps) {
     <Modal
       isOpen={isContactMeModalOpen}
       onClose={() => setIsContactMeModalOpen(false)}
-      title="Contact me"
-      description="Feel free to reach out to me for any inquiries related to system development or localization. I welcome discussions about my projects and posts, ideas, or just a friendly hello!"
-      action={(
+      title='Contact me'
+      description='Feel free to reach out to me for any inquiries related to system development or localization. I welcome discussions about my projects and posts, ideas, or just a friendly hello!'
+      action={
         <>
           <Button onClick={() => setIsContactMeModalOpen(false)}>Close</Button>
-          <Button onClick={contactMeFormHandleSubmit(handleCreateContactMeMessage)}>
+          <Button
+            onClick={contactMeFormHandleSubmit(handleCreateContactMeMessage)}
+          >
             Submit
           </Button>
         </>
-      )}
-      size="medium"
+      }
+      size='medium'
     >
-      <div className="w-full flex flex-col gap-6">
+      <div className='flex w-full flex-col gap-6'>
         <Controller
-          name="contactInfo"
+          name='contactInfo'
           control={contactMeFormControl}
           rules={{ required: true }}
           render={({ field }) => (
             <TextInput
-              label="Contact info"
+              label='Contact info'
               value={field.value}
               onChange={field.onChange}
             />
           )}
         />
         <Controller
-          name="contactMessage"
+          name='contactMessage'
           control={contactMeFormControl}
           rules={{ required: true }}
           render={({ field }) => (
             <TiptapEditor
-              label="Contact message"
+              label='Contact message'
               value={field.value}
               onChange={field.onChange}
             />

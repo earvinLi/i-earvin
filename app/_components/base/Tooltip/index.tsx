@@ -2,10 +2,7 @@
 import tooltipStyles from './tooltipStyles';
 
 // Local Variables
-const {
-  TooltipBaseStyle,
-  TooltipArrowStyle,
-} = tooltipStyles;
+const { TooltipBaseStyle, TooltipArrowStyle } = tooltipStyles;
 
 type TooltipPropTypes = {
   children: React.ReactNode;
@@ -17,7 +14,7 @@ export default function Tooltip(props: TooltipPropTypes) {
   const { children, content } = props;
 
   return (
-    <div role="tooltip" className="relative group">
+    <div role='tooltip' className='group relative'>
       {children}
       <div className={TooltipBaseStyle}>
         {content}

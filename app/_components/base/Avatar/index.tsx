@@ -15,23 +15,31 @@ type AvatarProps = {
   name: string;
   image: string;
   size: 'small' | 'medium' | 'large';
-}
+};
 
 // Component Definition
 export default function Avatar(props: AvatarProps) {
-  const {
-    name,
-    image,
-    size,
-  } = props;
+  const { name, image, size } = props;
 
   let imageWidth;
   let imageHeight;
   switch (size) {
-    case 'small': imageWidth = 24; imageHeight = 24; break;
-    case 'medium': imageWidth = 36; imageHeight = 36; break;
-    case 'large': imageWidth = 48; imageHeight = 48; break;
-    default: imageWidth = 48; imageHeight = 48; break;
+    case 'small':
+      imageWidth = 24;
+      imageHeight = 24;
+      break;
+    case 'medium':
+      imageWidth = 36;
+      imageHeight = 36;
+      break;
+    case 'large':
+      imageWidth = 48;
+      imageHeight = 48;
+      break;
+    default:
+      imageWidth = 48;
+      imageHeight = 48;
+      break;
   }
 
   return (
@@ -41,7 +49,7 @@ export default function Avatar(props: AvatarProps) {
         src={image}
         width={imageWidth}
         height={imageHeight}
-        className="object-cover h-full rounded-full"
+        className='h-full rounded-full object-cover'
       />
     </div>
   );

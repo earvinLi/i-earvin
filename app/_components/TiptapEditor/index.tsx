@@ -12,22 +12,19 @@ type TiptapEditorProps = {
   value: string;
   onChange: (value: string) => void;
   toolbarActions?: string[];
-}
+};
 
 // Component Definition
 export default function TiptapEditor(props: TiptapEditorProps) {
-  const {
-    label = '',
-    value,
-    onChange,
-    toolbarActions = ['all'],
-  } = props;
+  const { label = '', value, onChange, toolbarActions = ['all'] } = props;
 
   const editor = useEditor({
     extensions: [StarterKit],
     content: value,
     // Todo: build proper focus and hover styles
-    editorProps: { attributes: { class: 'h-[180px] overflow-y-scroll focus:outline-none' } },
+    editorProps: {
+      attributes: { class: 'h-[180px] overflow-y-scroll focus:outline-none' },
+    },
     onUpdate({ editor: currentEditor }) {
       onChange(currentEditor.getHTML());
     },
@@ -42,9 +39,9 @@ export default function TiptapEditor(props: TiptapEditorProps) {
   }, [editor, value]);
 
   return (
-    <div className="flex flex-col gap-2">
-      {label && <div className="text-gray-400 text-base">{label}</div>}
-      <div className="w-full border-2 border-gray-300 rounded p-3 flex flex-col gap-2">
+    <div className='flex flex-col gap-2'>
+      {label && <div className='text-base text-gray-400'>{label}</div>}
+      <div className='flex w-full flex-col gap-2 rounded border-2 border-gray-300 p-3'>
         <TiptapEditorToolbar editor={editor} toolbarActions={toolbarActions} />
         <EditorContent editor={editor} />
       </div>

@@ -14,9 +14,12 @@ import { Document } from '@contentful/rich-text-types';
 export type TypeAuthorFields = {
   name: EntryFieldTypes.Symbol;
   picture: EntryFieldTypes.AssetLink;
-}
-export type TypeAuthorSkeleton = EntrySkeletonType<TypeAuthorFields, "author">;
-export type TypeAuthor<Modifiers extends ChainModifiers, Locales extends LocaleCode = LocaleCode> = Entry<TypeAuthorSkeleton, Modifiers, Locales>;
+};
+export type TypeAuthorSkeleton = EntrySkeletonType<TypeAuthorFields, 'author'>;
+export type TypeAuthor<
+  Modifiers extends ChainModifiers,
+  Locales extends LocaleCode = LocaleCode,
+> = Entry<TypeAuthorSkeleton, Modifiers, Locales>;
 
 // Post
 export type TypePostFields = {
@@ -28,9 +31,12 @@ export type TypePostFields = {
   coverImage: EntryFieldTypes.AssetLink;
   date: EntryFieldTypes.Date;
   author: EntryFieldTypes.EntryLink<TypeAuthorSkeleton>;
-}
-export type TypePostSkeleton = EntrySkeletonType<TypePostFields, "post">;
-export type TypePost<Modifiers extends ChainModifiers, Locales extends LocaleCode = LocaleCode> = Entry<TypePostSkeleton, Modifiers, Locales>;
+};
+export type TypePostSkeleton = EntrySkeletonType<TypePostFields, 'post'>;
+export type TypePost<
+  Modifiers extends ChainModifiers,
+  Locales extends LocaleCode = LocaleCode,
+> = Entry<TypePostSkeleton, Modifiers, Locales>;
 
 export type TypeMassagedPost = {
   slug: string;
@@ -40,7 +46,7 @@ export type TypeMassagedPost = {
   author: {
     name: string;
     picture: { url: string };
-  },
+  };
   excerpt: string;
   content: Document;
 };

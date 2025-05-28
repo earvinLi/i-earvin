@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "prettier --check ./app && next build",
-    "build:local": "prettier --write . && next build",
+    "build:local": "prettier --write ./app && next build",
     "start": "next start",
     "format": "prettier --write ./app",
     "prisma:push": "dotenv -e .env.local -- npx prisma db push",

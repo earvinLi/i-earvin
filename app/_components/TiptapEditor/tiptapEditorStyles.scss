@@ -6,12 +6,12 @@
   }
 
   /* List styles */
-  ul, 
+  ul,
   ol {
     list-style: revert; // Use the default list style or list markers won't be displayed
     padding: 0 1rem;
     margin: 1.25rem 1rem 1.25rem 0.4rem;
-    
+
     li p {
       margin-top: 0.25em;
       margin-bottom: 0.25em;
@@ -19,39 +19,39 @@
   }
 
   /* Heading styles */
-  h1, 
-  h2, 
-  h3, 
-  h4, 
-  h5, 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
   h6 {
     line-height: 1.1;
     margin-top: 2.5rem;
     overflow-wrap: break-word;
   }
 
-  h1, 
+  h1,
   h2 {
     margin-top: 3.5rem;
     margin-bottom: 1.5rem;
   }
 
-  h1 { 
-    font-size: 1.4rem; 
+  h1 {
+    font-size: 1.4rem;
   }
 
-  h2 { 
-    font-size: 1.2rem; 
+  h2 {
+    font-size: 1.2rem;
   }
 
-  h3 { 
-    font-size: 1.1rem; 
+  h3 {
+    font-size: 1.1rem;
   }
 
-  h4, 
-  h5, 
-  h6 { 
-    font-size: 1rem; 
+  h4,
+  h5,
+  h6 {
+    font-size: 1rem;
   }
 
   /* Code and preformatted text styles */

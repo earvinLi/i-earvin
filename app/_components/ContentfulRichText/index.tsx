@@ -23,7 +23,7 @@ import OptimizedImage from '@/components/OptimizedImage';
 // Type Definitions
 type ContentfulRichTextProps = {
   content: TypeDocument;
-}
+};
 
 // Local Variables
 const options = {
@@ -38,7 +38,11 @@ const options = {
     [BLOCKS.PARAGRAPH]: (node: any, children: React.ReactNode) => {
       const { content } = node;
 
-      if (content.find((item: any) => item.marks?.find((mark: any) => mark.type === 'code'))) {
+      if (
+        content.find((item: any) =>
+          item.marks?.find((mark: any) => mark.type === 'code'),
+        )
+      ) {
         return (
           <div>
             <pre>
@@ -48,9 +52,9 @@ const options = {
         );
       }
 
-      return <p className="mb-4">{children}</p>;
+      return <p className='mb-4'>{children}</p>;
     },
-    [BLOCKS.HR]: () => <hr className="mb-4" />,
+    [BLOCKS.HR]: () => <hr className='mb-4' />,
     [INLINES.ENTRY_HYPERLINK]: (node: any) => {
       const { data } = node;
 
@@ -68,7 +72,7 @@ const options = {
       const text = content.find((item: any) => item.nodeType === 'text')?.value;
 
       return (
-        <a href={data.uri} target="_blank" rel="noopener noreferrer">
+        <a href={data.uri} target='_blank' rel='noopener noreferrer'>
           {text}
         </a>
       );
@@ -79,8 +83,8 @@ const options = {
       if (data.target.sys.contentType.sys.id === 'videoEmbed') {
         return (
           <iframe
-            height="400"
-            width="100%"
+            height='400'
+            width='100%'
             src={data.target.fields.embedUrl}
             title={data.target.fields.title}
             allowFullScreen
@@ -102,7 +106,7 @@ const options = {
             src={data.target.fields.file.url}
             width={assetWidth}
             height={assetHeight}
-            className="object-cover w-full h-full"
+            className='h-full w-full object-cover'
           />
         </div>
       );

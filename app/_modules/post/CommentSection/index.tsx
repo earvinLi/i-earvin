@@ -40,7 +40,8 @@ export default function CommentSection(props: CommentSectionProps) {
 
   const handleSaveCommenter = () => {
     const commenter = commentPostFormGetValues('commenter');
-    const commenterFieldError = commentPostFormGetFieldState('commenter')?.error;
+    const commenterFieldError =
+      commentPostFormGetFieldState('commenter')?.error;
 
     if (commenter !== '' && commenterFieldError === undefined) {
       setIsEditingCommenter(false);
@@ -55,16 +56,16 @@ export default function CommentSection(props: CommentSectionProps) {
   };
 
   return (
-    <div className="flex flex-col gap-6">
-      <h2 className="text-xl font-bold">
+    <div className='flex flex-col gap-6'>
+      <h2 className='text-xl font-bold'>
         {`Comment${postComments.length > 1 ? 's' : ''} ${postComments.length > 0 ? `(${postComments.length})` : ''}`}
       </h2>
-      <div className="flex flex-row gap-6 items-center">
-        <Avatar name="John Doe" image="/avatar_default.jpg" size="medium" />
+      <div className='flex flex-row items-center gap-6'>
+        <Avatar name='John Doe' image='/avatar_default.jpg' size='medium' />
         {isEditingCommenter ? (
-          <div className="flex flex-row gap-4 items-center w-[256px]">
+          <div className='flex w-[256px] flex-row items-center gap-4'>
             <Controller
-              name="commenter"
+              name='commenter'
               control={commentPostFormControl}
               rules={{
                 required: { value: true, message: 'Commenter is required' },
@@ -75,7 +76,7 @@ export default function CommentSection(props: CommentSectionProps) {
               }}
               render={({ field, fieldState }) => (
                 <TextInput
-                  label="Commenter"
+                  label='Commenter'
                   value={field.value}
                   onChange={field.onChange}
                   inputState={fieldState.error ? 'error' : 'default'}
@@ -87,26 +88,26 @@ export default function CommentSection(props: CommentSectionProps) {
               disabled={
                 commentPostFormGetFieldState('commenter')?.error !== undefined
               }
-              icon={<SaveIcon color="gray" size={18} />}
+              icon={<SaveIcon color='gray' size={18} />}
               onClick={handleSaveCommenter}
-              tooltip="Save"
+              tooltip='Save'
             />
           </div>
         ) : (
-          <div className="flex flex-row gap-3 items-center w-[196px]">
-            <div className="text-slate-700 text-lg">
+          <div className='flex w-[196px] flex-row items-center gap-3'>
+            <div className='text-lg text-slate-700'>
               {commentPostFormGetValues('commenter')}
             </div>
             <IconButton
-              icon={<PencilIcon color="gray" size={18} />}
+              icon={<PencilIcon color='gray' size={18} />}
               onClick={() => setIsEditingCommenter(true)}
-              tooltip="Edit"
+              tooltip='Edit'
             />
           </div>
         )}
       </div>
       <Controller
-        name="commentContent"
+        name='commentContent'
         control={commentPostFormControl}
         rules={{ required: true }}
         render={({ field }) => (
@@ -124,16 +125,16 @@ export default function CommentSection(props: CommentSectionProps) {
           />
         )}
       />
-      <div className="flex flex-row justify-end">
+      <div className='flex flex-row justify-end'>
         <Button
           onClick={commentPostFormHandleSubmit(handleCreatePostComment)}
-          variant="contained"
+          variant='contained'
         >
           Submit
         </Button>
       </div>
       {postComments && (
-        <div className="flex flex-col gap-4">
+        <div className='flex flex-col gap-4'>
           {postComments.map((comment) => (
             <CommentItem key={comment.id} comment={comment} />
           ))}

@@ -8,25 +8,27 @@ import OptimizedImage from '@/components/OptimizedImage';
 // Component Definition
 export default function Home() {
   return (
-    <div className="w-[100vw] h-[100vh] flex flex-col">
+    <div className='flex h-[100vh] w-[100vw] flex-col'>
       <AppNavigation />
-      <div className="w-[70%] h-[100%] mx-auto flex flex-row items-center">
-        <div className="flex flex-col grow">
-          <div className="text-5xl mb-6">Howdy my hommie,</div>
-          <div className="text-9xl font-bold mb-8">I&apos;m Earvin</div>
-          <div className="w-[512px] text-lg">
-            Hi! I&apos;m a Full Stack and Localization Engineer.
-            I strive to spend my spare time learning new technologies, exploring innovative ideas, and building cool stuffs.
-            I prioritize a healthy work-life balance and often contemplate a meaningful retired life a couple of decades down the line :)
+      <div className='mx-auto flex h-[100%] w-[70%] flex-row items-center'>
+        <div className='flex grow flex-col'>
+          <div className='mb-6 text-5xl'>Howdy my hommie,</div>
+          <div className='mb-8 text-9xl font-bold'>I&apos;m Earvin</div>
+          <div className='w-[512px] text-lg'>
+            Hi! I&apos;m a Full Stack and Localization Engineer. I strive to
+            spend my spare time learning new technologies, exploring innovative
+            ideas, and building cool stuffs. I prioritize a healthy work-life
+            balance and often contemplate a meaningful retired life a couple of
+            decades down the line :)
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center">
+        <div className='flex flex-col items-center justify-center'>
           <OptimizedImage
-            alt="Profile image of Earvin"
-            src="/profile_earvin.jpg"
+            alt='Profile image of Earvin'
+            src='/profile_earvin.jpg'
             width={240}
             height={160}
-            className="rounded-2xl"
+            className='rounded-2xl'
           />
         </div>
       </div>

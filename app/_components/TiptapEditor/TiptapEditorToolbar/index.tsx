@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 
 // Internal Dependencies
-import IconButton from "@/components/base/IconButton";
+import IconButton from '@/components/base/IconButton';
 
 type TiptapEditorToolbarProps = {
   editor: TiptapEditorTypoe | null;
@@ -31,72 +31,119 @@ export default function TiptapEditorToolbar(props: TiptapEditorToolbarProps) {
   if (!editor) return null;
 
   return (
-    <div className="flex flex-row">
+    <div className='flex flex-row'>
       {(toolbarActions.includes('all') || toolbarActions.includes('bold')) && (
         <IconButton
           onClick={() => editor.chain().focus().toggleBold().run()}
           disabled={!editor.can().chain().focus().toggleBold().run()}
-          icon={<BoldIcon color={editor.isActive('bold') ? '#00A3DA' : 'black'} size={18} />}
-          tooltip="Bold"
+          icon={
+            <BoldIcon
+              color={editor.isActive('bold') ? '#00A3DA' : 'black'}
+              size={18}
+            />
+          }
+          tooltip='Bold'
         />
       )}
-      {(toolbarActions.includes('all') || toolbarActions.includes('italic')) && (
+      {(toolbarActions.includes('all') ||
+        toolbarActions.includes('italic')) && (
         <IconButton
           onClick={() => editor.chain().focus().toggleItalic().run()}
           disabled={!editor.can().chain().focus().toggleItalic().run()}
-          icon={<ItalicIcon color={editor.isActive('italic') ? '#00A3DA' : 'black'} size={18} />}
-          tooltip="Italic"
+          icon={
+            <ItalicIcon
+              color={editor.isActive('italic') ? '#00A3DA' : 'black'}
+              size={18}
+            />
+          }
+          tooltip='Italic'
         />
       )}
-      {(toolbarActions.includes('all') || toolbarActions.includes('strike')) && (
+      {(toolbarActions.includes('all') ||
+        toolbarActions.includes('strike')) && (
         <IconButton
           onClick={() => editor.chain().focus().toggleStrike().run()}
           disabled={!editor.can().chain().focus().toggleStrike().run()}
-          icon={<StrikethroughIcon color={editor.isActive('strike') ? '#00A3DA' : 'black'} size={18} />}
-          tooltip="Strike"
+          icon={
+            <StrikethroughIcon
+              color={editor.isActive('strike') ? '#00A3DA' : 'black'}
+              size={18}
+            />
+          }
+          tooltip='Strike'
         />
       )}
-      {(toolbarActions.includes('all') || toolbarActions.includes('bulletList')) && (
+      {(toolbarActions.includes('all') ||
+        toolbarActions.includes('bulletList')) && (
         <IconButton
           onClick={() => editor.chain().focus().toggleBulletList().run()}
-          icon={<ListIcon color={editor.isActive('bulletList') ? '#00A3DA' : 'black'} size={18} />}
-          tooltip="Bullet list"
+          icon={
+            <ListIcon
+              color={editor.isActive('bulletList') ? '#00A3DA' : 'black'}
+              size={18}
+            />
+          }
+          tooltip='Bullet list'
         />
       )}
-      {(toolbarActions.includes('all') || toolbarActions.includes('orderedList')) && (
+      {(toolbarActions.includes('all') ||
+        toolbarActions.includes('orderedList')) && (
         <IconButton
           onClick={() => editor.chain().focus().toggleOrderedList().run()}
-          icon={<ListOrderedIcon color={editor.isActive('orderedList') ? '#00A3DA' : 'black'} size={18} />}
-          tooltip="Ordered list"
+          icon={
+            <ListOrderedIcon
+              color={editor.isActive('orderedList') ? '#00A3DA' : 'black'}
+              size={18}
+            />
+          }
+          tooltip='Ordered list'
         />
       )}
-      {(toolbarActions.includes('all') || toolbarActions.includes('blockquote')) && (
+      {(toolbarActions.includes('all') ||
+        toolbarActions.includes('blockquote')) && (
         <IconButton
           onClick={() => editor.chain().focus().toggleBlockquote().run()}
-          icon={<TextQuoteIcon color={editor.isActive('blockquote') ? '#00A3DA' : 'black'} size={18} />}
-          tooltip="Blockquote"
+          icon={
+            <TextQuoteIcon
+              color={editor.isActive('blockquote') ? '#00A3DA' : 'black'}
+              size={18}
+            />
+          }
+          tooltip='Blockquote'
         />
       )}
-      {(toolbarActions.includes('all') || toolbarActions.includes('horizontalRule')) && (
+      {(toolbarActions.includes('all') ||
+        toolbarActions.includes('horizontalRule')) && (
         <IconButton
           onClick={() => editor.chain().focus().setHorizontalRule().run()}
-          icon={<MinusIcon color="black" size={18} />}
-          tooltip="Horizontal rule"
+          icon={<MinusIcon color='black' size={18} />}
+          tooltip='Horizontal rule'
         />
       )}
       {(toolbarActions.includes('all') || toolbarActions.includes('code')) && (
         <IconButton
           onClick={() => editor.chain().focus().toggleCode().run()}
           disabled={!editor.can().chain().focus().toggleCode().run()}
-          icon={<CodeIcon color={editor.isActive('code') ? '#00A3DA' : 'black'} size={18} />}
-          tooltip="Code"
+          icon={
+            <CodeIcon
+              color={editor.isActive('code') ? '#00A3DA' : 'black'}
+              size={18}
+            />
+          }
+          tooltip='Code'
         />
       )}
-      {(toolbarActions.includes('all') || toolbarActions.includes('codeBlock')) && (
+      {(toolbarActions.includes('all') ||
+        toolbarActions.includes('codeBlock')) && (
         <IconButton
           onClick={() => editor.chain().focus().toggleCodeBlock().run()}
-          icon={<SquareCodeIcon color={editor.isActive('codeBlock') ? '#00A3DA' : 'black'} size={18} />}
-          tooltip="Code block"
+          icon={
+            <SquareCodeIcon
+              color={editor.isActive('codeBlock') ? '#00A3DA' : 'black'}
+              size={18}
+            />
+          }
+          tooltip='Code block'
         />
       )}
       {(toolbarActions.includes('all') || toolbarActions.includes('undo')) && (
@@ -104,7 +151,7 @@ export default function TiptapEditorToolbar(props: TiptapEditorToolbarProps) {
           onClick={() => editor.chain().focus().undo().run()}
           disabled={!editor.can().chain().focus().undo().run()}
           icon={<UndoIcon />}
-          tooltip="Undo"
+          tooltip='Undo'
         />
       )}
       {(toolbarActions.includes('all') || toolbarActions.includes('redo')) && (
@@ -112,7 +159,7 @@ export default function TiptapEditorToolbar(props: TiptapEditorToolbarProps) {
           onClick={() => editor.chain().focus().redo().run()}
           disabled={!editor.can().chain().focus().redo().run()}
           icon={<RedoIcon />}
-          tooltip="Redo"
+          tooltip='Redo'
         />
       )}
     </div>

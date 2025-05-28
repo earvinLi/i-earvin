@@ -14,17 +14,17 @@ export default function CommentItem(props: CommentItemProps) {
   const { comment } = props;
 
   return (
-    <div className="flex flex-col gap-5 border-t-2 border-gray-100 pt-8">
-      <div className="flex flex-row items-center gap-5">
+    <div className='flex flex-col gap-5 border-t-2 border-gray-100 pt-8'>
+      <div className='flex flex-row items-center gap-5'>
         <Avatar
           name={comment.commenter as string}
-          image="/avatar_default.jpg"
-          size="medium"
+          image='/avatar_default.jpg'
+          size='medium'
         />
-        <div className="flex flex-col gap-1">
+        <div className='flex flex-col gap-1'>
           <p>{comment.commenter}</p>
-          <time dateTime={comment.createdAt.toISOString()} className="text-sm">
-            {format(new Date(comment.createdAt), "LLL d, yyyy")}
+          <time dateTime={comment.createdAt.toISOString()} className='text-sm'>
+            {format(new Date(comment.createdAt), 'LLL d, yyyy')}
           </time>
         </div>
       </div>

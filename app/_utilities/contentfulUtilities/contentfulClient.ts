@@ -7,7 +7,7 @@ export const contentfulClient = createClient({
 });
 
 export const contentfulPreviewClient = createClient({
-  host: "preview.contentful.com",
+  host: 'preview.contentful.com',
   space: process.env.CONTENTFUL_SPACE_ID as string,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN as string,
 });

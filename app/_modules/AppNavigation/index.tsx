@@ -24,7 +24,8 @@ const appNavigationStyles = {
   },
 };
 
-const checkIsCurrentPath = (currentPath: string, route: string): boolean => currentPath === route;
+const checkIsCurrentPath = (currentPath: string, route: string): boolean =>
+  currentPath === route;
 
 // Todo: move these logics to 'FormattedDate'
 // eslint-disable-next-line max-len
@@ -39,29 +40,34 @@ export default function AppNavigation() {
 
   return (
     <>
-      <div className="w-[70%] mx-auto mt-4 mb-8 flex flex-row">
-        <div className="flex flex-row gap-6">
+      <div className='mx-auto mb-8 mt-4 flex w-[70%] flex-row'>
+        <div className='flex flex-row gap-6'>
           {pageData.map((page) => {
             const { name, path } = page;
             const isCurrentPage = checkIsCurrentPath(pathname, path);
-            const fontStyle = isCurrentPage ? appNavigationStyles.font.current : appNavigationStyles.font.other; // eslint-disable-line max-len
+            const fontStyle = isCurrentPage
+              ? appNavigationStyles.font.current
+              : appNavigationStyles.font.other;
 
             return (
               <Link
                 key={`${path}-${name}`}
                 href={path}
-                className={classNames('text-lg decoration-[#00A3DA] decoration-2 underline-offset-8', fontStyle)}
+                className={classNames(
+                  'text-lg decoration-[#00A3DA] decoration-2 underline-offset-8',
+                  fontStyle,
+                )}
               >
                 {name}
               </Link>
             );
           })}
         </div>
-        <div className="flex-grow" />
-        <div className="flex flex-row gap-4 items-center">
+        <div className='flex-grow' />
+        <div className='flex flex-row items-center gap-4'>
           <Button
             onClick={() => setIsContactMeModalOpen(true)}
-            variant="outlined"
+            variant='outlined'
           >
             Contact me
           </Button>

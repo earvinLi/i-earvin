@@ -19,7 +19,7 @@ type ButtonProps = {
   onClick?: () => void;
   variant?: 'text' | 'contained' | 'outlined';
   disabled?: boolean;
-}
+};
 
 // Component Definition
 export default function Button(props: ButtonProps) {
@@ -33,16 +33,23 @@ export default function Button(props: ButtonProps) {
   // Todo: find better solutions for dynamic styles here considering variants like color, size, etc.
   let buttonVariantStyle;
   switch (variant) {
-    case 'text': buttonVariantStyle = ButtonVariantTextStyle; break;
-    case 'outlined': buttonVariantStyle = ButtonVariantOutlinedStyle; break;
-    case 'contained': buttonVariantStyle = ButtonVariantContainedStyle; break;
-    default: buttonVariantStyle = ButtonVariantTextStyle;
+    case 'text':
+      buttonVariantStyle = ButtonVariantTextStyle;
+      break;
+    case 'outlined':
+      buttonVariantStyle = ButtonVariantOutlinedStyle;
+      break;
+    case 'contained':
+      buttonVariantStyle = ButtonVariantContainedStyle;
+      break;
+    default:
+      buttonVariantStyle = ButtonVariantTextStyle;
   }
 
   return (
     <button
       disabled={disabled}
-      type="button"
+      type='button'
       onClick={onClick}
       className={classNames(ButtonBaseStyle, buttonVariantStyle)}
     >

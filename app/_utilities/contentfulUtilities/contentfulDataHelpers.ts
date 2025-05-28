@@ -12,7 +12,9 @@ import { EntriesQueries, EntrySkeletonType } from 'contentful';
 import { contentfulClient } from './contentfulClient';
 
 export const getContentfulEntries = async (contentType: string) => {
-  const response = await contentfulClient.getEntries({ content_type: contentType });
+  const response = await contentfulClient.getEntries({
+    content_type: contentType,
+  });
   return response.items;
 };
 
@@ -26,15 +28,8 @@ export const getContentfulEntry = async (
 // Post
 // Todo: Add type for 'postEntryData'
 const massagePostEntryData = (postEntryData: any) => {
-  const {
-    slug,
-    title,
-    coverImage,
-    date,
-    author,
-    excerpt,
-    content,
-  } = postEntryData.fields;
+  const { slug, title, coverImage, date, author, excerpt, content } =
+    postEntryData.fields;
 
   const massagedPostEntryData = {
     slug,
@@ -58,6 +53,9 @@ export const getPosts = async () => {
 };
 
 export const getPost = async (slug: string) => {
-  const post = await getContentfulEntry({ content_type: 'post', 'fields.slug': slug });
+  const post = await getContentfulEntry({
+    content_type: 'post',
+    'fields.slug': slug,
+  });
   return massagePostEntryData(post);
-}
+};
