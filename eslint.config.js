@@ -54,6 +54,11 @@ module.exports = defineConfig([
 
     rules: {
       'tailwindcss/classnames-order': 'off',
+      '@typescript-eslint/no-misused-promises': [2, {
+        'checksVoidReturn': {
+          'attributes': false
+        },
+      }],
     },
   },
   globalIgnores([

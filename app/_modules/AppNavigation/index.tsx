@@ -28,7 +28,6 @@ const checkIsCurrentPath = (currentPath: string, route: string): boolean =>
   currentPath === route;
 
 // Todo: move these logics to 'FormattedDate'
-// eslint-disable-next-line max-len
 // const options = { timeZone: 'Asia/Shanghai', hour: 'numeric' as const, minute: 'numeric' as const };
 // const beijingTime = new Date().toLocaleString('en-US', options);
 
@@ -63,7 +62,7 @@ export default function AppNavigation() {
             );
           })}
         </div>
-        <div className='flex-grow' />
+        <div className='grow' />
         <div className='flex flex-row items-center gap-4'>
           <Button
             onClick={() => setIsContactMeModalOpen(true)}

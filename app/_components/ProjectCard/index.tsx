@@ -16,7 +16,7 @@ export default function ProjectCard(props: ProjectCardProps) {
   const { title, description, techList, image } = props;
 
   return (
-    <div className='border-accent border-b-2 pb-6 last:border-b-0 last:pb-0'>
+    <div className='border-b-2 border-gray-200 pb-6 last:border-b-0 last:pb-0'>
       <div className='flex items-center'>
         {/* Todo: get rid of the extra 'div' */}
         <div>
@@ -26,7 +26,7 @@ export default function ProjectCard(props: ProjectCardProps) {
               src={image}
               width={240}
               height={160}
-              className='h-full w-full object-cover'
+              className='size-full object-cover'
             />
           </div>
         </div>

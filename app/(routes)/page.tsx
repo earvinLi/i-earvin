@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-
 // Internal Dependencies
 import AppNavigation from '@/modules/AppNavigation';
 import AppFooter from '@/modules/AppFooter';
@@ -8,9 +6,9 @@ import OptimizedImage from '@/components/OptimizedImage';
 // Component Definition
 export default function Home() {
   return (
-    <div className='flex h-[100vh] w-[100vw] flex-col'>
+    <div className='flex h-screen w-screen flex-col'>
       <AppNavigation />
-      <div className='mx-auto flex h-[100%] w-[70%] flex-row items-center'>
+      <div className='mx-auto flex h-full w-[70%] flex-row items-center'>
         <div className='flex grow flex-col'>
           <div className='mb-6 text-5xl'>Howdy my hommie,</div>
           <div className='mb-8 text-9xl font-bold'>I&apos;m Earvin</div>

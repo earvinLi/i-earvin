@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-
 // External Dependencies
 import type {
   ChainModifiers,

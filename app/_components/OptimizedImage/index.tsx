@@ -1,6 +1,3 @@
-// Todo: find better way to deal with the eslint rule
-/* eslint-disable react/require-default-props */
-
 'use client';
 
 // External Dependencies

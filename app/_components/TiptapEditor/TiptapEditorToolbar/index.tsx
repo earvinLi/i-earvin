@@ -1,5 +1,3 @@
-/* eslint-disable newline-per-chained-call */
-
 // External Dependencies
 import { Editor as TiptapEditorTypoe } from '@tiptap/react';
 import {

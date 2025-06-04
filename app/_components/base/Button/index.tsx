@@ -1,5 +1,3 @@
-/* eslint-disable react/require-default-props */
-
 // External Dependencies
 import classNames from 'classnames';
 

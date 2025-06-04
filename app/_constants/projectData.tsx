@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/dot-notation, quote-props */
-
 export type TypeTech = {
   techName: string;
   techDescription: string;

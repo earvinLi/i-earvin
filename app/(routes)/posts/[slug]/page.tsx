@@ -51,7 +51,7 @@ export default async function PostPage(props: PostPageProps) {
             src={coverImage.url}
             width={768}
             height={368}
-            className='h-full w-full object-cover'
+            className='size-full object-cover'
           />
         </div>
         {author && (
@@ -74,7 +74,7 @@ export default async function PostPage(props: PostPageProps) {
               <IconButton icon={<ArrowBigLeftIcon color='black' size={24} />} />
             </Link>
           </div>
-          <div className='flex max-w-[768px] flex-col gap-6'>
+          <div className='flex max-w-screen-md flex-col gap-6'>
             <div>
               <ContentfulRichText content={content as TypeDocument} />
             </div>

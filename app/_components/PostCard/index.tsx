@@ -20,7 +20,7 @@ export default function PostCard(props: PostCardProps) {
   const { slug, title, coverImage, date, author, excerpt } = props;
 
   return (
-    <div className='border-accent border-b-2 pb-6 last:border-b-0 last:pb-0'>
+    <div className='border-b-2 border-gray-200 pb-6 last:border-b-0 last:pb-0'>
       <div className='flex items-center'>
         <div>
           <div className='h-40 w-60'>
@@ -29,7 +29,7 @@ export default function PostCard(props: PostCardProps) {
               src={coverImage.url}
               width={240}
               height={160}
-              className='h-full w-full object-cover'
+              className='size-full object-cover'
             />
           </div>
         </div>

@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-
 // External Dependencies
 import classNames from 'classnames';
 import type { ReactNode, MouseEvent, KeyboardEvent } from 'react';
@@ -49,7 +47,7 @@ export default function Modal(props: ModalProps) {
       aria-modal='true'
       aria-labelledby='modal-title'
       tabIndex={-1}
-      className='fixed inset-0 z-[999] flex h-screen w-screen items-center justify-center bg-black bg-opacity-60'
+      className='fixed inset-0 z-[999] flex h-screen w-screen items-center justify-center bg-black/60'
     >
       <div
         className={classNames(

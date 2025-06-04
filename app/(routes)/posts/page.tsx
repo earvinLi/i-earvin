@@ -16,7 +16,7 @@ export default async function Posts() {
       <AppNavigation />
       <div className='mx-auto my-0 w-[70%]'>
         <div className='flex flex-col items-end border-b-4 border-[#00A3DA] pb-4'>
-          <div className='text-bold text-6xl uppercase'>Earvin Li</div>
+          <div className='text-6xl font-bold uppercase'>Earvin Li</div>
           <div className='mx-0 my-2 text-2xl'>Full Stack Engineer</div>
         </div>
         <div className='mx-0 my-4 text-4xl text-[#868e96]'>Posts</div>

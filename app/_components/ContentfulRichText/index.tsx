@@ -100,13 +100,14 @@ const options = {
       const assetHeight = data.target.fields.file.details.image.height;
 
       return (
+        // eslint-disable-next-line tailwindcss/no-custom-classname
         <div className={`w-[${assetWidth}px] h-[${assetHeight}px]`}>
           <OptimizedImage
             alt={`Cover image for ${data.target.fields.title}`}
             src={data.target.fields.file.url}
             width={assetWidth}
             height={assetHeight}
-            className='h-full w-full object-cover'
+            className='size-full object-cover'
           />
         </div>
       );

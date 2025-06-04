@@ -29,7 +29,6 @@ export default function CommentItem(props: CommentItemProps) {
         </div>
       </div>
       {/* Todo: find better solution(s) to deal with HTML content */}
-      {/* eslint-disable-next-line react/no-danger */}
       <div dangerouslySetInnerHTML={{ __html: comment.commentContent }} />
     </div>
   );
