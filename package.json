@@ -8,6 +8,7 @@
     "build:local": "prettier --write ./app && next build",
     "start": "next start",
     "format": "prettier --write ./app",
+    "lint": "eslint ./app",
     "prisma:push": "dotenv -e .env.local -- npx prisma db push",
     "prisma:studio": "dotenv -e .env.local -- npx prisma studio",
     "prepare": "husky"
