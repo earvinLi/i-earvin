@@ -40,6 +40,7 @@ const eslintConfig = defineConfig([
       },
     },
     extends: compat.extends(
+      'next/typescript',
       'plugin:@typescript-eslint/recommended-type-checked',
     ),
     rules: {
