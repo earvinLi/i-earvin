@@ -8,9 +8,7 @@ import { FlatCompat } from '@eslint/eslintrc';
 import js from '@eslint/js';
 
 // Plugin and parser dependencies
-import typescriptEslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
-import tailwindcss from 'eslint-plugin-tailwindcss';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -22,18 +20,11 @@ const compat = new FlatCompat({
 
 const eslintConfig = defineConfig([
   {
-    languageOptions: {
-      parser: tsParser,
-    },
     extends: compat.extends(
       'next/core-web-vitals',
       'plugin:tailwindcss/recommended',
       'prettier',
     ),
-    plugins: {
-      '@typescript-eslint': typescriptEslint,
-      tailwindcss,
-    },
     rules: {
       'tailwindcss/classnames-order': 'off',
     },
@@ -41,6 +32,7 @@ const eslintConfig = defineConfig([
   {
     files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
+      parser: tsParser,
       parserOptions: {
         project: ['./tsconfig.json'],
         projectService: true,
@@ -48,13 +40,9 @@ const eslintConfig = defineConfig([
       },
     },
     extends: compat.extends(
-      'next/core-web-vitals',
       'plugin:@typescript-eslint/recommended-type-checked',
-      'plugin:tailwindcss/recommended',
-      'prettier',
     ),
     rules: {
-      'tailwindcss/classnames-order': 'off',
       '@typescript-eslint/no-misused-promises': [2, {
         'checksVoidReturn': {
           'attributes': false
