@@ -7,8 +7,9 @@ import { usePathname } from 'next/navigation';
 import classNames from 'classnames';
 
 // Internal Dependencies
-import Button from '@/components/base/Button';
 import ContactMeModal from '@/modules/project/ContactMeModal';
+import Button from '@/components/base/Button';
+import LanguageChanger from '@/components/i18n/LanguageChanger';
 
 // Local Variables
 const pageData = [
@@ -64,6 +65,7 @@ export default function AppNavigation() {
         </div>
         <div className='grow' />
         <div className='flex flex-row items-center gap-4'>
+          <LanguageChanger />
           <Button
             onClick={() => setIsContactMeModalOpen(true)}
             variant='outlined'

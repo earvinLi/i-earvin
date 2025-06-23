@@ -2,15 +2,28 @@
 import AppNavigation from '@/modules/AppNavigation';
 import AppFooter from '@/modules/AppFooter';
 import OptimizedImage from '@/components/OptimizedImage';
+import initTranslations from '@/utilities/i18nUtils/i18nNextClient';
+
+// Type Definitions
+type HomeProps = {
+  params: {
+    lang: string;
+  };
+};
 
 // Component Definition
-export default function Home() {
+export default async function Home(props: HomeProps) {
+  const { params } = props;
+  const { lang } = params;
+
+  const { t } = await initTranslations(lang, ['home']);
+
   return (
     <div className='flex h-screen w-screen flex-col'>
       <AppNavigation />
       <div className='mx-auto flex h-full w-[70%] flex-row items-center'>
         <div className='flex grow flex-col'>
-          <div className='mb-6 text-5xl'>Howdy my hommie,</div>
+          <div className='mb-6 text-5xl'>{t('header')}</div>
           <div className='mb-8 text-9xl font-bold'>I&apos;m Earvin</div>
           <div className='w-[512px] text-lg'>
             Hi! I&apos;m a Full Stack and Localization Engineer. I strive to
