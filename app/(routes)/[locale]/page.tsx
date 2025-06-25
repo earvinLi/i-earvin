@@ -2,21 +2,11 @@
 import AppNavigation from '@/modules/AppNavigation';
 import AppFooter from '@/modules/AppFooter';
 import OptimizedImage from '@/components/OptimizedImage';
-import initTranslations from '@/utilities/i18nUtils/i18nNextClient';
-
-// Type Definitions
-type HomeProps = {
-  params: {
-    lang: string;
-  };
-};
+import { getT } from '@/utilities/i18nUtils/i18nServerHelpers';
 
 // Component Definition
-export default async function Home(props: HomeProps) {
-  const { params } = props;
-  const { lang } = params;
-
-  const { t } = await initTranslations(lang, ['home']);
+export default async function Home() {
+  const { t } = await getT('home');
 
   return (
     <div className='flex h-screen w-screen flex-col'>
