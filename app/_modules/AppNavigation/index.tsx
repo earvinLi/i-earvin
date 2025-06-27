@@ -65,13 +65,13 @@ export default function AppNavigation() {
         </div>
         <div className='grow' />
         <div className='flex flex-row items-center gap-4'>
-          <LanguageChanger />
           <Button
             onClick={() => setIsContactMeModalOpen(true)}
             variant='outlined'
           >
             Contact me
           </Button>
+          <LanguageChanger />
           {/* <div>{`Beijing.${beijingTime}`}</div> */}
         </div>
       </div>
