@@ -30,10 +30,10 @@ export default function DropdownMenu(props: DropdownMenuProps) {
   const { triggerElement, optionData } = props;
 
   const [isOpen, setIsOpen] = useState(false);
-  const dropdownMenuRef = useRef(null);
+  const dropdownMenuRef = useRef<HTMLDivElement>(null);
 
   const handleClickOutside = (event: MouseEvent) => {
-    if (dropdownMenuRef.current && !dropdownMenuRef.current.contains(event.target)) {
+    if (dropdownMenuRef.current && !dropdownMenuRef.current.contains(event.target as Node)) {
       setIsOpen(false);
     }
   };
