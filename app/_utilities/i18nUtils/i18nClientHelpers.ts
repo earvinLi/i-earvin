@@ -1,9 +1,12 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+
 'use client';
 
 // External Dependencies
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, UseTranslationOptions, UseTranslationResponse, FallbackNs } from 'react-i18next';
+import { FlatNamespace, KeyPrefix } from 'i18next'
 
 // Local Dependencies
 import i18next from './i18nextInstance';
@@ -11,7 +14,13 @@ import i18next from './i18nextInstance';
 // Local Variables
 const runsOnServerSide = typeof window === 'undefined';
 
-export function useT(namespace, options) {
+export function useT<
+  Ns extends FlatNamespace,
+  KPrefix extends KeyPrefix<FallbackNs<Ns>> = undefined,
+>(
+  namespace?: Ns,
+  options?: UseTranslationOptions<KPrefix>,
+): UseTranslationResponse<FallbackNs<Ns>, KPrefix> {
   const paramsLocale = useParams()?.locale;
 
   if (typeof paramsLocale !== 'string') {
@@ -19,7 +28,7 @@ export function useT(namespace, options) {
   }
 
   if (runsOnServerSide && i18next.resolvedLanguage !== paramsLocale) {
-    i18next.changeLanguage(paramsLocale);
+    void i18next.changeLanguage(paramsLocale);
   } else {
     const [activeLocale, setActiveLocale] = useState(i18next.resolvedLanguage);
 
@@ -30,7 +39,7 @@ export function useT(namespace, options) {
 
     useEffect(() => {
       if (!paramsLocale || i18next.resolvedLanguage === paramsLocale) return;
-      i18next.changeLanguage(paramsLocale);
+      void i18next.changeLanguage(paramsLocale);
     }, [paramsLocale, i18next]);
   }
 
