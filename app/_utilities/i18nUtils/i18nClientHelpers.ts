@@ -5,8 +5,13 @@
 // External Dependencies
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
-import { useTranslation, UseTranslationOptions, UseTranslationResponse, FallbackNs } from 'react-i18next';
-import { FlatNamespace, KeyPrefix } from 'i18next'
+import {
+  useTranslation,
+  UseTranslationOptions,
+  UseTranslationResponse,
+  FallbackNs,
+} from 'react-i18next';
+import { FlatNamespace, KeyPrefix } from 'i18next';
 
 // Local Dependencies
 import i18next from './i18nextInstance';

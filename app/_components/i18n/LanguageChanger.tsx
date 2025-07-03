@@ -7,7 +7,7 @@ import { Languages as LanguagesIcon } from 'lucide-react';
 
 // Internal Dependencies
 import DropdownMenu from '@/components/base/DropdownMenu';
-import IconButton from "@/components/base/IconButton";
+import IconButton from '@/components/base/IconButton';
 import { useT } from '@/utilities/i18nUtils/i18nClientHelpers';
 
 // Component Definition
@@ -26,15 +26,30 @@ export default function LanguageChanger() {
     document.cookie = `NEXT_LOCALE=${newLocale};expires=${expires};path=/`; */
 
     // redirect to the new locale path
-    const newPathname = currentPathname.replace(`/${currentLocale}`, `/${newLocale}`);
+    const newPathname = currentPathname.replace(
+      `/${currentLocale}`,
+      `/${newLocale}`,
+    );
     router.push(newPathname);
     router.refresh();
   };
 
   const localeData = [
-    { value: 'en-US', name: 'English', onClick: () => handleChangeLocale('en-US') },
-    { value: 'zh-CN', name: '中文', onClick: () => handleChangeLocale('zh-CN') },
-    { value: 'ja-JP', name: '日本語', onClick: () => handleChangeLocale('ja-JP') },
+    {
+      value: 'en-US',
+      name: 'English',
+      onClick: () => handleChangeLocale('en-US'),
+    },
+    {
+      value: 'zh-CN',
+      name: '中文',
+      onClick: () => handleChangeLocale('zh-CN'),
+    },
+    {
+      value: 'ja-JP',
+      name: '日本語',
+      onClick: () => handleChangeLocale('ja-JP'),
+    },
   ];
 
   return (

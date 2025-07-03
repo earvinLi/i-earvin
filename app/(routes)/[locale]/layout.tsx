@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 type RootLayoutProps = {
   children: React.ReactNode;
   params: { locale: string };
-}
+};
 
 // eslint-disable-next-line @typescript-eslint/require-await
 export async function generateStaticParams() {

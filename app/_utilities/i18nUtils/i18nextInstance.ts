@@ -10,11 +10,15 @@ import { defaultLocale, appLocales, defaultNamespace } from './i18nConfig';
 // Local Variables
 const runsOnServerSide = typeof window === 'undefined';
 
-
 i18next // eslint-disable-line @typescript-eslint/no-floating-promises
   .use(initReactI18next)
   .use(LanguageDetector)
-  .use(resourcesToBackend((locale: string, namespace: string) => import(`../../../locales/${locale}/${namespace}.json`)))
+  .use(
+    resourcesToBackend(
+      (locale: string, namespace: string) =>
+        import(`../../../locales/${locale}/${namespace}.json`),
+    ),
+  )
   .init({
     // debug: true,
     supportedLngs: appLocales,
@@ -23,7 +27,7 @@ i18next // eslint-disable-line @typescript-eslint/no-floating-promises
     fallbackNS: defaultLocale,
     defaultNS: defaultNamespace,
     detection: {
-      order: ['path', 'htmlTag', 'cookie', 'navigator']
+      order: ['path', 'htmlTag', 'cookie', 'navigator'],
     },
     preload: runsOnServerSide ? appLocales : [],
   });
