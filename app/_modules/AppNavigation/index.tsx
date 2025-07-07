@@ -10,10 +10,11 @@ import classNames from 'classnames';
 import ContactMeModal from '@/modules/project/ContactMeModal';
 import Button from '@/components/base/Button';
 import LanguageChanger from '@/components/i18n/LanguageChanger';
+import { useT } from '@/utilities/i18nUtils/i18nClientHelpers';
 
 // Local Variables
 const pageData = [
-  { name: 'Home', path: '/' },
+  { name: 'Home', path: '' },
   { name: 'Projects', path: '/projects' },
   { name: 'Posts', path: '/posts' },
 ];
@@ -36,6 +37,9 @@ const checkIsCurrentPath = (currentPath: string, route: string): boolean =>
 export default function AppNavigation() {
   const pathname = usePathname();
 
+  const { i18n } = useT();
+  const { resolvedLanguage: currentLocale } = i18n;
+
   const [isContactMeModalOpen, setIsContactMeModalOpen] = useState(false);
 
   return (
@@ -44,7 +48,8 @@ export default function AppNavigation() {
         <div className='flex flex-row gap-6'>
           {pageData.map((page) => {
             const { name, path } = page;
-            const isCurrentPage = checkIsCurrentPath(pathname, path);
+            const localePath = `/${currentLocale}${path}`;
+            const isCurrentPage = checkIsCurrentPath(localePath, pathname);
             const fontStyle = isCurrentPage
               ? appNavigationStyles.font.current
               : appNavigationStyles.font.other;
@@ -52,7 +57,7 @@ export default function AppNavigation() {
             return (
               <Link
                 key={`${path}-${name}`}
-                href={path}
+                href={localePath}
                 className={classNames(
                   'text-lg decoration-[#00A3DA] decoration-2 underline-offset-8',
                   fontStyle,
