@@ -10,8 +10,15 @@ import { defaultLocale, appLocales, cookieName, headerName } from '@/utilities/i
 acceptLanguage.languages(appLocales);
 
 export const config = {
-  // avoid matching for static files, API routes, etc.
-  matcher: ['/((?!api|_next/static|_next/image|assets|favicon.ico|sw.js|site.webmanifest).*)']
+  // Todo: should load localized images if possible
+  /*
+    avoid matching for:
+    - api (API routes)
+    - _next/static (static files)
+    - _next/images (image optimization files)
+    - images (/public/images files)
+  */
+  matcher: ['/((?!api|_next/static|_next/image|images).*)']
 };
 
 export function middleware(req: NextRequest) {

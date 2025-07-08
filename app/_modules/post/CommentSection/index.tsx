@@ -61,7 +61,11 @@ export default function CommentSection(props: CommentSectionProps) {
         {`Comment${postComments.length > 1 ? 's' : ''} ${postComments.length > 0 ? `(${postComments.length})` : ''}`}
       </h2>
       <div className='flex flex-row items-center gap-6'>
-        <Avatar name='John Doe' image='/avatar_default.jpg' size='medium' />
+        <Avatar
+          name='John Doe'
+          image='/images/avatar_default.jpg'
+          size='medium'
+        />
         {isEditingCommenter ? (
           <div className='flex w-[256px] flex-row items-center gap-4'>
             <Controller

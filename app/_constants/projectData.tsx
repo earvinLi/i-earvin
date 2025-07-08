@@ -133,78 +133,78 @@ export const projects = [
       techs['Tailwind CSS'],
       techs['Prisma'],
     ],
-    image: '/project_cover_i_earvin.jpg',
+    image: '/images/project_cover_i_earvin.jpg',
   },
   {
     title: 'Where Have You Been',
     description:
       'A SPA where you can collect and sell your memories (in parts) built with a number of open-source projects including:',
     techList: [techs['NextJS'], techs['Material UI'], techs['ExpressJS']],
-    image: '/project_cover_whyb.jpg',
+    image: '/images/project_cover_whyb.jpg',
   },
   {
     title: 'Coder Evolution',
     description:
       'Coder Evolution helps you record all your learning progress and knowledge with both Markdown and Code.',
     techList: [techs['React'], techs['Material UI'], techs['Redux']],
-    image: '/project_cover_coder.jpg',
+    image: '/images/project_cover_coder.jpg',
   },
   {
     title: 'A Programming Language',
     description: 'Using plain JavaScript to write a programming language.',
     techList: [techs['JavaScript']],
-    image: '/project_cover_programming_language.jpg',
+    image: '/images/project_cover_programming_language.jpg',
   },
   {
     title: 'Beer Sharer',
     description:
       'UReact Native and Redux help share your favorite beers with friends. Cheers!!!',
     techList: [techs['React Native'], techs['Redux'], techs['Firebase']],
-    image: '/project_cover_beer.jpg',
+    image: '/images/project_cover_beer.jpg',
   },
   {
     title: 'Neighborhood Map',
     description:
       'Use KnockOut to make the most of Google Map API and MediaWiki API.',
     techList: [techs['KnockoutJS'], techs['Google Map'], techs['Wikipedia']],
-    image: '/project_cover_neighborhood.jpg',
+    image: '/images/project_cover_neighborhood.jpg',
   },
   {
     title: 'Reddit Mockup',
     description:
       'This is a very experimental project (of EPAM training period) to mimic Reddit with a new UI built with React, Redux and Material-UI which has a mobile version as well with React Native.',
     techList: [techs['React'], techs['Redux'], techs['Material UI']],
-    image: '/project_cover_reddit.jpg',
+    image: '/images/project_cover_reddit.jpg',
   },
   {
     title: 'Todo',
     description:
       'A typical Todo app whose state managements can be switched between Redux and MobX',
     techList: [techs['React'], techs['Redux'], techs['MobX']],
-    image: '/project_cover_todo.jpg',
+    image: '/images/project_cover_todo.jpg',
   },
   {
     title: 'Try Some Flutter',
     description: 'A practice project to learn Flutter and Dart basics',
     techList: [techs['Flutter'], techs['Dart']],
-    image: '/project_cover_flutter.jpg',
+    image: '/images/project_cover_flutter.jpg',
   },
   {
     title: 'Automated Multilingual Tester',
     description: 'This is a tool for auto language multilingual testing (LQA)',
     techList: [techs['Java']],
-    image: '/project_cover_multilingual.jpg',
+    image: '/images/project_cover_multilingual.jpg',
   },
   {
     title: 'Tour of Heroes',
     description: 'A practice project to learn Angular basics',
     techList: [techs['Angular']],
-    image: '/project_cover_heroes.jpg',
+    image: '/images/project_cover_heroes.jpg',
   },
   {
     title: 'Feed Reader Testing',
     description: 'A test-driven practice project with Jasmine',
     techList: [techs['Jasmine']],
-    image: '/project_cover_feed_reader.jpg',
+    image: '/images/project_cover_feed_reader.jpg',
   },
 ] as const;

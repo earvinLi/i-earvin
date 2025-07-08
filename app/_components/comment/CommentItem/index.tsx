@@ -18,7 +18,7 @@ export default function CommentItem(props: CommentItemProps) {
       <div className='flex flex-row items-center gap-5'>
         <Avatar
           name={comment.commenter as string}
-          image='/avatar_default.jpg'
+          image='/images/avatar_default.jpg'
           size='medium'
         />
         <div className='flex flex-col gap-1'>
