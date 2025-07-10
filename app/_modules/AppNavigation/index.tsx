@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import classNames from 'classnames';
+import { TFunction } from 'i18next';
 
 // Internal Dependencies
 import ContactMeModal from '@/modules/project/ContactMeModal';
@@ -13,10 +14,10 @@ import LanguageChanger from '@/components/i18n/LanguageChanger';
 import { useT } from '@/utilities/i18nUtils/i18nClientHelpers';
 
 // Local Variables
-const pageData = [
-  { name: 'Home', path: '' },
-  { name: 'Projects', path: '/projects' },
-  { name: 'Posts', path: '/posts' },
+const getPageData = (translationHelper: TFunction) => [
+  { name: translationHelper('link_name_home'), path: '' },
+  { name: translationHelper('link_name_project'), path: '/projects' },
+  { name: translationHelper('link_name_post'), path: '/posts' },
 ];
 
 const appNavigationStyles = {
@@ -37,7 +38,7 @@ const checkIsCurrentPath = (currentPath: string, route: string): boolean =>
 export default function AppNavigation() {
   const pathname = usePathname();
 
-  const { i18n } = useT();
+  const { i18n, t } = useT('module_app_navigation');
   const { resolvedLanguage: currentLocale } = i18n;
 
   const [isContactMeModalOpen, setIsContactMeModalOpen] = useState(false);
@@ -46,7 +47,7 @@ export default function AppNavigation() {
     <>
       <div className='mx-auto mb-8 mt-4 flex w-[70%] flex-row'>
         <div className='flex flex-row gap-6'>
-          {pageData.map((page) => {
+          {getPageData(t).map((page) => {
             const { name, path } = page;
             const localePath = `/${currentLocale}${path}`;
             const isCurrentPage = checkIsCurrentPath(localePath, pathname);
@@ -74,7 +75,7 @@ export default function AppNavigation() {
             onClick={() => setIsContactMeModalOpen(true)}
             variant='outlined'
           >
-            Contact me
+            {t('contact_me_button_text')}
           </Button>
           <LanguageChanger />
           {/* <div>{`Beijing.${beijingTime}`}</div> */}
