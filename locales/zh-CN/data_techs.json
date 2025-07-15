@@ -1,0 +1,82 @@
+{
+  "next_js": {
+    "techName": "NextJS",
+    "techDescription": "React 框架！"
+  },
+  "material_ui": {
+    "techName": "Material UI",
+    "techDescription": "Material Design 用户界面组件"
+  },
+  "express_js": {
+    "techName": "ExpressJS",
+    "techDescription": "NodeJS 框架!"
+  },
+  "react": {
+    "techName": "React",
+    "techDescription": "先进的网页应用框架！"
+  },
+  "redux": {
+    "techName": "Redux",
+    "techDescription": "前端状态管理解决方案！"
+  },
+  "mobx": {
+    "techName": "MobX",
+    "techDescription": "一个无固定要求和做法的前端状态管理解决方案"
+  },
+  "javascript": {
+    "techName": "JavaScript",
+    "techDescription": "基于此，我们在25年多以及之后的时间里发现了无数的前端奇迹！"
+  },
+  "react_native": {
+    "techName": "React Native",
+    "techDescription": "针对移动端应用的 React 框架！"
+  },
+  "firebase": {
+    "techName": "Firebase",
+    "techDescription": "Google 的 NoSQL 数据库！"
+  },
+  "jasmine": {
+    "techName": "Jasmine",
+    "techDescription": "JavaScript 测试！"
+  },
+  "knockout_js": {
+    "techName": "KnockoutJS",
+    "techDescription": "具有 MVVM 模式的动态 JavaScript 用户界面！"
+  },
+  "google_map": {
+    "techName": "Google Map",
+    "techDescription": "满足地理需求的 Google Map API！"
+  },
+  "wikipedia": {
+    "techName": "Wikipedia",
+    "techDescription": "满足 wiki 需求的 Wikipedia API！"
+  },
+  "flutter": {
+    "techName": "Flutter",
+    "techDescription": "只使用一个框架构建、测试和部署全部移动端、网页端、桌面端和嵌入式应用程序。"
+  },
+  "dart": {
+    "techName": "Dart",
+    "techDescription": "面向对象、基于类、会进行垃圾收集的语言，具有 C 风格语法，用于开发网页和移动应用程序以及服务器和桌面应用程序"
+  },
+  "java": {
+    "techName": "Java",
+    "techDescription": "Java！并且被设计为尽可能少的需求依赖"
+  },
+  "angular": {
+    "techName": "Angular",
+    "techDescription": "使开发人员能够构建快速、可靠网页应用程序的框架"
+  },
+  "typescript": {
+    "techName": "TypeScript",
+    "techDescription": "赋予类型的 JavaScript 超集，可编译为纯 JavaScript"
+  },
+  "tailwind_css": {
+    "techName": "Tailwind CSS",
+    "techDescription": "用于快速构建定制化设计、遵循实用优先的 CSS 框架"
+  },
+  "prisma": {
+    "techName": "Prisma",
+    "techDescription": "一个让数据库操作更加容易操作和交互的 ORM"
+  }
+}

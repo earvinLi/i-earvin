@@ -1,0 +1,82 @@
+{
+  "next_js": {
+    "techName": "NextJS",
+    "techDescription": "The React framework!"
+  },
+  "material_ui": {
+    "techName": "Material UI",
+    "techDescription": "Material Design UI components"
+  },
+  "express_js": {
+    "techName": "ExpressJS",
+    "techDescription": "The NodeJS framework!"
+  },
+  "react": {
+    "techName": "React",
+    "techDescription": "The library for modern web apps!"
+  },
+  "redux": {
+    "techName": "Redux",
+    "techDescription": "Frontend state management solution!"
+  },
+  "mobx": {
+    "techName": "MobX",
+    "techDescription": "An unopinionated frontend state management solution"
+  },
+  "javascript": {
+    "techName": "JavaScript",
+    "techDescription": "Based on which we find the miracles of frontend and more for more then 25 years!"
+  },
+  "react_native": {
+    "techName": "React Native",
+    "techDescription": "React for mobile apps!"
+  },
+  "firebase": {
+    "techName": "Firebase",
+    "techDescription": "Google's NoSQL database!"
+  },
+  "jasmine": {
+    "techName": "Jasmine",
+    "techDescription": "JavaScript testing!"
+  },
+  "knockout_js": {
+    "techName": "KnockoutJS",
+    "techDescription": "Dynamic JavaScript UIs with the MVVM pattern!"
+  },
+  "google_map": {
+    "techName": "Google Map",
+    "techDescription": "Google Map APIs for geographic requirements!"
+  },
+  "wikipedia": {
+    "techName": "Wikipedia",
+    "techDescription": "Wikipedia APIs for wiki requirements!"
+  },
+  "flutter": {
+    "techName": "Flutter",
+    "techDescription": "Build, test, and deploy beautiful mobile, web, desktop, and embedded apps with one library."
+  },
+  "dart": {
+    "techName": "Dart",
+    "techDescription": "Object-oriented, class-based, garbage-collected language with C-style syntax used to develop web and mobile apps as well as server and desktop applications"
+  },
+  "java": {
+    "techName": "Java",
+    "techDescription": "The Java! And designed to have as few implementation dependencies as possible"
+  },
+  "angular": {
+    "techName": "Angular",
+    "techDescription": "Web framework that empowers developers to build fast, reliable applications"
+  },
+  "typescript": {
+    "techName": "TypeScript",
+    "techDescription": "A typed superset of JavaScript that compiles to plain JavaScript"
+  },
+  "tailwind_css": {
+    "techName": "Tailwind CSS",
+    "techDescription": "Utility-first CSS framework for rapidly building custom designs"
+  },
+  "prisma": {
+    "techName": "Prisma",
+    "techDescription": "An ORM that makes it much easier to work with databases"
+  }
+}

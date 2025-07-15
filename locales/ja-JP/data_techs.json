@@ -1,0 +1,82 @@
+{
+  "next_js": {
+    "techName": "NextJS",
+    "techDescription": "React フレームワーク!"
+  },
+  "material_ui": {
+    "techName": "Material UI",
+    "techDescription": "マテリアル デザイン UI コンポーネント"
+  },
+  "express_js": {
+    "techName": "ExpressJS",
+    "techDescription": "NodeJS フレームワーク!"
+  },
+  "react": {
+    "techName": "React",
+    "techDescription": "最新の Web アプリ用のライブラリです。"
+  },
+  "redux": {
+    "techName": "Redux",
+    "techDescription": "フロントエンドの状態管理ソリューション!"
+  },
+  "mobx": {
+    "techName": "MobX",
+    "techDescription": "フロントエンドの状態管理ソリューション"
+  },
+  "javascript": {
+    "techName": "JavaScript",
+    "techDescription": "これを基に、私たちは 25 年以上にわたってフロントエンドの奇跡などを発見してきました。"
+  },
+  "react_native": {
+    "techName": "React Native",
+    "techDescription": "モバイルアプリにReactを！"
+  },
+  "firebase": {
+    "techName": "Firebase",
+    "techDescription": "Google の NoSQL データベース!"
+  },
+  "jasmine": {
+    "techName": "Jasmine",
+    "techDescription": "JavaScriptのテストです！"
+  },
+  "knockout_js": {
+    "techName": "KnockoutJS",
+    "techDescription": "MVVM パターンを使用した動的 JavaScript UI!"
+  },
+  "google_map": {
+    "techName": "Google Map",
+    "techDescription": "地理的要件に対応する Google Map API!"
+  },
+  "wikipedia": {
+    "techName": "Wikipedia",
+    "techDescription": "ウィキ要件のための Wikipedia API!"
+  },
+  "flutter": {
+    "techName": "Flutter",
+    "techDescription": "1 つのライブラリを使用して、美しいモバイル、Web、デスクトップ、組み込みアプリを構築、テスト、展開します。"
+  },
+  "dart": {
+    "techName": "Dart",
+    "techDescription": "オブジェクト指向、クラスベース、ガベージコレクションを備えた言語で、C スタイルの構文を持ち、Web アプリやモバイル アプリ、サーバー アプリケーションやデスクトップ アプリケーションの開発に使用されます。"
+  },
+  "java": {
+    "techName": "Java",
+    "techDescription": "Java！実装の依存性を可能な限り少なくするように設計されています"
+  },
+  "angular": {
+    "techName": "Angular",
+    "techDescription": "開発者が高速で信頼性の高いアプリケーションを構築できるようにする Web フレームワーク"
+  },
+  "typescript": {
+    "techName": "TypeScript",
+    "techDescription": "プレーンな JavaScript にコンパイルされる、型付きの JavaScript のスーパーセット"
+  },
+  "tailwind_css": {
+    "techName": "Tailwind CSS",
+    "techDescription": "カスタムデザインを迅速に構築するためのユーティリティファーストの CSS フレームワーク"
+  },
+  "prisma": {
+    "techName": "Prisma",
+    "techDescription": "データベースの操作をはるかに簡単にするORM"
+  }
+}

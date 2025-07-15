@@ -1,0 +1,50 @@
+{
+  "i_earvin": {
+    "title": "I Earvin",
+    "description": "我的个人页面，在这里我开始收集我的项目、撰写帖子和体验新技术。"
+  },
+  "where_have_you_been": {
+    "title": "Where Have You Been",
+    "description": "一个 SPA，您可以在其中收集和出售您的记忆（部分），它由许多开源项目构建，包括："
+  },
+  "coder_evolution": {
+    "title": "Coder Evolution",
+    "description": "Coder Evolution 帮助您使用 Markdown 和 Code 记录您的所有学习进度和知识。"
+  },
+  "a_programming_language": {
+    "title": "A Programming Language",
+    "description": "使用纯 JavaScript 来编写编程语言。"
+  },
+  "beer_sharer": {
+    "title": "Beer Sharer",
+    "description": "React Native 和 Redux 帮你和朋友们分享你最爱的啤酒。干杯！！！"
+  },
+  "neighborhood_map": {
+    "title": "Neighborhood Map",
+    "description": "使用 KnockOut 充分利用 Google Map API 和 MediaWiki API。"
+  },
+  "reddit_mockup": {
+    "title": "Reddit Mockup",
+    "description": "这是一个非常实验性的项目（EPAM 培训期），它模仿 Reddit，使用 React、Redux 和 Material-UI 构建了新的 UI，并且还有一个使用 React Native 的移动版本。"
+  },
+  "todo": {
+    "title": "Todo",
+    "description": "一个典型的 Todo 应用，其状态管理可以在 Redux 和 MobX 之间切换"
+  },
+  "try_some_flutter": {
+    "title": "Try Some Flutter",
+    "description": "学习 Flutter 和 Dart 基础知识的实践项目"
+  },
+  "automated_multilingual_tester": {
+    "title": "Automated Multilingual Tester",
+    "description": "这是一个用于翻译质量测试（LQA）的自动化测试工具"
+  },
+  "tour_of_heroes": {
+    "title": "Tour of Heroes",
+    "description": "学习 Angular 基础知识的实践项目"
+  },
+  "feed_reader_testing": {
+    "title": "Feed Reader Testing",
+    "description": "Jasmine 测试驱动实践项目"
+  }
+}

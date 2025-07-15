@@ -1,0 +1,50 @@
+{
+  "i_earvin": {
+    "title": "I Earvin",
+    "description": "My personal page where I started to collect my projects, write posts and experience new techs."
+  },
+  "where_have_you_been": {
+    "title": "Where Have You Been",
+    "description": "A SPA where you can collect and sell your memories (in parts) built with a number of open-source projects including:"
+  },
+  "coder_evolution": {
+    "title": "Coder Evolution",
+    "description": "Coder Evolution helps you record all your learning progress and knowledge with both Markdown and Code."
+  },
+  "a_programming_language": {
+    "title": "A Programming Language",
+    "description": "Using plain JavaScript to write a programming language."
+  },
+  "beer_sharer": {
+    "title": "Beer Sharer",
+    "description": "React Native and Redux help share your favorite beers with friends. Cheers!!!"
+  },
+  "neighborhood_map": {
+    "title": "Neighborhood Map",
+    "description": "Use KnockOut to make the most of Google Map API and MediaWiki API."
+  },
+  "reddit_mockup": {
+    "title": "Reddit Mockup",
+    "description": "This is a very experimental project (of EPAM training period) to mimic Reddit with a new UI built with React, Redux and Material-UI which has a mobile version as well with React Native."
+  },
+  "todo": {
+    "title": "Todo",
+    "description": "A typical Todo app whose state managements can be switched between Redux and MobX"
+  },
+  "try_some_flutter": {
+    "title": "Try Some Flutter",
+    "description": "A practice project to learn Flutter and Dart basics"
+  },
+  "automated_multilingual_tester": {
+    "title": "Automated Multilingual Tester",
+    "description": "This is a tool for auto language multilingual testing (LQA)"
+  },
+  "tour_of_heroes": {
+    "title": "Tour of Heroes",
+    "description": "A practice project to learn Angular basics"
+  },
+  "feed_reader_testing": {
+    "title": "Feed Reader Testing",
+    "description": "A test-driven practice project with Jasmine"
+  }
+}

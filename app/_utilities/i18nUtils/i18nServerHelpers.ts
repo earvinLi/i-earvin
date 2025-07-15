@@ -39,14 +39,10 @@ export async function getT<
     t: Array.isArray(namespace)
       ? i18next.getFixedT(
           headerLocale,
-          namespace[0] as string,
+          namespace as string[],
           options.keyPrefix,
         )
-      : i18next.getFixedT(
-          headerLocale,
-          namespace as FlatNamespace,
-          options.keyPrefix,
-        ),
+      : i18next.getFixedT(headerLocale, namespace as string, options.keyPrefix),
     i18n: i18next,
   };
 }

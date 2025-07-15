@@ -1,0 +1,50 @@
+{
+  "i_earvin": {
+    "title": "I Earvin",
+    "description": "私の個人ページ。ここから私はプロジェクトを収集し、投稿を書き、新しい技術を体験し始めました。"
+  },
+  "where_have_you_been": {
+    "title": "Where Have You Been",
+    "description": "以下のオープンソース プロジェクトを使用して構築された、思い出を (部分的に) 収集して販売できる SPA。"
+  },
+  "coder_evolution": {
+    "title": "Coder Evolution",
+    "description": "Coder Evolution は、Markdown とコードの両方を使用して、すべての学習の進捗状況と知識を記録するのに役立ちます。"
+  },
+  "a_programming_language": {
+    "title": "A Programming Language",
+    "description": "プレーンな JavaScript を使用してプログラミング言語を記述します。"
+  },
+  "beer_sharer": {
+    "title": "Beer Sharer",
+    "description": "React NativeとReduxを使えば、お気に入りのビールを友達とシェアできます。乾杯！"
+  },
+  "neighborhood_map": {
+    "title": "Neighborhood Map",
+    "description": "KnockOut を使用して、Google Map API と MediaWiki API を最大限に活用しましょう。"
+  },
+  "reddit_mockup": {
+    "title": "Reddit Mockup",
+    "description": "これは、React、Redux、Material-UI で構築された新しい UI で Reddit を模倣する (EPAM トレーニング期間の) 非常に実験的なプロジェクトです。React Native を使用したモバイル バージョンもあります。"
+  },
+  "todo": {
+    "title": "Todo",
+    "description": "状態管理をReduxとMobX間で切り替えることができる典型的なTodoアプリ"
+  },
+  "try_some_flutter": {
+    "title": "Try Some Flutter",
+    "description": "FlutterとDartの基礎を学ぶための練習プロジェクト"
+  },
+  "automated_multilingual_tester": {
+    "title": "Automated Multilingual Tester",
+    "description": "これは自動言語多言語テスト（LQA）用のツールです"
+  },
+  "tour_of_heroes": {
+    "title": "Tour of Heroes",
+    "description": "Angularの基礎を学ぶための練習プロジェクト"
+  },
+  "feed_reader_testing": {
+    "title": "Feed Reader Testing",
+    "description": "ジャスミンとのテスト駆動型実践プロジェクト"
+  }
+}

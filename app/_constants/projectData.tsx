@@ -1,3 +1,6 @@
+// External Dependencies
+import { TFunction } from 'i18next';
+
 export type TypeTech = {
   techName: string;
   techDescription: string;
@@ -11,200 +14,217 @@ export type TypeProject = {
   image: string;
 };
 
-const techs = {
-  NextJS: {
-    techName: 'NextJS',
-    techDescription: 'The React framework!',
-    techLink: 'https://nextjs.org/',
-  },
-  'Material UI': {
-    techName: 'Material UI',
-    techDescription: 'Material Design UI components',
-    techLink: 'https://mui.com/material-ui/',
-  },
-  ExpressJS: {
-    techName: 'ExpressJS',
-    techDescription: 'The NodeJS framework!',
-    techLink: 'https://expressjs.com/',
-  },
-  React: {
-    techName: 'React',
-    techDescription: 'The library for modern web apps!',
-    techLink: 'https://react.dev/',
-  },
-  Redux: {
-    techName: 'Redux',
-    techDescription: 'Frontend state management solution!',
-    techLink: 'https://redux.js.org/',
-  },
-  MobX: {
-    techName: 'MobX',
-    techDescription: 'An unopinionated frontend state management solution',
-    techLink: 'https://mobx.js.org/',
-  },
-  JavaScript: {
-    techName: 'JavaScript',
-    techDescription:
-      'Based on which we find the miracles of frontend and more for more then 25 years!',
-    techLink: 'https://www.ecma-international.org/ecma-262/',
-  },
-  'React Native': {
-    techName: 'React Native',
-    techDescription: 'React for mobile apps!',
-    techLink: 'https://reactnative.dev/',
-  },
-  Firebase: {
-    techName: 'Firebase',
-    techDescription: "Google's NoSQL database!",
-    techLink: 'https://firebase.google.com/',
-  },
-  Jasmine: {
-    techName: 'Jasmine',
-    techDescription: 'JavaScript testing!',
-    techLink: 'https://jasmine.github.io/',
-  },
-  KnockoutJS: {
-    techName: 'KnockoutJS',
-    techDescription: 'Dynamic JavaScript UIs with the MVVM pattern!',
-    techLink: 'https://knockoutjs.com/',
-  },
-  'Google Map': {
-    techName: 'Google Map',
-    techDescription: 'Google Map APIs for geographic requirements!',
-    techLink: 'https://developers.google.com/maps/',
-  },
-  Wikipedia: {
-    techName: 'Wikipedia',
-    techDescription: 'Wikipedia APIs for wiki requirements!',
-    techLink:
-      'https://www.mediawiki.org/wiki/API:Main_page#Getting_started_with_MediaWiki_Action_API/',
-  },
-  Flutter: {
-    techName: 'Flutter',
-    techDescription:
-      'Build, test, and deploy beautiful mobile, web, desktop, and embedded apps with one library.',
-    techLink: 'https://flutter.dev/',
-  },
-  Dart: {
-    techName: 'Dart',
-    techDescription:
-      'Object-oriented, class-based, garbage-collected language with C-style syntax used to develop web and mobile apps as well as server and desktop applications',
-    techLink: 'https://dart.dev/',
-  },
-  Java: {
-    techName: 'Java',
-    techDescription:
-      'The Java! And designed to have as few implementation dependencies as possible',
-    techLink: 'https://www.java.com/',
-  },
-  Angular: {
-    techName: 'Angular',
-    techDescription:
-      'Web framework that empowers developers to build fast, reliable applications',
-    techLink: 'https://angular.dev/',
-  },
-  TypeScript: {
-    techName: 'TypeScript',
-    techDescription:
-      'A typed superset of JavaScript that compiles to plain JavaScript',
-    techLink: 'https://www.typescriptlang.org/',
-  },
-  'Tailwind CSS': {
-    techName: 'Tailwind CSS',
-    techDescription:
-      'Utility-first CSS framework for rapidly building custom designs',
-    techLink: 'https://tailwindcss.com/',
-  },
-  Prisma: {
-    techName: 'Prisma',
-    techDescription: 'An ORM that makes it much easier to work with databases',
-    techLink: 'https://www.prisma.io/',
-  },
-} as const;
+const techs = (translationHelper: TFunction) =>
+  ({
+    NextJS: {
+      techName: translationHelper('next_js.techName'),
+      techDescription: translationHelper('next_js.techDescription'),
+      techLink: 'https://nextjs.org/',
+    },
+    'Material UI': {
+      techName: translationHelper('material_ui.techName'),
+      techDescription: translationHelper('material_ui.techDescription'),
+      techLink: 'https://mui.com/material-ui/',
+    },
+    ExpressJS: {
+      techName: translationHelper('express_js.techName'),
+      techDescription: translationHelper('express_js.techDescription'),
+      techLink: 'https://expressjs.com/',
+    },
+    React: {
+      techName: translationHelper('react.techName'),
+      techDescription: translationHelper('react.techDescription'),
+      techLink: 'https://react.dev/',
+    },
+    Redux: {
+      techName: translationHelper('redux.techName'),
+      techDescription: translationHelper('redux.techDescription'),
+      techLink: 'https://redux.js.org/',
+    },
+    MobX: {
+      techName: translationHelper('mobx.techName'),
+      techDescription: translationHelper('mobx.techDescription'),
+      techLink: 'https://mobx.js.org/',
+    },
+    JavaScript: {
+      techName: translationHelper('javascript.techName'),
+      techDescription: translationHelper('javascript.techDescription'),
+      techLink: 'https://www.ecma-international.org/ecma-262/',
+    },
+    'React Native': {
+      techName: translationHelper('react_native.techName'),
+      techDescription: translationHelper('react_native.techDescription'),
+      techLink: 'https://reactnative.dev/',
+    },
+    Firebase: {
+      techName: translationHelper('firebase.techName'),
+      techDescription: translationHelper('firebase.techDescription'),
+      techLink: 'https://firebase.google.com/',
+    },
+    Jasmine: {
+      techName: translationHelper('jasmine.techName'),
+      techDescription: translationHelper('jasmine.techDescription'),
+      techLink: 'https://jasmine.github.io/',
+    },
+    KnockoutJS: {
+      techName: translationHelper('knockout_js.techName'),
+      techDescription: translationHelper('knockout_js.techDescription'),
+      techLink: 'https://knockoutjs.com/',
+    },
+    'Google Map': {
+      techName: translationHelper('google_map.techName'),
+      techDescription: translationHelper('google_map.techDescription'),
+      techLink: 'https://developers.google.com/maps/',
+    },
+    Wikipedia: {
+      techName: translationHelper('wikipedia.techName'),
+      techDescription: translationHelper('wikipedia.techDescription'),
+      techLink:
+        'https://www.mediawiki.org/wiki/API:Main_page#Getting_started_with_MediaWiki_Action_API/',
+    },
+    Flutter: {
+      techName: translationHelper('flutter.techName'),
+      techDescription: translationHelper('flutter.techDescription'),
+      techLink: 'https://flutter.dev/',
+    },
+    Dart: {
+      techName: translationHelper('dart.techName'),
+      techDescription: translationHelper('dart.techDescription'),
+      techLink: 'https://dart.dev/',
+    },
+    Java: {
+      techName: translationHelper('java.techName'),
+      techDescription: translationHelper('java.techDescription'),
+      techLink: 'https://www.java.com/',
+    },
+    Angular: {
+      techName: translationHelper('angular.techName'),
+      techDescription: translationHelper('angular.techDescription'),
+      techLink: 'https://angular.dev/',
+    },
+    TypeScript: {
+      techName: translationHelper('typescript.techName'),
+      techDescription: translationHelper('typescript.techDescription'),
+      techLink: 'https://www.typescriptlang.org/',
+    },
+    'Tailwind CSS': {
+      techName: translationHelper('tailwind_css.techName'),
+      techDescription: translationHelper('tailwind_css.techDescription'),
+      techLink: 'https://tailwindcss.com/',
+    },
+    Prisma: {
+      techName: translationHelper('prisma.techName'),
+      techDescription: translationHelper('prisma.techDescription'),
+      techLink: 'https://www.prisma.io/',
+    },
+  }) as const;
 
-export const projects = [
-  {
-    title: 'I Earvin',
-    description:
-      'My personal page where I started to collect my projects, write posts and experience new techs.',
-    techList: [
-      techs['TypeScript'],
-      techs['NextJS'],
-      techs['Tailwind CSS'],
-      techs['Prisma'],
-    ],
-    image: '/images/project_cover_i_earvin.jpg',
-  },
-  {
-    title: 'Where Have You Been',
-    description:
-      'A SPA where you can collect and sell your memories (in parts) built with a number of open-source projects including:',
-    techList: [techs['NextJS'], techs['Material UI'], techs['ExpressJS']],
-    image: '/images/project_cover_whyb.jpg',
-  },
-  {
-    title: 'Coder Evolution',
-    description:
-      'Coder Evolution helps you record all your learning progress and knowledge with both Markdown and Code.',
-    techList: [techs['React'], techs['Material UI'], techs['Redux']],
-    image: '/images/project_cover_coder.jpg',
-  },
-  {
-    title: 'A Programming Language',
-    description: 'Using plain JavaScript to write a programming language.',
-    techList: [techs['JavaScript']],
-    image: '/images/project_cover_programming_language.jpg',
-  },
-  {
-    title: 'Beer Sharer',
-    description:
-      'UReact Native and Redux help share your favorite beers with friends. Cheers!!!',
-    techList: [techs['React Native'], techs['Redux'], techs['Firebase']],
-    image: '/images/project_cover_beer.jpg',
-  },
-  {
-    title: 'Neighborhood Map',
-    description:
-      'Use KnockOut to make the most of Google Map API and MediaWiki API.',
-    techList: [techs['KnockoutJS'], techs['Google Map'], techs['Wikipedia']],
-    image: '/images/project_cover_neighborhood.jpg',
-  },
-  {
-    title: 'Reddit Mockup',
-    description:
-      'This is a very experimental project (of EPAM training period) to mimic Reddit with a new UI built with React, Redux and Material-UI which has a mobile version as well with React Native.',
-    techList: [techs['React'], techs['Redux'], techs['Material UI']],
-    image: '/images/project_cover_reddit.jpg',
-  },
-  {
-    title: 'Todo',
-    description:
-      'A typical Todo app whose state managements can be switched between Redux and MobX',
-    techList: [techs['React'], techs['Redux'], techs['MobX']],
-    image: '/images/project_cover_todo.jpg',
-  },
-  {
-    title: 'Try Some Flutter',
-    description: 'A practice project to learn Flutter and Dart basics',
-    techList: [techs['Flutter'], techs['Dart']],
-    image: '/images/project_cover_flutter.jpg',
-  },
-  {
-    title: 'Automated Multilingual Tester',
-    description: 'This is a tool for auto language multilingual testing (LQA)',
-    techList: [techs['Java']],
-    image: '/images/project_cover_multilingual.jpg',
-  },
-  {
-    title: 'Tour of Heroes',
-    description: 'A practice project to learn Angular basics',
-    techList: [techs['Angular']],
-    image: '/images/project_cover_heroes.jpg',
-  },
-  {
-    title: 'Feed Reader Testing',
-    description: 'A test-driven practice project with Jasmine',
-    techList: [techs['Jasmine']],
-    image: '/images/project_cover_feed_reader.jpg',
-  },
-] as const;
+export const getProjects = (translationHelper: TFunction) =>
+  [
+    {
+      title: translationHelper('i_earvin.title'),
+      description: translationHelper('i_earvin.description'),
+      techList: [
+        techs(translationHelper)['TypeScript'],
+        techs(translationHelper)['NextJS'],
+        techs(translationHelper)['Tailwind CSS'],
+        techs(translationHelper)['Prisma'],
+      ],
+      image: '/images/project_cover_i_earvin.jpg',
+    },
+    {
+      title: translationHelper('where_have_you_been.title'),
+      description: translationHelper('where_have_you_been.description'),
+      techList: [
+        techs(translationHelper)['NextJS'],
+        techs(translationHelper)['Material UI'],
+        techs(translationHelper)['ExpressJS'],
+      ],
+      image: '/images/project_cover_whyb.jpg',
+    },
+    {
+      title: translationHelper('coder_evolution.title'),
+      description: translationHelper('coder_evolution.description'),
+      techList: [
+        techs(translationHelper)['React'],
+        techs(translationHelper)['Material UI'],
+        techs(translationHelper)['Redux'],
+      ],
+      image: '/images/project_cover_coder.jpg',
+    },
+    {
+      title: translationHelper('a_programming_language.title'),
+      description: translationHelper('a_programming_language.description'),
+      techList: [techs(translationHelper)['JavaScript']],
+      image: '/images/project_cover_programming_language.jpg',
+    },
+    {
+      title: translationHelper('beer_sharer.title'),
+      description: translationHelper('beer_sharer.description'),
+      techList: [
+        techs(translationHelper)['React Native'],
+        techs(translationHelper)['Redux'],
+        techs(translationHelper)['Firebase'],
+      ],
+      image: '/images/project_cover_beer.jpg',
+    },
+    {
+      title: translationHelper('neighborhood_map.title'),
+      description: translationHelper('neighborhood_map.description'),
+      techList: [
+        techs(translationHelper)['KnockoutJS'],
+        techs(translationHelper)['Google Map'],
+        techs(translationHelper)['Wikipedia'],
+      ],
+      image: '/images/project_cover_neighborhood.jpg',
+    },
+    {
+      title: translationHelper('reddit_mockup.title'),
+      description: translationHelper('reddit_mockup.description'),
+      techList: [
+        techs(translationHelper)['React'],
+        techs(translationHelper)['Redux'],
+        techs(translationHelper)['Material UI'],
+      ],
+      image: '/images/project_cover_reddit.jpg',
+    },
+    {
+      title: translationHelper('todo.title'),
+      description: translationHelper('todo.description'),
+      techList: [
+        techs(translationHelper)['React'],
+        techs(translationHelper)['Redux'],
+        techs(translationHelper)['MobX'],
+      ],
+      image: '/images/project_cover_todo.jpg',
+    },
+    {
+      title: translationHelper('try_some_flutter.title'),
+      description: translationHelper('try_some_flutter.description'),
+      techList: [
+        techs(translationHelper)['Flutter'],
+        techs(translationHelper)['Dart'],
+      ],
+      image: '/images/project_cover_flutter.jpg',
+    },
+    {
+      title: translationHelper('automated_multilingual_tester.title'),
+      description: translationHelper(
+        'automated_multilingual_tester.description',
+      ),
+      techList: [techs(translationHelper)['Java']],
+      image: '/images/project_cover_multilingual.jpg',
+    },
+    {
+      title: translationHelper('tour_of_heroes.title'),
+      description: translationHelper('tour_of_heroes.description'),
+      techList: [techs(translationHelper)['Angular']],
+      image: '/images/project_cover_heroes.jpg',
+    },
+    {
+      title: translationHelper('feed_reader_testing.title'),
+      description: translationHelper('feed_reader_testing.description'),
+      techList: [techs(translationHelper)['Jasmine']],
+      image: '/images/project_cover_feed_reader.jpg',
+    },
+  ] as const;
