@@ -1,3 +1,5 @@
+'use client';
+
 // External Dependencies
 import { Controller } from 'react-hook-form';
 
@@ -11,6 +13,7 @@ import {
   createContactMeMessage,
   DataToCreateContactMeMessageTypes,
 } from '@/actions/contactMeActions';
+import { useT } from '@/utilities/i18nUtils/i18nClientHelpers';
 
 type ContactMeModalProps = {
   isContactMeModalOpen: boolean;
@@ -20,6 +23,8 @@ type ContactMeModalProps = {
 // Component Definition
 export default function ContactMeModal(props: ContactMeModalProps) {
   const { isContactMeModalOpen, setIsContactMeModalOpen } = props;
+
+  const { t } = useT('module_contact_me_modal');
 
   const {
     contactMeFormHandleSubmit,
@@ -39,15 +44,17 @@ export default function ContactMeModal(props: ContactMeModalProps) {
     <Modal
       isOpen={isContactMeModalOpen}
       onClose={() => setIsContactMeModalOpen(false)}
-      title='Contact me'
-      description='Feel free to reach out to me for any inquiries related to system development or localization. I welcome discussions about my projects and posts, ideas, or just a friendly hello!'
+      title={t('contact_me_title')}
+      description={t('contact_me_description')}
       action={
         <>
-          <Button onClick={() => setIsContactMeModalOpen(false)}>Close</Button>
+          <Button onClick={() => setIsContactMeModalOpen(false)}>
+            {t('contact_me_button_cancel_text')}
+          </Button>
           <Button
             onClick={contactMeFormHandleSubmit(handleCreateContactMeMessage)}
           >
-            Submit
+            {t('contact_me_button_submit_text')}
           </Button>
         </>
       }
@@ -60,7 +67,7 @@ export default function ContactMeModal(props: ContactMeModalProps) {
           rules={{ required: true }}
           render={({ field }) => (
             <TextInput
-              label='Contact info'
+              label={t('contact_me_input_info_label')}
               value={field.value}
               onChange={field.onChange}
             />
@@ -72,7 +79,7 @@ export default function ContactMeModal(props: ContactMeModalProps) {
           rules={{ required: true }}
           render={({ field }) => (
             <TiptapEditor
-              label='Contact message'
+              label={t('contact_me_input_message_label')}
               value={field.value}
               onChange={field.onChange}
             />

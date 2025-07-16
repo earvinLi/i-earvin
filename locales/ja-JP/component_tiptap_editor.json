@@ -1,0 +1,13 @@
+{
+  "editor_toolbar_tooltip_bold": "大胆な",
+  "editor_toolbar_tooltip_italic": "イタリック体",
+  "editor_toolbar_tooltip_strike": "取り消し線",
+  "editor_toolbar_tooltip_bullet_list": "箇条書きリスト",
+  "editor_toolbar_tooltip_ordered_list": "順序付きリスト",
+  "editor_toolbar_tooltip_blockquote": "ブロッククォート",
+  "editor_toolbar_tooltip_horizontal_rule": "横罫線",
+  "editor_toolbar_tooltip_code": "コード",
+  "editor_toolbar_tooltip_code_block": "コードブロック",
+  "editor_toolbar_tooltip_undo": "元に戻す",
+  "editor_toolbar_tooltip_redo": "やり直し"
+}

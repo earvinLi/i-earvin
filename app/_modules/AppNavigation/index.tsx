@@ -8,10 +8,12 @@ import classNames from 'classnames';
 import { TFunction } from 'i18next';
 
 // Internal Dependencies
-import ContactMeModal from '@/modules/project/ContactMeModal';
 import Button from '@/components/base/Button';
 import LanguageChanger from '@/components/i18n/LanguageChanger';
 import { useT } from '@/utilities/i18nUtils/i18nClientHelpers';
+
+// Local Dependencies
+import ContactMeModal from './ContactMeModal';
 
 // Local Variables
 const getPageData = (translationHelper: TFunction) => [

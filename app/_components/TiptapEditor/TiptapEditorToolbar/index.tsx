@@ -16,6 +16,7 @@ import {
 
 // Internal Dependencies
 import IconButton from '@/components/base/IconButton';
+import { useT } from '@/utilities/i18nUtils/i18nClientHelpers';
 
 type TiptapEditorToolbarProps = {
   editor: TiptapEditorTypoe | null;
@@ -25,6 +26,8 @@ type TiptapEditorToolbarProps = {
 // Component Definition
 export default function TiptapEditorToolbar(props: TiptapEditorToolbarProps) {
   const { editor, toolbarActions } = props;
+
+  const { t } = useT('component_tiptap_editor');
 
   if (!editor) return null;
 
@@ -40,7 +43,7 @@ export default function TiptapEditorToolbar(props: TiptapEditorToolbarProps) {
               size={18}
             />
           }
-          tooltip='Bold'
+          tooltip={t('editor_toolbar_tooltip_bold')}
         />
       )}
       {(toolbarActions.includes('all') ||
@@ -54,7 +57,7 @@ export default function TiptapEditorToolbar(props: TiptapEditorToolbarProps) {
               size={18}
             />
           }
-          tooltip='Italic'
+          tooltip={t('editor_toolbar_tooltip_italic')}
         />
       )}
       {(toolbarActions.includes('all') ||
@@ -68,7 +71,7 @@ export default function TiptapEditorToolbar(props: TiptapEditorToolbarProps) {
               size={18}
             />
           }
-          tooltip='Strike'
+          tooltip={t('editor_toolbar_tooltip_strike')}
         />
       )}
       {(toolbarActions.includes('all') ||
@@ -81,7 +84,7 @@ export default function TiptapEditorToolbar(props: TiptapEditorToolbarProps) {
               size={18}
             />
           }
-          tooltip='Bullet list'
+          tooltip={t('editor_toolbar_tooltip_bullet_list')}
         />
       )}
       {(toolbarActions.includes('all') ||
@@ -94,7 +97,7 @@ export default function TiptapEditorToolbar(props: TiptapEditorToolbarProps) {
               size={18}
             />
           }
-          tooltip='Ordered list'
+          tooltip={t('editor_toolbar_tooltip_ordered_list')}
         />
       )}
       {(toolbarActions.includes('all') ||
@@ -107,7 +110,7 @@ export default function TiptapEditorToolbar(props: TiptapEditorToolbarProps) {
               size={18}
             />
           }
-          tooltip='Blockquote'
+          tooltip={t('editor_toolbar_tooltip_blockquote')}
         />
       )}
       {(toolbarActions.includes('all') ||
@@ -115,7 +118,7 @@ export default function TiptapEditorToolbar(props: TiptapEditorToolbarProps) {
         <IconButton
           onClick={() => editor.chain().focus().setHorizontalRule().run()}
           icon={<MinusIcon color='black' size={18} />}
-          tooltip='Horizontal rule'
+          tooltip={t('editor_toolbar_tooltip_horizontal_rule')}
         />
       )}
       {(toolbarActions.includes('all') || toolbarActions.includes('code')) && (
@@ -128,7 +131,7 @@ export default function TiptapEditorToolbar(props: TiptapEditorToolbarProps) {
               size={18}
             />
           }
-          tooltip='Code'
+          tooltip={t('editor_toolbar_tooltip_code')}
         />
       )}
       {(toolbarActions.includes('all') ||
@@ -141,7 +144,7 @@ export default function TiptapEditorToolbar(props: TiptapEditorToolbarProps) {
               size={18}
             />
           }
-          tooltip='Code block'
+          tooltip={t('editor_toolbar_tooltip_code_block')}
         />
       )}
       {(toolbarActions.includes('all') || toolbarActions.includes('undo')) && (
@@ -149,7 +152,7 @@ export default function TiptapEditorToolbar(props: TiptapEditorToolbarProps) {
           onClick={() => editor.chain().focus().undo().run()}
           disabled={!editor.can().chain().focus().undo().run()}
           icon={<UndoIcon />}
-          tooltip='Undo'
+          tooltip={t('editor_toolbar_tooltip_undo')}
         />
       )}
       {(toolbarActions.includes('all') || toolbarActions.includes('redo')) && (
@@ -157,7 +160,7 @@ export default function TiptapEditorToolbar(props: TiptapEditorToolbarProps) {
           onClick={() => editor.chain().focus().redo().run()}
           disabled={!editor.can().chain().focus().redo().run()}
           icon={<RedoIcon />}
-          tooltip='Redo'
+          tooltip={t('editor_toolbar_tooltip_redo')}
         />
       )}
     </div>

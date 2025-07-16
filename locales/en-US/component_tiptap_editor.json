@@ -1,0 +1,13 @@
+{
+  "editor_toolbar_tooltip_bold": "Bold",
+  "editor_toolbar_tooltip_italic": "Italic",
+  "editor_toolbar_tooltip_strike": "Strike",
+  "editor_toolbar_tooltip_bullet_list": "Bullet list",
+  "editor_toolbar_tooltip_ordered_list": "Ordered list",
+  "editor_toolbar_tooltip_blockquote": "Blockquote",
+  "editor_toolbar_tooltip_horizontal_rule": "Horizontal rule",
+  "editor_toolbar_tooltip_code": "Code",
+  "editor_toolbar_tooltip_code_block": "Code block",
+  "editor_toolbar_tooltip_undo": "Undo",
+  "editor_toolbar_tooltip_redo": "Redo"
+}

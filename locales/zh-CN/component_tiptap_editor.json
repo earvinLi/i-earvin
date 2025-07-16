@@ -1,0 +1,13 @@
+{
+  "editor_toolbar_tooltip_bold": "加粗",
+  "editor_toolbar_tooltip_italic": "斜体",
+  "editor_toolbar_tooltip_strike": "删除线",
+  "editor_toolbar_tooltip_bullet_list": "无序列表",
+  "editor_toolbar_tooltip_ordered_list": "有序列表",
+  "editor_toolbar_tooltip_blockquote": "引用",
+  "editor_toolbar_tooltip_horizontal_rule": "分割线",
+  "editor_toolbar_tooltip_code": "代码",
+  "editor_toolbar_tooltip_code_block": "代码块",
+  "editor_toolbar_tooltip_undo": "撤销",
+  "editor_toolbar_tooltip_redo": "重做"
+}
