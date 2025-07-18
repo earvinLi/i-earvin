@@ -36,7 +36,8 @@ export const getContentfulEntries = async (contentType: string) => {
 export const getContentfulEntry = async (
   searchCriteria: EntriesQueries<EntrySkeletonType, undefined> | undefined,
 ) => {
-  const response = await contentfulClient.getEntries(searchCriteria);
+  const response =
+    await contentfulClient.withAllLocales.getEntries(searchCriteria);
   return response.items[0];
 };
 
@@ -76,10 +77,6 @@ export const getPosts = (postEntries: any[], locale: string) => {
   );
 };
 
-export const getPost = async (slug: string) => {
-  const post = await getContentfulEntry({
-    content_type: 'post',
-    'fields.slug': slug,
-  });
-  return massagePostEntry(post);
+export const getPost = (postEntry: any, locale: string) => {
+  return massagePostEntry(postEntry, locale);
 };

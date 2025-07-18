@@ -2,6 +2,7 @@
 
 // External Dependencies
 import Link from 'next/link';
+import { headers } from 'next/headers';
 import { Document as TypeDocument } from '@contentful/rich-text-types';
 import { ArrowBigLeft as ArrowBigLeftIcon } from 'lucide-react';
 
@@ -10,29 +11,40 @@ import CommentSection from '@/modules/post/CommentSection';
 import Avatar from '@/components/base/Avatar';
 import ContentfulRichText from '@/components/ContentfulRichText';
 import FormattedDate from '@/components/FormattedDate';
+import IconButton from '@/components/base/IconButton';
+import LanguageChanger from '@/components/i18n/LanguageChanger';
 import OptimizedImage from '@/components/OptimizedImage';
 import {
-  getPosts,
+  getContentfulEntries,
+  getContentfulEntry,
   getPost,
 } from '@/utilities/contentfulUtilities/contentfulDataHelpers';
 import { prisma } from '@/utilities/prismaUtils/prismaClient';
-import IconButton from '@/components/base/IconButton';
+import { defaultLocale, headerName } from '@/utilities/i18nUtils/i18nConfig';
 
 type PostPageProps = {
   params: { slug: string };
 };
 
 export async function generateStaticParams() {
-  const allPosts = await getPosts();
-  return allPosts.map((post) => ({ slug: post.slug }));
+  const allPosts = await getContentfulEntries('post');
+  return allPosts.map((post) => ({ slug: post.fields.slug[defaultLocale] }));
 }
 
 // Component Definition
 export default async function PostPage(props: PostPageProps) {
   const { params } = props;
 
-  const { title, coverImage, author, content, date } = await getPost(
-    params.slug,
+  const headerList = headers();
+  const headerLocale = headerList.get(headerName) || defaultLocale;
+
+  const postEntry = await getContentfulEntry({
+    content_type: 'post',
+    'fields.slug': params.slug,
+  });
+  const { title, coverImage, author, content, date } = getPost(
+    postEntry,
+    headerLocale,
   );
 
   const postComments = await prisma.postComment.findMany({
@@ -70,9 +82,10 @@ export default async function PostPage(props: PostPageProps) {
               dateString={typeof date === 'string' ? date : ''}
               formatter='postPage'
             />
-            <Link href='/posts'>
+            <Link href={`/${headerLocale}/posts`}>
               <IconButton icon={<ArrowBigLeftIcon color='black' size={24} />} />
             </Link>
+            <LanguageChanger />
           </div>
           <div className='flex max-w-screen-md flex-col gap-6'>
             <div>
