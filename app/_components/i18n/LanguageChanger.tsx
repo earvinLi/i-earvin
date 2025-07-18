@@ -31,7 +31,6 @@ export default function LanguageChanger() {
       `/${newLocale}`,
     );
     router.push(newPathname);
-    router.refresh();
   };
 
   const localeData = [

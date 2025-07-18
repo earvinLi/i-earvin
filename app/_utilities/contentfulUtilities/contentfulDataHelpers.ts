@@ -2,19 +2,34 @@
   eslint-disable
   @typescript-eslint/no-explicit-any,
   @typescript-eslint/no-unsafe-assignment,
-  @typescript-eslint/no-unsafe-member-access
+  @typescript-eslint/no-unsafe-member-access,
+  @typescript-eslint/no-unsafe-return
 */
 
 // External Dependencies
 import { EntriesQueries, EntrySkeletonType } from 'contentful';
 
 // Local Dependencies
+import { defaultLocale } from '@/utilities/i18nUtils/i18nConfig';
+
+// Local Dependencies
 import { contentfulClient } from './contentfulClient';
 
+/*
+  Todo:
+  - Use generics for 'data' type
+  - Find better solution for dealing 'Contentful' locale data
+*/
+const getContentfulDataWithLocale = (data: any, locale?: string) => {
+  const localeToUse = locale || defaultLocale;
+  return data[localeToUse];
+};
+
 export const getContentfulEntries = async (contentType: string) => {
-  const response = await contentfulClient.getEntries({
+  const response = await contentfulClient.withAllLocales.getEntries({
     content_type: contentType,
   });
+
   return response.items;
 };
 
@@ -27,29 +42,38 @@ export const getContentfulEntry = async (
 
 // Post
 // Todo: Add type for 'postEntryData'
-const massagePostEntryData = (postEntryData: any) => {
+export const massagePostEntry = (postEntry: any, entryLocale: string) => {
   const { slug, title, coverImage, date, author, excerpt, content } =
-    postEntryData.fields;
+    postEntry.fields;
+
+  const { file: coverImageFile } =
+    getContentfulDataWithLocale(coverImage)?.fields;
+
+  const { name: authorName, picture: authorPicture } =
+    getContentfulDataWithLocale(author)?.fields;
+  const { file: authorPictureFile } =
+    getContentfulDataWithLocale(authorPicture)?.fields;
 
   const massagedPostEntryData = {
-    slug,
-    title,
-    coverImage: { url: coverImage?.fields.file.url },
-    date,
+    slug: getContentfulDataWithLocale(slug),
+    title: getContentfulDataWithLocale(title, entryLocale),
+    coverImage: { url: getContentfulDataWithLocale(coverImageFile).url },
+    date: getContentfulDataWithLocale(date),
     author: {
-      name: author?.fields.name,
-      picture: { url: author?.fields.picture.fields.file.url },
+      name: getContentfulDataWithLocale(authorName),
+      picture: { url: getContentfulDataWithLocale(authorPictureFile).url },
     },
-    excerpt,
-    content,
+    excerpt: getContentfulDataWithLocale(excerpt, entryLocale),
+    content: getContentfulDataWithLocale(content, entryLocale),
   };
 
   return massagedPostEntryData;
 };
 
-export const getPosts = async () => {
-  const posts = await getContentfulEntries('post');
-  return posts.map((post: any) => massagePostEntryData(post));
+export const getPosts = (postEntries: any[], locale: string) => {
+  return postEntries.map((postEntry: any) =>
+    massagePostEntry(postEntry, locale),
+  );
 };
 
 export const getPost = async (slug: string) => {
@@ -57,5 +81,5 @@ export const getPost = async (slug: string) => {
     content_type: 'post',
     'fields.slug': slug,
   });
-  return massagePostEntryData(post);
+  return massagePostEntry(post);
 };
