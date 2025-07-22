@@ -1,0 +1,10 @@
+{
+  "comment_title_one": "Comment ({{count}})",
+  "comment_title_other": "Comments ({{count}})",
+  "edit_commenter_button_text": "Edit",
+  "commenter_input_label_text": "Commenter",
+  "save_commenter_button_text": "Save",
+  "edit_commenter_error_text_required": "Commenter is required",
+  "edit_commenter_error_text_length": "Commenter may not be longer than 20 characters",
+  "submit_comment_button_text": "Submit"
+}

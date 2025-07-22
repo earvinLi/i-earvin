@@ -18,6 +18,7 @@ import {
   createPostComment,
   DataToCreatePostCommentTypes,
 } from '@/actions/comentPostActions';
+import { useT } from '@/utilities/i18nUtils/i18nClientHelpers';
 
 type CommentSectionProps = {
   postId: string;
@@ -27,6 +28,8 @@ type CommentSectionProps = {
 // Component Definition
 export default function CommentSection(props: CommentSectionProps) {
   const { postId, postComments } = props;
+
+  const { t } = useT('module_comment_section');
 
   const {
     commentPostFormHandleSubmit,
@@ -58,7 +61,7 @@ export default function CommentSection(props: CommentSectionProps) {
   return (
     <div className='flex flex-col gap-6'>
       <h2 className='text-xl font-bold'>
-        {`Comment${postComments.length > 1 ? 's' : ''} ${postComments.length > 0 ? `(${postComments.length})` : ''}`}
+        {t('comment_title', { count: postComments.length })}
       </h2>
       <div className='flex flex-row items-center gap-6'>
         <Avatar
@@ -72,15 +75,18 @@ export default function CommentSection(props: CommentSectionProps) {
               name='commenter'
               control={commentPostFormControl}
               rules={{
-                required: { value: true, message: 'Commenter is required' },
+                required: {
+                  value: true,
+                  message: t('edit_commenter_error_text_required'),
+                },
                 maxLength: {
                   value: 20,
-                  message: 'Commenter may not be longer than 20 characters',
+                  message: t('edit_commenter_error_text_length'),
                 },
               }}
               render={({ field, fieldState }) => (
                 <TextInput
-                  label='Commenter'
+                  label={t('commenter_input_label_text')}
                   value={field.value}
                   onChange={field.onChange}
                   inputState={fieldState.error ? 'error' : 'default'}
@@ -94,7 +100,7 @@ export default function CommentSection(props: CommentSectionProps) {
               }
               icon={<SaveIcon color='gray' size={18} />}
               onClick={handleSaveCommenter}
-              tooltip='Save'
+              tooltip={t('save_commenter_button_text')}
             />
           </div>
         ) : (
@@ -105,7 +111,7 @@ export default function CommentSection(props: CommentSectionProps) {
             <IconButton
               icon={<PencilIcon color='gray' size={18} />}
               onClick={() => setIsEditingCommenter(true)}
-              tooltip='Edit'
+              tooltip={t('edit_commenter_button_text')}
             />
           </div>
         )}
@@ -134,7 +140,7 @@ export default function CommentSection(props: CommentSectionProps) {
           onClick={commentPostFormHandleSubmit(handleCreatePostComment)}
           variant='contained'
         >
-          Submit
+          {t('submit_comment_button_text')}
         </Button>
       </div>
       {postComments && (

@@ -1,0 +1,10 @@
+{
+  "comment_title_one": "コメント（{{count}}）",
+  "comment_title_other": "コメント（{{count}}）",
+  "edit_commenter_button_text": "編集",
+  "commenter_input_label_text": "コメント投稿者",
+  "save_commenter_button_text": "保存",
+  "edit_commenter_error_text_required": "コメント投稿者必須",
+  "edit_commenter_error_text_length": "コメント投稿者は20文字以内にしてください",
+  "submit_comment_button_text": "提出する"
+}
