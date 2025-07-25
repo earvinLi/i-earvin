@@ -10,7 +10,7 @@ import { ArrowBigLeft as ArrowBigLeftIcon } from 'lucide-react';
 import CommentSection from '@/modules/post/CommentSection';
 import Avatar from '@/components/base/Avatar';
 import ContentfulRichText from '@/components/ContentfulRichText';
-import FormattedDate from '@/components/FormattedDate';
+import FormattedDateServer from '@/components/FormattedDate/FormattedDateServer';
 import IconButton from '@/components/base/IconButton';
 import LanguageChanger from '@/components/i18n/LanguageChanger';
 import OptimizedImage from '@/components/OptimizedImage';
@@ -78,7 +78,7 @@ export default async function PostPage(props: PostPageProps) {
         )}
         <div className='flex flex-row gap-8'>
           <div className='flex min-w-[64px] flex-col items-center gap-4'>
-            <FormattedDate
+            <FormattedDateServer
               dateString={typeof date === 'string' ? date : ''}
               formatter='postPage'
             />

@@ -1,9 +1,9 @@
 // External Dependencies
 import Link from 'next/link';
-import { format } from 'date-fns';
 
 // Internal Dependencies
 import Avatar from '@/components/base/Avatar';
+import FormattedDateServer from '@/components/FormattedDate/FormattedDateServer';
 import OptimizedImage from '@/components/OptimizedImage';
 
 type PostCardProps = {
@@ -52,9 +52,9 @@ export default function PostCard(props: PostCardProps) {
                 <div className='text-sm'>{author.name}</div>
               </div>
             )}
-            <time dateTime={date} className='text-sm'>
-              {format(new Date(date), 'LLLL d, yyyy')}
-            </time>
+            <div className='text-sm'>
+              <FormattedDateServer dateString={date} />
+            </div>
           </div>
         </div>
       </div>

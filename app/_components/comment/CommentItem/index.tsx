@@ -1,9 +1,9 @@
 // External Dependencies
-import { format } from 'date-fns';
 import { PostComment as PostCommentTypes } from '@prisma/client';
 
 // Internal Dependencies
 import Avatar from '@/components/base/Avatar';
+import FormattedDateClient from '@/components/FormattedDate/FormattedDateClient';
 
 type CommentItemProps = {
   comment: PostCommentTypes;
@@ -23,9 +23,9 @@ export default function CommentItem(props: CommentItemProps) {
         />
         <div className='flex flex-col gap-1'>
           <p>{comment.commenter}</p>
-          <time dateTime={comment.createdAt.toISOString()} className='text-sm'>
-            {format(new Date(comment.createdAt), 'LLL d, yyyy')}
-          </time>
+          <div className='text-sm'>
+            <FormattedDateClient dateString={comment.createdAt.toISOString()} />
+          </div>
         </div>
       </div>
       {/* Todo: find better solution(s) to deal with HTML content */}
