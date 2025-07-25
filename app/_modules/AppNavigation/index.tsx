@@ -2,7 +2,6 @@
 
 // External Dependencies
 import { useState } from 'react';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import classNames from 'classnames';
 import { TFunction } from 'i18next';
@@ -10,6 +9,7 @@ import { TFunction } from 'i18next';
 // Internal Dependencies
 import Button from '@/components/base/Button';
 import LanguageChanger from '@/components/i18n/LanguageChanger';
+import LinkClient from '@/components/Link/LinkClient';
 import { useT } from '@/utilities/i18nUtils/i18nClientHelpers';
 
 // Local Dependencies
@@ -58,16 +58,16 @@ export default function AppNavigation() {
               : appNavigationStyles.font.other;
 
             return (
-              <Link
+              <LinkClient
                 key={`${path}-${name}`}
-                href={localePath}
+                href={path}
                 className={classNames(
                   'text-lg decoration-[#00A3DA] decoration-2 underline-offset-8',
                   fontStyle,
                 )}
               >
                 {name}
-              </Link>
+              </LinkClient>
             );
           })}
         </div>

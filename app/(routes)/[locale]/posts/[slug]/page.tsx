@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 
 // External Dependencies
-import Link from 'next/link';
 import { headers } from 'next/headers';
 import { Document as TypeDocument } from '@contentful/rich-text-types';
 import { ArrowBigLeft as ArrowBigLeftIcon } from 'lucide-react';
@@ -13,6 +12,7 @@ import ContentfulRichText from '@/components/ContentfulRichText';
 import FormattedDateServer from '@/components/FormattedDate/FormattedDateServer';
 import IconButton from '@/components/base/IconButton';
 import LanguageChanger from '@/components/i18n/LanguageChanger';
+import LinkServer from '@/components/Link/LinkServer';
 import OptimizedImage from '@/components/OptimizedImage';
 import {
   getContentfulEntries,
@@ -82,9 +82,9 @@ export default async function PostPage(props: PostPageProps) {
               dateString={typeof date === 'string' ? date : ''}
               formatter='postPage'
             />
-            <Link href={`/${headerLocale}/posts`}>
+            <LinkServer href='posts'>
               <IconButton icon={<ArrowBigLeftIcon color='black' size={24} />} />
-            </Link>
+            </LinkServer>
             <LanguageChanger />
           </div>
           <div className='flex max-w-screen-md flex-col gap-6'>

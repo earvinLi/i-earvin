@@ -8,7 +8,6 @@
 */
 
 // External Dependencies
-import Link from 'next/link';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import {
   BLOCKS,
@@ -18,6 +17,7 @@ import {
 } from '@contentful/rich-text-types';
 
 // Internal Dependencies
+import LinkClient from '@/components/Link/LinkClient';
 import OptimizedImage from '@/components/OptimizedImage';
 
 // Type Definitions
@@ -60,9 +60,9 @@ const options = {
 
       if (data.target.sys.contentType.sys.id === 'post') {
         return (
-          <Link href={`/posts/${data.target.fields.slug}`}>
+          <LinkClient href={`/posts/${data.target.fields.slug}`}>
             {data.target.fields.title}
-          </Link>
+          </LinkClient>
         );
       }
       return null;

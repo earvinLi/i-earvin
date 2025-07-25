@@ -1,9 +1,7 @@
-// External Dependencies
-import Link from 'next/link';
-
 // Internal Dependencies
 import Avatar from '@/components/base/Avatar';
 import FormattedDateServer from '@/components/FormattedDate/FormattedDateServer';
+import LinkServer from '@/components/Link/LinkServer';
 import OptimizedImage from '@/components/OptimizedImage';
 
 type PostCardProps = {
@@ -34,12 +32,12 @@ export default function PostCard(props: PostCardProps) {
           </div>
         </div>
         <div className='ml-12 flex grow flex-col'>
-          <Link
+          <LinkServer
             href={`/posts/${slug}`}
             className='mb-4 text-3xl leading-snug hover:underline'
           >
             {title}
-          </Link>
+          </LinkServer>
           <div className='mb-4 text-lg leading-relaxed'>{excerpt}</div>
           <div className='flex items-center'>
             {author && (
