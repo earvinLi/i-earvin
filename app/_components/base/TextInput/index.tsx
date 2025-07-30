@@ -14,13 +14,7 @@ type TextInputProps = {
 
 // Component Definition
 export default function TextInput(props: TextInputProps) {
-  const {
-    label,
-    value,
-    onChange,
-    inputState = 'default',
-    helperText = '',
-  } = props;
+  const { label, value, onChange, inputState = 'default', helperText = '' } = props;
 
   return (
     <div className='flex w-full flex-col gap-1'>

@@ -32,9 +32,7 @@ export default function ProjectCard(props: ProjectCardProps) {
         </div>
         <div className='ml-12 flex grow flex-col gap-2'>
           <div className='text-3xl leading-snug'>{title}</div>
-          <div className='text-base leading-relaxed text-gray-500'>
-            {description}
-          </div>
+          <div className='text-base leading-relaxed text-gray-500'>{description}</div>
           <ul className='list-disc pl-5'>
             {techList.map((tech) => {
               const { techName, techDescription, techLink } = tech;

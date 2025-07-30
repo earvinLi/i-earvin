@@ -26,11 +26,8 @@ export default function ContactMeModal(props: ContactMeModalProps) {
 
   const { t } = useT('module_contact_me_modal');
 
-  const {
-    contactMeFormHandleSubmit,
-    contactMeFormControl,
-    contactMeFormReset,
-  } = useContactMeForm();
+  const { contactMeFormHandleSubmit, contactMeFormControl, contactMeFormReset } =
+    useContactMeForm();
 
   const handleCreateContactMeMessage = async (
     dataToCreateContactMeMessage: DataToCreateContactMeMessageTypes,
@@ -51,9 +48,7 @@ export default function ContactMeModal(props: ContactMeModalProps) {
           <Button onClick={() => setIsContactMeModalOpen(false)}>
             {t('contact_me_button_cancel_text')}
           </Button>
-          <Button
-            onClick={contactMeFormHandleSubmit(handleCreateContactMeMessage)}
-          >
+          <Button onClick={contactMeFormHandleSubmit(handleCreateContactMeMessage)}>
             {t('contact_me_button_submit_text')}
           </Button>
         </>

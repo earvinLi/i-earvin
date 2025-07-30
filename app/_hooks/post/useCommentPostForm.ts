@@ -8,8 +8,7 @@ const useCommentPostForm = (postId: string) => {
     defaultValues: {
       postId,
       commenter: 'John Doe',
-      commentContent:
-        '<p>This is a <em>great</em> <strong>comment</strong>!</p>',
+      commentContent: '<p>This is a <em>great</em> <strong>comment</strong>!</p>',
     },
   });
 

@@ -14,10 +14,7 @@ import IconButton from '@/components/base/IconButton';
 import TextInput from '@/components/base/TextInput';
 import TiptapEditor from '@/components/TiptapEditor';
 import useCommentPostForm from '@/hooks/post/useCommentPostForm';
-import {
-  createPostComment,
-  DataToCreatePostCommentTypes,
-} from '@/actions/comentPostActions';
+import { createPostComment, DataToCreatePostCommentTypes } from '@/actions/comentPostActions';
 import { useT } from '@/utilities/i18nUtils/i18nClientHelpers';
 
 type CommentSectionProps = {
@@ -43,32 +40,23 @@ export default function CommentSection(props: CommentSectionProps) {
 
   const handleSaveCommenter = () => {
     const commenter = commentPostFormGetValues('commenter');
-    const commenterFieldError =
-      commentPostFormGetFieldState('commenter')?.error;
+    const commenterFieldError = commentPostFormGetFieldState('commenter')?.error;
 
     if (commenter !== '' && commenterFieldError === undefined) {
       setIsEditingCommenter(false);
     }
   };
 
-  const handleCreatePostComment = async (
-    dataToCreatePostComment: DataToCreatePostCommentTypes,
-  ) => {
+  const handleCreatePostComment = async (dataToCreatePostComment: DataToCreatePostCommentTypes) => {
     await createPostComment(dataToCreatePostComment);
     commentPostFormReset();
   };
 
   return (
     <div className='flex flex-col gap-6'>
-      <h2 className='text-xl font-bold'>
-        {t('comment_title', { count: postComments.length })}
-      </h2>
+      <h2 className='text-xl font-bold'>{t('comment_title', { count: postComments.length })}</h2>
       <div className='flex flex-row items-center gap-6'>
-        <Avatar
-          name='John Doe'
-          image='/images/avatar_default.jpg'
-          size='medium'
-        />
+        <Avatar name='John Doe' image='/images/avatar_default.jpg' size='medium' />
         {isEditingCommenter ? (
           <div className='flex w-[256px] flex-row items-center gap-4'>
             <Controller
@@ -95,9 +83,7 @@ export default function CommentSection(props: CommentSectionProps) {
               )}
             />
             <IconButton
-              disabled={
-                commentPostFormGetFieldState('commenter')?.error !== undefined
-              }
+              disabled={commentPostFormGetFieldState('commenter')?.error !== undefined}
               icon={<SaveIcon color='gray' size={18} />}
               onClick={handleSaveCommenter}
               tooltip={t('save_commenter_button_text')}
@@ -105,9 +91,7 @@ export default function CommentSection(props: CommentSectionProps) {
           </div>
         ) : (
           <div className='flex w-[196px] flex-row items-center gap-3'>
-            <div className='text-lg text-slate-700'>
-              {commentPostFormGetValues('commenter')}
-            </div>
+            <div className='text-lg text-slate-700'>{commentPostFormGetValues('commenter')}</div>
             <IconButton
               icon={<PencilIcon color='gray' size={18} />}
               onClick={() => setIsEditingCommenter(true)}
@@ -124,22 +108,12 @@ export default function CommentSection(props: CommentSectionProps) {
           <TiptapEditor
             value={field.value}
             onChange={field.onChange}
-            toolbarActions={[
-              'bold',
-              'italic',
-              'bulletList',
-              'orderedList',
-              'undo',
-              'redo',
-            ]}
+            toolbarActions={['bold', 'italic', 'bulletList', 'orderedList', 'undo', 'redo']}
           />
         )}
       />
       <div className='flex flex-row justify-end'>
-        <Button
-          onClick={commentPostFormHandleSubmit(handleCreatePostComment)}
-          variant='contained'
-        >
+        <Button onClick={commentPostFormHandleSubmit(handleCreatePostComment)} variant='contained'>
           {t('submit_comment_button_text')}
         </Button>
       </div>

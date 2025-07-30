@@ -30,14 +30,10 @@ export default async function Posts() {
       <AppNavigation />
       <div className='mx-auto my-0 w-[70%]'>
         <div className='flex flex-col items-end border-b-4 border-[#00A3DA] pb-4'>
-          <div className='text-6xl font-bold uppercase'>
-            {t('earvin_full_name')}
-          </div>
+          <div className='text-6xl font-bold uppercase'>{t('earvin_full_name')}</div>
           <div className='mx-0 my-2 text-2xl'>{t('earvin_title')}</div>
         </div>
-        <div className='mx-0 my-4 text-4xl text-[#868e96]'>
-          {t('posts_page_title')}
-        </div>
+        <div className='mx-0 my-4 text-4xl text-[#868e96]'>{t('posts_page_title')}</div>
         <div className='mb-6 flex flex-col gap-6'>
           {allPosts.map((post: TypeMassagedPost) => {
             const { slug, title, coverImage, date, author, excerpt } = post;

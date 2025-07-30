@@ -9,12 +9,7 @@
 
 // External Dependencies
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import {
-  BLOCKS,
-  INLINES,
-  MARKS,
-  Document as TypeDocument,
-} from '@contentful/rich-text-types';
+import { BLOCKS, INLINES, MARKS, Document as TypeDocument } from '@contentful/rich-text-types';
 
 // Internal Dependencies
 import LinkClient from '@/components/Link/LinkClient';
@@ -38,11 +33,7 @@ const options = {
     [BLOCKS.PARAGRAPH]: (node: any, children: React.ReactNode) => {
       const { content } = node;
 
-      if (
-        content.find((item: any) =>
-          item.marks?.find((mark: any) => mark.type === 'code'),
-        )
-      ) {
+      if (content.find((item: any) => item.marks?.find((mark: any) => mark.type === 'code'))) {
         return (
           <div>
             <pre>

@@ -36,24 +36,19 @@ export const getContentfulEntries = async (contentType: string) => {
 export const getContentfulEntry = async (
   searchCriteria: EntriesQueries<EntrySkeletonType, undefined> | undefined,
 ) => {
-  const response =
-    await contentfulClient.withAllLocales.getEntries(searchCriteria);
+  const response = await contentfulClient.withAllLocales.getEntries(searchCriteria);
   return response.items[0];
 };
 
 // Post
 // Todo: Add type for 'postEntryData'
 export const massagePostEntry = (postEntry: any, entryLocale: string) => {
-  const { slug, title, coverImage, date, author, excerpt, content } =
-    postEntry.fields;
+  const { slug, title, coverImage, date, author, excerpt, content } = postEntry.fields;
 
-  const { file: coverImageFile } =
-    getContentfulDataWithLocale(coverImage)?.fields;
+  const { file: coverImageFile } = getContentfulDataWithLocale(coverImage)?.fields;
 
-  const { name: authorName, picture: authorPicture } =
-    getContentfulDataWithLocale(author)?.fields;
-  const { file: authorPictureFile } =
-    getContentfulDataWithLocale(authorPicture)?.fields;
+  const { name: authorName, picture: authorPicture } = getContentfulDataWithLocale(author)?.fields;
+  const { file: authorPictureFile } = getContentfulDataWithLocale(authorPicture)?.fields;
 
   const massagedPostEntryData = {
     slug: getContentfulDataWithLocale(slug),
@@ -72,9 +67,7 @@ export const massagePostEntry = (postEntry: any, entryLocale: string) => {
 };
 
 export const getPosts = (postEntries: any[], locale: string) => {
-  return postEntries.map((postEntry: any) =>
-    massagePostEntry(postEntry, locale),
-  );
+  return postEntries.map((postEntry: any) => massagePostEntry(postEntry, locale));
 };
 
 export const getPost = (postEntry: any, locale: string) => {

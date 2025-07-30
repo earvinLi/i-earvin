@@ -26,10 +26,7 @@ export default function LanguageChanger() {
     document.cookie = `NEXT_LOCALE=${newLocale};expires=${expires};path=/`; */
 
     // redirect to the new locale path
-    const newPathname = currentPathname.replace(
-      `/${currentLocale}`,
-      `/${newLocale}`,
-    );
+    const newPathname = currentPathname.replace(`/${currentLocale}`, `/${newLocale}`);
     router.push(newPathname);
   };
 

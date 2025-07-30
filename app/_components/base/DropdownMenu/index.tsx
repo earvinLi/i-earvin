@@ -7,11 +7,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import dropdownMenuStyles from './dropdownMenuStyles';
 
 // Local Variables
-const {
-  DropdownMenuMainContainerStyle,
-  DropdownMenuMenuStyle,
-  DropdownMenuMenuItemStyle,
-} = dropdownMenuStyles;
+const { DropdownMenuMainContainerStyle, DropdownMenuMenuStyle, DropdownMenuMenuItemStyle } =
+  dropdownMenuStyles;
 
 // Type Definitions
 type TypeDropdownMenuOption = {
@@ -33,10 +30,7 @@ export default function DropdownMenu(props: DropdownMenuProps) {
   const dropdownMenuRef = useRef<HTMLDivElement>(null);
 
   const handleClickOutside = (event: MouseEvent) => {
-    if (
-      dropdownMenuRef.current &&
-      !dropdownMenuRef.current.contains(event.target as Node)
-    ) {
+    if (dropdownMenuRef.current && !dropdownMenuRef.current.contains(event.target as Node)) {
       setIsOpen(false);
     }
   };

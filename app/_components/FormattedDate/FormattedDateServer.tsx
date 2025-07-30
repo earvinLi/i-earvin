@@ -5,9 +5,7 @@ import { getT } from '@/utilities/i18nUtils/i18nServerHelpers';
 import FormattedDateBase, { FormattedDateProps } from './FormattedDateBase';
 
 // Component Definition
-export default async function FormattedDateServer(
-  props: Omit<FormattedDateProps, 'locale'>,
-) {
+export default async function FormattedDateServer(props: Omit<FormattedDateProps, 'locale'>) {
   const { dateString, formatter } = props;
 
   const { i18n } = await getT();

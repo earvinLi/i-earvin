@@ -46,11 +46,7 @@ export default function RootLayout(props: RootLayoutProps) {
 
   return (
     <html lang={locale} dir={dir(locale)}>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
     </html>
   );
 }

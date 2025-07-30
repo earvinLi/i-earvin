@@ -21,12 +21,7 @@ type ButtonProps = {
 
 // Component Definition
 export default function Button(props: ButtonProps) {
-  const {
-    children,
-    onClick = undefined,
-    variant = 'text',
-    disabled = false,
-  } = props;
+  const { children, onClick = undefined, variant = 'text', disabled = false } = props;
 
   // Todo: find better solutions for dynamic styles here considering variants like color, size, etc.
   let buttonVariantStyle;

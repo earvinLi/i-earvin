@@ -21,21 +21,13 @@ export default function AppFooter() {
         <IconButton
           icon={<GithubIcon color='gray' size={22} />}
           onClick={() =>
-            window.open(
-              'https://github.com/earvinLi',
-              '_blank',
-              'noopener, noreferrer',
-            )
+            window.open('https://github.com/earvinLi', '_blank', 'noopener, noreferrer')
           }
         />
         <IconButton
           icon={<LinkedinIcon color='gray' size={22} />}
           onClick={() =>
-            window.open(
-              'https://linkedin.com/in/earvinli',
-              '_blank',
-              'noopener, noreferrer',
-            )
+            window.open('https://linkedin.com/in/earvinli', '_blank', 'noopener, noreferrer')
           }
         />
       </div>

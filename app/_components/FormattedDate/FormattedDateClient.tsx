@@ -5,9 +5,7 @@ import { useT } from '@/utilities/i18nUtils/i18nClientHelpers';
 import FormattedDateBase, { FormattedDateProps } from './FormattedDateBase';
 
 // Component Definition
-export default function FormattedDateClient(
-  props: Omit<FormattedDateProps, 'locale'>,
-) {
+export default function FormattedDateClient(props: Omit<FormattedDateProps, 'locale'>) {
   const { dateString, formatter } = props;
 
   const { i18n } = useT();

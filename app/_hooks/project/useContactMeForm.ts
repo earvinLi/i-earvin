@@ -7,8 +7,7 @@ const useContactMeForm = () => {
   const { handleSubmit, control, reset } = useForm({
     defaultValues: {
       contactInfo: 'earvin.tli@gmail.com',
-      contactMessage:
-        '<p>This is a <em>great</em> <strong>message</strong>!</p>',
+      contactMessage: '<p>This is a <em>great</em> <strong>message</strong>!</p>',
     },
   });
 

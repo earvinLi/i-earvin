@@ -201,17 +201,12 @@ export const getProjects = (translationHelper: TFunction) =>
     {
       title: translationHelper('try_some_flutter.title'),
       description: translationHelper('try_some_flutter.description'),
-      techList: [
-        techs(translationHelper)['Flutter'],
-        techs(translationHelper)['Dart'],
-      ],
+      techList: [techs(translationHelper)['Flutter'], techs(translationHelper)['Dart']],
       image: '/images/project_cover_flutter.jpg',
     },
     {
       title: translationHelper('automated_multilingual_tester.title'),
-      description: translationHelper(
-        'automated_multilingual_tester.description',
-      ),
+      description: translationHelper('automated_multilingual_tester.description'),
       techList: [techs(translationHelper)['Java']],
       image: '/images/project_cover_multilingual.jpg',
     },

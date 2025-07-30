@@ -42,10 +42,7 @@ export default async function PostPage(props: PostPageProps) {
     content_type: 'post',
     'fields.slug': params.slug,
   });
-  const { title, coverImage, author, content, date } = getPost(
-    postEntry,
-    headerLocale,
-  );
+  const { title, coverImage, author, content, date } = getPost(postEntry, headerLocale);
 
   const postComments = await prisma.postComment.findMany({
     where: { postId: params.slug },
@@ -54,9 +51,7 @@ export default async function PostPage(props: PostPageProps) {
   return (
     <div className='mx-auto flex w-3/4 flex-col pt-12'>
       <article className='flex flex-col items-center gap-10'>
-        <h1 className='text-3xl font-bold'>
-          {typeof title === 'string' ? title : ''}
-        </h1>
+        <h1 className='text-3xl font-bold'>{typeof title === 'string' ? title : ''}</h1>
         <div className='h-[368px] w-[768px]'>
           <OptimizedImage
             alt={`Cover image for ${title}`}
@@ -68,11 +63,7 @@ export default async function PostPage(props: PostPageProps) {
         </div>
         {author && (
           <div className='flex flex-col items-center gap-2'>
-            <Avatar
-              name={author.name}
-              image={author.picture.url}
-              size='large'
-            />
+            <Avatar name={author.name} image={author.picture.url} size='large' />
             <div className='text-xl font-bold'>{author.name}</div>
           </div>
         )}
@@ -92,10 +83,7 @@ export default async function PostPage(props: PostPageProps) {
               <ContentfulRichText content={content as TypeDocument} />
             </div>
             <section className='flex flex-col border-t border-gray-300 pt-6'>
-              <CommentSection
-                postId={params.slug}
-                postComments={postComments}
-              />
+              <CommentSection postId={params.slug} postComments={postComments} />
             </section>
           </div>
         </div>

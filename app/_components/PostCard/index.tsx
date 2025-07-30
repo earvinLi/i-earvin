@@ -42,11 +42,7 @@ export default function PostCard(props: PostCardProps) {
           <div className='flex items-center'>
             {author && (
               <div className='mr-6 flex items-center gap-2'>
-                <Avatar
-                  name={author.name}
-                  image={author.picture.url}
-                  size='small'
-                />
+                <Avatar name={author.name} image={author.picture.url} size='small' />
                 <div className='text-sm'>{author.name}</div>
               </div>
             )}

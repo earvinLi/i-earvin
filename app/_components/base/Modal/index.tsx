@@ -25,9 +25,7 @@ const modalStyles = {
 export default function Modal(props: ModalProps) {
   const { isOpen, onClose, title, description, children, action, size } = props;
 
-  const handleModalClose = (
-    event: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>,
-  ) => {
+  const handleModalClose = (event: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>) => {
     if (
       event.target === event.currentTarget ||
       (event as KeyboardEvent<HTMLDivElement>).key === 'Escape'

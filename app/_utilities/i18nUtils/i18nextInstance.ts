@@ -15,8 +15,7 @@ i18next // eslint-disable-line @typescript-eslint/no-floating-promises
   .use(LanguageDetector)
   .use(
     resourcesToBackend(
-      (locale: string, namespace: string) =>
-        import(`../../../locales/${locale}/${namespace}.json`),
+      (locale: string, namespace: string) => import(`../../../locales/${locale}/${namespace}.json`),
     ),
   )
   .init({

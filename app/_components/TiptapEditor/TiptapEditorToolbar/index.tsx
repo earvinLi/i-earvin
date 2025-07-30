@@ -37,58 +37,36 @@ export default function TiptapEditorToolbar(props: TiptapEditorToolbarProps) {
         <IconButton
           onClick={() => editor.chain().focus().toggleBold().run()}
           disabled={!editor.can().chain().focus().toggleBold().run()}
-          icon={
-            <BoldIcon
-              color={editor.isActive('bold') ? '#00A3DA' : 'black'}
-              size={18}
-            />
-          }
+          icon={<BoldIcon color={editor.isActive('bold') ? '#00A3DA' : 'black'} size={18} />}
           tooltip={t('editor_toolbar_tooltip_bold')}
         />
       )}
-      {(toolbarActions.includes('all') ||
-        toolbarActions.includes('italic')) && (
+      {(toolbarActions.includes('all') || toolbarActions.includes('italic')) && (
         <IconButton
           onClick={() => editor.chain().focus().toggleItalic().run()}
           disabled={!editor.can().chain().focus().toggleItalic().run()}
-          icon={
-            <ItalicIcon
-              color={editor.isActive('italic') ? '#00A3DA' : 'black'}
-              size={18}
-            />
-          }
+          icon={<ItalicIcon color={editor.isActive('italic') ? '#00A3DA' : 'black'} size={18} />}
           tooltip={t('editor_toolbar_tooltip_italic')}
         />
       )}
-      {(toolbarActions.includes('all') ||
-        toolbarActions.includes('strike')) && (
+      {(toolbarActions.includes('all') || toolbarActions.includes('strike')) && (
         <IconButton
           onClick={() => editor.chain().focus().toggleStrike().run()}
           disabled={!editor.can().chain().focus().toggleStrike().run()}
           icon={
-            <StrikethroughIcon
-              color={editor.isActive('strike') ? '#00A3DA' : 'black'}
-              size={18}
-            />
+            <StrikethroughIcon color={editor.isActive('strike') ? '#00A3DA' : 'black'} size={18} />
           }
           tooltip={t('editor_toolbar_tooltip_strike')}
         />
       )}
-      {(toolbarActions.includes('all') ||
-        toolbarActions.includes('bulletList')) && (
+      {(toolbarActions.includes('all') || toolbarActions.includes('bulletList')) && (
         <IconButton
           onClick={() => editor.chain().focus().toggleBulletList().run()}
-          icon={
-            <ListIcon
-              color={editor.isActive('bulletList') ? '#00A3DA' : 'black'}
-              size={18}
-            />
-          }
+          icon={<ListIcon color={editor.isActive('bulletList') ? '#00A3DA' : 'black'} size={18} />}
           tooltip={t('editor_toolbar_tooltip_bullet_list')}
         />
       )}
-      {(toolbarActions.includes('all') ||
-        toolbarActions.includes('orderedList')) && (
+      {(toolbarActions.includes('all') || toolbarActions.includes('orderedList')) && (
         <IconButton
           onClick={() => editor.chain().focus().toggleOrderedList().run()}
           icon={
@@ -100,21 +78,16 @@ export default function TiptapEditorToolbar(props: TiptapEditorToolbarProps) {
           tooltip={t('editor_toolbar_tooltip_ordered_list')}
         />
       )}
-      {(toolbarActions.includes('all') ||
-        toolbarActions.includes('blockquote')) && (
+      {(toolbarActions.includes('all') || toolbarActions.includes('blockquote')) && (
         <IconButton
           onClick={() => editor.chain().focus().toggleBlockquote().run()}
           icon={
-            <TextQuoteIcon
-              color={editor.isActive('blockquote') ? '#00A3DA' : 'black'}
-              size={18}
-            />
+            <TextQuoteIcon color={editor.isActive('blockquote') ? '#00A3DA' : 'black'} size={18} />
           }
           tooltip={t('editor_toolbar_tooltip_blockquote')}
         />
       )}
-      {(toolbarActions.includes('all') ||
-        toolbarActions.includes('horizontalRule')) && (
+      {(toolbarActions.includes('all') || toolbarActions.includes('horizontalRule')) && (
         <IconButton
           onClick={() => editor.chain().focus().setHorizontalRule().run()}
           icon={<MinusIcon color='black' size={18} />}
@@ -125,24 +98,15 @@ export default function TiptapEditorToolbar(props: TiptapEditorToolbarProps) {
         <IconButton
           onClick={() => editor.chain().focus().toggleCode().run()}
           disabled={!editor.can().chain().focus().toggleCode().run()}
-          icon={
-            <CodeIcon
-              color={editor.isActive('code') ? '#00A3DA' : 'black'}
-              size={18}
-            />
-          }
+          icon={<CodeIcon color={editor.isActive('code') ? '#00A3DA' : 'black'} size={18} />}
           tooltip={t('editor_toolbar_tooltip_code')}
         />
       )}
-      {(toolbarActions.includes('all') ||
-        toolbarActions.includes('codeBlock')) && (
+      {(toolbarActions.includes('all') || toolbarActions.includes('codeBlock')) && (
         <IconButton
           onClick={() => editor.chain().focus().toggleCodeBlock().run()}
           icon={
-            <SquareCodeIcon
-              color={editor.isActive('codeBlock') ? '#00A3DA' : 'black'}
-              size={18}
-            />
+            <SquareCodeIcon color={editor.isActive('codeBlock') ? '#00A3DA' : 'black'} size={18} />
           }
           tooltip={t('editor_toolbar_tooltip_code_block')}
         />
