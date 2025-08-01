@@ -3,8 +3,8 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   images: {
-    loader: "custom",
-    formats: ["image/avif", "image/webp"],
+    loader: 'custom',
+    formats: ['image/avif', 'image/webp'],
   },
 };
 

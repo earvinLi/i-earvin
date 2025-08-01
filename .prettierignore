@@ -35,3 +35,6 @@ types/next-env.d.ts
 # package manager
 yarn.lock
 
+# doc
+README.md
+

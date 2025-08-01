@@ -9,11 +9,11 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "prettier --check ./app && next build",
-    "build:local": "prettier --write ./app && next build",
+    "build": "prettier --check . && next build",
+    "build:local": "prettier --write . && next build",
     "start": "next start",
-    "format": "prettier --write ./app",
-    "lint": "eslint ./app",
+    "format": "prettier --write .",
+    "lint": "eslint .",
     "prisma:push": "dotenv -e .env.local -- npx prisma db push",
     "prisma:studio": "dotenv -e .env.local -- npx prisma studio",
     "prepare": "husky"

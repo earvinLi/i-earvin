@@ -1,9 +1,9 @@
 // https://www.prisma.io/docs/orm/prisma-migrate/workflows/seeding#integrated-seeding-with-prisma-migrate
 
 // External Dependencies
-import { Prisma, PrismaClient } from '@prisma/client'
+import { Prisma, PrismaClient } from '@prisma/client';
 
-const prisma = new PrismaClient()
+const prisma = new PrismaClient();
 
 const initialContactMeMessages: Prisma.ContactMeMessageCreateInput[] = [
   {
@@ -28,7 +28,7 @@ async function main() {
   await Promise.all(
     initialContactMeMessages.map(async (data) => {
       await prisma.contactMeMessage.create({ data });
-    })
+    }),
   );
 
   console.log('Seeding finished.');
@@ -36,10 +36,10 @@ async function main() {
 
 main()
   .then(async () => {
-    await prisma.$disconnect()
+    await prisma.$disconnect();
   })
   .catch(async (e) => {
-    console.error(e)
-    await prisma.$disconnect()
-    process.exit(1)
-  })
+    console.error(e);
+    await prisma.$disconnect();
+    process.exit(1);
+  });

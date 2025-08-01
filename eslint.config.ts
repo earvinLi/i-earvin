@@ -20,11 +20,7 @@ const compat = new FlatCompat({
 
 const eslintConfig = defineConfig([
   {
-    extends: compat.extends(
-      'next/core-web-vitals',
-      'plugin:tailwindcss/recommended',
-      'prettier',
-    ),
+    extends: compat.extends('next/core-web-vitals', 'plugin:tailwindcss/recommended', 'prettier'),
     rules: {
       'tailwindcss/classnames-order': 'off',
     },
@@ -44,11 +40,14 @@ const eslintConfig = defineConfig([
       'plugin:@typescript-eslint/recommended-type-checked',
     ),
     rules: {
-      '@typescript-eslint/no-misused-promises': [2, {
-        'checksVoidReturn': {
-          'attributes': false
+      '@typescript-eslint/no-misused-promises': [
+        2,
+        {
+          checksVoidReturn: {
+            attributes: false,
+          },
         },
-      }],
+      ],
     },
   },
   globalIgnores([
@@ -65,6 +64,7 @@ const eslintConfig = defineConfig([
     '**/.husky',
     '**/public',
     '**/yarn.lock',
+    '**/README.md',
   ]),
 ]);
 

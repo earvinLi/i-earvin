@@ -5,7 +5,12 @@ import { NextResponse, type NextRequest } from 'next/server';
 import acceptLanguage from 'accept-language';
 
 // Internal Dependencies
-import { defaultLocale, appLocales, cookieName, headerName } from '@/utilities/i18nUtils/i18nConfig';
+import {
+  defaultLocale,
+  appLocales,
+  cookieName,
+  headerName,
+} from '@/utilities/i18nUtils/i18nConfig';
 
 acceptLanguage.languages(appLocales);
 
@@ -18,7 +23,7 @@ export const config = {
     - _next/images (image optimization files)
     - images (/public/images files)
   */
-  matcher: ['/((?!api|_next/static|_next/image|images).*)']
+  matcher: ['/((?!api|_next/static|_next/image|images).*)'],
 };
 
 export function middleware(req: NextRequest) {
