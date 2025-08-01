@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 // Type Definitions
 type RootLayoutProps = {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 };
 
 // eslint-disable-next-line @typescript-eslint/require-await
@@ -39,10 +39,10 @@ export async function generateStaticParams() {
 }
 
 // Component Definition
-export default function RootLayout(props: RootLayoutProps) {
+export default async function RootLayout(props: RootLayoutProps) {
   const { children, params } = props;
 
-  const { locale } = params;
+  const { locale } = await params;
 
   return (
     <html lang={locale} dir={dir(locale)}>

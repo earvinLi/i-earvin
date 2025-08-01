@@ -46,7 +46,7 @@ export default function AppNavigation() {
 
   return (
     <>
-      <div className='mx-auto mb-8 mt-4 flex w-[70%] flex-row'>
+      <div className='mx-auto mt-4 mb-8 flex w-[70%] flex-row'>
         <div className='flex flex-row gap-6'>
           {getPageData(t).map((page) => {
             const { name, path } = page;

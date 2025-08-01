@@ -17,7 +17,7 @@ export const revalidate = 1;
 
 // Component Definition
 export default async function Posts() {
-  const headerList = headers();
+  const headerList = await headers();
   const headerLocale = headerList.get(headerName) || defaultLocale;
 
   const { t } = await getT('page_posts');

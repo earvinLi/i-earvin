@@ -17,7 +17,7 @@ export async function getT<
     FallbackNs<Ns extends FlatNamespace ? FlatNamespace : $FirstNamespace<FlatNamespace>>
   > = undefined,
 >(namespace?: Ns, options: { keyPrefix?: KPrefix } = {}) {
-  const headerList = headers();
+  const headerList = await headers();
   const headerLocale = headerList.get(headerName);
 
   if (headerLocale && i18next.resolvedLanguage !== headerLocale) {

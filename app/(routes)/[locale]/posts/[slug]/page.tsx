@@ -23,7 +23,7 @@ import { prisma } from '@/utilities/prismaUtils/prismaClient';
 import { defaultLocale, headerName } from '@/utilities/i18nUtils/i18nConfig';
 
 type PostPageProps = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export async function generateStaticParams() {
@@ -35,17 +35,19 @@ export async function generateStaticParams() {
 export default async function PostPage(props: PostPageProps) {
   const { params } = props;
 
-  const headerList = headers();
+  const { slug: postSlug } = await params;
+
+  const headerList = await headers();
   const headerLocale = headerList.get(headerName) || defaultLocale;
 
   const postEntry = await getContentfulEntry({
     content_type: 'post',
-    'fields.slug': params.slug,
+    'fields.slug': postSlug,
   });
   const { title, coverImage, author, content, date } = getPost(postEntry, headerLocale);
 
   const postComments = await prisma.postComment.findMany({
-    where: { postId: params.slug },
+    where: { postId: postSlug },
   });
 
   return (
@@ -83,7 +85,7 @@ export default async function PostPage(props: PostPageProps) {
               <ContentfulRichText content={content as TypeDocument} />
             </div>
             <section className='flex flex-col border-t border-gray-300 pt-6'>
-              <CommentSection postId={params.slug} postComments={postComments} />
+              <CommentSection postId={postSlug} postComments={postComments} />
             </section>
           </div>
         </div>
