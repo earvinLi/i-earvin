@@ -1,6 +1,7 @@
-/** @type {import('next').NextConfig} */
+// External Dependencies
+import type { NextConfig } from 'next';
 
-const nextConfig = {
+const nextConfig: NextConfig = {
   images: {
     loader: "custom",
     formats: ["image/avif", "image/webp"],

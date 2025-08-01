@@ -1,6 +1,37 @@
- node_modules
- .idea
- .next
- .husky
- .prettierignore
- .eslintignore
+# check https://prettier.io/docs/ignore for more about 'prettier' ignoring files
+
+# dependencies
+/node_modules
+
+# next.js
+/.next
+
+# misc
+.DS_Store
+
+# local env files
+.env*
+
+# typescript
+types/next-env.d.ts
+
+# prisma
+/prisma/dev.db
+
+# editor
+/.idea
+/.vscode
+
+# ignore files
+.gitignore
+.prettierignore
+
+# husky
+.husky
+
+# public
+/public
+
+# package manager
+yarn.lock
+

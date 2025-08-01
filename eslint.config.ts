@@ -53,10 +53,18 @@ const eslintConfig = defineConfig([
   },
   globalIgnores([
     '**/node_modules',
-    '**/.idea',
     '**/.next',
-    '**/.husky',
+    '**/.DS_Store',
+    '**/.env*',
+    '**/types/next-env.d.ts',
+    '**/prisma/dev.db',
+    '**/.idea',
+    '**/.vscode',
+    '**/.gitignore',
     '**/.prettierignore',
+    '**/.husky',
+    '**/public',
+    '**/yarn.lock',
   ]),
 ]);
 

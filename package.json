@@ -2,6 +2,11 @@
   "name": "i-earvin",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=24.3.0",
+    "npm": ">=11.4.2"
+  },
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "prettier --check ./app && next build",
@@ -53,6 +58,7 @@
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-tailwindcss": "^3.18.0",
     "husky": "^9.1.7",
+    "jiti": "^2.5.1",
     "lint-staged": "^16.0.0",
     "postcss": "^8",
     "prettier": "^3.5.3",
