@@ -5,7 +5,7 @@ const formatCheckCommand = 'prettier --check';
 const lintCommand = 'eslint';
 
 const lintStagedConfig: Configuration = {
-  '*.{ts,tsx}': [formatCheckCommand, lintCommand],
+  '*': [formatCheckCommand, lintCommand],
 };
 
 export default lintStagedConfig;
