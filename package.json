@@ -3,16 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": "22.18.0",
-    "npm": "10.9.3"
+    "node": "22.6.0",
+    "npm": "10.8.2"
   },
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "prettier --check . && next build",
-    "build:local": "prettier --write . && next build",
+    "build": "npm run format:check && next build",
+    "build:local": "npm run format && next build",
     "start": "next start",
-    "format": "prettier --write .",
+    "format": "NODE_OPTIONS=\"--experimental-strip-types\" prettier --write .",
+    "format:check": "NODE_OPTIONS=\"--experimental-strip-types\" prettier --check .",
     "lint": "eslint .",
     "prisma:push": "dotenv -e .env.local -- npx prisma db push",
     "prisma:studio": "dotenv -e .env.local -- npx prisma studio",
