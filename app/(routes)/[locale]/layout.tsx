@@ -7,7 +7,7 @@ import type { Metadata } from 'next';
 import { appLocales } from '@/utilities/i18nUtils/i18nConfig';
 
 // Local Dependencies
-import './globals.css';
+import './global.css';
 
 // Local Variables
 const geistSans = localFont({

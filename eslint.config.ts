@@ -24,6 +24,11 @@ const eslintConfig = defineConfig([
     rules: {
       'tailwindcss/classnames-order': 'off',
     },
+    settings: {
+      tailwindcss: {
+        config: `${__dirname}/app/(routes)/[locale]/global.css`,
+      },
+    },
   },
   {
     files: ['**/*.ts', '**/*.tsx'],
