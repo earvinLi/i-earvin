@@ -63,7 +63,7 @@ const options = {
       const text = content.find((item: any) => item.nodeType === 'text')?.value;
 
       return (
-        <a href={data.uri} target='_blank' rel='noopener noreferrer'>
+        <a href={data.uri} target='_blank' rel='noopener noreferrer' className='text-blue-600'>
           {text}
         </a>
       );
