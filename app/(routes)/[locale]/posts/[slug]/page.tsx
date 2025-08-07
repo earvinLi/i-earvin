@@ -75,7 +75,7 @@ export default async function PostPage(props: PostPageProps) {
               dateString={typeof date === 'string' ? date : ''}
               formatter='postPage'
             />
-            <LinkServer href='posts'>
+            <LinkServer href='/posts'>
               <IconButton icon={<ArrowBigLeftIcon color='black' size={24} />} />
             </LinkServer>
             <LanguageChanger />
