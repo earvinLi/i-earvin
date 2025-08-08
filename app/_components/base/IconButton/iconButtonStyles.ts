@@ -10,6 +10,7 @@ const iconButtonStyles = {
     border
     border-transparent
     p-2
+    cursor-pointer
     transition-all
     hover:bg-slate-100
     focus:bg-slate-100

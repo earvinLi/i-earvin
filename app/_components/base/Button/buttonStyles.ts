@@ -7,6 +7,7 @@ const buttonStyles = {
     px-4
     text-center
     text-base
+    cursor-pointer
     transition-all
   `,
   ButtonVariantTextStyle: `
