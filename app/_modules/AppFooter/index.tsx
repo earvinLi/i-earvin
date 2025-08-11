@@ -20,12 +20,16 @@ export default function AppFooter() {
       <div className='flex flex-row gap-0.5'>
         <IconButton
           icon={<GithubIcon color='gray' size={22} />}
+          tooltip='GitHub'
+          tooltipPosition='top'
           onClick={() =>
             window.open('https://github.com/earvinLi', '_blank', 'noopener, noreferrer')
           }
         />
         <IconButton
           icon={<LinkedinIcon color='gray' size={22} />}
+          tooltip='Linkedin'
+          tooltipPosition='top'
           onClick={() =>
             window.open('https://linkedin.com/in/earvinli', '_blank', 'noopener, noreferrer')
           }

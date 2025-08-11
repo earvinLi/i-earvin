@@ -39,6 +39,7 @@ export default function TiptapEditorToolbar(props: TiptapEditorToolbarProps) {
           disabled={!editor.can().chain().focus().toggleBold().run()}
           icon={<BoldIcon color={editor.isActive('bold') ? '#00A3DA' : 'black'} size={18} />}
           tooltip={t('editor_toolbar_tooltip_bold')}
+          tooltipPosition='top'
         />
       )}
       {(toolbarActions.includes('all') || toolbarActions.includes('italic')) && (
@@ -47,6 +48,7 @@ export default function TiptapEditorToolbar(props: TiptapEditorToolbarProps) {
           disabled={!editor.can().chain().focus().toggleItalic().run()}
           icon={<ItalicIcon color={editor.isActive('italic') ? '#00A3DA' : 'black'} size={18} />}
           tooltip={t('editor_toolbar_tooltip_italic')}
+          tooltipPosition='top'
         />
       )}
       {(toolbarActions.includes('all') || toolbarActions.includes('strike')) && (
@@ -57,6 +59,7 @@ export default function TiptapEditorToolbar(props: TiptapEditorToolbarProps) {
             <StrikethroughIcon color={editor.isActive('strike') ? '#00A3DA' : 'black'} size={18} />
           }
           tooltip={t('editor_toolbar_tooltip_strike')}
+          tooltipPosition='top'
         />
       )}
       {(toolbarActions.includes('all') || toolbarActions.includes('bulletList')) && (
@@ -64,6 +67,7 @@ export default function TiptapEditorToolbar(props: TiptapEditorToolbarProps) {
           onClick={() => editor.chain().focus().toggleBulletList().run()}
           icon={<ListIcon color={editor.isActive('bulletList') ? '#00A3DA' : 'black'} size={18} />}
           tooltip={t('editor_toolbar_tooltip_bullet_list')}
+          tooltipPosition='top'
         />
       )}
       {(toolbarActions.includes('all') || toolbarActions.includes('orderedList')) && (
@@ -76,6 +80,7 @@ export default function TiptapEditorToolbar(props: TiptapEditorToolbarProps) {
             />
           }
           tooltip={t('editor_toolbar_tooltip_ordered_list')}
+          tooltipPosition='top'
         />
       )}
       {(toolbarActions.includes('all') || toolbarActions.includes('blockquote')) && (
@@ -85,6 +90,7 @@ export default function TiptapEditorToolbar(props: TiptapEditorToolbarProps) {
             <TextQuoteIcon color={editor.isActive('blockquote') ? '#00A3DA' : 'black'} size={18} />
           }
           tooltip={t('editor_toolbar_tooltip_blockquote')}
+          tooltipPosition='top'
         />
       )}
       {(toolbarActions.includes('all') || toolbarActions.includes('horizontalRule')) && (
@@ -92,6 +98,7 @@ export default function TiptapEditorToolbar(props: TiptapEditorToolbarProps) {
           onClick={() => editor.chain().focus().setHorizontalRule().run()}
           icon={<MinusIcon color='black' size={18} />}
           tooltip={t('editor_toolbar_tooltip_horizontal_rule')}
+          tooltipPosition='top'
         />
       )}
       {(toolbarActions.includes('all') || toolbarActions.includes('code')) && (
@@ -100,6 +107,7 @@ export default function TiptapEditorToolbar(props: TiptapEditorToolbarProps) {
           disabled={!editor.can().chain().focus().toggleCode().run()}
           icon={<CodeIcon color={editor.isActive('code') ? '#00A3DA' : 'black'} size={18} />}
           tooltip={t('editor_toolbar_tooltip_code')}
+          tooltipPosition='top'
         />
       )}
       {(toolbarActions.includes('all') || toolbarActions.includes('codeBlock')) && (
@@ -109,6 +117,7 @@ export default function TiptapEditorToolbar(props: TiptapEditorToolbarProps) {
             <SquareCodeIcon color={editor.isActive('codeBlock') ? '#00A3DA' : 'black'} size={18} />
           }
           tooltip={t('editor_toolbar_tooltip_code_block')}
+          tooltipPosition='top'
         />
       )}
       {(toolbarActions.includes('all') || toolbarActions.includes('undo')) && (
@@ -117,6 +126,7 @@ export default function TiptapEditorToolbar(props: TiptapEditorToolbarProps) {
           disabled={!editor.can().chain().focus().undo().run()}
           icon={<UndoIcon />}
           tooltip={t('editor_toolbar_tooltip_undo')}
+          tooltipPosition='top'
         />
       )}
       {(toolbarActions.includes('all') || toolbarActions.includes('redo')) && (
@@ -125,6 +135,7 @@ export default function TiptapEditorToolbar(props: TiptapEditorToolbarProps) {
           disabled={!editor.can().chain().focus().redo().run()}
           icon={<RedoIcon />}
           tooltip={t('editor_toolbar_tooltip_redo')}
+          tooltipPosition='top'
         />
       )}
     </div>

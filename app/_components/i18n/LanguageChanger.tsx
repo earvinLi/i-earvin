@@ -12,7 +12,7 @@ import { useT } from '@/utilities/i18nUtils/i18nClientHelpers';
 
 // Component Definition
 export default function LanguageChanger() {
-  const { i18n } = useT();
+  const { i18n, t } = useT('component_language_changer');
   const currentLocale = i18n.resolvedLanguage;
   const router = useRouter();
   const currentPathname = usePathname();
@@ -50,7 +50,13 @@ export default function LanguageChanger() {
 
   return (
     <DropdownMenu
-      triggerElement={<IconButton icon={<LanguagesIcon color='gray' />} />}
+      triggerElement={
+        <IconButton
+          icon={<LanguagesIcon color='gray' />}
+          tooltip={t('change_locale_button_text')}
+          tooltipPosition='bottom'
+        />
+      }
       optionData={localeData}
     />
   );

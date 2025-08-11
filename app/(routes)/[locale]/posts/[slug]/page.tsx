@@ -21,6 +21,7 @@ import {
 } from '@/utilities/contentfulUtilities/contentfulDataHelpers';
 import { prisma } from '@/utilities/prismaUtils/prismaClient';
 import { defaultLocale, headerName } from '@/utilities/i18nUtils/i18nConfig';
+import { getT } from '@/utilities/i18nUtils/i18nServerHelpers';
 
 type PostPageProps = {
   params: Promise<{ slug: string }>;
@@ -39,6 +40,8 @@ export default async function PostPage(props: PostPageProps) {
 
   const headerList = await headers();
   const headerLocale = headerList.get(headerName) || defaultLocale;
+
+  const { t } = await getT('page_post');
 
   const postEntry = await getContentfulEntry({
     content_type: 'post',
@@ -76,7 +79,11 @@ export default async function PostPage(props: PostPageProps) {
               formatter='postPage'
             />
             <LinkServer href='/posts'>
-              <IconButton icon={<ArrowBigLeftIcon color='black' size={24} />} />
+              <IconButton
+                icon={<ArrowBigLeftIcon color='black' size={24} />}
+                tooltip={t('get_back_button_text')}
+                tooltipPosition='bottom'
+              />
             </LinkServer>
             <LanguageChanger />
           </div>

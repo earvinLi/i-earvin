@@ -87,6 +87,7 @@ export default function CommentSection(props: CommentSectionProps) {
               icon={<SaveIcon color='gray' size={18} />}
               onClick={handleSaveCommenter}
               tooltip={t('save_commenter_button_text')}
+              tooltipPosition='right'
             />
           </div>
         ) : (
@@ -96,6 +97,7 @@ export default function CommentSection(props: CommentSectionProps) {
               icon={<PencilIcon color='gray' size={18} />}
               onClick={() => setIsEditingCommenter(true)}
               tooltip={t('edit_commenter_button_text')}
+              tooltipPosition='right'
             />
           </div>
         )}

@@ -17,12 +17,19 @@ type IconButtonProps = {
   onClick?: () => void;
   disabled?: boolean;
   tooltip?: string;
+  tooltipPosition?: string;
 };
 
 // Todo: design different sizes for the icon button
 // Component Definition
 export default function IconButton(props: IconButtonProps) {
-  const { icon, onClick = undefined, disabled = false, tooltip = '' } = props;
+  const {
+    icon,
+    onClick = undefined,
+    disabled = false,
+    tooltip = '',
+    tooltipPosition = 'bottom',
+  } = props;
 
   const renderIconButton = () => (
     <button
@@ -37,7 +44,9 @@ export default function IconButton(props: IconButtonProps) {
   );
 
   return tooltip && !disabled ? (
-    <Tooltip content={tooltip}>{renderIconButton()}</Tooltip>
+    <Tooltip content={tooltip} position={tooltipPosition}>
+      {renderIconButton()}
+    </Tooltip>
   ) : (
     renderIconButton()
   );
