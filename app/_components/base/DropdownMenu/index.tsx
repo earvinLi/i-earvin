@@ -3,13 +3,6 @@
 // External Dependencies
 import React, { useState, useRef, useEffect } from 'react';
 
-// Local Dependencies
-import dropdownMenuStyles from './dropdownMenuStyles';
-
-// Local Variables
-const { DropdownMenuMainContainerStyle, DropdownMenuMenuStyle, DropdownMenuMenuItemStyle } =
-  dropdownMenuStyles;
-
 // Type Definitions
 type TypeDropdownMenuOption = {
   name: string;
@@ -50,17 +43,17 @@ export default function DropdownMenu(props: DropdownMenuProps) {
   };
 
   return (
-    <div className={DropdownMenuMainContainerStyle} ref={dropdownMenuRef}>
+    <div className='relative inline-block' ref={dropdownMenuRef}>
       <div onClick={toggleDropdown}>{triggerElement}</div>
       {isOpen && (
-        <ul className={DropdownMenuMenuStyle}>
+        <ul className='absolute right-0 z-10 mt-2 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-hidden'>
           {optionData.map((optionItem) => {
             const { name } = optionItem;
             return (
               <li
                 key={name}
                 onClick={() => handleOptionClick(optionItem)}
-                className={DropdownMenuMenuItemStyle}
+                className='block w-full cursor-pointer px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'
               >
                 {name}
               </li>

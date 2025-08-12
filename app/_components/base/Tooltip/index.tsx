@@ -1,28 +1,28 @@
 // External Dependencies
 import { twJoin } from 'tailwind-merge';
 
-// Local Dependencies
-import tooltipStyles from './tooltipStyles';
-
-// Local Variables
-const {
-  TooltipBaseStyle,
-  TooltipTopPositionStyle,
-  TooltipRightPositionStyle,
-  TooltipBottomPositionStyle,
-  TooltipLeftPositionStyle,
-  TooltipArrowStyle,
-  TooltipArrowTopPositionStyle,
-  TooltipArrowRightPositionStyle,
-  TooltipArrowBottomPositionStyle,
-  TooltipArrowLeftPositionStyle,
-} = tooltipStyles;
-
-const tooltipStyleData = {
-  top: { tooltip: TooltipTopPositionStyle, arrow: TooltipArrowTopPositionStyle },
-  right: { tooltip: TooltipRightPositionStyle, arrow: TooltipArrowRightPositionStyle },
-  bottom: { tooltip: TooltipBottomPositionStyle, arrow: TooltipArrowBottomPositionStyle },
-  left: { tooltip: TooltipLeftPositionStyle, arrow: TooltipArrowLeftPositionStyle },
+// Style Variables
+const tooltipPositionStyles = {
+  top: {
+    tooltip: 'left-1/2 -translate-x-1/2 bottom-full mb-2',
+    arrow:
+      'left-1/2 -translate-x-1/2 top-full border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-[#757575]',
+  },
+  right: {
+    tooltip: 'top-1/2 -translate-y-1/2 left-full ml-2',
+    arrow:
+      'top-1/2 -translate-y-1/2 right-full border-t-4 border-b-4 border-r-4 border-t-transparent border-b-transparent border-r-[#757575]',
+  },
+  bottom: {
+    tooltip: 'left-1/2 -translate-x-1/2 top-full mt-2',
+    arrow:
+      'left-1/2 -translate-x-1/2 bottom-full border-l-4 border-r-4 border-b-4 border-l-transparent border-r-transparent border-b-[#757575]',
+  },
+  left: {
+    tooltip: 'top-1/2 -translate-y-1/2 right-full mr-2',
+    arrow:
+      'top-1/2 -translate-y-1/2 left-full border-t-4 border-b-4 border-l-4 border-t-transparent border-b-transparent border-l-[#757575]',
+  },
 };
 
 type TooltipPropTypes = {
@@ -40,15 +40,15 @@ export default function Tooltip(props: TooltipPropTypes) {
       {children}
       <div
         className={twJoin(
-          TooltipBaseStyle,
-          tooltipStyleData[position as keyof typeof tooltipStyleData].tooltip,
+          'absolute hidden w-max rounded bg-[#757575] px-2 py-1 text-xs text-white group-hover:block',
+          tooltipPositionStyles[position as keyof typeof tooltipPositionStyles].tooltip,
         )}
       >
         {content}
         <div
           className={twJoin(
-            TooltipArrowStyle,
-            tooltipStyleData[position as keyof typeof tooltipStyleData].arrow,
+            'absolute h-0 w-0',
+            tooltipPositionStyles[position as keyof typeof tooltipPositionStyles].arrow,
           )}
         />
       </div>
