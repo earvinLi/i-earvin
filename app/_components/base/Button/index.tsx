@@ -1,5 +1,5 @@
 // External Dependencies
-import classNames from 'classnames';
+import { twJoin } from 'tailwind-merge';
 
 // Local Dependencies
 import buttonStyles from './buttonStyles';
@@ -44,7 +44,7 @@ export default function Button(props: ButtonProps) {
       disabled={disabled}
       type='button'
       onClick={onClick}
-      className={classNames(ButtonBaseStyle, buttonVariantStyle)}
+      className={twJoin(ButtonBaseStyle, buttonVariantStyle)}
     >
       {children}
     </button>

@@ -1,5 +1,5 @@
 // External Dependencies
-import classNames from 'classnames';
+import { twJoin } from 'tailwind-merge';
 
 // Local Dependencies
 import tooltipStyles from './tooltipStyles';
@@ -39,14 +39,14 @@ export default function Tooltip(props: TooltipPropTypes) {
     <div role='tooltip' className='group relative'>
       {children}
       <div
-        className={classNames(
+        className={twJoin(
           TooltipBaseStyle,
           tooltipStyleData[position as keyof typeof tooltipStyleData].tooltip,
         )}
       >
         {content}
         <div
-          className={classNames(
+          className={twJoin(
             TooltipArrowStyle,
             tooltipStyleData[position as keyof typeof tooltipStyleData].arrow,
           )}

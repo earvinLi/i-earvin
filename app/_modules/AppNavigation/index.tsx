@@ -3,7 +3,7 @@
 // External Dependencies
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
-import classNames from 'classnames';
+import { twJoin } from 'tailwind-merge';
 import { TFunction } from 'i18next';
 
 // Internal Dependencies
@@ -60,7 +60,7 @@ export default function AppNavigation() {
               <LinkClient
                 key={`${path}-${name}`}
                 href={path}
-                className={classNames(
+                className={twJoin(
                   'text-lg decoration-[#00A3DA] decoration-2 underline-offset-8',
                   fontStyle,
                 )}

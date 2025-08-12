@@ -1,5 +1,5 @@
 // External Dependencies
-import classNames from 'classnames';
+import { twJoin } from 'tailwind-merge';
 import type { ReactNode, MouseEvent, KeyboardEvent } from 'react';
 
 type ModalProps = {
@@ -48,7 +48,7 @@ export default function Modal(props: ModalProps) {
       className='fixed inset-0 z-[999] flex h-screen w-screen items-center justify-center bg-black/60'
     >
       <div
-        className={classNames(
+        className={twJoin(
           `relative flex w-1/2 flex-col gap-5 rounded-md bg-white px-6 pt-6 pb-4 shadow-sm`,
           modalStyles.size[size],
         )}
