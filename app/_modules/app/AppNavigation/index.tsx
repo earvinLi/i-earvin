@@ -8,7 +8,7 @@ import { TFunction } from 'i18next';
 
 // Internal Dependencies
 import Button from '@/components/base/Button';
-import LanguageChanger from '@/components/i18n/LanguageChanger';
+import LanguageChanger from '@/components/LanguageChanger';
 import LinkClient from '@/components/Link/LinkClient';
 import { useT } from '@/utilities/i18nUtils/i18nClientHelpers';
 

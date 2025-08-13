@@ -1,7 +1,7 @@
 // Internal Dependencies
-import AppNavigation from '@/modules/AppNavigation';
-import AppFooter from '@/modules/AppFooter';
-import ProjectCard from '@/components/ProjectCard';
+import AppNavigation from '@/modules/app/AppNavigation';
+import AppFooter from '@/modules/app/AppFooter';
+import ProjectCard from '@/modules/project/ProjectCard';
 import { getT } from '@/utilities/i18nUtils/i18nServerHelpers';
 import { getProjects } from '@/constants/projectData';
 

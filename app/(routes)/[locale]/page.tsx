@@ -1,6 +1,6 @@
 // Internal Dependencies
-import AppNavigation from '@/modules/AppNavigation';
-import AppFooter from '@/modules/AppFooter';
+import AppNavigation from '@/modules/app/AppNavigation';
+import AppFooter from '@/modules/app/AppFooter';
 import OptimizedImage from '@/components/OptimizedImage';
 import { getT } from '@/utilities/i18nUtils/i18nServerHelpers';
 

@@ -9,13 +9,15 @@ import { Pencil as PencilIcon, Save as SaveIcon } from 'lucide-react';
 // Internal Dependencies
 import Avatar from '@/components/base/Avatar';
 import Button from '@/components/base/Button';
-import CommentItem from '@/components/comment/CommentItem';
 import IconButton from '@/components/base/IconButton';
 import TextInput from '@/components/base/TextInput';
 import TiptapEditor from '@/components/TiptapEditor';
 import useCommentPostForm from '@/hooks/post/useCommentPostForm';
 import { createPostComment, DataToCreatePostCommentTypes } from '@/actions/comentPostActions';
 import { useT } from '@/utilities/i18nUtils/i18nClientHelpers';
+
+// Local Dependencies
+import CommentItem from './CommentItem';
 
 type CommentSectionProps = {
   postId: string;

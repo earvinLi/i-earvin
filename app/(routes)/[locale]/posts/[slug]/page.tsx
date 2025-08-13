@@ -6,12 +6,12 @@ import { Document as TypeDocument } from '@contentful/rich-text-types';
 import { ArrowBigLeft as ArrowBigLeftIcon } from 'lucide-react';
 
 // Internal Dependencies
+import ContentfulRichText from '@/modules/post/ContentfulRichText';
 import CommentSection from '@/modules/post/CommentSection';
 import Avatar from '@/components/base/Avatar';
-import ContentfulRichText from '@/components/ContentfulRichText';
 import FormattedDateServer from '@/components/FormattedDate/FormattedDateServer';
 import IconButton from '@/components/base/IconButton';
-import LanguageChanger from '@/components/i18n/LanguageChanger';
+import LanguageChanger from '@/components/LanguageChanger';
 import LinkServer from '@/components/Link/LinkServer';
 import OptimizedImage from '@/components/OptimizedImage';
 import {

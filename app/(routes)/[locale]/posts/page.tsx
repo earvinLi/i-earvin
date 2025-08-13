@@ -2,9 +2,9 @@
 import { headers } from 'next/headers';
 
 // Internal Dependencies
-import AppNavigation from '@/modules/AppNavigation';
-import AppFooter from '@/modules/AppFooter';
-import PostCard from '@/components/PostCard';
+import AppNavigation from '@/modules/app/AppNavigation';
+import AppFooter from '@/modules/app/AppFooter';
+import PostCard from '@/modules/post/PostCard';
 import {
   getContentfulEntries,
   getPosts,
