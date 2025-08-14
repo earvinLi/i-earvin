@@ -1,6 +1,7 @@
 'use client';
 
 // External Dependencies
+import { useState } from 'react';
 import { Controller } from 'react-hook-form';
 
 // Internal Dependencies
@@ -24,6 +25,8 @@ type ContactMeModalProps = {
 export default function ContactMeModal(props: ContactMeModalProps) {
   const { isContactMeModalOpen, setIsContactMeModalOpen } = props;
 
+  const [isCreatingContactMeMessage, setIsCreatingContactMeMessage] = useState(false);
+
   const { contactMeFormHandleSubmit, contactMeFormControl, contactMeFormReset } =
     useContactMeForm();
 
@@ -32,9 +35,11 @@ export default function ContactMeModal(props: ContactMeModalProps) {
   const handleCreateContactMeMessage = async (
     dataToCreateContactMeMessage: DataToCreateContactMeMessageTypes,
   ) => {
+    setIsCreatingContactMeMessage(true);
     await createContactMeMessage(dataToCreateContactMeMessage);
     contactMeFormReset();
     setIsContactMeModalOpen(false);
+    setIsCreatingContactMeMessage(false);
   };
 
   return (
@@ -48,7 +53,10 @@ export default function ContactMeModal(props: ContactMeModalProps) {
           <Button onClick={() => setIsContactMeModalOpen(false)}>
             {t('contact_me_button_cancel_text')}
           </Button>
-          <Button onClick={contactMeFormHandleSubmit(handleCreateContactMeMessage)}>
+          <Button
+            disabled={isCreatingContactMeMessage}
+            onClick={contactMeFormHandleSubmit(handleCreateContactMeMessage)}
+          >
             {t('contact_me_button_submit_text')}
           </Button>
         </>
