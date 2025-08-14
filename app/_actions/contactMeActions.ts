@@ -34,5 +34,5 @@ export const createContactMeMessage = async (
     }
   }
 
-  revalidatePath('/posts/contact');
+  revalidatePath('/projects/contact');
 };

@@ -2,6 +2,8 @@
   "contact_me_title": "联系我",
   "contact_me_description": "如有任何关于系统开发或本地化的问题，欢迎随时联系我。欢迎讨论我的项目、文章、想法，或者只是简单打个招呼！",
   "contact_me_input_info_label": "联系方式",
+  "contact_me_input_info_error_text_required": "联系方式是必填项",
+  "contact_me_input_info_error_text_length": "联系方式项长度不能超过20个字符",
   "contact_me_input_message_label": "留言",
   "contact_me_button_submit_text": "提交",
   "contact_me_button_cancel_text": "取消"

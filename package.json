@@ -8,7 +8,7 @@
   },
   "type": "module",
   "scripts": {
-    "dev": "next dev",
+    "dev": "NODE_OPTIONS='--inspect' next dev",
     "build": "npm run format:check && next build",
     "build:local": "npm run format && next build",
     "start": "next start",

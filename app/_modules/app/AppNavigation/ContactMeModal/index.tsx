@@ -24,10 +24,10 @@ type ContactMeModalProps = {
 export default function ContactMeModal(props: ContactMeModalProps) {
   const { isContactMeModalOpen, setIsContactMeModalOpen } = props;
 
-  const { t } = useT('module_contact_me_modal');
-
   const { contactMeFormHandleSubmit, contactMeFormControl, contactMeFormReset } =
     useContactMeForm();
+
+  const { t } = useT('module_contact_me_modal');
 
   const handleCreateContactMeMessage = async (
     dataToCreateContactMeMessage: DataToCreateContactMeMessageTypes,
@@ -59,12 +59,23 @@ export default function ContactMeModal(props: ContactMeModalProps) {
         <Controller
           name='contactInfo'
           control={contactMeFormControl}
-          rules={{ required: true }}
-          render={({ field }) => (
+          rules={{
+            required: {
+              value: true,
+              message: t('contact_me_input_info_error_text_required'),
+            },
+            maxLength: {
+              value: 20,
+              message: t('contact_me_input_info_error_text_length'),
+            },
+          }}
+          render={({ field, fieldState }) => (
             <TextInput
               label={t('contact_me_input_info_label')}
               value={field.value}
               onChange={field.onChange}
+              inputState={fieldState.error ? 'error' : 'default'}
+              helperText={fieldState.error ? fieldState.error.message : ''}
             />
           )}
         />

@@ -2,6 +2,8 @@
   "contact_me_title": "Contact me",
   "contact_me_description": "Feel free to reach out to me for any inquiries related to system development or localization. I welcome discussions about my projects and posts, ideas, or just a friendly hello!",
   "contact_me_input_info_label": "Contact info",
+  "contact_me_input_info_error_text_required": "Contact info is required",
+  "contact_me_input_info_error_text_length": "Contact info may not be longer than 20 characters",
   "contact_me_input_message_label": "Contact message",
   "contact_me_button_submit_text": "Submit",
   "contact_me_button_cancel_text": "Cancel"
