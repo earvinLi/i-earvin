@@ -1,3 +1,18 @@
+// External Dependencies
+import { twJoin } from 'tailwind-merge';
+
+// Style variables
+const inputStateStyles = {
+  default: {
+    input: 'border-gray-300 hover:border-gray-400 focus:border-[#00A3DA]',
+    label: 'text-gray-400 peer-focus:text-[#00A3DA]',
+  },
+  error: {
+    input: 'border-red-400 hover:border-red-500 focus:border-red-500',
+    label: 'text-red-500 peer-focus:text-red-500',
+  },
+};
+
 type TextInputProps = {
   label: string;
   value: string;
@@ -17,13 +32,19 @@ export default function TextInput(props: TextInputProps) {
           id='text-input-input'
           value={value}
           onChange={onChange}
-          // This is to fulfill proper label and border styles when input is not empty
+          // this is to fulfill proper label and border styles when input is not empty
           placeholder=' '
-          className='peer ease w-full border-b-2 border-gray-300 bg-transparent pt-3 text-lg text-slate-700 transition duration-300 hover:border-gray-400 focus:border-[#00A3DA] focus:outline-none'
+          className={twJoin(
+            'peer ease w-full border-b-2 bg-transparent pt-3 text-lg text-slate-700 transition duration-300 focus:outline-none',
+            inputStateStyles[inputState].input,
+          )}
         />
         <label
           htmlFor='text-input-input'
-          className='absolute top-2.5 left-0 origin-left transform cursor-text bg-white text-lg text-gray-400 transition-all peer-focus:-top-2 peer-focus:scale-x-90 peer-focus:text-base peer-focus:text-[#00A3DA] peer-[:not(:placeholder-shown)]:-top-2 peer-[:not(:placeholder-shown)]:scale-x-90 peer-[:not(:placeholder-shown)]:text-base'
+          className={twJoin(
+            'absolute top-2.5 left-0 origin-left transform cursor-text bg-white text-lg transition-all peer-focus:-top-2 peer-focus:scale-x-90 peer-focus:text-base peer-[:not(:placeholder-shown)]:-top-2 peer-[:not(:placeholder-shown)]:scale-x-90 peer-[:not(:placeholder-shown)]:text-base',
+            inputStateStyles[inputState].label,
+          )}
         >
           {label}
         </label>
