@@ -28,7 +28,7 @@ const tooltipPositionStyles = {
 type TooltipPropTypes = {
   children: React.ReactNode;
   content: string;
-  position?: string;
+  position?: 'top' | 'right' | 'bottom' | 'left';
 };
 
 // Component Definition
@@ -41,16 +41,11 @@ export default function Tooltip(props: TooltipPropTypes) {
       <div
         className={twJoin(
           'absolute hidden w-max rounded bg-[#757575] px-2 py-1 text-xs text-white group-hover:block',
-          tooltipPositionStyles[position as keyof typeof tooltipPositionStyles].tooltip,
+          tooltipPositionStyles[position].tooltip,
         )}
       >
         {content}
-        <div
-          className={twJoin(
-            'absolute h-0 w-0',
-            tooltipPositionStyles[position as keyof typeof tooltipPositionStyles].arrow,
-          )}
-        />
+        <div className={twJoin('absolute h-0 w-0', tooltipPositionStyles[position].arrow)} />
       </div>
     </div>
   );

@@ -32,27 +32,30 @@ export default function ContactMeModal(props: ContactMeModalProps) {
 
   const { t } = useT('module_contact_me_modal');
 
+  const handleCloseContactMeModal = () => {
+    setIsContactMeModalOpen(false);
+    contactMeFormReset();
+  };
+
   const handleCreateContactMeMessage = async (
     dataToCreateContactMeMessage: DataToCreateContactMeMessageTypes,
   ) => {
     setIsCreatingContactMeMessage(true);
     await createContactMeMessage(dataToCreateContactMeMessage);
-    contactMeFormReset();
     setIsContactMeModalOpen(false);
     setIsCreatingContactMeMessage(false);
+    contactMeFormReset();
   };
 
   return (
     <Modal
       isOpen={isContactMeModalOpen}
-      onClose={() => setIsContactMeModalOpen(false)}
+      onClose={handleCloseContactMeModal}
       title={t('contact_me_title')}
       description={t('contact_me_description')}
       action={
         <>
-          <Button onClick={() => setIsContactMeModalOpen(false)}>
-            {t('contact_me_button_cancel_text')}
-          </Button>
+          <Button onClick={handleCloseContactMeModal}>{t('contact_me_button_cancel_text')}</Button>
           <Button
             disabled={isCreatingContactMeMessage}
             onClick={contactMeFormHandleSubmit(handleCreateContactMeMessage)}
@@ -68,10 +71,7 @@ export default function ContactMeModal(props: ContactMeModalProps) {
           name='contactInfo'
           control={contactMeFormControl}
           rules={{
-            required: {
-              value: true,
-              message: t('contact_me_input_info_error_text_required'),
-            },
+            required: t('contact_me_input_info_error_text_required'),
             maxLength: {
               value: 20,
               message: t('contact_me_input_info_error_text_length'),
@@ -90,12 +90,14 @@ export default function ContactMeModal(props: ContactMeModalProps) {
         <Controller
           name='contactMessage'
           control={contactMeFormControl}
-          rules={{ required: true }}
-          render={({ field }) => (
+          rules={{ required: t('contact_me_input_message_error_text_required') }}
+          render={({ field, fieldState }) => (
             <TiptapEditor
               label={t('contact_me_input_message_label')}
               value={field.value}
               onChange={field.onChange}
+              inputState={fieldState.error ? 'error' : 'default'}
+              helperText={fieldState.error ? fieldState.error.message : ''}
             />
           )}
         />

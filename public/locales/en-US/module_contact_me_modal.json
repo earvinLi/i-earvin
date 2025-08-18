@@ -5,6 +5,7 @@
   "contact_me_input_info_error_text_required": "Contact info is required",
   "contact_me_input_info_error_text_length": "Contact info may not be longer than 20 characters",
   "contact_me_input_message_label": "Contact message",
+  "contact_me_input_message_error_text_required": "Contact message is required",
   "contact_me_button_submit_text": "Submit",
   "contact_me_button_cancel_text": "Cancel"
 }
