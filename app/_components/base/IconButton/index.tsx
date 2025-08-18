@@ -11,7 +11,7 @@ type IconButtonProps = {
   onClick?: () => void;
   disabled?: boolean;
   tooltip?: string;
-  tooltipPosition?: string;
+  tooltipPosition?: 'top' | 'right' | 'bottom' | 'left';
 };
 
 // Todo: design different sizes for the icon button
