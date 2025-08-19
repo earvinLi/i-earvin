@@ -9,7 +9,7 @@ import Button from '@/components/base/Button';
 import Modal from '@/components/base/Modal';
 import TextInput from '@/components/base/TextInput';
 import TiptapEditor from '@/components/TiptapEditor';
-import useContactMeForm from '@/hooks/project/useContactMeForm';
+import useContactMeForm from '@/hooks/app/useContactMeForm';
 import {
   createContactMeMessage,
   DataToCreateContactMeMessageTypes,
@@ -27,10 +27,10 @@ export default function ContactMeModal(props: ContactMeModalProps) {
 
   const [isCreatingContactMeMessage, setIsCreatingContactMeMessage] = useState(false);
 
-  const { contactMeFormHandleSubmit, contactMeFormControl, contactMeFormReset } =
-    useContactMeForm();
-
   const { t } = useT('module_contact_me_modal');
+
+  const { contactMeFormHandleSubmit, contactMeFormControl, contactMeFormReset } =
+    useContactMeForm(t);
 
   const handleCloseContactMeModal = () => {
     setIsContactMeModalOpen(false);
@@ -70,13 +70,6 @@ export default function ContactMeModal(props: ContactMeModalProps) {
         <Controller
           name='contactInfo'
           control={contactMeFormControl}
-          rules={{
-            required: t('contact_me_input_info_error_text_required'),
-            maxLength: {
-              value: 20,
-              message: t('contact_me_input_info_error_text_length'),
-            },
-          }}
           render={({ field, fieldState }) => (
             <TextInput
               label={t('contact_me_input_info_label')}
@@ -90,7 +83,6 @@ export default function ContactMeModal(props: ContactMeModalProps) {
         <Controller
           name='contactMessage'
           control={contactMeFormControl}
-          rules={{ required: t('contact_me_input_message_error_text_required') }}
           render={({ field, fieldState }) => (
             <TiptapEditor
               label={t('contact_me_input_message_label')}
