@@ -28,6 +28,9 @@ type CommentSectionProps = {
 export default function CommentSection(props: CommentSectionProps) {
   const { postId, postComments } = props;
 
+  const [isEditingCommenter, setIsEditingCommenter] = useState(false);
+  const [isCreatingPostComment, setIsCreatingPostComment] = useState(false);
+
   const { t } = useT('module_comment_section');
 
   const {
@@ -36,9 +39,7 @@ export default function CommentSection(props: CommentSectionProps) {
     commentPostFormReset,
     commentPostFormGetValues,
     commentPostFormGetFieldState,
-  } = useCommentPostForm(postId);
-
-  const [isEditingCommenter, setIsEditingCommenter] = useState(false);
+  } = useCommentPostForm(postId, t);
 
   const handleSaveCommenter = () => {
     const commenter = commentPostFormGetValues('commenter');
@@ -50,8 +51,10 @@ export default function CommentSection(props: CommentSectionProps) {
   };
 
   const handleCreatePostComment = async (dataToCreatePostComment: DataToCreatePostCommentTypes) => {
+    setIsCreatingPostComment(true);
     await createPostComment(dataToCreatePostComment);
     commentPostFormReset();
+    setIsCreatingPostComment(false);
   };
 
   return (
@@ -64,16 +67,6 @@ export default function CommentSection(props: CommentSectionProps) {
             <Controller
               name='commenter'
               control={commentPostFormControl}
-              rules={{
-                required: {
-                  value: true,
-                  message: t('edit_commenter_error_text_required'),
-                },
-                maxLength: {
-                  value: 20,
-                  message: t('edit_commenter_error_text_length'),
-                },
-              }}
               render={({ field, fieldState }) => (
                 <TextInput
                   label={t('commenter_input_label_text')}
@@ -108,16 +101,22 @@ export default function CommentSection(props: CommentSectionProps) {
         name='commentContent'
         control={commentPostFormControl}
         rules={{ required: true }}
-        render={({ field }) => (
+        render={({ field, fieldState }) => (
           <TiptapEditor
             value={field.value}
             onChange={field.onChange}
+            inputState={fieldState.error ? 'error' : 'default'}
+            helperText={fieldState.error ? fieldState.error.message : ''}
             toolbarActions={['bold', 'italic', 'bulletList', 'orderedList', 'undo', 'redo']}
           />
         )}
       />
       <div className='flex flex-row justify-end'>
-        <Button onClick={commentPostFormHandleSubmit(handleCreatePostComment)} variant='contained'>
+        <Button
+          disabled={isCreatingPostComment}
+          onClick={commentPostFormHandleSubmit(handleCreatePostComment)}
+          variant='contained'
+        >
           {t('submit_comment_button_text')}
         </Button>
       </div>

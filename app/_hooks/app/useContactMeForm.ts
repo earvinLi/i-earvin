@@ -6,6 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { TFunction } from 'i18next';
 
+// Validation Variables
 const buildContactMeFormSchema = (translationHelper: TFunction) =>
   z.object({
     contactInfo: z

@@ -6,5 +6,6 @@
   "save_commenter_button_text": "Save",
   "edit_commenter_error_text_required": "Commenter is required",
   "edit_commenter_error_text_length": "Commenter may not be longer than 20 characters",
+  "edit_comment_content_error_text_required": "Comment content is required",
   "submit_comment_button_text": "Submit"
 }

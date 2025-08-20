@@ -6,5 +6,6 @@
   "save_commenter_button_text": "保存",
   "edit_commenter_error_text_required": "コメント投稿者必須",
   "edit_commenter_error_text_length": "コメント投稿者は20文字以内にしてください",
+  "edit_comment_content_error_text_required": "コメント内容必須",
   "submit_comment_button_text": "提出する"
 }
