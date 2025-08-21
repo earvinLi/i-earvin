@@ -70,6 +70,7 @@ const eslintConfig = defineConfig([
     '**/public',
     '**/yarn.lock',
     '**/README.md',
+    '**/cosmos.imports.ts',
   ]),
 ]);
 

@@ -1,0 +1,8 @@
+{
+  "rendererUrl": {
+    "$schema": "./node_modules/react-cosmos/config.schema.json",
+    "plugins": ["react-cosmos-plugin-open-fixture"],
+    "dev": "http://localhost:3000/cosmos/<fixture>",
+    "export": "/cosmos/<fixture>.html"
+  }
+}

@@ -17,7 +17,9 @@
     "lint": "eslint .",
     "prisma:push": "dotenv -e .env.local -- npx prisma db push",
     "prisma:studio": "dotenv -e .env.local -- npx prisma studio",
-    "prepare": "husky"
+    "prepare": "husky",
+    "cosmos": "cosmos --expose-imports",
+    "cosmos-export": "cosmos-export --expose-imports"
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
@@ -68,6 +70,9 @@
     "lint-staged": "^16.0.0",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
+    "react-cosmos": "^7.0.0",
+    "react-cosmos-next": "^7.0.0",
+    "react-cosmos-plugin-open-fixture": "^7.0.0",
     "sass": "^1.84.0",
     "ts-node": "^10.9.2",
     "typescript": "^5"

@@ -19,11 +19,12 @@ export const config = {
   /*
     avoid matching for:
     - api (API routes)
+    - cosmos (react cosmos routes)
     - _next/static (static files)
     - _next/images (image optimization files)
     - images (/public/images files)
   */
-  matcher: ['/((?!api|_next/static|_next/image|images).*)'],
+  matcher: ['/((?!api|cosmos|_next/static|_next/image|images).*)'],
 };
 
 export function middleware(req: NextRequest) {
