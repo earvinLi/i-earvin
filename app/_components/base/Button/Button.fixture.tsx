@@ -1,5 +1,13 @@
+'use client';
+
 // Local Dependencies
 import Button from './index';
 
 // Fixture Definition
-export default <Button>Button</Button>;
+const ButtonFixture = () => (
+  <Button onClick={() => {}} variant='text' disabled={false}>
+    Button
+  </Button>
+);
+
+export default ButtonFixture;
