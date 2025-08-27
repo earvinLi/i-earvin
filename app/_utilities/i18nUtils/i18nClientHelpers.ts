@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-
 'use client';
 
 // External Dependencies
@@ -32,21 +30,25 @@ export function useT<
     throw new Error('useT is only available inside /app/(routes)/[locale]');
   }
 
-  if (runsOnServerSide && i18next.resolvedLanguage !== paramsLocale) {
-    void i18next.changeLanguage(paramsLocale);
-  } else {
-    const [activeLocale, setActiveLocale] = useState(i18next.resolvedLanguage);
+  const [activeLocale, setActiveLocale] = useState(i18next.resolvedLanguage);
 
-    useEffect(() => {
+  useEffect(() => {
+    if (runsOnServerSide && i18next.resolvedLanguage !== paramsLocale) {
+      void i18next.changeLanguage(paramsLocale);
+    } else {
       if (activeLocale === i18next.resolvedLanguage) return;
       setActiveLocale(i18next.resolvedLanguage);
-    }, [activeLocale, i18next.resolvedLanguage]);
+    }
+  }, [paramsLocale, activeLocale]);
 
-    useEffect(() => {
+  useEffect(() => {
+    if (runsOnServerSide && i18next.resolvedLanguage !== paramsLocale) {
+      void i18next.changeLanguage(paramsLocale);
+    } else {
       if (!paramsLocale || i18next.resolvedLanguage === paramsLocale) return;
       void i18next.changeLanguage(paramsLocale);
-    }, [paramsLocale, i18next]);
-  }
+    }
+  }, [paramsLocale]);
 
   return useTranslation(namespace, options);
 }
