@@ -21,6 +21,3 @@ types/next-env.d.ts
 # editor
 /.idea
 /.vscode
-
-# react cosmos
-cosmos.imports.ts
