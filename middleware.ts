@@ -53,14 +53,15 @@ export function middleware(req: NextRequest) {
     return NextResponse.redirect(new URL(newPathWithLocale, req.url));
   }
 
+  // Todo: check whether ths 'referer' logic is needed since 'LanguageChanger' handles the same
   // if a referer exists, try to detect locale from there and set the cookie accordingly
-  if (req.headers.has('referer')) {
+  /* if (req.headers.has('referer')) {
     const refererUrl = new URL(req.headers.get('referer') || '');
     const refererLocale = appLocales.find((locale) => refererUrl.pathname.startsWith(`/${locale}`));
     const response = NextResponse.next({ headers });
     if (refererLocale) response.cookies.set(cookieName, refererLocale);
     return response;
-  }
+  } */
 
   return NextResponse.next({ headers });
 }

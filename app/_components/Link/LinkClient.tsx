@@ -1,3 +1,5 @@
+'use client';
+
 // Internal Dependencies
 import { useT } from '@/utilities/i18nUtils/i18nClientHelpers';
 

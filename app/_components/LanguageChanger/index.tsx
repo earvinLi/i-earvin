@@ -9,6 +9,7 @@ import { Languages as LanguagesIcon } from 'lucide-react';
 import DropdownMenu from '@/components/base/DropdownMenu';
 import IconButton from '@/components/base/IconButton';
 import { useT } from '@/utilities/i18nUtils/i18nClientHelpers';
+import { cookieName } from '@/utilities/i18nUtils/i18nConfig';
 
 // Component Definition
 export default function LanguageChanger() {
@@ -18,12 +19,12 @@ export default function LanguageChanger() {
   const currentPathname = usePathname();
 
   const handleChangeLocale = (newLocale: string) => {
-    // set cookie for next-i18n-router
-    /* const days = 30;
-    const date = new Date();
-    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-    const expires = date.toUTCString();
-    document.cookie = `NEXT_LOCALE=${newLocale};expires=${expires};path=/`; */
+    // set cookie for 'react-i18next' to get correct locale
+    const cookieValidDays = 30;
+    const currentDate = new Date();
+    currentDate.setTime(currentDate.getTime() + cookieValidDays * 24 * 60 * 60 * 1000);
+    const expireDate = currentDate.toUTCString();
+    document.cookie = `${cookieName}=${newLocale};expires=${expireDate};path=/`;
 
     // redirect to the new locale path
     const newPathname = currentPathname.replace(`/${currentLocale}`, `/${newLocale}`);
