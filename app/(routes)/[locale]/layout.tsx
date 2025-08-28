@@ -2,8 +2,11 @@
 import { dir } from 'i18next';
 import localFont from 'next/font/local';
 import type { Metadata } from 'next';
+import { CircleAlert as CircleAlertIcon } from 'lucide-react';
 
 // Internal Dependencies
+import NotificationBanner from '@/components/NotificationBanner';
+import { getT } from '@/utilities/i18nUtils/i18nServerHelpers';
 import { appLocales } from '@/utilities/i18nUtils/i18nConfig';
 
 // Local Dependencies
@@ -44,9 +47,19 @@ export default async function RootLayout(props: RootLayoutProps) {
 
   const { locale } = await params;
 
+  const { t } = await getT('layout_root');
+
   return (
     <html lang={locale} dir={dir(locale)}>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        {(locale === 'zh-CN' || locale === 'ja-JP') && (
+          <NotificationBanner>
+            <CircleAlertIcon color='white' size={21} className='mr-2' />
+            <div className='text-white'>{t('localization_banner_message')}</div>
+          </NotificationBanner>
+        )}
+        {children}
+      </body>
     </html>
   );
 }

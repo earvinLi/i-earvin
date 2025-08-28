@@ -4,13 +4,14 @@
 
 import type { RendererConfig, UserModuleWrappers } from 'react-cosmos-core';
 
-import * as fixture0 from './app/_components/base/Avatar/Avatar.fixture';
-import * as fixture1 from './app/_components/base/Button/Button.fixture';
-import * as fixture2 from './app/_components/base/DropdownMenu/DropdownMenu.fixture';
-import * as fixture3 from './app/_components/base/IconButton/IconButton.fixture';
-import * as fixture4 from './app/_components/base/Modal/Modal.fixture';
-import * as fixture5 from './app/_components/base/TextInput/TextInput.fixture';
-import * as fixture6 from './app/_components/base/Tooltip/Tooltip.fixture';
+import * as fixture0 from './app/_components/NotificationBanner/NotificationBanner.fixture';
+import * as fixture1 from './app/_components/base/Avatar/Avatar.fixture';
+import * as fixture2 from './app/_components/base/Button/Button.fixture';
+import * as fixture3 from './app/_components/base/DropdownMenu/DropdownMenu.fixture';
+import * as fixture4 from './app/_components/base/IconButton/IconButton.fixture';
+import * as fixture5 from './app/_components/base/Modal/Modal.fixture';
+import * as fixture6 from './app/_components/base/TextInput/TextInput.fixture';
+import * as fixture7 from './app/_components/base/Tooltip/Tooltip.fixture';
 
 export const rendererConfig: RendererConfig = {
   "webSocketUrl": "ws://192.168.0.103:5001",
@@ -18,13 +19,14 @@ export const rendererConfig: RendererConfig = {
 };
 
 const fixtures = {
-  'app/_components/base/Avatar/Avatar.fixture.tsx': { module: fixture0 },
-  'app/_components/base/Button/Button.fixture.tsx': { module: fixture1 },
-  'app/_components/base/DropdownMenu/DropdownMenu.fixture.tsx': { module: fixture2 },
-  'app/_components/base/IconButton/IconButton.fixture.tsx': { module: fixture3 },
-  'app/_components/base/Modal/Modal.fixture.tsx': { module: fixture4 },
-  'app/_components/base/TextInput/TextInput.fixture.tsx': { module: fixture5 },
-  'app/_components/base/Tooltip/Tooltip.fixture.tsx': { module: fixture6 }
+  'app/_components/NotificationBanner/NotificationBanner.fixture.tsx': { module: fixture0 },
+  'app/_components/base/Avatar/Avatar.fixture.tsx': { module: fixture1 },
+  'app/_components/base/Button/Button.fixture.tsx': { module: fixture2 },
+  'app/_components/base/DropdownMenu/DropdownMenu.fixture.tsx': { module: fixture3 },
+  'app/_components/base/IconButton/IconButton.fixture.tsx': { module: fixture4 },
+  'app/_components/base/Modal/Modal.fixture.tsx': { module: fixture5 },
+  'app/_components/base/TextInput/TextInput.fixture.tsx': { module: fixture6 },
+  'app/_components/base/Tooltip/Tooltip.fixture.tsx': { module: fixture7 }
 };
 
 const decorators = {};
