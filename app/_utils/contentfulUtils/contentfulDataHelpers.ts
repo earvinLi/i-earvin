@@ -10,7 +10,7 @@
 import { EntriesQueries, EntrySkeletonType } from 'contentful';
 
 // Local Dependencies
-import { defaultLocale } from '@/utilities/i18nUtils/i18nConfig';
+import { defaultLocale } from '@/utils/i18nUtils/i18nConfig';
 
 // Local Dependencies
 import { contentfulClient } from './contentfulClient';

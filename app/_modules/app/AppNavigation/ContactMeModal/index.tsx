@@ -14,7 +14,7 @@ import {
   createContactMeMessage,
   DataToCreateContactMeMessageTypes,
 } from '@/actions/contactMeActions';
-import { useT } from '@/utilities/i18nUtils/i18nClientHelpers';
+import { useT } from '@/utils/i18nUtils/i18nClientHelpers';
 
 type ContactMeModalProps = {
   isContactMeModalOpen: boolean;

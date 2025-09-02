@@ -24,7 +24,7 @@
       "@/components/*": ["_components/*"],
       "@/hooks/*": ["_hooks/*"],
       "@/actions/*": ["_actions/*"],
-      "@/utilities/*": ["_utilities/*"],
+      "@/utils/*": ["_utils/*"],
       "@/constants/*": ["_constants/*"]
     }
   },

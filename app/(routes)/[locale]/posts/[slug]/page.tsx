@@ -18,10 +18,10 @@ import {
   getContentfulEntries,
   getContentfulEntry,
   getPost,
-} from '@/utilities/contentfulUtilities/contentfulDataHelpers';
-import { prisma } from '@/utilities/prismaUtils/prismaClient';
-import { defaultLocale, headerName } from '@/utilities/i18nUtils/i18nConfig';
-import { getT } from '@/utilities/i18nUtils/i18nServerHelpers';
+} from '@/utils/contentfulUtils/contentfulDataHelpers';
+import { prisma } from '@/utils/prismaUtils/prismaClient';
+import { defaultLocale, headerName } from '@/utils/i18nUtils/i18nConfig';
+import { getT } from '@/utils/i18nUtils/i18nServerHelpers';
 
 type PostPageProps = {
   params: Promise<{ slug: string }>;

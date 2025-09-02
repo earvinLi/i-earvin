@@ -6,8 +6,8 @@ import { CircleAlert as CircleAlertIcon } from 'lucide-react';
 
 // Internal Dependencies
 import NotificationBanner from '@/components/NotificationBanner';
-import { getT } from '@/utilities/i18nUtils/i18nServerHelpers';
-import { appLocales } from '@/utilities/i18nUtils/i18nConfig';
+import { getT } from '@/utils/i18nUtils/i18nServerHelpers';
+import { appLocales } from '@/utils/i18nUtils/i18nConfig';
 
 // Local Dependencies
 import './global.css';

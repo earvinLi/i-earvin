@@ -5,12 +5,7 @@ import { NextResponse, type NextRequest } from 'next/server';
 import acceptLanguage from 'accept-language';
 
 // Internal Dependencies
-import {
-  defaultLocale,
-  appLocales,
-  cookieName,
-  headerName,
-} from '@/utilities/i18nUtils/i18nConfig';
+import { defaultLocale, appLocales, cookieName, headerName } from '@/utils/i18nUtils/i18nConfig';
 
 acceptLanguage.languages(appLocales);
 

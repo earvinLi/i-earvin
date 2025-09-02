@@ -5,7 +5,7 @@ import { Github as GithubIcon, Linkedin as LinkedinIcon } from 'lucide-react'; /
 
 // Internal Dependencies
 import IconButton from '@/components/base/IconButton';
-import { useT } from '@/utilities/i18nUtils/i18nClientHelpers';
+import { useT } from '@/utils/i18nUtils/i18nClientHelpers';
 
 // Component Definition
 export default function AppFooter() {

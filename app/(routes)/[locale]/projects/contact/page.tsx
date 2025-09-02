@@ -2,7 +2,7 @@
 // import { unstable_cache as cache } from 'next/cache';
 
 // Internal Dependencies
-import { prisma } from '@/utilities/prismaUtils/prismaClient';
+import { prisma } from '@/utils/prismaUtils/prismaClient';
 
 // Local Variables
 // Todo: check out Prisma cache strategies with https://www.prisma.io/docs/accelerate/api-reference#cachestrategy

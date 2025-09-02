@@ -10,7 +10,7 @@ import { TFunction } from 'i18next';
 import Button from '@/components/base/Button';
 import LanguageChanger from '@/components/LanguageChanger';
 import LinkClient from '@/components/Link/LinkClient';
-import { useT } from '@/utilities/i18nUtils/i18nClientHelpers';
+import { useT } from '@/utils/i18nUtils/i18nClientHelpers';
 
 // Local Dependencies
 import ContactMeModal from './ContactMeModal';

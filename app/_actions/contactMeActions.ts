@@ -5,7 +5,7 @@ import { revalidatePath } from 'next/cache';
 import { Prisma, ContactMeMessage as ContactMeMessageTypes } from '@prisma/client';
 
 // Internal Dependencies
-import { prisma } from '@/utilities/prismaUtils/prismaClient';
+import { prisma } from '@/utils/prismaUtils/prismaClient';
 
 export type DataToCreateContactMeMessageTypes = Omit<ContactMeMessageTypes, 'id' | 'createdAt'>;
 

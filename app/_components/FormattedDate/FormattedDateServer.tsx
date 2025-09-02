@@ -1,5 +1,5 @@
 // Internal Dependencies
-import { getT } from '@/utilities/i18nUtils/i18nServerHelpers';
+import { getT } from '@/utils/i18nUtils/i18nServerHelpers';
 
 // Local Dependencies
 import FormattedDateBase, { FormattedDateProps } from './FormattedDateBase';

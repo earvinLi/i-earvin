@@ -5,13 +5,10 @@ import { headers } from 'next/headers';
 import AppNavigation from '@/modules/app/AppNavigation';
 import AppFooter from '@/modules/app/AppFooter';
 import PostCard from '@/modules/post/PostCard';
-import {
-  getContentfulEntries,
-  getPosts,
-} from '@/utilities/contentfulUtilities/contentfulDataHelpers';
-import { TypeMassagedPost } from '@/utilities/contentfulUtilities/contentfulDataTypes';
-import { getT } from '@/utilities/i18nUtils/i18nServerHelpers';
-import { headerName, defaultLocale } from '@/utilities/i18nUtils/i18nConfig';
+import { getContentfulEntries, getPosts } from '@/utils/contentfulUtils/contentfulDataHelpers';
+import { TypeMassagedPost } from '@/utils/contentfulUtils/contentfulDataTypes';
+import { getT } from '@/utils/i18nUtils/i18nServerHelpers';
+import { headerName, defaultLocale } from '@/utils/i18nUtils/i18nConfig';
 
 export const revalidate = 1;
 

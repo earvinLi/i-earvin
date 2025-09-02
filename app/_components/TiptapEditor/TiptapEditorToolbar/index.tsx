@@ -16,7 +16,7 @@ import {
 
 // Internal Dependencies
 import IconButton from '@/components/base/IconButton';
-import { useT } from '@/utilities/i18nUtils/i18nClientHelpers';
+import { useT } from '@/utils/i18nUtils/i18nClientHelpers';
 
 type TiptapEditorToolbarProps = {
   editor: TiptapEditorTypoe | null;

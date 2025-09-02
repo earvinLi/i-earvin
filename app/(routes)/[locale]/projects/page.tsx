@@ -2,7 +2,7 @@
 import AppNavigation from '@/modules/app/AppNavigation';
 import AppFooter from '@/modules/app/AppFooter';
 import ProjectCard from '@/modules/project/ProjectCard';
-import { getT } from '@/utilities/i18nUtils/i18nServerHelpers';
+import { getT } from '@/utils/i18nUtils/i18nServerHelpers';
 import { getProjects } from '@/constants/projectData';
 
 // Component Definition

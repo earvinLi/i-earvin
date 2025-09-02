@@ -14,7 +14,7 @@ import TextInput from '@/components/base/TextInput';
 import TiptapEditor from '@/components/TiptapEditor';
 import useCommentPostForm from '@/hooks/post/useCommentPostForm';
 import { createPostComment, DataToCreatePostCommentTypes } from '@/actions/comentPostActions';
-import { useT } from '@/utilities/i18nUtils/i18nClientHelpers';
+import { useT } from '@/utils/i18nUtils/i18nClientHelpers';
 
 // Local Dependencies
 import CommentItem from './CommentItem';

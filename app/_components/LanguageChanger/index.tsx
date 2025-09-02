@@ -8,8 +8,8 @@ import { Languages as LanguagesIcon } from 'lucide-react';
 // Internal Dependencies
 import DropdownMenu from '@/components/base/DropdownMenu';
 import IconButton from '@/components/base/IconButton';
-import { useT } from '@/utilities/i18nUtils/i18nClientHelpers';
-import { cookieName } from '@/utilities/i18nUtils/i18nConfig';
+import { useT } from '@/utils/i18nUtils/i18nClientHelpers';
+import { cookieName } from '@/utils/i18nUtils/i18nConfig';
 
 // Component Definition
 export default function LanguageChanger() {

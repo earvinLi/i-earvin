@@ -1,7 +1,7 @@
 'use client';
 
 // Internal Dependencies
-import { useT } from '@/utilities/i18nUtils/i18nClientHelpers';
+import { useT } from '@/utils/i18nUtils/i18nClientHelpers';
 
 // Local Dependencies
 import LinkBase, { LinkProps } from './LinkBase';
