@@ -20,7 +20,7 @@ export default async function Home() {
         <div className='flex flex-col items-center justify-center'>
           <OptimizedImage
             alt='Profile image of Earvin'
-            src='/images/profile_earvin.jpg'
+            src='/images/profile/profile_earvin.jpg'
             width={240}
             height={160}
             className='rounded-2xl'

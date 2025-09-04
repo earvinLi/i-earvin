@@ -130,7 +130,7 @@ export const getProjects = (translationHelper: TFunction) =>
         techs(translationHelper)['Tailwind CSS'],
         techs(translationHelper)['Prisma'],
       ],
-      image: '/images/project_cover_i_earvin.jpg',
+      image: '/images/project_cover/project_cover_i_earvin.jpg',
     },
     {
       title: translationHelper('where_have_you_been.title'),
@@ -140,7 +140,7 @@ export const getProjects = (translationHelper: TFunction) =>
         techs(translationHelper)['Material UI'],
         techs(translationHelper)['ExpressJS'],
       ],
-      image: '/images/project_cover_whyb.jpg',
+      image: '/images/project_cover/project_cover_whyb.jpg',
     },
     {
       title: translationHelper('coder_evolution.title'),
@@ -150,13 +150,13 @@ export const getProjects = (translationHelper: TFunction) =>
         techs(translationHelper)['Material UI'],
         techs(translationHelper)['Redux'],
       ],
-      image: '/images/project_cover_coder.jpg',
+      image: '/images/project_cover/project_cover_coder.jpg',
     },
     {
       title: translationHelper('a_programming_language.title'),
       description: translationHelper('a_programming_language.description'),
       techList: [techs(translationHelper)['JavaScript']],
-      image: '/images/project_cover_programming_language.jpg',
+      image: '/images/project_cover/project_cover_programming_language.jpg',
     },
     {
       title: translationHelper('beer_sharer.title'),
@@ -166,7 +166,7 @@ export const getProjects = (translationHelper: TFunction) =>
         techs(translationHelper)['Redux'],
         techs(translationHelper)['Firebase'],
       ],
-      image: '/images/project_cover_beer.jpg',
+      image: '/images/project_cover/project_cover_beer.jpg',
     },
     {
       title: translationHelper('neighborhood_map.title'),
@@ -176,7 +176,7 @@ export const getProjects = (translationHelper: TFunction) =>
         techs(translationHelper)['Google Map'],
         techs(translationHelper)['Wikipedia'],
       ],
-      image: '/images/project_cover_neighborhood.jpg',
+      image: '/images/project_cover/project_cover_neighborhood.jpg',
     },
     {
       title: translationHelper('reddit_mockup.title'),
@@ -186,7 +186,7 @@ export const getProjects = (translationHelper: TFunction) =>
         techs(translationHelper)['Redux'],
         techs(translationHelper)['Material UI'],
       ],
-      image: '/images/project_cover_reddit.jpg',
+      image: '/images/project_cover/project_cover_reddit.jpg',
     },
     {
       title: translationHelper('todo.title'),
@@ -196,30 +196,30 @@ export const getProjects = (translationHelper: TFunction) =>
         techs(translationHelper)['Redux'],
         techs(translationHelper)['MobX'],
       ],
-      image: '/images/project_cover_todo.jpg',
+      image: '/images/project_cover/project_cover_todo.jpg',
     },
     {
       title: translationHelper('try_some_flutter.title'),
       description: translationHelper('try_some_flutter.description'),
       techList: [techs(translationHelper)['Flutter'], techs(translationHelper)['Dart']],
-      image: '/images/project_cover_flutter.jpg',
+      image: '/images/project_cover/project_cover_flutter.jpg',
     },
     {
       title: translationHelper('automated_multilingual_tester.title'),
       description: translationHelper('automated_multilingual_tester.description'),
       techList: [techs(translationHelper)['Java']],
-      image: '/images/project_cover_multilingual.jpg',
+      image: '/images/project_cover/project_cover_multilingual.jpg',
     },
     {
       title: translationHelper('tour_of_heroes.title'),
       description: translationHelper('tour_of_heroes.description'),
       techList: [techs(translationHelper)['Angular']],
-      image: '/images/project_cover_heroes.jpg',
+      image: '/images/project_cover/project_cover_heroes.jpg',
     },
     {
       title: translationHelper('feed_reader_testing.title'),
       description: translationHelper('feed_reader_testing.description'),
       techList: [techs(translationHelper)['Jasmine']],
-      image: '/images/project_cover_feed_reader.jpg',
+      image: '/images/project_cover/project_cover_feed_reader.jpg',
     },
   ] as const;
