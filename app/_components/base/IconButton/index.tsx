@@ -31,7 +31,7 @@ export default function IconButton(props: IconButtonProps) {
       type='button'
       onClick={onClick}
       // Todo: find better ways to deal with long classnames
-      className='flex h-[42px] w-[42px] cursor-pointer flex-row items-center justify-center rounded-full border border-transparent p-2 transition-all hover:bg-slate-100 focus:bg-slate-100 active:bg-slate-100 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none'
+      className='flex h-[42px] w-[42px] cursor-pointer flex-row items-center justify-center rounded-full border border-transparent p-2 transition-all hover:bg-slate-100 focus-visible:bg-slate-100 active:bg-slate-100 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none'
     >
       {icon}
     </button>
