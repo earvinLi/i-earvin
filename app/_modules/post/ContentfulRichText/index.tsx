@@ -10,6 +10,7 @@
 // External Dependencies
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, INLINES, MARKS, Document as TypeDocument } from '@contentful/rich-text-types';
+import { twJoin } from 'tailwind-merge';
 
 // Internal Dependencies
 import LinkClient from '@/components/Link/LinkClient';
@@ -89,16 +90,14 @@ const options = {
       const { data } = node;
       const assetWidth = data.target.fields.file.details.image.width;
       const assetHeight = data.target.fields.file.details.image.height;
+      const assetSize = `w-[${assetWidth}px] h-[${assetHeight}px]`;
 
       return (
-        // eslint-disable-next-line tailwindcss/no-custom-classname
-        <div className={`w-[${assetWidth}px] h-[${assetHeight}px]`}>
+        <div className={twJoin('relative object-cover', assetSize)}>
           <OptimizedImage
             alt={`Cover image for ${data.target.fields.title}`}
             src={data.target.fields.file.url}
-            width={assetWidth}
-            height={assetHeight}
-            className='size-full object-cover'
+            fill
           />
         </div>
       );

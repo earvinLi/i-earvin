@@ -57,14 +57,8 @@ export default async function PostPage(props: PostPageProps) {
     <div className='mx-auto flex w-3/4 flex-col pt-12'>
       <article className='flex flex-col items-center gap-10'>
         <h1 className='text-3xl font-bold'>{typeof title === 'string' ? title : ''}</h1>
-        <div className='h-[368px] w-[768px]'>
-          <OptimizedImage
-            alt={`Cover image for ${title}`}
-            src={coverImage.url}
-            width={768}
-            height={368}
-            className='size-full object-cover'
-          />
+        <div className='relative h-[368px] w-[768px] object-cover'>
+          <OptimizedImage alt={`Cover image for ${title}`} src={coverImage.url} fill />
         </div>
         {author && (
           <div className='flex flex-col items-center gap-2'>

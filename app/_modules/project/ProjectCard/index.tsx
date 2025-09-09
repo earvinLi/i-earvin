@@ -20,14 +20,8 @@ export default function ProjectCard(props: ProjectCardProps) {
       <div className='flex items-center'>
         {/* Todo: get rid of the extra 'div' */}
         <div>
-          <div className='h-40 w-60'>
-            <OptimizedImage
-              alt={`Cover image for ${title}`}
-              src={image}
-              width={240}
-              height={160}
-              className='size-full object-cover'
-            />
+          <div className='relative h-[160px] w-[240px] object-cover'>
+            <OptimizedImage alt={`Cover image for ${title}`} src={image} fill />
           </div>
         </div>
         <div className='ml-12 flex grow flex-col gap-2'>

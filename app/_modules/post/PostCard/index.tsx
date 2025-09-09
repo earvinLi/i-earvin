@@ -21,14 +21,8 @@ export default function PostCard(props: PostCardProps) {
     <div className='border-b-2 border-gray-200 pb-6 last:border-b-0 last:pb-0'>
       <div className='flex items-center'>
         <div>
-          <div className='h-40 w-60'>
-            <OptimizedImage
-              alt={`Cover image for ${title}`}
-              src={coverImage.url}
-              width={240}
-              height={160}
-              className='size-full object-cover'
-            />
+          <div className='relative h-[160px] w-[240px] object-cover'>
+            <OptimizedImage alt={`Cover image for ${title}`} src={coverImage.url} fill />
           </div>
         </div>
         <div className='ml-12 flex grow flex-col'>

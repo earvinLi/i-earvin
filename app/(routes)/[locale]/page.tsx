@@ -17,15 +17,12 @@ export default async function Home() {
           <div className='mb-8 text-9xl font-bold'>{t('name_message')}</div>
           <div className='w-[512px] text-lg'>{t('intro_message')}</div>
         </div>
-        <div className='flex flex-col items-center justify-center'>
-          <OptimizedImage
-            alt='Profile image of Earvin'
-            src='/images/profile/profile_earvin.jpg'
-            width={240}
-            height={160}
-            className='rounded-2xl'
-          />
-        </div>
+        <OptimizedImage
+          alt='Profile image of Earvin'
+          src='/images/profile/profile_earvin.jpg'
+          width={240}
+          className='rounded-2xl'
+        />
       </div>
       <AppFooter />
     </div>

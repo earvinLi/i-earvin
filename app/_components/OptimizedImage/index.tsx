@@ -1,6 +1,7 @@
 'use client';
 
 // External Dependencies
+import React from 'react';
 import Image from 'next/image';
 
 // Type Definitions
@@ -13,8 +14,10 @@ type TypeImageLoader = {
 type OptimizedImageProps = {
   alt: string;
   src: string;
-  width: number;
-  height: number;
+  // Todo: whether we need 'width' and 'height' actually depends on if 'fill' if provided
+  width?: number;
+  height?: number;
+  fill?: boolean;
   quality?: number;
   className?: string;
 };
@@ -25,17 +28,18 @@ const imageLoader = ({ src, width, quality }: TypeImageLoader) =>
 
 // Component Definition
 export default function OptimizedImage(props: OptimizedImageProps) {
-  const { alt, src, width, height, quality = 75, className } = props;
+  const { alt, src, width = 360, height = 360, fill = false, quality = 75, className } = props;
 
-  return (
-    <Image
-      alt={alt}
-      src={src}
-      width={width}
-      height={height}
-      quality={quality}
-      loader={imageLoader}
-      className={className}
-    />
+  const ImageBase = (
+    <Image alt={alt} src={src} quality={quality} loader={imageLoader} className={className} />
   );
+
+  if (fill) {
+    return React.cloneElement(ImageBase, {
+      fill,
+      sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
+    });
+  }
+
+  return React.cloneElement(ImageBase, { width, height });
 }

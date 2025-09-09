@@ -61,7 +61,7 @@ export default function CommentSection(props: CommentSectionProps) {
     <div className='flex flex-col gap-6'>
       <h2 className='text-xl font-bold'>{t('comment_title', { count: postComments.length })}</h2>
       <div className='flex flex-row items-center gap-6'>
-        <Avatar name='John Doe' image='/images/avatar_default.jpg' size='medium' />
+        <Avatar name='John Doe' image='/images/avatar/avatar_default.jpg' size='medium' />
         {isEditingCommenter ? (
           <div className='flex w-[256px] flex-row items-center gap-4'>
             <Controller
