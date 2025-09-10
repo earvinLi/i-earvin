@@ -19,6 +19,7 @@ type OptimizedImageProps = {
   height?: number;
   fill?: boolean;
   quality?: number;
+  priority?: boolean;
   className?: string;
 };
 
@@ -28,10 +29,27 @@ const imageLoader = ({ src, width, quality }: TypeImageLoader) =>
 
 // Component Definition
 export default function OptimizedImage(props: OptimizedImageProps) {
-  const { alt, src, width = 360, height = 360, fill = false, quality = 75, className } = props;
+  // Todo: should we have all props from 'NextJS Image'
+  const {
+    alt,
+    src,
+    width = 360,
+    height = 360,
+    fill = false,
+    quality = 75,
+    priority = false,
+    className,
+  } = props;
 
   const ImageBase = (
-    <Image alt={alt} src={src} quality={quality} loader={imageLoader} className={className} />
+    <Image
+      alt={alt}
+      src={src}
+      quality={quality}
+      loader={imageLoader}
+      priority={priority}
+      className={className}
+    />
   );
 
   if (fill) {

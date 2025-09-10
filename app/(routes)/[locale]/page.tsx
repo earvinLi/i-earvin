@@ -21,6 +21,7 @@ export default async function Home() {
           alt='Profile image of Earvin'
           src='/images/profile/profile_earvin.jpg'
           width={240}
+          priority
           className='rounded-2xl'
         />
       </div>
