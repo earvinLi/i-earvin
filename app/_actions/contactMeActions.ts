@@ -7,10 +7,10 @@ import { Prisma, ContactMeMessage as ContactMeMessageTypes } from '@prisma/clien
 // Internal Dependencies
 import { prisma } from '@/utils/prismaUtils/prismaClient';
 
-export type DataToCreateContactMeMessageTypes = Omit<ContactMeMessageTypes, 'id' | 'createdAt'>;
+export type DataToCreateContactMeMessage = Omit<ContactMeMessageTypes, 'id' | 'createdAt'>;
 
 export const createContactMeMessage = async (
-  dataToCreateContactMeMessage: DataToCreateContactMeMessageTypes,
+  dataToCreateContactMeMessage: DataToCreateContactMeMessage,
 ) => {
   const { contactInfo, contactMessage } = dataToCreateContactMeMessage;
 

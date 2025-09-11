@@ -4,7 +4,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 // Type Definitions
-type TypeDropdownMenuOption = {
+type DropdownMenuOptionProps = {
   name: string;
   value: string;
   onClick?: () => void;
@@ -12,7 +12,7 @@ type TypeDropdownMenuOption = {
 
 type DropdownMenuProps = {
   triggerElement: React.ReactNode;
-  optionData: TypeDropdownMenuOption[];
+  optionData: DropdownMenuOptionProps[];
 };
 
 // Component Definition
@@ -35,7 +35,7 @@ export default function DropdownMenu(props: DropdownMenuProps) {
 
   const toggleDropdown = () => setIsOpen(!isOpen);
 
-  const handleOptionClick = (option: TypeDropdownMenuOption) => {
+  const handleOptionClick = (option: DropdownMenuOptionProps) => {
     const { onClick } = option;
 
     if (onClick) onClick();

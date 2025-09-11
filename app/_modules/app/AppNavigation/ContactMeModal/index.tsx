@@ -10,10 +10,7 @@ import Modal from '@/components/base/Modal';
 import TextInput from '@/components/base/TextInput';
 import TiptapEditor from '@/components/TiptapEditor';
 import useContactMeForm from '@/hooks/app/useContactMeForm';
-import {
-  createContactMeMessage,
-  DataToCreateContactMeMessageTypes,
-} from '@/actions/contactMeActions';
+import { createContactMeMessage, DataToCreateContactMeMessage } from '@/actions/contactMeActions';
 import { useT } from '@/utils/i18nUtils/i18nClientHelpers';
 
 type ContactMeModalProps = {
@@ -38,7 +35,7 @@ export default function ContactMeModal(props: ContactMeModalProps) {
   };
 
   const handleCreateContactMeMessage = async (
-    dataToCreateContactMeMessage: DataToCreateContactMeMessageTypes,
+    dataToCreateContactMeMessage: DataToCreateContactMeMessage,
   ) => {
     setIsCreatingContactMeMessage(true);
     await createContactMeMessage(dataToCreateContactMeMessage);

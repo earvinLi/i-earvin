@@ -6,7 +6,7 @@ import AppNavigation from '@/modules/app/AppNavigation';
 import AppFooter from '@/modules/app/AppFooter';
 import PostCard from '@/modules/post/PostCard';
 import { getContentfulEntries, getPosts } from '@/utils/contentfulUtils/contentfulDataHelpers';
-import { TypeMassagedPost } from '@/utils/contentfulUtils/contentfulDataTypes';
+import { ContentfulMassagedPost } from '@/utils/contentfulUtils/contentfulDataTypes';
 import { getT } from '@/utils/i18nUtils/i18nServerHelpers';
 import { headerName, defaultLocale } from '@/utils/i18nUtils/i18nConfig';
 
@@ -32,7 +32,7 @@ export default async function Posts() {
         </div>
         <div className='mx-0 my-4 text-4xl text-[#868e96]'>{t('posts_page_title')}</div>
         <div className='mb-6 flex flex-col gap-6'>
-          {allPosts.map((post: TypeMassagedPost) => {
+          {allPosts.map((post: ContentfulMassagedPost) => {
             const { slug, title, coverImage, date, author, excerpt } = post;
 
             return (

@@ -7,9 +7,9 @@ import { Prisma, PostComment as PostCommentTypes } from '@prisma/client';
 // Internal Dependencies
 import { prisma } from '@/utils/prismaUtils/prismaClient';
 
-export type DataToCreatePostCommentTypes = Omit<PostCommentTypes, 'id' | 'createdAt'>;
+export type DataToCreatePostComment = Omit<PostCommentTypes, 'id' | 'createdAt'>;
 
-export const createPostComment = async (dataToCreatePostComment: DataToCreatePostCommentTypes) => {
+export const createPostComment = async (dataToCreatePostComment: DataToCreatePostComment) => {
   const { postId, commenter, commentContent } = dataToCreatePostComment;
 
   try {

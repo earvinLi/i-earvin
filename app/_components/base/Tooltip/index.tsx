@@ -25,14 +25,14 @@ const tooltipPositionStyles = {
   },
 };
 
-type TooltipPropTypes = {
+type TooltipProps = {
   children: React.ReactNode;
   content: string;
   position?: 'top' | 'right' | 'bottom' | 'left';
 };
 
 // Component Definition
-export default function Tooltip(props: TooltipPropTypes) {
+export default function Tooltip(props: TooltipProps) {
   const { children, content, position = 'bottom' } = props;
 
   return (

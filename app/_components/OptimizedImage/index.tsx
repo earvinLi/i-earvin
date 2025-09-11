@@ -5,7 +5,7 @@ import React from 'react';
 import Image from 'next/image';
 
 // Type Definitions
-type TypeImageLoader = {
+type ImageLoaderParams = {
   src: string;
   width: number;
   quality?: number;
@@ -24,7 +24,7 @@ type OptimizedImageProps = {
 };
 
 // Local Variables
-const imageLoader = ({ src, width, quality }: TypeImageLoader) =>
+const ImageLoaderParams = ({ src, width, quality }: ImageLoaderParams) =>
   `${src}?w=${width}&q=${quality || 75}`;
 
 // Component Definition
@@ -46,7 +46,7 @@ export default function OptimizedImage(props: OptimizedImageProps) {
       alt={alt}
       src={src}
       quality={quality}
-      loader={imageLoader}
+      loader={ImageLoaderParams}
       priority={priority}
       className={className}
     />

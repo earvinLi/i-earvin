@@ -2,12 +2,12 @@
 import OptimizedImage from '@/components/OptimizedImage';
 
 // Internal Dependencies
-import { TypeTech } from '@/constants/projectData';
+import { Tech } from '@/constants/projectData';
 
 export type ProjectCardProps = {
   title: string;
   description: string;
-  techList: readonly TypeTech[];
+  techList: readonly Tech[];
   image: string;
 };
 

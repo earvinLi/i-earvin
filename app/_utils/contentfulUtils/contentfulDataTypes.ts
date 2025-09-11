@@ -9,18 +9,18 @@ import type {
 import { Document } from '@contentful/rich-text-types';
 
 // Author
-export type TypeAuthorFields = {
+type ContentfulAuthorFields = {
   name: EntryFieldTypes.Symbol;
   picture: EntryFieldTypes.AssetLink;
 };
-export type TypeAuthorSkeleton = EntrySkeletonType<TypeAuthorFields, 'author'>;
-export type TypeAuthor<
+type ContentfulAuthorSkeleton = EntrySkeletonType<ContentfulAuthorFields, 'author'>;
+export type ContentfulAuthor<
   Modifiers extends ChainModifiers,
   Locales extends LocaleCode = LocaleCode,
-> = Entry<TypeAuthorSkeleton, Modifiers, Locales>;
+> = Entry<ContentfulAuthorSkeleton, Modifiers, Locales>;
 
 // Post
-export type TypePostFields = {
+type ContentfulPostFields = {
   title: EntryFieldTypes.Symbol;
   slug: EntryFieldTypes.Symbol;
   content: EntryFieldTypes.RichText;
@@ -28,15 +28,15 @@ export type TypePostFields = {
   excerpt: EntryFieldTypes.Symbol;
   coverImage: EntryFieldTypes.AssetLink;
   date: EntryFieldTypes.Date;
-  author: EntryFieldTypes.EntryLink<TypeAuthorSkeleton>;
+  author: EntryFieldTypes.EntryLink<ContentfulAuthorSkeleton>;
 };
-export type TypePostSkeleton = EntrySkeletonType<TypePostFields, 'post'>;
-export type TypePost<
+type ContentfulPostSkeleton = EntrySkeletonType<ContentfulPostFields, 'post'>;
+export type ContentfulPost<
   Modifiers extends ChainModifiers,
   Locales extends LocaleCode = LocaleCode,
-> = Entry<TypePostSkeleton, Modifiers, Locales>;
+> = Entry<ContentfulPostSkeleton, Modifiers, Locales>;
 
-export type TypeMassagedPost = {
+export type ContentfulMassagedPost = {
   slug: string;
   title: string;
   coverImage: { url: string };

@@ -13,7 +13,7 @@ import IconButton from '@/components/base/IconButton';
 import TextInput from '@/components/base/TextInput';
 import TiptapEditor from '@/components/TiptapEditor';
 import useCommentPostForm from '@/hooks/post/useCommentPostForm';
-import { createPostComment, DataToCreatePostCommentTypes } from '@/actions/comentPostActions';
+import { createPostComment, DataToCreatePostComment } from '@/actions/comentPostActions';
 import { useT } from '@/utils/i18nUtils/i18nClientHelpers';
 
 // Local Dependencies
@@ -50,7 +50,7 @@ export default function CommentSection(props: CommentSectionProps) {
     }
   };
 
-  const handleCreatePostComment = async (dataToCreatePostComment: DataToCreatePostCommentTypes) => {
+  const handleCreatePostComment = async (dataToCreatePostComment: DataToCreatePostComment) => {
     setIsCreatingPostComment(true);
     await createPostComment(dataToCreatePostComment);
     commentPostFormReset();
