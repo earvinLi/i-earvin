@@ -2,7 +2,7 @@
 import { twJoin } from 'tailwind-merge';
 
 // Style variables
-const inputStateStyles = {
+const textInputStateStyles = {
   default: {
     input: 'border-gray-300 hover:border-gray-400 focus:border-[#00A3DA]',
     label: 'text-gray-400 peer-focus:text-[#00A3DA]',
@@ -13,6 +13,7 @@ const inputStateStyles = {
   },
 };
 
+// Type Definitions
 type TextInputProps = {
   label: string;
   value: string;
@@ -36,14 +37,14 @@ export default function TextInput(props: TextInputProps) {
           placeholder=' '
           className={twJoin(
             'peer ease w-full border-b-2 bg-transparent pt-3 text-lg text-slate-700 transition duration-300 focus:outline-none',
-            inputStateStyles[inputState].input,
+            textInputStateStyles[inputState].input,
           )}
         />
         <label
           htmlFor='text-input-input'
           className={twJoin(
             'absolute top-2.5 left-0 origin-left transform cursor-text bg-white text-lg transition-all peer-focus:-top-2 peer-focus:scale-x-90 peer-focus:text-base peer-[:not(:placeholder-shown)]:-top-2 peer-[:not(:placeholder-shown)]:scale-x-90 peer-[:not(:placeholder-shown)]:text-base',
-            inputStateStyles[inputState].label,
+            textInputStateStyles[inputState].label,
           )}
         >
           {label}

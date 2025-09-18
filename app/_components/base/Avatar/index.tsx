@@ -4,13 +4,14 @@ import { twJoin } from 'tailwind-merge';
 // Internal Dependencies
 import OptimizedImage from '@/components/OptimizedImage';
 
-// Local Variables
+// Style Variables
 const avatarSizeStyles = {
   small: 'w-[24px] h-[24px]',
   medium: 'w-[36px] h-[36px]',
   large: 'w-[48px] h-[48px]',
 };
 
+// Type Definitions
 type AvatarProps = {
   name: string;
   image: string;

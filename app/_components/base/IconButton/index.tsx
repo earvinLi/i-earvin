@@ -6,6 +6,7 @@ import { ReactNode as TypeReactNode } from 'react';
 // Internal Dependencies
 import Tooltip from '@/components/base/Tooltip';
 
+// Type Definitions
 type IconButtonProps = {
   icon: TypeReactNode;
   onClick?: () => void;

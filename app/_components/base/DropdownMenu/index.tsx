@@ -11,13 +11,13 @@ type DropdownMenuOptionProps = {
 };
 
 type DropdownMenuProps = {
-  triggerElement: React.ReactNode;
+  anchorElement: React.ReactNode;
   optionData: DropdownMenuOptionProps[];
 };
 
 // Component Definition
 export default function DropdownMenu(props: DropdownMenuProps) {
-  const { triggerElement, optionData } = props;
+  const { anchorElement, optionData } = props;
 
   const [isOpen, setIsOpen] = useState(false);
   const dropdownMenuRef = useRef<HTMLDivElement>(null);
@@ -33,10 +33,10 @@ export default function DropdownMenu(props: DropdownMenuProps) {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const toggleDropdown = () => setIsOpen(!isOpen);
+  const handleToggleAnchorElement = () => setIsOpen(!isOpen);
 
-  const handleOptionClick = (option: DropdownMenuOptionProps) => {
-    const { onClick } = option;
+  const handleClickDropdownMenuOption = (dropdownMenuOption: DropdownMenuOptionProps) => {
+    const { onClick } = dropdownMenuOption;
 
     if (onClick) onClick();
     setIsOpen(false);
@@ -44,7 +44,7 @@ export default function DropdownMenu(props: DropdownMenuProps) {
 
   return (
     <div className='relative inline-block' ref={dropdownMenuRef}>
-      <div onClick={toggleDropdown}>{triggerElement}</div>
+      <div onClick={handleToggleAnchorElement}>{anchorElement}</div>
       {isOpen && (
         <ul className='absolute right-0 z-10 mt-2 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-hidden'>
           {optionData.map((optionItem) => {
@@ -52,7 +52,7 @@ export default function DropdownMenu(props: DropdownMenuProps) {
             return (
               <li
                 key={name}
-                onClick={() => handleOptionClick(optionItem)}
+                onClick={() => handleClickDropdownMenuOption(optionItem)}
                 className='block w-full cursor-pointer px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'
               >
                 {name}

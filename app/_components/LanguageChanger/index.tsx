@@ -51,7 +51,7 @@ export default function LanguageChanger() {
 
   return (
     <DropdownMenu
-      triggerElement={
+      anchorElement={
         <IconButton
           icon={<LanguagesIcon color='gray' />}
           tooltip={t('change_locale_button_text')}

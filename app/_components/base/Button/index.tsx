@@ -1,3 +1,5 @@
+'use client';
+
 // External Dependencies
 import { twJoin } from 'tailwind-merge';
 
@@ -11,6 +13,7 @@ const buttonVariantStyle = {
     'bg-[#03A9F4] text-white shadow-sm hover:bg-[#039BE5] hover:border-transparent focus-visible:bg-[#039BE5] focus-visible:border-transparent active:bg-[#039BE5] active:border-transparent disabled:pointer-events-none disabled:text-[#616161] disabled:bg-[#E0E0E0] disabled:opacity-50 disabled:shadow-none',
 };
 
+// Type Definitions
 type ButtonProps = {
   children: React.ReactNode;
   onClick?: () => void;

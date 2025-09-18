@@ -25,28 +25,31 @@ const tooltipPositionStyles = {
   },
 };
 
+// Type Definitions
 type TooltipProps = {
   children: React.ReactNode;
-  content: string;
+  content?: string;
   position?: 'top' | 'right' | 'bottom' | 'left';
 };
 
 // Component Definition
 export default function Tooltip(props: TooltipProps) {
-  const { children, content, position = 'bottom' } = props;
+  const { children, content = '', position = 'bottom' } = props;
 
   return (
     <div role='tooltip' className='group relative'>
       {children}
-      <div
-        className={twJoin(
-          'absolute hidden w-max rounded bg-[#757575] px-2 py-1 text-xs text-white group-hover:block',
-          tooltipPositionStyles[position].tooltip,
-        )}
-      >
-        {content}
-        <div className={twJoin('absolute h-0 w-0', tooltipPositionStyles[position].arrow)} />
-      </div>
+      {content !== '' ? (
+        <div
+          className={twJoin(
+            'absolute hidden w-max rounded bg-[#757575] px-2 py-1 text-xs text-white group-hover:block',
+            tooltipPositionStyles[position].tooltip,
+          )}
+        >
+          {content}
+          <div className={twJoin('absolute h-0 w-0', tooltipPositionStyles[position].arrow)} />
+        </div>
+      ) : null}
     </div>
   );
 }

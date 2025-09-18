@@ -1,7 +1,17 @@
+'use client';
+
 // External Dependencies
 import { twJoin } from 'tailwind-merge';
 import type { ReactNode, MouseEvent, KeyboardEvent } from 'react';
 
+// Style Variables
+const modalSizeStyles = {
+  small: 'w-[320px]',
+  medium: 'w-[640px]',
+  large: 'w-[960px]',
+};
+
+// Type Definitions
 type ModalProps = {
   isOpen: boolean;
   onClose: () => void;
@@ -12,20 +22,11 @@ type ModalProps = {
   size: 'small' | 'medium' | 'large';
 };
 
-// Local Variables
-const modalStyles = {
-  size: {
-    small: 'w-[320px]',
-    medium: 'w-[640px]',
-    large: 'w-[960px]',
-  },
-};
-
 // Component Definition
 export default function Modal(props: ModalProps) {
   const { isOpen, onClose, title, description, children, action, size } = props;
 
-  const handleModalClose = (event: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>) => {
+  const handleCloseModal = (event: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>) => {
     if (
       event.target === event.currentTarget ||
       (event as KeyboardEvent<HTMLDivElement>).key === 'Escape'
@@ -38,8 +39,8 @@ export default function Modal(props: ModalProps) {
 
   return (
     <div
-      onClick={handleModalClose}
-      onKeyDown={handleModalClose}
+      onClick={handleCloseModal}
+      onKeyDown={handleCloseModal}
       // Todo: find better solution for accessibility here
       role='dialog'
       aria-modal='true'
@@ -50,7 +51,7 @@ export default function Modal(props: ModalProps) {
       <div
         className={twJoin(
           `relative flex w-1/2 flex-col gap-5 rounded-md bg-white px-6 pt-6 pb-4 shadow-sm`,
-          modalStyles.size[size],
+          modalSizeStyles[size],
         )}
       >
         <h2 id='modal-title' className='text-xl font-medium'>
