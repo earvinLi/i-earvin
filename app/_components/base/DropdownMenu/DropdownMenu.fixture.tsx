@@ -24,7 +24,7 @@ const menuData = [
 // Fixture Definition
 const DropdownMenuFixture = () => (
   <DropdownMenu
-    triggerElement={
+    anchorElement={
       <IconButton icon={<CatIcon color='gray' />} tooltip='Meow' tooltipPosition='bottom' />
     }
     optionData={menuData}
