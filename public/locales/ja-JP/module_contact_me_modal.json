@@ -4,8 +4,10 @@
   "contact_me_input_info_label": "連絡先",
   "contact_me_input_info_error_text_required": "連絡先必須",
   "contact_me_input_info_error_text_length": "連絡先は20文字以内にしてください",
+  "contact_me_input_info_default_value": "ka.ri@example.com",
   "contact_me_input_message_label": "メッセージ",
   "contact_me_input_message_error_text_required": "メッセージ必須",
+  "contact_me_input_message_default_value": "やあ！話したいことがあるんだけど...",
   "contact_me_button_submit_text": "提出する",
   "contact_me_button_cancel_text": "キャンセル"
 }

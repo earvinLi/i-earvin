@@ -19,7 +19,7 @@ const buildCommentPostFormSchema = (translationHelper: TFunction) =>
   });
 
 const useCommentPostForm = (postId: string, translationHelper: TFunction) => {
-  const { handleSubmit, control, reset, getValues, getFieldState } = useForm({
+  const { handleSubmit, control, reset, getValues, getFieldState, setValue } = useForm({
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     resolver: zodResolver(buildCommentPostFormSchema(translationHelper)),
     defaultValues: {
@@ -35,6 +35,7 @@ const useCommentPostForm = (postId: string, translationHelper: TFunction) => {
     commentPostFormReset: reset,
     commentPostFormGetValues: getValues,
     commentPostFormGetFieldState: getFieldState,
+    commentPostFormSetValue: setValue,
   };
 };
 

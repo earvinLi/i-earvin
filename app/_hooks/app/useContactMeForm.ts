@@ -21,13 +21,13 @@ const buildContactMeFormSchema = (translationHelper: TFunction) =>
 // type ContactMeFormInputType = z.infer<typeof ContactMeFormSchema>;
 
 const useContactMeForm = (translationHelper: TFunction) => {
-  const { handleSubmit, control, reset, getValues, getFieldState } = useForm({
+  const { handleSubmit, control, reset, getValues, getFieldState, setValue } = useForm({
     // Todo: find proper type declaration for `zodResolver`
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     resolver: zodResolver(buildContactMeFormSchema(translationHelper)),
     defaultValues: {
-      contactInfo: 'earvin.tli@gmail.com',
-      contactMessage: '<p>This is a <em>great</em> <strong>message</strong>!</p>',
+      contactInfo: '',
+      contactMessage: '',
     },
   });
 
@@ -37,6 +37,7 @@ const useContactMeForm = (translationHelper: TFunction) => {
     contactMeFormReset: reset,
     contactMeFormGetValues: getValues,
     contactMeFormGetFieldState: getFieldState,
+    contactMeFormSetValue: setValue,
   };
 };
 

@@ -1,7 +1,7 @@
 'use client';
 
 // External Dependencies
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Controller } from 'react-hook-form';
 
 // Internal Dependencies
@@ -26,12 +26,17 @@ export default function ContactMeModal(props: ContactMeModalProps) {
 
   const { t } = useT('module_contact_me_modal');
 
-  const { contactMeFormHandleSubmit, contactMeFormControl, contactMeFormReset } =
+  const { contactMeFormHandleSubmit, contactMeFormControl, contactMeFormSetValue } =
     useContactMeForm(t);
+
+  // used to localize 'contactInfo' and 'contactMessage' default values
+  useEffect(() => {
+    contactMeFormSetValue('contactInfo', t('contact_me_input_info_default_value'));
+    contactMeFormSetValue('contactMessage', t('contact_me_input_message_default_value'));
+  }, [isContactMeModalOpen, contactMeFormSetValue, t]);
 
   const handleCloseContactMeModal = () => {
     setIsContactMeModalOpen(false);
-    contactMeFormReset();
   };
 
   const handleCreateContactMeMessage = async (
@@ -41,7 +46,6 @@ export default function ContactMeModal(props: ContactMeModalProps) {
     await createContactMeMessage(dataToCreateContactMeMessage);
     setIsContactMeModalOpen(false);
     setIsCreatingContactMeMessage(false);
-    contactMeFormReset();
   };
 
   return (
