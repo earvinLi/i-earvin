@@ -1,7 +1,7 @@
 'use client';
 
 // External Dependencies
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Controller } from 'react-hook-form';
 import { PostComment as PostCommentTypes } from '@prisma/client';
 import { Pencil as PencilIcon, Save as SaveIcon } from 'lucide-react';
@@ -31,7 +31,7 @@ export default function CommentSection(props: CommentSectionProps) {
   const [isEditingCommenter, setIsEditingCommenter] = useState(false);
   const [isCreatingPostComment, setIsCreatingPostComment] = useState(false);
 
-  const { t } = useT('module_comment_section');
+  const { t, i18n } = useT('module_comment_section');
 
   const {
     commentPostFormHandleSubmit,
@@ -40,6 +40,14 @@ export default function CommentSection(props: CommentSectionProps) {
     commentPostFormGetValues,
     commentPostFormGetFieldState,
   } = useCommentPostForm(postId, t);
+
+  // used to localize 'commenter' and 'commentContent' default values
+  useEffect(() => {
+    commentPostFormReset({
+      commenter: t('edit_commenter_default_value'),
+      commentContent: t('edit_comment_content_default_value'),
+    });
+  }, [i18n.resolvedLanguage, commentPostFormReset, t]);
 
   const handleSaveCommenter = () => {
     const commenter = commentPostFormGetValues('commenter');
@@ -50,10 +58,10 @@ export default function CommentSection(props: CommentSectionProps) {
     }
   };
 
+  // here do not call 'commentPostFormReset' on purpose in order to keep user's edited comment
   const handleCreatePostComment = async (dataToCreatePostComment: DataToCreatePostComment) => {
     setIsCreatingPostComment(true);
     await createPostComment(dataToCreatePostComment);
-    commentPostFormReset();
     setIsCreatingPostComment(false);
   };
 

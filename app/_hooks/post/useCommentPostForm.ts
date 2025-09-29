@@ -24,8 +24,8 @@ const useCommentPostForm = (postId: string, translationHelper: TFunction) => {
     resolver: zodResolver(buildCommentPostFormSchema(translationHelper)),
     defaultValues: {
       postId,
-      commenter: 'John Doe',
-      commentContent: '<p>This is a <em>great</em> <strong>comment</strong>!</p>',
+      commenter: '',
+      commentContent: '',
     },
   });
 

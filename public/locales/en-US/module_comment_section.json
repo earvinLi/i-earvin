@@ -6,6 +6,8 @@
   "save_commenter_button_text": "Save",
   "edit_commenter_error_text_required": "Commenter is required",
   "edit_commenter_error_text_length": "Commenter may not be longer than 20 characters",
+  "edit_commenter_default_value": "John Doe",
   "edit_comment_content_error_text_required": "Comment content is required",
+  "edit_comment_content_default_value": "What are your thoughts?",
   "submit_comment_button_text": "Submit"
 }

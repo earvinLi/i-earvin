@@ -4,7 +4,7 @@
   "contact_me_input_info_label": "Contact info",
   "contact_me_input_info_error_text_required": "Contact info is required",
   "contact_me_input_info_error_text_length": "Contact info may not be longer than 20 characters",
-  "contact_me_input_info_default_value": "joe.doe@example.com",
+  "contact_me_input_info_default_value": "john.doe@example.com",
   "contact_me_input_message_label": "Contact message",
   "contact_me_input_message_error_text_required": "Contact message is required",
   "contact_me_input_message_default_value": "Hey! I want to talk about...",

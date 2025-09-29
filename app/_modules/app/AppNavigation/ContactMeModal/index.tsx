@@ -26,18 +26,18 @@ export default function ContactMeModal(props: ContactMeModalProps) {
 
   const { t } = useT('module_contact_me_modal');
 
-  const { contactMeFormHandleSubmit, contactMeFormControl, contactMeFormSetValue } =
+  const { contactMeFormHandleSubmit, contactMeFormControl, contactMeFormReset } =
     useContactMeForm(t);
 
   // used to localize 'contactInfo' and 'contactMessage' default values
   useEffect(() => {
-    contactMeFormSetValue('contactInfo', t('contact_me_input_info_default_value'));
-    contactMeFormSetValue('contactMessage', t('contact_me_input_message_default_value'));
-  }, [isContactMeModalOpen, contactMeFormSetValue, t]);
+    contactMeFormReset({
+      contactInfo: t('contact_me_input_info_default_value'),
+      contactMessage: t('contact_me_input_message_default_value'),
+    });
+  }, [isContactMeModalOpen, contactMeFormReset, t]);
 
-  const handleCloseContactMeModal = () => {
-    setIsContactMeModalOpen(false);
-  };
+  const handleCloseContactMeModal = () => setIsContactMeModalOpen(false);
 
   const handleCreateContactMeMessage = async (
     dataToCreateContactMeMessage: DataToCreateContactMeMessage,

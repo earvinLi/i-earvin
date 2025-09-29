@@ -6,6 +6,8 @@
   "save_commenter_button_text": "保存",
   "edit_commenter_error_text_required": "评论者是必填项",
   "edit_commenter_error_text_length": "评论者项长度不能超过20个字符",
+  "edit_commenter_default_value": "李华",
   "edit_comment_content_error_text_required": "评论内容是必填项",
+  "edit_comment_content_default_value": "有什么想法？欢迎讨论👏",
   "submit_comment_button_text": "提交"
 }
