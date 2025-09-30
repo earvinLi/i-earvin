@@ -18,12 +18,16 @@ const buildCommentPostFormSchema = (translationHelper: TFunction) =>
       .min(1, translationHelper('edit_comment_content_error_text_required')),
   });
 
-const useCommentPostForm = (postId: string, translationHelper: TFunction) => {
+export type CommentPostFormData = {
+  commenter: string;
+  commentContent: string;
+};
+
+const useCommentPostForm = (translationHelper: TFunction) => {
   const { handleSubmit, control, reset, getValues, getFieldState, setValue } = useForm({
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     resolver: zodResolver(buildCommentPostFormSchema(translationHelper)),
     defaultValues: {
-      postId,
       commenter: '',
       commentContent: '',
     },

@@ -12,8 +12,8 @@ import Button from '@/components/base/Button';
 import IconButton from '@/components/base/IconButton';
 import TextInput from '@/components/base/TextInput';
 import TiptapEditor from '@/components/TiptapEditor';
-import useCommentPostForm from '@/hooks/post/useCommentPostForm';
-import { createPostComment, DataToCreatePostComment } from '@/actions/comentPostActions';
+import useCommentPostForm, { CommentPostFormData } from '@/hooks/post/useCommentPostForm';
+import { createPostComment } from '@/actions/comentPostActions';
 import { useT } from '@/utils/i18nUtils/i18nClientHelpers';
 
 // Local Dependencies
@@ -39,7 +39,7 @@ export default function CommentSection(props: CommentSectionProps) {
     commentPostFormReset,
     commentPostFormGetValues,
     commentPostFormGetFieldState,
-  } = useCommentPostForm(postId, t);
+  } = useCommentPostForm(t);
 
   // used to localize 'commenter' and 'commentContent' default values
   useEffect(() => {
@@ -59,9 +59,9 @@ export default function CommentSection(props: CommentSectionProps) {
   };
 
   // here do not call 'commentPostFormReset' on purpose in order to keep user's edited comment
-  const handleCreatePostComment = async (dataToCreatePostComment: DataToCreatePostComment) => {
+  const handleCreatePostComment = async (dataToCreatePostComment: CommentPostFormData) => {
     setIsCreatingPostComment(true);
-    await createPostComment(dataToCreatePostComment);
+    await createPostComment({ ...dataToCreatePostComment, postId  });
     setIsCreatingPostComment(false);
   };
 
