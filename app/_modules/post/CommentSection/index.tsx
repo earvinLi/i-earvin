@@ -61,7 +61,7 @@ export default function CommentSection(props: CommentSectionProps) {
   // here do not call 'commentPostFormReset' on purpose in order to keep user's edited comment
   const handleCreatePostComment = async (dataToCreatePostComment: CommentPostFormData) => {
     setIsCreatingPostComment(true);
-    await createPostComment({ ...dataToCreatePostComment, postId  });
+    await createPostComment({ ...dataToCreatePostComment, postId });
     setIsCreatingPostComment(false);
   };
 
